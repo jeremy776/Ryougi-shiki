@@ -23,7 +23,7 @@ export default {
     }
     if (flags.some(x => x.includes("depth"))) {
       depth = flags.find(x => x.includes("depth")).split("=")[1];
-      depth = parseInt(depth, 10);
+      depth = parseInt(depth,10);
     }
     let { evaled, type } = await parseEval(eval(code)); /* eslint-disable-line */
     if (flags.includes("silent")) return;
