@@ -14,7 +14,7 @@ export default {
         .setColor(client.color)
         .setFooter(`Type: ${client.config.prefix}help [command]`);
       for (const mod of module) {
-        embed.addField(`${mod.emot} | ${mod.name.slice(0,1).toUpperCase()}${mod.name.slice(1, mod.name.length)}`, mod.cmds.map(x => `\`${x}\``).join(", "));
+        embed.addField(`${mod.emot} | ${mod.name.slice(0,1).toUpperCase()}${mod.name.slice(1, mod.name.length)}`, "**"+mod.cmds.map(x => `\`${x}\``).join(", ")+"**");
       }
       
     return message.channel.send(embed);
