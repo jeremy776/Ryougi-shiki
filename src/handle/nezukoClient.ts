@@ -12,7 +12,7 @@ interface ICommand {
 
 class nezukoClient extends Client {
     public helps: Collection<string, string> = new Collection();
-    public color: string = "#fafcc2";
+    public color: string = "DARK_BUT_NOT_BLACK";
     public commands: Collection<string, ICommand> = new Collection();
     public aliases: Collection<string, string> = new Collection();
     public config: typeof config = config;
