@@ -1,5 +1,3 @@
-import { MessageEmbed } from "discord.js";
-
 export default {
   name: "lock",
   aliases: ["lockdown"],
