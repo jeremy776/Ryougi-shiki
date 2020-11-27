@@ -2,6 +2,8 @@ import { MessageEmbed } from "discord.js";
 
 export default {
   name: "lock",
+  cooldown: 5,
+  guildOnly:true,
   aliases: ["lockdown"],
   description: "Lock channel",
   execute(client, args, message) {
