@@ -7,10 +7,10 @@ interface ICommand {
     guildOnly: boolean;
     description: string;
     usage: string[];
-    execute: (message: Message, args: string[], client: TestClient) => unknown; 
+    execute: (message: Message, args: string[], client: testClient) => unknown; 
  }
 
-class Client extends Client {
+class testClient extends Client {
     public helps: Collection<string, string> = new Collection();
     public color: string = "DARK_BUT_NOT_BLACK";
     public commands: Collection<string, ICommand> = new Collection();
@@ -18,4 +18,4 @@ class Client extends Client {
     public config: typeof config = config;
 }
 
-export default TestClient;
+export default testClient;
