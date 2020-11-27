@@ -28,7 +28,7 @@ export default {
 
    let Succes = new MessageEmbed()
    .setColor(client.color)
-   .setDescription(`**\`${message.author.tag}\` has unlocked the channel`)
+   .setDescription(`**\`${message.author.tag}\` has unlocked the channel**`)
    return message.channel.send(Succes)
  }
 }
