@@ -39,7 +39,7 @@ export default {
       .setColor(client.color)
       .setTitle(`Info Command: ${cmd.name}`)
       .addField(`Description`, `${cmd.description}**`)
-      .addField(`Cooldown`, `${cmd.cooldown.length > 0 ? cmd.cooldown : "None")
+      .addField(`Cooldown`, `${cmd.cooldown.length > 0 ? cmd.cooldown : "None"}`)
       .addField("Aliases", cmd.aliases.length > 0 ? cmd.aliases.map(x => `${x}`).join(", ") : "None")
       .setFooter("Don't include <> or [], it's mean <> is required and [] is optional");
     return msg.channel.send(embed);
