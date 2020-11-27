@@ -21,6 +21,10 @@ export default {
     if (flags.includes("async")) {
       code = `(async() => { ${code} })()`;
     }
+    if (flags.some(x => x.includes("depth"))) {
+      depth = flags.find(x => x.includes("depth")).split("=")[1];
+      depth = parseInt(depth, 10);
+    }
     let { evaled, type } = await parseEval(eval(code)); /* eslint-disable-line */
     if (flags.includes("silent")) return;
     if (typeof evaled !== "string") evaled = require("util").inspect(evaled, { depth });
@@ -43,9 +47,22 @@ export default {
     m.createReactionCollector(filter, { time: 600000, max: 1 }).on("collect", async col => {
       if (col.emoji.name === "🚫") return m.delete();
     });
-  }catch(e){
-     return msg.channel.send(e)
-}
+  }catch (e) {
+    const embed = new MessageEmbed()
+      .setColor("RED")
+      .setAuthor("Evaled error")
+      .setDescription(`\`\`\`${e}\`\`\``)
+      .setFooter(`React to delete message.`);
+    const m = await message.channel.send(embed);
+    for (const chot of choice) {
+      await m.react(chot);
+    }
+    const filter = (rect, usr) => choice.includes(rect.emoji.name) && usr.id === message.author.id;
+    m.createReactionCollector(filter, { time: 60000, max: 1 }).on("collect", async col => {
+      if (col.emoji.name === "🚫") return m.delete();
+    });
+  }
+};
 
 async function parseEval(input) {
   const isPromise =
