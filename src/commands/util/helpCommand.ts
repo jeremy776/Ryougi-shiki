@@ -14,7 +14,7 @@ export default {
         .setColor(client.color)
         .setFooter(`Type: ${client.config.prefix}help [command] | ${client.commands.size} Commands`);
       for (const mod of module) {
-        embed.addField(`${mod.emot} | ${mod.name.slice(0,1).toUpperCase()}${mod.name.slice(1, mod.name.length)} (${mod.name.size})`, mod.cmds.map(x => `\`${x}\``).join(", "));
+        embed.addField(`${mod.emot} | ${mod.name.slice(0,1).toUpperCase()}${mod.name.slice(1, mod.name.length)} (${mod.cmds.size})`, mod.cmds.map(x => `\`${x}\``).join(", "));
       }
       
     return message.channel.send(embed);
@@ -35,11 +35,15 @@ export default {
       search.length > 0 ? embed.setDescription(`**Maybe you mean this:**\n${search.join("\n")}`) : undefined;
       return msg.channel.send(embed);
     }
+
+   let cooldown = cmd.cooldown;
+   if(!cooldown) cooldown = "None";
+
     const embed = new MessageEmbed()
       .setColor(client.color)
-      .setTitle(`Info Command: ${cmd.name}`)
-      .addField(`Description`, `${cmd.description}**`)
-      .addField(`Cooldown`, `${cmd.cooldown.length > 0 ? cmd.cooldown : "None"}`)
+      .setTitle(`Info Command: ${cmd.name.slice(0,1).toUpperCase()}${cmd.name.slice(1, cmd.name.length)}`)
+      .addField(`Description`, `${cmd.description}`)
+      .addField(`Cooldown`, `${cooldown}`)
       .addField("Aliases", cmd.aliases.length > 0 ? cmd.aliases.map(x => `${x}`).join(", ") : "None")
       .setFooter("Don't include <> or [], it's mean <> is required and [] is optional");
     return msg.channel.send(embed);
