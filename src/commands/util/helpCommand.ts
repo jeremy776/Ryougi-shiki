@@ -2,7 +2,7 @@ import { MessageEmbed } from 'discord.js';
 
 export default {
   name: "help",
-  aliases: ["h","?"],
+  aliases: ["h"],
   guildOnly: false,
   description: "Display all commands and descriptions",
   execute(message, args, client) {
@@ -12,7 +12,7 @@ export default {
    let module = client.helps.array(); 
   const embed = new MessageEmbed()
         .setColor(client.color)
-        .setFooter("ℹ️ To get additional information use k!help <command name>, <command name> to command what you want");
+        .setFooter(`Type: ${client.config.prefix}help [command]`);
       for (const mod of module) {
         embed.addField(`${mod.emot} | ${mod.name}`, mod.cmds.map(x => `\`${x}\``).join(", "));
       }
@@ -40,7 +40,7 @@ export default {
       .setTitle(`❕ Command info for ${cmd.name}`)
       .setDescription(`**${cmd.description}**`)
       .addField("✂️ Aliases", cmd.aliases.length > 0 ? cmd.aliases.map(x => `${x}`).join(", ") : "None")
-      .setFooter("ℹ️ Don't include <> or [], it's mean <> is required and [] is optional");
+      .setFooter("Don't include <> or [], it's mean <> is required and [] is optional");
     return msg.channel.send(embed);
   } catch (e) {
     return msg.channel.send(`Oh no an error occured :( \`${e.message}\` try again later`);
