@@ -1,6 +1,7 @@
 import testClient from './handle/testClient';
+import * as Discord from "discord.js";
+
 const client = new testClient({disableMentions: 'everyone'});
-const Discord = require ('discord.js');
 const cooldowns = new Discord.Collection();
 
 client.on('ready', () => {
