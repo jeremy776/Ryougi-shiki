@@ -7,6 +7,8 @@ export default {
   description: "Evalute Code",
   execute: async(message, query, client) => {
 
+ if(!client.config.owner.includes(message.author.id)) return msg.channel.send({embed:{description:"**Only for my dev**", color:client.color}});
+
   const choice = ["🚫"]
   const bot = client;
   const msg = message;
