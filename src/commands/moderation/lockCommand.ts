@@ -6,7 +6,7 @@ export default {
   guildOnly:true,
   aliases: ["lockdown"],
   description: "Lock channel",
-  execute(client, args, message) {
+  execute(message, args, client) {
 
   if(!message.guild.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send({embed:{description: "**You do not have permission \`MANAGE_CHANNELS\` to lock this channel**", color:client.color}});
   if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send({embed:{description: "**Give me \`MANAGE_CHANNELS\` permission if you want to run this command**", color:client.color}});
