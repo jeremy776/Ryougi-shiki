@@ -7,7 +7,7 @@ interface ICommand {
     guildOnly: boolean;
     description: string;
     usage: string[];
-    execute: (message: Message, args: string[], client: Client) => unknown; 
+    execute: (message: Message, args: string[], client: TestClient) => unknown; 
  }
 
 class Client extends Client {
@@ -18,4 +18,4 @@ class Client extends Client {
     public config: typeof config = config;
 }
 
-export default Client;
+export default TestClient;
