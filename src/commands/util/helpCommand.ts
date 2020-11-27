@@ -3,6 +3,7 @@ import { MessageEmbed } from 'discord.js';
 export default {
   name: "help",
   aliases: ["h"],
+  cooldown: 3,
   guildOnly: false,
   description: "Display all commands and descriptions",
   execute(message, args, client) {
