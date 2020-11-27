@@ -57,7 +57,7 @@ timestamps.set(msg.author.id, now);
       cmd.execute(message, args,client);
     } catch (error) {
       console.error(error);
-      message.reply("There was an error executing that command.").catch(console.error);
+      message.reply("There was an error executing that command. "+ `\`${error}\``).catch(console.error);
     }
   }
 
