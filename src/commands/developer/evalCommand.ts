@@ -62,6 +62,7 @@ export default {
       if (col.emoji.name === "🚫") return m.delete();
     });
   }
+ }
 };
 
 async function parseEval(input) {
@@ -107,8 +108,4 @@ function parseQuery(queries) {
     else args.push(query);
   }
   return { args, flags };
-}
-
-
- }
 }
