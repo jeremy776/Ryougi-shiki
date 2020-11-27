@@ -1,5 +1,5 @@
-import nezukoClient from './handle/nezukoClient';
-const client = new nezukoClient({disableMentions: 'everyone'});
+import Client from './handle/Client';
+const client = new Client({disableMentions: 'everyone'});
 const Discord = require ('discord.js');
 const cooldowns = new Discord.Collection();
 
