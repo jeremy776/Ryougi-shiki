@@ -17,7 +17,7 @@ export default {
     ],
    );
 
-  return msg.channel.send({embed:{description:`**\`${message.author.tag}\` has locked this channel**`, color:client.color}});
+  return message.channel.send({embed:{description:`**\`${message.author.tag}\` has locked this channel**`, color:client.color}});
 
  }
 }
