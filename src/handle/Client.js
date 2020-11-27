@@ -7,7 +7,7 @@ interface ICommand {
     guildOnly: boolean;
     description: string;
     usage: string[];
-    execute: (message: Message, args: string[], client: nezukoClient) => unknown; 
+    execute: (message: Message, args: string[], client: Client) => unknown; 
  }
 
 class Client extends Client {
