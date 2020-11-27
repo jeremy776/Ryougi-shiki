@@ -19,6 +19,13 @@ export default {
    if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send(clientNoPerms);
 
 
+   message.channel.overwritePermissions([{
+        id: message.guild.id,
+        null: ['SEND_MESSAGES'],
+     },
+    ],
+   );
+
    let Succes = new MessageEmbed()
    .setColor(client.color)
    .setDescription(`**\`${message.author.tag}\` has unlocked the channel`)
