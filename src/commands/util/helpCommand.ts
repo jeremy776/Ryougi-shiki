@@ -37,7 +37,7 @@ export default {
     }
 
    let cooldown = cmd.cooldown+"s";
-   if(cooldown == undefined) cooldown = "None";
+   if(cooldown == undefineds) cooldown = "None";
    if(!cooldown) cooldown = "None";
 
     const embed = new MessageEmbed()
