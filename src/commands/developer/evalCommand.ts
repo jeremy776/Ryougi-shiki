@@ -5,7 +5,7 @@ export default {
   aliases: ["ev", "v"],
   guildOnly: false,
   description: "Evalute Code",
-  execute async(message, args, client) {
+  execute async(message, args, client) => {
 
   const choice = ["🚫"]
   const bot = client;
