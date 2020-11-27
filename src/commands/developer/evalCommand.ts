@@ -7,6 +7,7 @@ export default {
   description: "Evalute Code",
   execute(message, args, client) {
 
+  const choice = ["🚫"]
   const bot = client;
   const msg = message;
 
