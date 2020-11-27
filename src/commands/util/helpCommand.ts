@@ -36,7 +36,7 @@ export default {
       return msg.channel.send(embed);
     }
 
-   let cooldown = cmd.cooldown;
+   let cooldown = cmd.cooldown+"s";
    if(!cooldown) cooldown = "None";
 
     const embed = new MessageEmbed()
