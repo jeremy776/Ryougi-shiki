@@ -10,7 +10,7 @@ interface ICommand {
     execute: (message: Message, args: string[], client: nezukoClient) => unknown; 
  }
 
-class nezukoClient extends Client {
+class Client extends Client {
     public helps: Collection<string, string> = new Collection();
     public color: string = "DARK_BUT_NOT_BLACK";
     public commands: Collection<string, ICommand> = new Collection();
@@ -18,4 +18,4 @@ class nezukoClient extends Client {
     public config: typeof config = config;
 }
 
-export default nezukoClient;
+export default Client;
