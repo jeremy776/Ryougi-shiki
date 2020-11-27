@@ -9,7 +9,6 @@ export default {
 
  if(!client.config.owner.includes(message.author.id)) return message.channel.send({embed:{description:"**Only for my dev**", color:client.color}});
   
-  this.client = client;
   const choice = ["🚫"]
   const bot = client;
   const msg = message;
