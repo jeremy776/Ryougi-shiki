@@ -10,7 +10,7 @@ export default {
   let user = message.mentions.users.first();
   if(!user) {
     let userFind = args[0];
-    if(!userFind) userFind = msg.author.id;
+    if(!userFind) userFind = message.author.id;
 
     if(typeof userFind == 'string') {
        user = client.users.cache.find(x => x.username == userFind)
