@@ -11,7 +11,7 @@ export default {
   let user = message.mentions.users.first();
   if(!user) user = nameUser;
   
-  if(typeof nameUser == String) {
+  if(typeof nameUser == 'string') {
    let username = client.users.cache.find(x => x.name == nameUser)
 
    let wrongUserName = new MessageEmbed()
@@ -25,7 +25,7 @@ export default {
 
   let avatar = new MessageEmbed()
   .setColor(client.color)
-  .setAvatar(user.displayAvatarURL({dynamic:true}))
+  .setImage(user.displayAvatarURL({dynamic:true}))
   .setAuthor(`Avatar from **\`${user.tag}\`**`)
   return message.channel.send(avatar)
 
