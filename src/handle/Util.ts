@@ -15,7 +15,7 @@ class Util {
   S = S % 3600;
  
   let M = parseInt((S / 60).toString());
-  S = parseInt(S % 60);
+  S = parseInt((S % 60).toString());
  
   if (S || M || H || D) return `${D}D ${H}H ${M}M ${S}S`;
  }
