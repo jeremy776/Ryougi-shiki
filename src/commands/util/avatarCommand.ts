@@ -23,12 +23,12 @@ export default {
         let wrongUsername = new MessageEmbed()
         .setDescription(`\`The name you wrote was not detected\nOr is this what you mean?\`\n\n**${test.map(x => "• "+client.users.cache.get(x).tag).join("\n")}**`)
         .setColor(client.color)
-        return message.channel.send(wrongUsername).then(x => {
+        let x = await message.channel.send(wrongUsername);
+
         test.map((a, i) => x.react(emote[i]))
-        });
 
       const filter = (reaction, user) => user.id !== client.user.id;
-      let collector = m.createReactionCollector(filter)  
+      let collector = x.createReactionCollector(filter)  
       collector.on("collect", (reaction, user) => {
 
 
