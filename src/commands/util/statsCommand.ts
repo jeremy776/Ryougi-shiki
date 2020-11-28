@@ -13,17 +13,17 @@ export default {
   let botInfo = new MessageEmbed()
   .setAuthor(`${client.user.username} Stats`, client.user.displayAvatarURL())
   .setDescription(`
-***Deceloper***
+**Developer**
 \`\`\`
 - ${client.users.cache.get(client.config.owner.join(" ")).tag}
 \`\`\`
-***Bot Statsistic***
+**Bot Statsistic**
 \`\`\`
 Channels     :: ${client.channels.cache.size.toLocaleString()}
 Servers      :: ${client.guilds.cache.size.toLocaleString()}
 Users        :: ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
 \`\`\`
-***Bot System***
+**Bot System**
 \`\`\`
 CPU         :: ${os.cpus().map(i => `${i.model}`)[0]}
 Discord.js  :: ${Discord.version}
