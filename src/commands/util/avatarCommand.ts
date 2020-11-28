@@ -12,8 +12,8 @@ export default {
     let userFind = args[0];
     if(!userFind) userFind = message.author.username;
 
-    switch(userFind){
-      case typeof userFind == 'string':
+    switch(typeof userFind){
+      case 'string':
        let a = client.users.cache.find(x => x.username == userFind)
        let wrongUsername = new MessageEmbed()
        .setDescription(`**The name you wrote was not detected**`)
@@ -22,7 +22,7 @@ export default {
        user = a;
        break;
 
-      case !isNaN(userFind):
+      case 'number':
        let b = client.users.cache.find(x => x.id == userFind)
        let wrongId = new MessageEmbed()
        .setDescription(`**The user id that you wrote is invalid or not detected by me**`)
