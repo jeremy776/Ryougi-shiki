@@ -18,7 +18,11 @@ export default {
        let wrongUsername = new MessageEmbed()
        .setDescription(`**The name you wrote was not detected**`)
        .setColor(client.color)
-       if(a == undefined) return message.channel.send(wrongUsername)
+       if(a == undefined) {
+        if(isNaN(a)) {
+          return message.channel.send(wrongUsername)
+        }
+       }
        user = a;
        break;
 
@@ -27,11 +31,8 @@ export default {
        let wrongId = new MessageEmbed()
        .setDescription(`**The user id that you wrote is invalid or not detected by me**`)
        .setColor(client.color)
-       if(b == undefined) {
-         if(isNaN(b)) {
-           return message.channel.send(wrongId)
-         }
-       }
+       if(b == undefined) return message.channel.send(wrongId)
+
        user = b;
        break;
     }
