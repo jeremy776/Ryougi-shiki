@@ -1,4 +1,4 @@
-class Util {
+export class Util {
 
  static cpu() {
   let cpuUsage = process.cpuUsage();
@@ -20,5 +20,3 @@ class Util {
   if (S || M || H || D) return `${D}D ${H}H ${M}M ${S}S`;
  }
 }
-
-module.exports = Util;
