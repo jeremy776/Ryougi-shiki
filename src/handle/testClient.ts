@@ -1,5 +1,7 @@
 import { Client, Collection, Message } from 'discord.js';
 import * as config from '../config.json';
+import * as util from './Util.ts';
+
 interface ICommand {
     name: string;
     aliases: string[];
@@ -15,6 +17,7 @@ class testClient extends Client {
     public color: string = "BLUE";
     public commands: Collection<string, ICommand> = new Collection();
     public aliases: Collection<string, string> = new Collection();
+    public util: typeof util = util;
     public config: typeof config = config;
 }
 
