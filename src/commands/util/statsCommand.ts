@@ -32,7 +32,7 @@ Node        :: ${process.version}
 Mem Usage   :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} mb
 CPU usage   :: ${client.util.cpu()}
 Uptime      :: ${client.util.parseDur(client.uptime)}\`\`\``)
-
+  .setFooter(`Version: ${require("../../../package.json").version}`)
   .setColor(client.color)
 
   return message.channel.send(botInfo)
