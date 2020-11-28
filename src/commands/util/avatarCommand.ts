@@ -24,9 +24,7 @@ export default {
         .setDescription(`\`The name you wrote was not detected\nOr is this what you mean?\`\n\n**${test.map(x => "• "+client.users.cache.get(x).tag).join("\n")}**`)
         .setColor(client.color)
         return message.channel.send(wrongUsername).then(x => {
-
-        test.map((x, i) => x.react(emote[i])
-
+        test.map((a, i) => x.react(emote[i])
         });
 
       const filter = (reaction, user) => user.id !== client.user.id;
