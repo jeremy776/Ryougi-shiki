@@ -1,4 +1,5 @@
 import { MessageEmbed } from "discord.js";
+const os = require("os");
 
 export default {
   name: "stats",
@@ -28,8 +29,8 @@ Discord.js  :: ${Discord.version}
 Platform    :: ${os.platform}
 Node        :: ${process.version}
 Mem Usage   :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} mb
-CPU usage   :: ${cpu}
-Uptime      :: ${parseDur(client.uptime)}\`\`\``)
+CPU usage   :: ${client.util.cpu}
+Uptime      :: ${client.util.parseDur(client.uptime)}\`\`\``)
 
   .setColor(client.color)
 
