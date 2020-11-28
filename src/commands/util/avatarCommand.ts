@@ -17,7 +17,7 @@ export default {
        let wrongUsername = new MessageEmbed()
        .setDescription(`**The name you wrote was not detected**`)
        .setColor(client.color)
-       if(a == undefined || isNaN(userFind)) return message.channel.send(wrongUsername)
+       if(a == undefined || isNaN((userFind).toString())) return message.channel.send(wrongUsername)
        user = a;
     }
     if(!isNaN(userFind)) {
