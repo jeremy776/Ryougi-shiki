@@ -33,13 +33,17 @@ export default {
        })  
       collector.on("collect", (reaction, user) => {
 
-
       switch(reaction.emoji.name){
        case "1️⃣":
+         reaction.user.remove()
          return message.channel.send({embed:{color:client.color,image:user.displayAvatarURL(),author:user.username}});
        break;
          }
         })
+
+       collector.on('end', collected => {
+         return x.edit("Nobody chooses").then(x => x.delete({timeout:5000}));
+        });
        };
        user = a;
   }
