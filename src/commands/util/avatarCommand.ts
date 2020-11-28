@@ -12,21 +12,24 @@ export default {
     let userFind = args[0];
     if(!userFind) userFind = message.author.username;
 
-    if(typeof userFind == 'string') {
+    switch(userFind){
+      case typeof userFind == 'string':
        let a = client.users.cache.find(x => x.username == userFind)
        let wrongUsername = new MessageEmbed()
        .setDescription(`**The name you wrote was not detected**`)
        .setColor(client.color)
        if(a == undefined && typeof userFind == 'string') return message.channel.send(wrongUsername)
        user = a;
-    }
-    if(!isNaN(userFind)) {
+       break;
+
+      case !isNaN(userFind):
        let b = client.users.cache.find(x => x.id == userFind)
        let wrongId = new MessageEmbed()
        .setDescription(`**The user id that you wrote is invalid or not detected by me**`)
        .setColor(client.color)
        if(b == undefined) return message.channel.send(wrongId)
        user = b;
+       break;
     }
   }
 
