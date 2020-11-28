@@ -21,6 +21,8 @@ export default {
        if(a == undefined) {
         if(isNaN(a)) {
           return message.channel.send(wrongUsername)
+        }else{
+          return;
         }
        }
        user = a;
