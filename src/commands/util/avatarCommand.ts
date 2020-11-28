@@ -31,12 +31,17 @@ export default {
       let collector = x.createReactionCollector(filter, {
          time: 5000
        })  
-      collector.on("collect", (reaction, user) => {
+      collector.on("collect", (reaction, users) => {
 
       switch(reaction.emoji.name){
        case "1️⃣":
-         reaction.user.remove()
-         return message.channel.send({embed:{color:client.color,image:user.displayAvatarURL(),author:user.username}});
+         users.reaction.remove()
+
+         let test1 = new MessageEmbed()
+         .setColor(client.color)
+         .setImage(users.displayAvatarURL())
+         .setAuthor(`Avatar from ${users.tag}`)
+         return message.channel.send(test1);
        break;
          }
         })
