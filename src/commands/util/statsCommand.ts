@@ -30,7 +30,7 @@ Discord.js  :: ${Discord.version}
 Platform    :: ${os.platform}
 Node        :: ${process.version}
 Mem Usage   :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} mb
-CPU usage   :: ${client.util.cpu}
+CPU usage   :: ${client.util.cpu()}
 Uptime      :: ${client.util.parseDur(client.uptime)}\`\`\``)
 
   .setColor(client.color)
