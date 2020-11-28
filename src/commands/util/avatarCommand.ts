@@ -5,9 +5,10 @@ export default {
   aliases: ["av"],
   cooldown: 2,
   description: "Get the user avatar that is mentioned",
-  execute(message, args, client) {
+  execute: async(message, args, client) => {
 
-  let user = message.mentions.users.first();
+  let user = message.mentions.users.first() || await client.users.fetch(args[0]).catch(() => null)
+
   if(!user) {
     let userFind = args[0];
     if(!userFind) userFind = message.author.username;
@@ -19,16 +20,12 @@ export default {
        .setDescription(`**The name you wrote was not detected**`)
        .setColor(client.color)
        if(a == undefined) {
-        if(isNaN(a)) {
-          return message.channel.send(wrongUsername)
-        }else{
-          return;
-        }
+        return message.channel.send(wrongUsername)
        }
        user = a;
        break;
 
-      case 'number':
+      /*case 'number':
        let b = client.users.cache.find(x => x.id == userFind)
        let wrongId = new MessageEmbed()
        .setDescription(`**The user id that you wrote is invalid or not detected by me**`)
@@ -36,7 +33,7 @@ export default {
        if(b == undefined) return message.channel.send(wrongId)
 
        user = b;
-       break;
+       break;*/
     }
   }
 
