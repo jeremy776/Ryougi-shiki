@@ -35,7 +35,7 @@ export default {
 
       switch(reaction.emoji.name){
        case "1️⃣":
-         users.reaction.remove()
+         reaction.users.remove(users);
 
          let test1 = new MessageEmbed()
          .setColor(client.color)
