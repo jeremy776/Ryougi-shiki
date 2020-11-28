@@ -24,16 +24,6 @@ export default {
        }
        user = a;
        break;
-
-      /*case 'number':
-       let b = client.users.cache.find(x => x.id == userFind)
-       let wrongId = new MessageEmbed()
-       .setDescription(`**The user id that you wrote is invalid or not detected by me**`)
-       .setColor(client.color)
-       if(b == undefined) return message.channel.send(wrongId)
-
-       user = b;
-       break;*/
     }
   }
 
