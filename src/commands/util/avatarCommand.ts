@@ -29,7 +29,7 @@ export default {
 
       const filter = (reaction, user) => user.id !== client.user.id;
       let collector = x.createReactionCollector(filter, {
-         time: 10000;
+         time: 5000
        })  
       collector.on("collect", (reaction, user) => {
 
