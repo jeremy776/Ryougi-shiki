@@ -7,19 +7,17 @@ export default {
   description: "Get the user avatar that is mentioned",
   execute(message, args, client) {
 
-  let nameUser = args[0];
   let user = message.mentions.users.first();
-  if(!user) user = nameUser;
-  
-  if(typeof nameUser == 'string') {
-   let username = client.users.cache.find(x => x.name == nameUser)
+  if(!user) {
+    let userFind = args[0];
+    if(!userFind) userFind = msg.author.id;
 
-   let wrongUserName = new MessageEmbed()
-   .setColor(client.color)
-   .setDescription(`**The name of the person you wrote is wrong**`)
-   if(!user) return message.channel.send(wrongUserName)
-
-   user = username;
+    if(typeof userFind == 'string') {
+       user = client.users.cache.find(x => x.username == userFind)
+    }
+    if(typeof userFind === 'number') {
+       user = client.users.cache.find(x => x.id == userFind)
+    }
   }
 
 
