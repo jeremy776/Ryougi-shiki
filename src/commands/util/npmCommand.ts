@@ -17,7 +17,7 @@ export default {
   if (!npm) return message.channel.send(noNpm);
   try {
 
-    const { body } = await superagent.get(`https://registry.npmjs.com/${query}`);
+    const { body } = await superagent.get(`https://registry.npmjs.com/${npm}`);
     const version = body.versions[body["dist-tags"].latest];
     let deps = version.dependencies ? Object.keys(version.dependencies) : null;
     let maintain = body.maintainers.map(user => user.name);
@@ -36,9 +36,9 @@ export default {
 🗃️ **Dependencies:** ${deps && deps.length ? deps.map(x => `\`${x}\``).join(", ") : "None"}
 👥 **Maintainers:** ${maintain.map(x => `\`x\``).join(" ")}
 **Download:** [${body.name}](https://www.npmjs.com/package/${query})`);
-    return msg.channel.send(embed);
+    return message.channel.send(embed);
   } catch (e) {
-    return msg.channel.send(`Oh no an error occured :( \`${e.message}\` try again later`);
+    return message.channel.send(`Oh no an error occured :( \`${e.message}\` try again later`);
   }
 
  }
