@@ -1,6 +1,6 @@
 import { Client, Collection, Message } from 'discord.js';
 import * as config from '../config.json';
-import * as util from './Util';
+import { Util } from './Util';
 
 interface ICommand {
     name: string;
