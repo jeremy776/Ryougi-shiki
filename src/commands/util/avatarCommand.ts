@@ -1,5 +1,5 @@
 import { MessageEmbed } from "discord.js";
-const emote = [":one:", ":two:", ":three:", ":four:", ":five"]
+const emote = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
 
 export default {
   name: "avatar",
@@ -28,6 +28,17 @@ export default {
         test.map((x, i) => x.react(emote[i])
 
         });
+
+      const filter = (reaction, user) => user.id !== client.user.id;
+      let collector = m.createReactionCollector(filter)  
+      collector.on("collect", (reaction, user) => {
+
+
+      switch(reaction.emoji.name){
+       case "1️⃣":
+         return message.channel.send({embed:{color:client.color,image:user.displayAvatarURL(),author:user.username}});
+         }
+        }
        };
        user = a;
   }
