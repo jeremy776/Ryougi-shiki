@@ -27,7 +27,11 @@ export default {
        let wrongId = new MessageEmbed()
        .setDescription(`**The user id that you wrote is invalid or not detected by me**`)
        .setColor(client.color)
-       if(b == undefined) return message.channel.send(wrongId)
+       if(b == undefined) {
+         if(isNaN(b)) {
+           return message.channel.send(wrongId)
+         }
+       }
        user = b;
        break;
     }
