@@ -26,7 +26,7 @@ Users        :: ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toL
 **Bot System**
 \`\`\`
 CPU         :: ${os.cpus().map(i => `${i.model}`)[0]}
-Discord.js  :: ${Discord.version}
+Discord.js  :: v${Discord.version}
 Platform    :: ${os.platform}
 Node        :: ${process.version}
 Mem Usage   :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} mb
