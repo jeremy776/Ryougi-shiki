@@ -23,8 +23,12 @@ export default {
         let wrongUsername = new MessageEmbed()
         .setDescription(`\`The name you wrote was not detected\nOr is this what you mean?\`\n\n**${test.map(x => "• "+client.users.cache.get(x).tag).join("\n")}**`)
         .setColor(client.color)
-        return message.channel.send(wrongUsername)
-       }
+        return message.channel.send(wrongUsername).then(x => {
+
+        test.map((x, i) => x.react(emote[i])
+
+        });
+       };
        user = a;
   }
 
