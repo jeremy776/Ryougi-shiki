@@ -35,7 +35,7 @@ export default {
 ⏰ **Modified:** ${new Date(body.time.modified).toDateString()}
 🗃️ **Dependencies:** ${deps && deps.length ? deps.map(x => `\`${x}\``).join(", ") : "None"}
 👥 **Maintainers:** ${maintain.map(x => `\`x\``).join(" ")}
-**Download:** [${body.name}](https://www.npmjs.com/package/${query})`);
+**Download:** [${body.name}](https://www.npmjs.com/package/${npm})`);
     return message.channel.send(embed);
   } catch (e) {
     return message.channel.send(`Oh no an error occured :( \`${e.message}\` try again later`);
