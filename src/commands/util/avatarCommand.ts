@@ -15,7 +15,7 @@ export default {
     if(typeof userFind == 'string') {
        user = client.users.cache.find(x => x.username == userFind)
     }
-    if(typeof userFind == 'number') {
+    if(!isNaN(userFind)) {
        user = client.users.cache.find(x => x.id == userFind)
     }
   }
@@ -24,7 +24,7 @@ export default {
   let avatar = new MessageEmbed()
   .setColor(client.color)
   .setImage(user.displayAvatarURL({dynamic:true}))
-  .setAuthor(`Avatar from **\`${user.tag}\`**`)
+  .setAuthor(`Avatar from ${user.tag}`)
   return message.channel.send(avatar)
 
   }
