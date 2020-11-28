@@ -35,6 +35,7 @@ export default {
       switch(reaction.emoji.name){
        case "1️⃣":
          return message.channel.send({embed:{color:client.color,image:user.displayAvatarURL(),author:user.username}});
+       break;
          }
         }
        };
