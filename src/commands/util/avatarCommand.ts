@@ -28,7 +28,9 @@ export default {
         test.map((a, i) => x.react(emote[i]))
 
       const filter = (reaction, user) => user.id !== client.user.id;
-      let collector = x.createReactionCollector(filter)  
+      let collector = x.createReactionCollector(filter, {
+         time: 10000;
+       })  
       collector.on("collect", (reaction, user) => {
 
 
