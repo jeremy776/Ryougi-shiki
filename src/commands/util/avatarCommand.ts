@@ -20,7 +20,7 @@ export default {
         let test = message.guild.members.cache.filter(x => client.users.cache.get(x.id).username.includes(userFind)).keyArray();
 
         let wrongUsername = new MessageEmbed()
-        .setDescription(`**The name you wrote was not detected\nOr is this what you mean?\n• ${test.map(x => client.users.cache.get(x).tag)}**`)
+        .setDescription(`**The name you wrote was not detected\nOr is this what you mean?\n${test.map(x => "• "+client.users.cache.get(x).tag).join("\n")}**`)
         .setColor(client.color)
         return message.channel.send(wrongUsername)
        }
