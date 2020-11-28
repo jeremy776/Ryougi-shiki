@@ -1,4 +1,5 @@
 import { MessageEmbed } from "discord.js";
+import * as superagent from "superagent";
 
 export default {
   name: "npm",
