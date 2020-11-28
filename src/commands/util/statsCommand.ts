@@ -9,7 +9,8 @@ export default {
   execute(message, args, client) {
 
   let botInfo = new MessageEmbed()
-  .setAuthor(`${client.user.username} Stats`, message.author.displayAvatarURL({dynamic:true}))
+  .setAuthor(`${client.user.username} Stats`, client.user.displayAvatarURL())
+  .addField("Developer", `- \`${client.users.cache.get(client.config.owner).tag}\``)
   .setColor(client.color)
 
   return message.channel.send(botInfo)
