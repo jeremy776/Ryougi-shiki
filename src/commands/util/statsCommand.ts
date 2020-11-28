@@ -11,7 +11,7 @@ export default {
   let botInfo = new MessageEmbed()
   .setAuthor(`${client.user.username} Stats`, client.user.displayAvatarURL())
   .addField("Developer", `**- \`${client.users.cache.get(client.config.owner.join(" ")).tag}\`**`)
-  .addField("Statistic Bot", `**- \`Users : ${client.users.cache.size}\n- Commands : ${client.commands.size}\`**`)
+  .addField("Statistic Bot", `**- \`Users   : ${client.users.cache.size}\n- Commands : ${client.commands.size}\`**`)
   .setColor(client.color)
 
   return message.channel.send(botInfo)
