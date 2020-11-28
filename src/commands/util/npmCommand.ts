@@ -1,5 +1,5 @@
 import { MessageEmbed } from "discord.js";
-import * as superagent from "superagent";
+const superagent = require("superagent");
 
 export default {
   name: "npm",
