@@ -10,8 +10,27 @@ export default {
 
   let botInfo = new MessageEmbed()
   .setAuthor(`${client.user.username} Stats`, client.user.displayAvatarURL())
-  .addField("Developer", `**- \`${client.users.cache.get(client.config.owner.join(" ")).tag}\`**`)
-  .addField("Statistic Bot", `**- \`Users     : ${client.users.cache.size}\`\n- \`Commands : ${client.commands.size}\`**`)
+  .setDescription(`
+***Deceloper***
+\`\`\`
+- ${client.users.cache.get(client.config.owner.join(" ")).tag}
+\`\`\`
+***Bot Statsistic***
+\`\`\`
+Channels     :: ${client.channels.cache.size.toLocaleString()}
+Servers      :: ${client.guilds.cache.size.toLocaleString()}
+Users        :: ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
+\`\`\`
+***Bot System***
+\`\`\`
+CPU         :: ${os.cpus().map(i => `${i.model}`)[0]}
+Discord.js  :: ${Discord.version}
+Platform    :: ${os.platform}
+Node        :: ${process.version}
+Mem Usage   :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} mb
+CPU usage   :: ${cpu}
+Uptime      :: ${parseDur(client.uptime)}\`\`\``)
+
   .setColor(client.color)
 
   return message.channel.send(botInfo)
