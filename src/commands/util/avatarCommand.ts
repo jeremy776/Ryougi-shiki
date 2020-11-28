@@ -13,18 +13,18 @@ export default {
     let userFind = args[0];
     if(!userFind) userFind = message.author.username;
 
-    switch(typeof userFind){
-      case 'string':
        let a = client.users.cache.find(x => x.username == userFind)
-       let wrongUsername = new MessageEmbed()
-       .setDescription(`**The name you wrote was not detected**`)
-       .setColor(client.color)
+
        if(a == undefined) {
+
+        let test = message.guild.members.cache.filter(x => client.users.cache.get(x.id).username.includes(userFind)).keyArray();
+
+        let wrongUsername = new MessageEmbed()
+        .setDescription(`**The name you wrote was not detected\nOr is this what you mean?\n• ${test.map(x => client.users.cache.get(x).tag)}**`)
+        .setColor(client.color)
         return message.channel.send(wrongUsername)
        }
        user = a;
-       break;
-    }
   }
 
 
