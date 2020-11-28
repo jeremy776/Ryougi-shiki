@@ -15,7 +15,7 @@ export default {
     if(typeof userFind == 'string') {
        user = client.users.cache.find(x => x.username == userFind)
     }
-    if(typeof userFind === 'number') {
+    if(typeof userFind == 'number') {
        user = client.users.cache.find(x => x.id == userFind)
     }
   }
