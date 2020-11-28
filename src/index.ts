@@ -1,7 +1,7 @@
 import testClient from './handle/testClient';
 
 const Discord = require("discord.js");
-const client = new testClient({disableMentions: 'everyone'});
+const client = new testClient({disableMentions: 'everyone', fetchAllMembers:true});
 const cooldowns = new Discord.Collection();
 
 client.on('ready', () => {
