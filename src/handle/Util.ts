@@ -2,7 +2,7 @@ class Util {
 
  static cpu() {
   let cpuUsage = process.cpuUsage();
-  return (cpuusage.user/cpuusage.system).toFixed(2) + "%";
+  return (cpuUsage.user/cpuUsage.system).toFixed(2) + "%";
  }
 
  static parseDur(ms) {
