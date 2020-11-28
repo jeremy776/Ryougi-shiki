@@ -1,4 +1,5 @@
 import { MessageEmbed } from "discord.js";
+const emote = [":one:", ":two:", ":three:", ":four:", ":five"]
 
 export default {
   name: "avatar",
