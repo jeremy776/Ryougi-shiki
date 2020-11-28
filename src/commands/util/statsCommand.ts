@@ -1,5 +1,6 @@
 import { MessageEmbed } from "discord.js";
 import * as os from 'os';
+const Discord = require("discord.js");
 
 export default {
   name: "stats",
