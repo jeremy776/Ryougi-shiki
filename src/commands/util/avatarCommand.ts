@@ -21,7 +21,7 @@ export default {
         let test = message.guild.members.cache.filter(x => client.users.cache.get(x.id).username.toLowerCase().includes(userFind.toLowerCase())).keyArray();
 
         let wrongUsername = new MessageEmbed()
-        .setDescription(`\`The name you wrote was not detected\nOr is this what you mean?\`\n\n**${test.map(x => "• "+client.users.cache.get(x).tag).join("\n")}**`)
+        .setDescription(`\`The name you wrote was not detected\nOr is this what you mean?\`\n\n**${test.slice(0, 6).map(x => "• "+client.users.cache.get(x).tag).join("\n")}**`)
         .setColor(client.color)
         let x = await message.channel.send(wrongUsername);
 
@@ -37,18 +37,16 @@ export default {
        case "1️⃣":
          reaction.users.remove(users);
 
+         let userNya1 = test[1];
+         let userNya = client.users.cache.get(userNya1);
          let test1 = new MessageEmbed()
          .setColor(client.color)
-         .setImage(users.displayAvatarURL())
-         .setAuthor(`Avatar from ${users.tag}`)
+         .setImage(userNya.displayAvatarURL({dynamic:true, size:2048}))
+         .setAuthor(`Avatar from ${userNya.tag}`)
          return message.channel.send(test1);
        break;
          }
         })
-
-       collector.on('end', collected => {
-         return x.edit("Nobody chooses").then(x => x.delete({timeout:5000}));
-        });
        };
        user = a;
   }
