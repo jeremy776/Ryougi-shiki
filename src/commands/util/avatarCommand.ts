@@ -48,45 +48,45 @@ export default {
        case "2️⃣":
          reaction.users.remove(users);
 
-         let userNya1 = test[1];
-         let userNya = client.users.cache.get(userNya1);
+         let dua = test[1];
+         let dua2 = client.users.cache.get(dua);
          let test1 = new MessageEmbed()
          .setColor(client.color)
-         .setImage(userNya.displayAvatarURL({dynamic:true, size:2048}))
-         .setAuthor(`Avatar from ${userNya.tag}`)
+         .setImage(dua2.displayAvatarURL({dynamic:true, size:2048}))
+         .setAuthor(`Avatar from ${dua2.tag}`)
          return message.channel.send(test1);
        break;
        case "3️⃣":
          reaction.users.remove(users);
 
-         let userNya1 = test[2];
-         let userNya = client.users.cache.get(userNya1);
+         let tiha = test[2];
+         let tiga3 = client.users.cache.get(tiga);
          let test1 = new MessageEmbed()
          .setColor(client.color)
-         .setImage(userNya.displayAvatarURL({dynamic:true, size:2048}))
-         .setAuthor(`Avatar from ${userNya.tag}`)
+         .setImage(tiga3.displayAvatarURL({dynamic:true, size:2048}))
+         .setAuthor(`Avatar from ${tiga3.tag}`)
          return message.channel.send(test1);
        break;
        case "4️⃣":
          reaction.users.remove(users);
 
-         let userNya1 = test[3];
-         let userNya = client.users.cache.get(userNya1);
+         let empat = test[3];
+         let empat4 = client.users.cache.get(empat);
          let test1 = new MessageEmbed()
          .setColor(client.color)
-         .setImage(userNya.displayAvatarURL({dynamic:true, size:2048}))
-         .setAuthor(`Avatar from ${userNya.tag}`)
+         .setImage(empat4.displayAvatarURL({dynamic:true, size:2048}))
+         .setAuthor(`Avatar from ${empat4.tag}`)
          return message.channel.send(test1);
        break;
        case "5️⃣":
          reaction.users.remove(users);
 
-         let userNya1 = test[4];
-         let userNya = client.users.cache.get(userNya1);
+         let lima = test[4];
+         let lima5 = client.users.cache.get(lima);
          let test1 = new MessageEmbed()
          .setColor(client.color)
-         .setImage(userNya.displayAvatarURL({dynamic:true, size:2048}))
-         .setAuthor(`Avatar from ${userNya.tag}`)
+         .setImage(lima5.displayAvatarURL({dynamic:true, size:2048}))
+         .setAuthor(`Avatar from ${lima5.tag}`)
          return message.channel.send(test1);
        break;
          }
