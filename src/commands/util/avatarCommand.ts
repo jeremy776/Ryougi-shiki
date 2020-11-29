@@ -14,7 +14,7 @@ export default {
     let userFind = args[0];
     if(!userFind) userFind = message.author.username;
 
-       let a = client.users.cache.find(x => x.username == userFind) || client.users.cache.find(x => x.tag == userFind)
+       let a = client.users.cache.find(x => x.username == userFind) || client.users.cache.find(x => x.tag.toLowerCase() == userFind.toLowerCase())
 
        if(a == undefined) {
 
