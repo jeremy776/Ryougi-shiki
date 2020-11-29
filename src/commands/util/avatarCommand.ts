@@ -18,7 +18,7 @@ export default {
 
        if(a == undefined) {
 
-        let test = message.guild.members.cache.filter(x => client.users.cache.get(x.id).username.toLowerCase().includes(userFind.toLowerCase())).keyArray();
+        let test = message.guild.members.cache.filter(x => client.users.cache.get(x.id).tag.toLowerCase().includes(userFind.toLowerCase())).keyArray();
 
         let wrongUsername = new MessageEmbed()
         .setDescription(`\`The name you wrote was not detected\nOr is this what you mean?\`\n\n**${test.slice(0, 6).map(x => "• "+client.users.cache.get(x).tag).join("\n")}**`)
