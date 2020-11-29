@@ -17,18 +17,18 @@ export default {
 - ${client.users.cache.get(client.config.owner.join(" ")).tag}
 \`\`\`**Bot Statsistic**
 \`\`\`
-Channels     :: ${client.channels.cache.size.toLocaleString()}
-Servers      :: ${client.guilds.cache.size.toLocaleString()}
-Users        :: ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
+- Channels     :: ${client.channels.cache.size.toLocaleString()}
+- Servers      :: ${client.guilds.cache.size.toLocaleString()}
+- Users        :: ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
 \`\`\`**Bot System**
 \`\`\`
-CPU         :: ${os.cpus().map(i => `${i.model}`)[0]}
-Discord.js  :: v${Discord.version}
-Platform    :: ${os.platform}
-Node        :: ${process.version}
-Mem Usage   :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} mb
-CPU usage   :: ${client.util.cpu()}
-Uptime      :: ${client.util.parseDur(client.uptime)}\`\`\``)
+- CPU         :: ${os.cpus().map(i => `${i.model}`)[0]}
+- Discord.js  :: v${Discord.version}
+- Platform    :: ${os.platform}
+- Node        :: ${process.version}
+- Mem Usage   :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} mb
+- CPU usage   :: ${client.util.cpu()}
+- Uptime      :: ${client.util.parseDur(client.uptime)}\`\`\``)
   .setFooter(`Version: ${require("../../../package.json").version}`)
   .setColor(client.color)
 
