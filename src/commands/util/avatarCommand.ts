@@ -100,7 +100,7 @@ export default {
   return message.channel.send(avatar)
 
   }catch(e){
-   return console.log(e)
+   return message.channel.send(e);
   }
  }
 }
