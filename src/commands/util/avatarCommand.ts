@@ -31,7 +31,7 @@ export default {
 
       const filter = (reaction, user) => user.id !== client.user.id;
       let collector = x.createReactionCollector(filter, {
-         time: 5000
+         time: 20000
        })  
       collector.on("collect", (reaction, users) => {
 
@@ -100,7 +100,7 @@ export default {
   return message.channel.send(avatar)
 
   }catch(e){
-   return message.channel.send(e);
+   return console.log(e)
   }
  }
 }
