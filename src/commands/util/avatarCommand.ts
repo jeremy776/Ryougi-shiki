@@ -1,5 +1,5 @@
 import { MessageEmbed } from "discord.js";
-const emote = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
+const emote = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "🚫"]
 
 export default {
   name: "avatar",
@@ -28,6 +28,7 @@ export default {
         let x = await message.channel.send(wrongUsername);
 
         test.map((a, i) => x.react(emote[i]))
+        x.react(emote[6])
 
       const filter = (reaction, user) => user.id !== client.user.id;
       let collector = x.createReactionCollector(filter, {
@@ -85,6 +86,9 @@ export default {
          .setImage(lima5.displayAvatarURL({dynamic:true, size:2048}))
          .setAuthor(`Avatar from ${lima5.tag}`)
          return message.channel.send(test5);
+       break;
+       case "🚫":
+         x.delete()
        break;
          }
         })
