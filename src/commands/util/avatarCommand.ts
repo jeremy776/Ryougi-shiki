@@ -99,7 +99,7 @@ export default {
   .setAuthor(`Avatar from ${user.tag}`)
   return message.channel.send(avatar)
 
-  }catch(e) => {
+  }catch(e){
    return console.log(e)
   }
  }
