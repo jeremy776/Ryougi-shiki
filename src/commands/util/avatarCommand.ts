@@ -29,7 +29,7 @@ export default {
         let x = await message.channel.send(wrongUsername);
 
         testy.map((a, i) => x.react(emote[i]))
-        x.react(emote[6])
+        x.react(emote[5])
 
       const filter = (reaction, user) => user.id !== client.user.id;
       let collector = x.createReactionCollector(filter, {
