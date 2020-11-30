@@ -8,6 +8,8 @@ export default {
   description: "Get the user avatar that is mentioned",
   execute: async(message, args, client) => {
 
+  try{
+
   let user = message.mentions.users.first() || await client.users.fetch(args[0]).catch(() => null)
 
   if(!user) {
@@ -97,5 +99,8 @@ export default {
   .setAuthor(`Avatar from ${user.tag}`)
   return message.channel.send(avatar)
 
+  }catch(e) => {
+   return console.log(e)
   }
  }
+}
