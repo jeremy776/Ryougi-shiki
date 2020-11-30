@@ -35,7 +35,6 @@ export default {
 
       switch(reaction.emoji.name){
        case "1️⃣":
-         reaction.users.remove(users);
 
          let userNya1 = test[0];
          let userNya = client.users.cache.get(userNya1);
@@ -46,7 +45,6 @@ export default {
          return message.channel.send(test1);
        break;
        case "2️⃣":
-         reaction.users.remove(users);
 
          let dua = test[1];
          let dua2 = client.users.cache.get(dua);
@@ -57,7 +55,6 @@ export default {
          return message.channel.send(test2);
        break;
        case "3️⃣":
-         reaction.users.remove(users);
 
          let tiga = test[2];
          let tiga3 = client.users.cache.get(tiga);
@@ -68,7 +65,6 @@ export default {
          return message.channel.send(test3);
        break;
        case "4️⃣":
-         reaction.users.remove(users);
 
          let empat = test[3];
          let empat4 = client.users.cache.get(empat);
@@ -79,7 +75,6 @@ export default {
          return message.channel.send(test4);
        break;
        case "5️⃣":
-         reaction.users.remove(users);
 
          let lima = test[4];
          let lima5 = client.users.cache.get(lima);
