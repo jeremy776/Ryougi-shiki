@@ -31,7 +31,7 @@ export default {
         testy.map((a, i) => x.react(emote[i]))
         x.react(emote[5])
 
-      const filter = (reaction, user) => user.id !== client.user.id;
+      const filter = (reaction, user) => user.id == message.author.id;
       let collector = x.createReactionCollector(filter, {
          time: 20000,
          max:1
