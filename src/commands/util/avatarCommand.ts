@@ -21,13 +21,14 @@ export default {
        if(a == undefined) {
 
         let test = message.guild.members.cache.filter(x => client.users.cache.get(x.id).tag.toLowerCase().includes(userFind.toLowerCase())).keyArray();
+        let testy = test.slice(0, 5).map(n => n);
 
         let wrongUsername = new MessageEmbed()
         .setDescription(`\`The name you wrote was not detected\nOr is this what you mean?\`\n\n**${test.slice(0, 5).map(x => "• "+client.users.cache.get(x).tag).join("\n")}**`)
         .setColor(client.color)
         let x = await message.channel.send(wrongUsername);
 
-        test.map((a, i) => x.react(emote[i]))
+        testy.map((a, i) => x.react(emote[i]))
         x.react(emote[6])
 
       const filter = (reaction, user) => user.id !== client.user.id;
