@@ -5,14 +5,14 @@ export default {
   aliases: ["si", "servericon", "iconserver"],
   description: "Shows the server icon",
   cooldown: 3,
-  execute(message, args, client) {
+  execute(msg, args, client) {
 
   let embed = new MessageEmbed()
   .setColor(client.color)
-  .setImage(message.guild.iconURL({dynamic:true, size:2048})
+  .setImage(msg.guild.iconURL({dynamic:true, size:2048})
   .setTimestamp()
-  .setDescription(message.guild.name)
-  return message.channel.send(embed);
+  .setDescription(msg.guild.name);
+  return msg.channel.send(embed)
 
  }
 }
