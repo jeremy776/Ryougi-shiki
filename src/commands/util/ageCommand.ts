@@ -19,7 +19,23 @@ export default {
     return msg.channel.send(invalid)
  }
 
+  if(!isNaN(myAge)) {
+    let nAn = new MessageEmbed()
+    .setDescription("**It's not a number**")
+    .setColor(client.color)
+    .setTimestamp()
+    return msg.channel.send(nAn)
+ }
+
   let checkAge = +maxAge - (+myAge)
+
+  if(checkAge > 100) {
+    let limitAge = new MessageEmbed()
+    .setDescription(`**This has crossed the limit of 100 years. actual age is ${checkAge} years**`)
+    .setColor(client.color)
+    .setTimestamp()
+    return msg.channel.send(limitAge)
+  }
 
   if(maxAge < myAge) {
     let limitAge = new MessageEmbed()
