@@ -30,11 +30,11 @@ export default {
       .setAuthor(body.name, "https://i.imgur.com/ErKf5Y0.png")
       .setDescription(`${body.description || "No description."}
 🆙 **Version:** ${body["dist-tags"].latest}
-©️ **License:** ${body.license}
+©️ **License:** ${body.license || "None"}
 👤 **Author:** ${body.author ? body.author.name : "Unknown"}
 ⏰ **Modified:** ${new Date(body.time.modified).toDateString()}
 🗃️ **Dependencies:** ${deps && deps.length ? deps.map(x => `\`${x}\``).join(", ") : "None"}
-👥 **Maintainers:** ${maintain.map(x => `\`x\``).join(" ")}
+👥 **Maintainers:** ${maintain.map(x => `\`${x}\``).join(" ")}
 **Download:** [${body.name}](https://www.npmjs.com/package/${npm})`);
     return message.channel.send(embed);
   } catch (e) {
