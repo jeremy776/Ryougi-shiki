@@ -9,7 +9,7 @@ export default {
 
   let embed = new MessageEmbed()
   .setColor(client.color)
-  .setImage(message.guild.iconURL({dynamic:true, size:})
+  .setImage(message.guild.iconURL({dynamic:true, size:2048})
   .setTimestamp()
   .setDescription(message.guild.name)
 
