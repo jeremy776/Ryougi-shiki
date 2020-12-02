@@ -14,7 +14,7 @@ interface ICommand {
 
 class testClient extends Client {
     public helps: Collection<string, string> = new Collection();
-    public color: string = "BLUE";
+    public color: string = "DARK_BLUE";
     public commands: Collection<string, ICommand> = new Collection();
     public aliases: Collection<string, string> = new Collection();
     public util: typeof Util = Util;
