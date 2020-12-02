@@ -13,7 +13,7 @@ export default {
 
   if(!myAge) {
     let invalid = new MessageEmbed()
-    .setDescription(`**example: ${client.prefix}age 2007**`)
+    .setDescription(`**example: ${client.config.prefix}age 2007**`)
     .setColor(client.color)
     .setTimestamp()
     return msg.channel.send(invalid)
