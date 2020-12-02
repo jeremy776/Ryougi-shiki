@@ -10,12 +10,22 @@ export default {
 
   let maxAge = moment(Date.now()).format("YYYY")
   let myAge = args[0]
+
+  if(!myAge) {
+    let invalid = new MessageEmbed()
+    .setDescription(`**example: ${client.prefix}age 2007**`)
+    .setColor(client.color)
+    .setTimestamp()
+    return msg.channel.send(invalid)
+ }
+
   let checkAge = +maxAge - (+myAge)
 
   if(maxAge < myAge) {
     let limitAge = new MessageEmbed()
     .setDescription(`**The year you entered has passed the current year \`(${maxAge})\`**`)
     .setColor(client.color)
+    .setTimestamp()
     return msg.channel.send(limitAge)
   }
 
