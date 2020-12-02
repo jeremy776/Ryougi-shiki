@@ -10,6 +10,7 @@ export default {
 
   let maxAge = moment(Date.now()).format("YYYY")
   let myAge = args[0]
+  let checkAge = maxAge - myAge
 
   if(maxAge < myAge) {
     let limitAge = new MessageEmbed()
@@ -19,15 +20,15 @@ export default {
   }
 
   let succes = new MessageEmbed()
-  .setDescription(`**You are ${checkAge(myAge)} years old now**`)
+  .setDescription(`**You are ${checkAge} years old now**`)
   .setColor(client.color)
   return msg.channel.send(succes);
 
 
- function checkAge(age) {
+ /*function checkAge(age) {
   let data = moment(+new Date()).format("YYYY") - age
   return data
- }
+ }*/
 
  }
 }
