@@ -25,7 +25,7 @@ export default {
 
 
  function checkAge(age) {
-  let data = moment(<any>new Date()).format("YYYY") - (<any>age)
+  let data = moment(+new Date()).format("YYYY") - age
   return data
  }
 
