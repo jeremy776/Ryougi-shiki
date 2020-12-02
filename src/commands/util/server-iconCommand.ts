@@ -12,9 +12,7 @@ export default {
   .setImage(message.guild.iconURL({dynamic:true, size:2048})
   .setTimestamp()
   .setDescription(message.guild.name)
-
-  return message.channel.send(embed)
-
+  return message.channel.send(embed);
 
  }
 }
