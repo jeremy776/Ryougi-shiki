@@ -37,6 +37,14 @@ export default {
     return msg.channel.send(limitAge)
   }
 
+  if(checkAge.includes("-")) {
+    let error = new MessageEmbed()
+    .setDescription(`**Age cannot be under 1 year old (negative age)**`)
+    .setColor(client.color)
+    .setTimestamp()
+    return msg.channel.send(error)
+  }
+
   if(maxAge < myAge) {
     let limitAge = new MessageEmbed()
     .setDescription(`**The year you entered has passed the current year \`(${maxAge})\`**`)
