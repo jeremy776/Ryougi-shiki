@@ -10,6 +10,7 @@ export default {
     const embed = new MessageEmbed()
         .addField("Pong!",  Math.round(client.ws.ping) + "ms", true)
         .setColor(client.color)
+        .setTimestamp()
      message.channel.send(embed)
   }
 };
