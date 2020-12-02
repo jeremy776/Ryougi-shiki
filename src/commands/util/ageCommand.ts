@@ -10,7 +10,7 @@ export default {
 
   let maxAge = moment(Date.now()).format("YYYY")
   let myAge = args[0]
-  let checkAge = maxAge - myAge
+  let checkAge = +maxAge - (+myAge)
 
   if(maxAge < myAge) {
     let limitAge = new MessageEmbed()
