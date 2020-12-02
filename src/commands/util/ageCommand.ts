@@ -19,7 +19,7 @@ export default {
     return msg.channel.send(invalid)
  }
 
-  if(!isNaN(myAge)) {
+  if(isNaN(myAge)) {
     let nAn = new MessageEmbed()
     .setDescription("**It's not a number**")
     .setColor(client.color)
