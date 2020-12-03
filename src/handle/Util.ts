@@ -1,3 +1,5 @@
+import { post } from 'sneckfetch';
+
 export class Util {
 
  static cpu() {
@@ -18,5 +20,10 @@ export class Util {
   S = parseInt((S % 60).toString());
  
   if (S || M || H || D) return `${D}D ${H}H ${M}M ${S}S`;
+ }
+ 
+ static async hastebin(string) {
+   const { body } = await post('https://hasteb.in/documents').send(string);
+   return `https://hasteb.in/${body.key}.js`
  }
 }
