@@ -9,12 +9,12 @@ export default {
   execute(msg, args, client) {
 
   let pesan = args[0].join(" ")
-  let invalid-msg = new MessageEmbed()
+  let invalidMsg = new MessageEmbed()
   .setDescription("**Enter any bugs you find in our bots**")
   .setColor(client.color)
   .setTimestamp()
   .setFooter(`ex: ${client.config.prefix}report [bug]`)
-  if(!pesan) return msg.channel.send(invalid-msg)
+  if(!pesan) return msg.channel.send(invalidMsg)
 
   if(typeof pesan !== "string") {
     let notAstring = new MessageEmbed()
