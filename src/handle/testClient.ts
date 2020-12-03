@@ -18,6 +18,8 @@ interface Snipe {
     image: string;
 }
 
+import '../extenders/Message'
+
 class testClient extends Client {
     public helps: Collection<string, string> = new Collection();
     public color: string = "DARK_BLUE";
