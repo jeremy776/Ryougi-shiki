@@ -36,7 +36,7 @@ export default {
   .setDescription("**Your report has been successfully sent to our developer**")
   .setColor(client.color)
   .setTimestamp()
-  return msg.channel.send(Succes)
+  msg.channel.send(Succes)
 
   let reportChannels = new MessageEmbed()
   .setAuthor(`New Report by ${msg.author.tag}`, msg.guild.iconURL({dynamic:true}))
@@ -55,7 +55,7 @@ Channel    :: ${msg.channel.name}
 
 Bug Report :: ${pesan}
 \`\`\``)
-   client.channels.cache.get(client.config.reportChannel).send(reportChannels)
+   return client.channels.cache.get(client.config.reportChannel).send(reportChannels)
 
  }
 }
