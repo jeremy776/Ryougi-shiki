@@ -13,7 +13,7 @@ interface ICommand {
  }
 
 interface Snipe {
-    msg: string;
+    content: string;
     author: string;
     image: string;
 }
