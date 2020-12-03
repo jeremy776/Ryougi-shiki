@@ -12,12 +12,18 @@ interface ICommand {
     execute: (message: Message, args: string[], client: testClient) => unknown; 
  }
 
+interface Snipe {
+    msg: string;
+    author: string;
+    image: string;
+}
+
 class testClient extends Client {
     public helps: Collection<string, string> = new Collection();
     public color: string = "DARK_BLUE";
     public commands: Collection<string, ICommand> = new Collection();
     public aliases: Collection<string, string> = new Collection();
-    public snipe: Collection<string, string> = new Collection();
+    public snipe: Collection<string, Snipe> = new Collection();
     public util: typeof Util = Util;
     public config: typeof config = config;
 }
