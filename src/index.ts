@@ -1,4 +1,5 @@
 import testClient from './handle/testClient';
+import * as mongoose from 'mongoose';
 
 const Discord = require("discord.js");
 const client = new testClient({disableMentions: 'everyone', fetchAllMembers:true});
