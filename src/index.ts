@@ -12,7 +12,7 @@ client.on('ready', () => {
 client.on('messageDelete', msg => {
   client.snipe.set(msg.channel.id, {
     content:msg.content,
-    author:msg.author,
+    author:msg.author.tag,
     image: msg.attachments.first() ? msg.attachments.first().proxyURL : null
   })
 });
