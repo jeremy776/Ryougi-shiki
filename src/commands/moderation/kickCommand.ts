@@ -43,7 +43,7 @@ export default {
 
   if(!user.kickable) {
     let cantKick = new MessageEmbed()
-    .setDescription(`**Maybe something went wrong, but I can't kick ${member.displayName}**`)
+    .setDescription(`**Maybe something went wrong, but I can't kick ${user.displayName}**`)
     .setColor(client.color)
     .setTimestamp()
     return msg.channel.send(cantKick);
