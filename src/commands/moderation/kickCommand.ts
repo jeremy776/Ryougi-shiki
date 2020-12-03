@@ -46,11 +46,11 @@ export default {
     .setDescription(`**Maybe something went wrong, but I can't kick ${member.displayName}**`)
     .setColor(client.color)
     .setTimestamp()
-    return msg.channel.send(cantKick)
+    return msg.channel.send(cantKick);
   }
 
   user.kick(reason)
-      .then(() => 
+      .then(() => {
        let succes = new MessageEmbed()
        .setAuthor("KICK USER", msg.guild.iconURL({dynamic:true}))
        .addField("Moderator", "**"+msg.author.tag+"**")
@@ -59,7 +59,7 @@ export default {
        .setTimestamp()
        .setColor(client.color)
        return msg.channel.send(succes)
-      ))
+      })
       .catch(console.error);
  }
 }
