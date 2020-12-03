@@ -17,6 +17,8 @@ export default {
 
   let user = msg.mentions.members.first();
   let reason = args.join(" ")
+  if(!reason) reason = "None";
+
   let noMention = new MessageEmbed()
   .setDescription("**You must mention member first!**")
   .setColor(client.color)
