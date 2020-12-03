@@ -8,7 +8,7 @@ export default {
   execute(msg, args, client) {
 
   let noPerms = new MessageEmbed()
-  .setDescription("**You must have \`KICK MEMBERS\` permission**");
+  .setDescription("**You must have \`KICK MEMBERS\` permission**")
   .setColor(client.color)
   .setTimestamp()
   if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noPerms);
@@ -25,7 +25,7 @@ export default {
 
   if(user.id == msg.author.id) {
     let sameUser = new MessageEmbed()
-    .setDescription("**You can't kick yourself**");
+    .setDescription("**You can't kick yourself**")
     .setColor(client.color)
     .setTimestamp()
     return msg.channel.send(sameUser)
