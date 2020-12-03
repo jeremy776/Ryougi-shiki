@@ -54,7 +54,7 @@ export default {
        let succes = new MessageEmbed()
        .setAuthor("KICK USER", msg.guild.iconURL({dynamic:true}))
        .addField("Moderator", "**"+msg.author.tag+"**")
-       .addField("User", "**"+user.user.tag"**")
+       .addField("User", "**"+user.user.tag+"**")
        .addField("Reason", "**"+reason+"**")
        .setTimestamp()
        .setColor(client.color)
