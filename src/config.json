@@ -2,6 +2,6 @@
   "prefix": "bot!",
   "owner": ["580640622235484161"],
   "reportChannel": "768535279316500555",
-  "mongoURL": "mongodb+srv://jeremy:<password>@cluster0.d0mjj.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "mongoURL": "mongodb+srv://jeremy:jeremy@cluster0.d0mjj.mongodb.net/jeremy?retryWrites=true&w=majority",
   "token": "NjU0OTkxODczODYxMjIyNDMx.XfNmtw.UyQio8ZPyqKGtLNFmN0QwijDQVs"
 }
