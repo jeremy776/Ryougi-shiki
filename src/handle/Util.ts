@@ -1,4 +1,4 @@
-import { post } from 'sneckfetch';
+import * as fetch from "node-superfetch";
 
 export class Util {
 
@@ -23,7 +23,7 @@ export class Util {
  }
  
  static async hastebin(string) {
-   const { body } = await post('https://hasteb.in/documents').send(string);
+   const { body } = await fetch.post('https://hasteb.in/documents').send(string);
    return `https://hasteb.in/${body.key}.js`
  }
 }
