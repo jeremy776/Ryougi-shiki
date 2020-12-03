@@ -14,7 +14,7 @@ interface ICommand {
 
 interface Snipe {
     msg: string;
-    author: string;
+    author: object;
     image: string;
 }
 
