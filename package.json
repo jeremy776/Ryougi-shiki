@@ -19,6 +19,7 @@
     "superagent": "^6.1.0",
     "os": "^0.1.1",
     "axios": "^0.21.0",
+    "mongoose": "^5.11.2",
     "node-superfetch": "^0.1.10",
     "moment": "^2.29.1"
   },
