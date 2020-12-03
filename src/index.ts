@@ -17,7 +17,7 @@ mongoose.connection.on("connected", (ngebuk) => {
 
 client.on('ready', () => {
   console.log(`${client.user.tag} Ready At ${client.guilds.cache.size} Guilds`);
-  client.user.setActivity("Powered By BotMaker", {type: "WATCHING"})
+  client.user.setActivity("19 detik", {type: "WATCHING"})
  });
 
 client.on('messageDelete', msg => {
