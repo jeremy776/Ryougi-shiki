@@ -7,7 +7,15 @@ const cooldowns = new Discord.Collection();
 client.on('ready', () => {
   console.log(`${client.user.tag} Ready At ${client.guilds.cache.size} Guilds`);
   client.user.setActivity("Powered By BotMaker", {type: "WATCHING"})
- })
+ });
+
+client.on('messageDelete', msg => {
+  client.snipe.set(msg.channel.id, {
+    content:msg.content,
+    author:msg.author,
+    image: msg.attachments.first() ? msg.attachments.first().proxyURL : null
+  })
+});
   
 require(`./handle/command`).default(client)
 require(`./handle/cmdHandle`).default(client)
