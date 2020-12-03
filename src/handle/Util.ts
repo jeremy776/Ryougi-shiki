@@ -1,4 +1,4 @@
-import * as fetch from "node-superfetch";
+const fetch = require("node-superfetch");
 
 export class Util {
 
