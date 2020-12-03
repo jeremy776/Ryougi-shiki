@@ -5,6 +5,16 @@ const Discord = require("discord.js");
 const client = new testClient({disableMentions: 'everyone', fetchAllMembers:true});
 const cooldowns = new Discord.Collection();
 
+mongoose.connect(client.config.mongoURL, {
+       useNewUrlParser: true,
+       useUnifiedTopology: true
+})
+mongoose.connection.on("connected", (ngebuk) => {  
+  console.log("DATABASE TELAH DI KONEK BAPAK/IBU")
+  if(ngebuk) console.log(ngebuk)
+})
+
+
 client.on('ready', () => {
   console.log(`${client.user.tag} Ready At ${client.guilds.cache.size} Guilds`);
   client.user.setActivity("Powered By BotMaker", {type: "WATCHING"})
