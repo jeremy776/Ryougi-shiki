@@ -57,7 +57,6 @@ export default {
        .setColor(client.color)
        return msg.channel.send(succes)
       ))
-      .catch(console.error)
-
+      .catch(console.error);
  }
 }
