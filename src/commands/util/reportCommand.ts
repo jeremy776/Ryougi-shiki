@@ -38,7 +38,7 @@ export default {
   .setTimestamp()
   return msg.channel.send(Succes)
 
-  let reportChannel = new MessageEmbed()
+  let reportChannels = new MessageEmbed()
   .setAuthor(`New Report by ${msg.author.tag}`, msg.guild.iconURL({dynamic:true}))
   .setThumbnail(msg.author.displayAvatarURL({dynamic:true}))
   .setColor(client.color)
@@ -55,7 +55,7 @@ Channel    :: ${msg.channel.name}
 
 Bug Report :: ${pesan}
 \`\`\``)
-   client.channels.cache.get(client.config.channel-report).send(reportChannel)
+   client.channels.cache.get(client.config.reportChannel).send(reportChannels)
 
  }
 }
