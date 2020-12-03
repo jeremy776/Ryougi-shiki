@@ -17,7 +17,7 @@ class testClient extends Client {
     public color: string = "DARK_BLUE";
     public commands: Collection<string, ICommand> = new Collection();
     public aliases: Collection<string, string> = new Collection();
-    public snipe: Map<string, string> = new Map();
+    public snipe: Collection<string, string> = new Collection();
     public util: typeof Util = Util;
     public config: typeof config = config;
 }
