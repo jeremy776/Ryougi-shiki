@@ -12,6 +12,7 @@ export default {
   .setColor(client.color)
   .setTimestamp()
   if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noPerms);
+  if(!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send({embed:{description: "**Give me \`KICK MEMBER\` permission if you want to run this command**", color:client.color}});
 
 
   let user = msg.mentions.members.first();
