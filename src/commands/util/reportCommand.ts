@@ -8,7 +8,7 @@ export default {
   description: "if you find a bug, you can use the report to our staff",
   execute(msg, args, client) {
 
-  let pesan = args
+  let pesan = args.slice(0).join(" ")
   let invalidMsg = new MessageEmbed()
   .setDescription("**Enter any bugs you find in our bots**")
   .setColor(client.color)
