@@ -16,7 +16,7 @@ export default {
 
 
   let user = msg.mentions.members.first();
-  let reason = args.join(" ")
+  let reason = args.slice(1).join(" ")
   if(!reason) reason = "None";
 
   let noMention = new MessageEmbed()
