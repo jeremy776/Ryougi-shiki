@@ -8,7 +8,7 @@ export default {
   description: "if you find a bug, you can use the report to our staff",
   execute(msg, args, client) {
 
-  let pesan = args.slice(0).join(" ")
+  let pesan = args.join(" ")
   let invalidMsg = new MessageEmbed()
   .setDescription("**Enter any bugs you find in our bots**")
   .setColor(client.color)
@@ -16,13 +16,13 @@ export default {
   .setFooter(`ex: ${client.config.prefix}report [bug]`)
   if(!pesan) return msg.channel.send(invalidMsg)
 
-  if(typeof pesan !== "string") {
+  /*if(typeof pesan !== "string") {
     let notAstring = new MessageEmbed()
     .setDescription("**the message you enter must be a string**")
     .setColor(client.color)
     .setTimestamp()
     return msg.channel.send(notAstring)
-  }
+  }*/
 
   if(pesan.length < 5) {
     let shortMessage = new MessageEmbed()
