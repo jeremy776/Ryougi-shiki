@@ -9,8 +9,8 @@ client.on('ready', () => {
   client.user.setActivity("19 detik", {type: "WATCHING"})
  });
 
-client.on('messageDelete', msg => {
-  client.snipe.set(msg.channel.id, msg as any)
+client.on('messageDelete', msg:Message => {
+  client.snipe.set(msg.channel.id, msg)
 });
   
 require(`./handle/command`).default(client)
