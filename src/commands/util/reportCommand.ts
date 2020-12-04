@@ -4,7 +4,7 @@ export default {
   name: "report",
   aliases: ["bug"],
   guildOnly: true,
-  cooldown: 60,
+  cooldown: 5,
   description: "if you find a bug, you can use the report to our staff",
   execute(msg, args, client) {
 
@@ -55,6 +55,9 @@ Channel    :: ${msg.channel.name}
 
 Bug Report :: ${pesan}
 \`\`\``)
+
+    if(msg.attachments.first()) reportChannels.setImage(msg.attachments.first().proxyURL);
+
    return client.channels.cache.get(client.config.reportChannel).send(reportChannels)
 
  }
