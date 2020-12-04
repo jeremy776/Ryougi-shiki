@@ -19,7 +19,7 @@ interface Snipe {
 }
 
 const data = {
-  Global: require("../models/Global")
+  global: require("../models/Global")
 }
 
 import '../extenders/Message'
