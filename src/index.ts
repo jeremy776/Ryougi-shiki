@@ -10,7 +10,7 @@ client.on('ready', () => {
  });
 
 client.on('messageDelete', msg => {
-  client.snipe.set(msg.channel.id, Message:msg)
+  client.snipe.set(msg.channel.id, msg as any)
 });
   
 require(`./handle/command`).default(client)
