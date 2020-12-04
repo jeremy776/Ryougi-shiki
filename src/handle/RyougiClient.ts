@@ -9,7 +9,7 @@ interface ICommand {
     guildOnly: boolean;
     description: string;
     usage: string[];
-    execute: (message: Message, args: string[], client: testClient) => unknown; 
+    execute: (message: Message, args: string[], client: RyougiClient) => unknown; 
  }
 
 interface Snipe {
