@@ -12,4 +12,4 @@ let GlobalChat = new Schema({
     }
 });
 
-module.exports = mongoose.model("Global", GlobalChat);
+export default mongoose.model("Global", GlobalChat);
