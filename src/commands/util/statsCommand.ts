@@ -14,7 +14,7 @@ export default {
   .setAuthor(`${client.user.username} Stats`, client.user.displayAvatarURL())
   .addField(`Developer`,
 `\`\`\`
-• ${client.users.cache.get(client.config.owner.join(" ")).tag}
+${client.config.owner.map(x => "• "+client.users.cache.get(x).tag)}
 \`\`\``)
   .addField(`Bot Statsistic`,
 `\`\`\`
