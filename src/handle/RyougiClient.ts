@@ -2,8 +2,6 @@ import { Client, Collection, Message } from 'discord.js';
 import * as config from '../config.json';
 import { Util } from './Util';
 
-//const db = require("../modles/Global");
-
 interface ICommand {
     name: string;
     aliases: string[];
@@ -20,6 +18,10 @@ interface Snipe {
     image: string;
 }
 
+const data {
+  Global = require("../models/Global");
+}
+
 import '../extenders/Message'
 
 class RyougiClient extends Client {
@@ -29,7 +31,7 @@ class RyougiClient extends Client {
     public aliases: Collection<string, string> = new Collection();
     public snipe: Map<string, Snipe> = new Map();
     public util: typeof Util = Util;
-    //public db: typeof db = db;
+    public db: data<Object> = data;
     public config: typeof config = config;
 }
 
