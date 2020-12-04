@@ -33,7 +33,7 @@ export default {
   .setAuthor(data.author.tag, data.author.displayAvatarURL({dynamic:true}))
   .setColor(client.color)
   .setTimestamp()
-  if(data.attachments) succes.setImage(Array.from(data.attachments)[0][1].proxyURL)
+  if(Array.from(data.attachments).length > 0) succes.setImage(Array.from(data.attachments)[0][1].proxyURL)
   if(data.content) succes.setDescription(data.content)
   return msg.channel.send(succes);
 
