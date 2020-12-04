@@ -11,7 +11,7 @@ export default {
   .setColor(client.color)
   .setImage(msg.guild.iconURL({dynamic:true, size:2048}))
   .setTimestamp()
-  .setDescription(msg.guild.name);
+  .setAuthor(msg.guild.name, msg.author.displayAvatarURL({dynamic:true})));
   return msg.channel.send(embed)
 
  }
