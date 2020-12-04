@@ -18,7 +18,7 @@ interface Snipe {
     image: string;
 }
 
-const data {
+const data = {
   Global = require("../models/Global");
 }
 
