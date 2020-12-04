@@ -4,7 +4,7 @@ export default {
   name: "report",
   aliases: ["bug"],
   guildOnly: true,
-  cooldown: 5,
+  cooldown: 60,
   description: "if you find a bug, you can use the report to our staff",
   execute(msg, args, client) {
 
