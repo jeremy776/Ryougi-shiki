@@ -8,7 +8,7 @@ export default class Global {
   }
   
   async get(){
-   const data = server.findOne({
+   const data = await server.findOne({
      guild:this.guild
    })
    return data;
@@ -21,6 +21,16 @@ export default class Global {
   const db = Object.assign({ _id: mongoose.Types.ObjectId()}, data)
   const Data = new models(db);
   return Data.save()
+ }
+ 
+ async setChannel(ch){
+  if(!ch)throw new Error('Can\'t find channel');
+  if(isNaN(ch)) throw new Error('Channel must be a Number');
+  
+  const Data = await server.findOne({
+   guild:this.guild
+  });
+  return data.updateOne({id:ch, guild:this.guild});
  }
   
 }
