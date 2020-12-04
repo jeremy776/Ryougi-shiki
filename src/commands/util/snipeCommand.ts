@@ -16,9 +16,9 @@ export default {
 
   let succes = new MessageEmbed()
   .setAuthor(data.author)
-  .setDescription(data.content)
   .setColor(client.color)
   .setTimestamp()
+  if(data.content) succes.setDescription(data.content)
   if(data.attachments) succes.setImage(data.attachments)
   return msg.channel.send(succes);
 
