@@ -19,7 +19,7 @@ interface Snipe {
 }
 
 const data = {
-  Global = require("../models/Global")
+  Global: require("../models/Global")
 }
 
 import '../extenders/Message'
@@ -31,7 +31,7 @@ class RyougiClient extends Client {
     public aliases: Collection<string, string> = new Collection();
     public snipe: Map<string, Snipe> = new Map();
     public util: typeof Util = Util;
-    public db: data<Object> = data;
+    public db: typeof data<Object> = data;
     public config: typeof config = config;
 }
 
