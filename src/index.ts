@@ -21,10 +21,10 @@ require(`./handle/cmdHandle`).default(client)
 client.on('message', async message => {
  const msg = message;
   if (message.author.bot) return;
-  if (!message.content.startsWith(client.config.prefix)) return;
+  if (!message.content.toLowerCase().startsWith(client.config.prefix)) return;
 
 
-    if (message.content.startsWith(client.config.prefix)) {
+    if (message.content.toLowerCase().startsWith(client.config.prefix)) {
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
 
     const command = args.shift().toLowerCase();
