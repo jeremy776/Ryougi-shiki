@@ -19,7 +19,7 @@ class RyougiClient extends Client {
     public color: string = "DARK_BUT_NOT_BLACK";
     public commands: Collection<string, ICommand> = new Collection();
     public aliases: Collection<string, string> = new Collection();
-    public snipe: Map<string, Message:any> = new Map();
+    public snipe: Map<string, Message> = new Map();
     public util: typeof Util = Util;
     public config: typeof config = config;
 }
