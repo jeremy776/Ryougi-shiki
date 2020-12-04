@@ -15,7 +15,7 @@ export default {
   if(!data) return msg.channel.send(noData).then(x => x.delete({timeout:4000}));
 
   let succes = new MessageEmbed()
-  .setAuthor(data.author)
+  .setAuthor(data.author.tag, data.author.displayAvatarURL({dynamic:true})))
   .setColor(client.color)
   .setTimestamp()
   if(data.content) succes.setDescription(data.content)
