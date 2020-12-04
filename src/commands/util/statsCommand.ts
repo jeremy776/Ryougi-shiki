@@ -14,23 +14,23 @@ export default {
   .setAuthor(`${client.user.username} Stats`, client.user.displayAvatarURL())
   .addField(`Developer`,
 `\`\`\`
-- ${client.users.cache.get(client.config.owner.join(" ")).tag}
+• ${client.users.cache.get(client.config.owner.join(" ")).tag}
 \`\`\``)
   .addField(`Bot Statsistic`,
 `\`\`\`
-- Channels     :: ${client.channels.cache.size.toLocaleString()}
-- Servers      :: ${client.guilds.cache.size.toLocaleString()}
-- Users        :: ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
+• Channels     :: ${client.channels.cache.size.toLocaleString()}
+• Servers      :: ${client.guilds.cache.size.toLocaleString()}
+• Users        :: ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
 \`\`\``)
   .addField(`Bot System`,
 `\`\`\`
-- CPU         :: ${os.cpus().map(i => `${i.model}`)[0]}
-- Bot Version :: v${require("../../../package.json").version}
-- Platform    :: ${os.platform}
-- Node        :: ${process.version}
-- Mem Usage   :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} mb
-- CPU usage   :: ${client.util.cpu()}
-- Uptime      :: ${client.util.parseDur(client.uptime)}\`\`\``)
+• Bot Version :: v${require("../../../package.json").version}
+• Platform    :: ${os.platform}
+• Node        :: ${process.version}
+• Mem Usage   :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} mb
+• CPU usage   :: ${client.util.cpu()}
+• CPU         :: ${os.cpus().map(i => `${i.model}`)[0]}
+• Uptime      :: ${client.util.parseDur(client.uptime)}\`\`\``)
   .setFooter(`This bot is still under development`)
   .setTimestamp()
   .setColor(client.color)
