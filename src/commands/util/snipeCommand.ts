@@ -19,7 +19,6 @@ export default {
   .setColor(client.color)
   .setTimestamp()
   if(data.content) succes.setDescription(data.content)
-  if(data.attachments) succes.setImage(data.attachments)
   return msg.channel.send(succes);
 
  }
