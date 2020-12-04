@@ -1,8 +1,8 @@
-import testClient from './handle/testClient';
+import RyougiClient from './handle/RyougiClient';
 import * as mongoose from 'mongoose';
 
 const Discord = require("discord.js");
-const client = new testClient({disableMentions: 'everyone', fetchAllMembers:true});
+const client = new RyougiClient({disableMentions: 'everyone', fetchAllMembers:true});
 const cooldowns = new Discord.Collection();
 
 mongoose.connect(client.config.mongoURL, {
