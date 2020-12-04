@@ -20,7 +20,7 @@ interface Snipe {
 
 import '../extenders/Message'
 
-class testClient extends Client {
+class RyougiClient extends Client {
     public helps: Collection<string, string> = new Collection();
     public color: string = "DARK_BUT_NOT_BLACK";
     public commands: Collection<string, ICommand> = new Collection();
@@ -30,4 +30,4 @@ class testClient extends Client {
     public config: typeof config = config;
 }
 
-export default testClient;
+export default RyougiClient;
