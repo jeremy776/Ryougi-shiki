@@ -2,7 +2,7 @@ import { MessageEmbed } from "discord.js";
 
 export default {
   name: "kick",
-  cooldown:2,
+  cooldown: 2,
   aliases: ["kick-user"],
   description: "Kick member",
   guildOnly: true,
