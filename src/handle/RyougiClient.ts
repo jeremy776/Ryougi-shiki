@@ -12,12 +12,6 @@ interface ICommand {
     execute: (message: Message, args: string[], client: RyougiClient) => unknown; 
  }
 
-interface Snipe {
-    content: string;
-    author: string;
-    image: string;
-}
-
 import '../extenders/Message'
 
 class RyougiClient extends Client {
@@ -25,7 +19,7 @@ class RyougiClient extends Client {
     public color: string = "DARK_BUT_NOT_BLACK";
     public commands: Collection<string, ICommand> = new Collection();
     public aliases: Collection<string, string> = new Collection();
-    public snipe: Map<string, Snipe> = new Map();
+    public snipe: Map<string, Message:any> = new Map();
     public util: typeof Util = Util;
     public config: typeof config = config;
 }
