@@ -22,7 +22,7 @@ import '../extenders/Message'
 
 class testClient extends Client {
     public helps: Collection<string, string> = new Collection();
-    public color: string = "DARK_BLUE";
+    public color: string = "DARK_BUT_NOT_BLACK";
     public commands: Collection<string, ICommand> = new Collection();
     public aliases: Collection<string, string> = new Collection();
     public snipe: Map<string, Snipe> = new Map();
