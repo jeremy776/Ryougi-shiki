@@ -1,7 +1,8 @@
 import { Client, Collection, Message } from 'discord.js';
 import * as config from '../config.json';
-import * as db from "../models/Global";
 import { Util } from './Util';
+
+const db = require("../modles/Global");
 
 interface ICommand {
     name: string;
