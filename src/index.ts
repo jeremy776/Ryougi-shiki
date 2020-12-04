@@ -10,11 +10,7 @@ client.on('ready', () => {
  });
 
 client.on('messageDelete', msg => {
-  client.snipe.set(msg.channel.id, {
-    content:msg.content,
-    author:msg.author.tag,
-    image: msg.attachments.first() ? msg.attachments.first().proxyURL : null
-  })
+  client.snipe.set(msg.channel.id, Message:msg)
 });
   
 require(`./handle/command`).default(client)
