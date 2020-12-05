@@ -6,7 +6,7 @@ const cooldowns = new Discord.Collection();
 
 client.on('ready', () => {
   console.log(`${client.user.tag} Ready At ${client.guilds.cache.size} Guilds`);
-  client.user.setActivity("19 detik", {type: "WATCHING"})
+  client.user.setActivity("Pakai Masker Woi", {type: "WATCHING"})
  });
 
 client.on('messageDelete', msg => {
