@@ -22,7 +22,7 @@ export default {
 • Id     :: ${msg.guild.id}
 • Member :: ${msg.guild.memberCount}
 \`\`\``)
-    .addField("Roles", `\`\`\`${msg.guild.roles.cache.map(x => x.name).join(" | ")\`\`\``)
+    .addField("Roles", `\`\`\`${msg.guild.roles.cache.map(x => x.name).join(" | ")}\`\`\``)
     return msg.channel.send(embed)
  }
 }
