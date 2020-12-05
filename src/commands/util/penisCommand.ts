@@ -11,7 +11,7 @@ export default {
   let embed = new MessageEmbed()
   .setColor(client.color)
   .setAuthor(`${user.username} Penis`)
-  .setDescription(`8`+`=`.repeat(client.util.randomNumber(0, 10))+`D`)
+  .setDescription(`8`+`=`.repeat(client.util.randomNumber(1, 10))+`D`)
   .setTimestamp()
   return msg.channel.send(embed)
 
