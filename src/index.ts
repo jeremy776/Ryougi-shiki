@@ -20,9 +20,28 @@ require(`./handle/cmdHandle`).default(client)
 
 client.on('message', async message => {
  const msg = message;
+
+ let author = client.afk.get(msg.author.id);
+ let tag = msg.mentions.members.first();
+
+ if(tag) {
+   let status = client.afk.get(tag.id);
+
+   if(status) {
+     let embed = new Discord.MessageEmbed()
+     .setDescription(`**${tag.user.tag} is afk: ${status}**`)
+     .setColor(client.color)
+     return msg.channel.send(embed)
+   }
+ }
+
+ if(author) {
+   msg.reply(`Welcome Back ;)`)
+   return client.afk.delete(msg.author.id);
+ }
+
   if (message.author.bot) return;
   if (!message.content.toLowerCase().startsWith(client.config.prefix)) return;
-
 
     if (message.content.toLowerCase().startsWith(client.config.prefix)) {
     const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
