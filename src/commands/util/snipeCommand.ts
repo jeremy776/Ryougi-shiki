@@ -7,7 +7,8 @@ export default {
   guildOnly:true,
   execute(msg, args, client) {
 
-  let data = client.snipe.get(msg.channel.id);
+  let channel = msg.mentions.channels.first() || msg.channel
+  let data = client.snipe.get(channel.id);
   let noData = new MessageEmbed()
   .setDescription("**There are no messages deleted on this channel**")
   .setColor(client.color)
