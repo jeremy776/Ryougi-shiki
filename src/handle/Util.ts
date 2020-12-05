@@ -19,7 +19,7 @@ export class Util {
   let M = parseInt((S / 60).toString());
   S = parseInt((S % 60).toString());
  
-  if (S || M || H || D) return `${D}D ${H}H ${M}M ${S}S`;
+  if (S || M || H || D) return `${D}d ${H}h ${M}m ${S}s`;
  }
  
  static async hastebin(string) {
