@@ -8,6 +8,9 @@ export default {
 
    let embed = new MessageEmbed()
    .setAuthor(msg.guild.name + " Info", msg.author.displayAvatarURL({dynamic:true}))
+   .setColor(client.color)
+   .setTimestamp()
+   .setFooter("Reply "+ msg.author.tag)
    .addField("Owner", `
 \`\`\`
 • Name :: ${client.users.cache.get(msg.guild.ownerID).tag}
