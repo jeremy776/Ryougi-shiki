@@ -32,6 +32,5 @@ export class Util {
    if(!max) throw new Error("Invalid Max Number")
    if(!isNaN(min)) throw new Error("Value Must be A Number")
    if(!isNaN(max)) throw new Error("Value Must be A Number")
-
    return Math.floor(Math.random() * max) + min;
 }
