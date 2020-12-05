@@ -16,7 +16,7 @@ export default {
         .setAuthor(client.user.username+" Commands", client.user.displayAvatarURL())
         .setFooter(`Type: ${client.config.prefix}help [command] | ${client.commands.size} Commands`);
       for (const mod of module) {
-        embed.addField(`${mod.emot} | ${mod.name.slice(0,1).toUpperCase()}${mod.name.slice(1, mod.name.length)} (${mod.cmds.map(x => x).length})`, mod.cmds.map(x => `\`${x}\``).join(", "));
+        embed.addField(`${mod.emot} | ${mod.name.slice(0,1).toUpperCase()}${mod.name.slice(1, mod.name.length)} [\`${mod.cmds.map(x => x).length}\`]`, mod.cmds.map(x => `\`${x}\``).join(", "));
       }
         embed.addField("Links", `[Support Server](https://discord.gg/uQch8Yyqvs) | [Invite ${client.user.username}](https://discordapp.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)`)
       
