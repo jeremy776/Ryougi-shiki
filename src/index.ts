@@ -37,7 +37,7 @@ client.on('message', async message => {
 
  if(author) {
    msg.reply(`Welcome Back ;)`)
-   return client.afk.delete(msg.author.id);
+   client.afk.delete(msg.author.id);
  }
 
   if (message.author.bot) return;
