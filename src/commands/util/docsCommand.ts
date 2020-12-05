@@ -4,7 +4,7 @@ export default {
    name: "docs",
    aliases: ["discord.js", "discordjs", "discord-js"],
    description: "docs",
-   execute(msg, args, client) {
+   execute(message, args, client) {
 
   const search = args[0];
   if (!search) return message.channel.send('Not found :(');
