@@ -43,12 +43,19 @@ export default {
    if(cmd.cooldown == undefined) cooldown = "None";
    if(!cooldown) cooldown = "None";
 
+   let alias;
+   if(cmd.aliases) {
+     alias = cmd.aliases.map(x => `${x}`).join(", ");
+   }else{
+     alias = "None";
+   }
+
     const embed = new MessageEmbed()
       .setColor(client.color)
       .setTitle(`Info Command: ${cmd.name.slice(0,1).toUpperCase()}${cmd.name.slice(1, cmd.name.length)}`)
       .addField(`Description`, `${cmd.description}`)
       .addField(`Cooldown`, `${cooldown}`)
-      .addField("Aliases", cmd.aliases.length > 0 ? cmd.aliases.map(x => `${x}`).join(", ") : "None")
+      .addField("Aliases", alias)
       .setFooter("Don't include <> or [], it's mean <> is required and [] is optional");
     return msg.channel.send(embed);
   } catch (e) {
