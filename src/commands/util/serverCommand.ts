@@ -21,8 +21,10 @@ export default {
 • Name   :: ${msg.guild.name}
 • Id     :: ${msg.guild.id}
 • Member :: ${msg.guild.memberCount}
+ • Bot   :: ${msg.guild.members.cache.filter(x => x.user.bot).size}
+ • User  :: ${msg.guild.members.cache.filter(x => !x.user.bot).size}
 \`\`\``)
-    .addField("Roles", `\`\`\`${msg.guild.roles.cache.map(x => x.name).join(" | ")}\`\`\``)
+    .addField(`Roles [\`${msg.guild.roles.cache.size}\`]`), `\`\`\`${msg.guild.roles.cache.map(x => x.name).join(" | ")}\`\`\``)
     return msg.channel.send(embed)
  }
 }
