@@ -31,12 +31,12 @@ client.on('message', async message => {
      let embed = new Discord.MessageEmbed()
      .setDescription(`**${tag.user.tag} is afk: ${status}**`)
      .setColor(client.color)
-     return msg.channel.send(embed)
+     return msg.channel.send(embed).then(x => x.delete({timeout:5000}))
    }
  }
 
  if(author) {
-   msg.reply(`Welcome Back ;)`)
+   msg.reply(`Welcome Back ;)`).then(x => x.delete({timeout:5000}))
    client.afk.delete(msg.author.id);
  }
 
