@@ -20,6 +20,7 @@ class RyougiClient extends Client {
     public commands: Collection<string, ICommand> = new Collection();
     public aliases: Collection<string, string> = new Collection();
     public snipe: Map<string, Message> = new Map();
+    public afk: Map<string, Message> = new Map();
     public util: typeof Util = Util;
     public config: typeof config = config;
 }
