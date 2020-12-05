@@ -27,8 +27,8 @@ export class Util {
    return `https://hasteb.in/${body.key}.js`
  }
 
- static async randomNumber(min, max) {
-   if(!min) min = 0;
+ static randomNumber(min, max) {
+   if(!min) throw new Error("Invalid Min Number")
    if(!max) throw new Error("Invalid Max Number")
    if(!isNaN(min)) throw new Error("Value Must be A Number")
    if(!isNaN(max)) throw new Error("Value Must be A Number")
