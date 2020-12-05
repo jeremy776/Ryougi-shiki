@@ -8,6 +8,7 @@ export default {
   execute(msg, args, client) {
 
   let user = msg.mentions.users.first() || msg.author;
+  if(user.id == client.user.id) return msg.reply("Error. Too long ;)");
   let embed = new MessageEmbed()
   .setColor(client.color)
   .setAuthor(`${user.username} Penis`)
