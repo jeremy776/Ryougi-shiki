@@ -28,7 +28,7 @@ export default {
   - Id    :: ${msg.author.id}
 • Message :: ${suggest}
 \`\`\``)
-   msg.channel.send({embed:{description:"Thanks For Give Suggestion:)", color: client.color}})
+   msg.channel.send({embed:{description:"**Thanks For Give Suggestion:)**", color: client.color}})
    return client.channels.cache.get(client.config.suggestion).send(embed)
  }
 }
