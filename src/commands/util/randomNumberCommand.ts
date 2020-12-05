@@ -1,5 +1,5 @@
 export default {
-  name: "randomNumber",
+  name: "randomnumber",
   aliases: ["random-number", "number-generator"],
   description: "random number",
   execute(msg, args, client) {
