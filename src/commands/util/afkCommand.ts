@@ -15,7 +15,7 @@ export default {
     
     if (!afk) {
       embedAFK.setDescription(`**${msg.author.tag}** now afk with reason: \`${k}\``)
-      client.afk.set(msg.author.id, k);
+      client.afk.set(msg.author.id, k as any);
     } else {
       embedAFK.setDescription("**You're no longer Afk**");
       client.afk.delete(msg.author.id);
