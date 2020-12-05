@@ -22,7 +22,7 @@ export default {
     .setColor(client.color)
     .setTimestamp()
     return msg.channel.send(notAstring)
-  }*/
+  }
 
   if(pesan.length < 5) {
     let shortMessage = new MessageEmbed()
@@ -30,7 +30,7 @@ export default {
     .setColor(client.color)
     .setTimestamp()
     return msg.channel.send(shortMessage)
-  }
+  }*/
 
   let Succes = new MessageEmbed()
   .setDescription("**Your report has been successfully sent to our developer**")
