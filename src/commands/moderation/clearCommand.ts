@@ -12,7 +12,7 @@ export default {
     .setDescription(`**Sorry, but you need \`MANAGE_MESSAGEA\` permissions to do this**`)
     .setColor(client.color)
     
-    let clientPerm = new Discord.MessageEmbed()
+    let clientPerm = new MessageEmbed()
     .setDescription(`**Sorry, but I need \`MANAGE_MESSAGES\` permission to do this**`)
     .setColor(client.color)
     
