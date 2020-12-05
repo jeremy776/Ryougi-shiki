@@ -26,12 +26,4 @@ export class Util {
    const { body } = await fetch.post('https://hasteb.in/documents').send(string);
    return `https://hasteb.in/${body.key}.js`
  }
-
- static async invite(id, perms) {
-   if(!id) throw new Error("Invalid Value");
-   if(!perms) throw new Error("Invalid Value");
-   if(!isNaN(id)) throw new Error("Id must be a Number");
-   if(!isNaN(perms)) throw new Error("Permission must be a Number");
-   return `https://discordapp.com/api/oauth2/authorize?client_id=${id}&permissions=${perms}&scope=bot
- }
 }
