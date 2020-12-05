@@ -26,4 +26,12 @@ export class Util {
    const { body } = await fetch.post('https://hasteb.in/documents').send(string);
    return `https://hasteb.in/${body.key}.js`
  }
+
+ static async randomNumber(min, max) {
+   if(!min) min = 0;
+   if(!max) throw new Error("Invalid Max Number")
+   if(!isNaN(min)) throw new Error("Value Must be A Number")
+   if(!isNaN(max)) throw new Error("Value Must be A Number")
+
+   return Math.floor(Math.random() * max) + min;
 }
