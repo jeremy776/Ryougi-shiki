@@ -1,4 +1,4 @@
-import { Message } from "discord.js";
+import { MessageEmbed } from "discord.js";
 
 export default {
   name: "slowmode",
