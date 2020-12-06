@@ -13,7 +13,7 @@ export default {
     const img = await randomPuppy(random);
     const embed = new MessageEmbed()
     .setImage(img)
-    .setColor(c.COLOR)
+    .setColor(client.color)
     .setURL(`https://reddit.com/r/${random}`)
     .setTimestamp();
     return msg.channel.send(embed)
