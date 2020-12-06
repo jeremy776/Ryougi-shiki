@@ -16,7 +16,7 @@ export default {
         .setTitle("ANIME MEME'S")
         .setColor(client.color)
         .setTimestamp()
-     return message.channel.send({ embed })
+     return msg.channel.send({ embed })
     });
 
  }
