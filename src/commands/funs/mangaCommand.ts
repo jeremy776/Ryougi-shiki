@@ -6,7 +6,7 @@ export default {
   description: "get info about manga",
   cooldown: 1,
   guildOnly:true,
-  execute(message, args, client) {
+  async execute(message, args, client) {
 
   function shorten(text, maxLen = 2000) {
             return text.length > maxLen ? `${text.substr(0, maxLen - 3)}...` : text;
@@ -21,7 +21,7 @@ export default {
                 const test = data.slug;
                 const test1 = test.toUpperCase();
           
-	const embed = new Discord.MessageEmbed()
+	const embed = new MessageEmbed()
 	.setColor(client.color)
 	.setAuthor(`${test1}`, 'https://i.imgur.com/lVqooyd.png', 'https://kitsu.io/explore/manga')
 	.setURL(`https://kitsu.io/manga/${data.slug}`)
