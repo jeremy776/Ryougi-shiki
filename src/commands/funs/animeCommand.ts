@@ -3,7 +3,7 @@ import { MessageEmbed } from "discord.js";
 
 export default {
   name: "anime",
-  description: "get anime info maybe?",
+  description: "get random anime maybe?",
   cooldown: 2,
   guildOnly:true,
   async execute(msg, args, client) {
