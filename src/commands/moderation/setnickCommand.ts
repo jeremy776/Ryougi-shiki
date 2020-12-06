@@ -9,6 +9,7 @@ export default {
 
   let noPerms = new MessageEmbed()
   .setDescription("**Maybe you or I don't have \`MANAGE_NICKNAMES\` permissions**")
+  .setColor(client.color)
   if(!msg.member.hasPermission("MANAGE_NICKNAMES")) return msg.channel.send(noPerms)
   if(!msg.guild.me.hasPermission("MANAGE_NICKNAMES")) return msg.channel.send(noPerms)
 
