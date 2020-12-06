@@ -1,4 +1,4 @@
-const animesf = require("node-fetch");
+const animesf = require("axios");
 import { MessageEmbed } from "discord.js";
 
 export default {
@@ -9,13 +9,13 @@ export default {
   async execute(msg, args, client) {
 
   let res = await animesf.get("http://api.cutegirls.moe/json");
-    if (res.body.status !== 200) {
+    if (res.data.status !== 200) {
       return msg.reply("An error occurred while processing this command.");
     }
     let animepicembed = new MessageEmbed()
       .setColor(client.color)
       .setTitle("Anime Picture")
-      .setImage(res.body.data.image)
+      .setImage(res.data.data.image)
       .setTimestamp()
       return msg.channel.send(animepicembed);
  }
