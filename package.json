@@ -21,6 +21,7 @@
     "axios": "^0.21.0",
     "mongoose": "^5.11.2",
     "node-superfetch": "^0.1.10",
+    "discord-player": "^3.0.3",
     "moment": "^2.29.1"
   },
   "engines": {
