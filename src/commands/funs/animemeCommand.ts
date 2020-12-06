@@ -1,5 +1,5 @@
 import { MessageEmbed } from "discord.js";
-conat randomPuppy = require("random-puppy");
+const randomPuppy = require("random-puppy");
 
 export default {
   name: "animeme",
