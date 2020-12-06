@@ -12,15 +12,11 @@ export default {
     if (res.body.status !== 200) {
       return msg.reply("An error occurred while processing this command.");
     }
-  try{
     let animepicembed = new MessageEmbed()
       .setColor(client.color)
       .setTitle("Anime Picture")
       .setImage(res.body.data.image)
       .setTimestamp()
       return msg.channel.send(animepicembed);
-   }catch(e){
-    return msg.reply(e)
-  }
  }
 }
