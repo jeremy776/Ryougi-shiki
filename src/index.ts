@@ -16,7 +16,7 @@ client.on('messageDelete', msg => {
   
 require(`./handle/command`).default(client)
 require(`./handle/cmdHandle`).default(client)
-
+require(`./handle/event`).default(client)
 
 client.on('message', async message => {
  const msg = message;
