@@ -18,11 +18,15 @@ export default {
 \`\`\``)
     .addField("Server", `
 \`\`\`
-• Name   :: ${msg.guild.name}
-• Id     :: ${msg.guild.id}
-• Member :: ${msg.guild.memberCount} Members
-  • Bot  :: ${msg.guild.members.cache.filter(x => x.user.bot).size} Bots
-  • User :: ${msg.guild.members.cache.filter(x => !x.user.bot).size} Users
+• Name     :: ${msg.guild.name}
+• Id       :: ${msg.guild.id}
+• Region   :: ${msg.guild.region}
+• Members  :: ${msg.guild.memberCount} Members
+  • Bot's  :: ${msg.guild.members.cache.filter(x => x.user.bot).size} Bots
+  • User's :: ${msg.guild.members.cache.filter(x => !x.user.bot).size} Users
+• Channels :: ${msg.guild.channels.cache.size}
+  • Text   :: ${msg.guild.channels.cache.filter(x => x.type == "text").size} Text Channel's
+  • Voice  :: ${msg.guild.channels.cache.filter(x => x.type == "voice").size} Voice Channel's
 \`\`\``)
     .addField(`Roles [\`${msg.guild.roles.cache.size}\`]`, `\`\`\`${msg.guild.roles.cache.map(x => x.name).join(" | ")}\`\`\``)
     return msg.channel.send(embed)
