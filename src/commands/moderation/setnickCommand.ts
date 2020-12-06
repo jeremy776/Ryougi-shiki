@@ -20,7 +20,7 @@ export default {
   .setTimestamp()
   if(!member) return msg.channel.send(noMember)
 
-  let nick = args[0]
+  let nick = args[1]
   let noNickname = new MessageEmbed()
   .setDescription("**Give some new nickname for "+member.user.tag+ "**")
   .setColor(client.color)
