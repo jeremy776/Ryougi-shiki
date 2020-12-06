@@ -1,6 +1,7 @@
 import { Client, Collection, Message } from 'discord.js';
 import * as config from '../config.json';
 import { Util } from './Util';
+const { Player } = require("discord-player");
 
 interface ICommand {
     name: string;
@@ -21,6 +22,7 @@ class RyougiClient extends Client {
     public aliases: Collection<string, string> = new Collection();
     public snipe: Map<string, Message> = new Map();
     public afk: Map<string, Message> = new Map();
+    public player = new Player(this);
     public util: typeof Util = Util;
     public config: typeof config = config;
 }
