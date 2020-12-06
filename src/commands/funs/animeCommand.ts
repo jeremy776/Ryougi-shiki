@@ -10,7 +10,7 @@ export default {
 
   let res = await animesf.get("http://api.cutegirls.moe/json");
     if (res.body.status !== 200) {
-      return message.channel.send("An error occurred while processing this command.");
+      return msg.reply("An error occurred while processing this command.");
     }
     let animepicembed = new MessageEmbed()
       .setColor(client.color)
