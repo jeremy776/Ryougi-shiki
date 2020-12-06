@@ -1,4 +1,4 @@
-const animesf = require("sneckfetch");
+const animesf = require("node-fetch");
 import { MessageEmbed } from "discord.js";
 
 export default {
