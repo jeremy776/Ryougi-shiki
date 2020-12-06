@@ -27,7 +27,7 @@ export default {
   .setTimestamp()
   if(!nick) return msg.channel.send(noNickname)
 
-  let nickname = nick.toLowerCase().replace(/{member.tag}/g, member.user.tag).replace(/{member}/g, member.user.username)
+  let nickname = nick.replace(/{member.tag}/g, member.user.tag).replace(/{member}/g, member.user.username)
 
   let succes = new MessageEmbed()
   .setDescription(`**You succesfully set ${member.user.tag} to ${nickname}**`)
