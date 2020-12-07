@@ -11,13 +11,13 @@ export default {
 
   let baseURL = "https://www.growtopiagame.com/detail";
   let res = axios.get(baseURL).then(x => {
-  //let wotd = res.data.world_day_images.fullsize //.replace("https:\/\/www.growtopiagame.com\/worlds\/", "").replace(".png", "");
+  let wotd = x.data.world_day_images.full_size.replace("https:\/\/www.growtopiagame.com\/worlds\/", "").replace(".png", "");
 
   let embed = new MessageEmbed()
   .setTitle("Growtopia Statistic")
   .addField("Online User's", x.data.online_user + " users")
-  .addField("World Of The Day", x.data.world_day_images.fullsize)
-  .setImage(x.data.world_day_images.fullsize)
+  .addField("World Of The Day", wotd)
+  .setImage(x.data.world_day_images.full_size)
   .setColor(client.color);
   return msg.channel.send(embed)
   });
