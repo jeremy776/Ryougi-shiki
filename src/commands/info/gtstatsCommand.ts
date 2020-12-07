@@ -16,7 +16,7 @@ export default {
   let embed = new MessageEmbed()
   .setTitle("Growtopia Statistic")
   .addField("Online User's", x.data.online_user + " users")
-  .addField("World Of The Day", wotd)
+  .addField("World Of The Day", wotd.toUpperCase())
   .setImage(x.data.world_day_images.full_size)
   .setColor(client.color);
   return msg.channel.send(embed)
