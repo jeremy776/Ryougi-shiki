@@ -20,6 +20,6 @@ export default {
   .setImage(x.data.world_day_images.fullsize)
   .setColor(client.color);
   return msg.channel.send(embed)
-  }
+  });
  }
 }
