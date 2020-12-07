@@ -10,7 +10,7 @@ export default {
   async execute(msg, args, client) {
 
   let baseURL = "https://www.growtopiagame.com/detail";
-  let res = axios.get(baseURL).then(x => x)
+  let res = await axios.get(baseURL);
   let wotd = res.data.world_day_images.fullsize //.replace("https:\/\/www.growtopiagame.com\/worlds\/", "").replace(".png", "");
 
   let embed = new MessageEmbed()
