@@ -18,6 +18,7 @@ ${client.config.owner.map(x => "• "+client.users.cache.get(x).tag)}
 \`\`\``)
   .addField(`Bot Statsistic`,
 `\`\`\`
+• Commands     :: ${client.commands.size}
 • Channels     :: ${client.channels.cache.size.toLocaleString()}
 • Servers      :: ${client.guilds.cache.size.toLocaleString()}
 • Users        :: ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
