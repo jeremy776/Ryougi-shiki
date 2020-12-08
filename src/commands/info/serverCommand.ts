@@ -26,7 +26,7 @@ export default {
   • User's :: ${msg.guild.members.cache.filter(x => !x.user.bot).size} Users
 • Channels :: ${msg.guild.channels.cache.size} Channel's
 \`\`\``)
-    .addField(`Roles [\`${msg.guild.roles.cache.size}\`]`, `${msg.guild.roles.cache.map(x => x.name).join(" | ")}`)
+    .addField(`Roles [\`${msg.guild.roles.cache.size}\`]`, `${msg.guild.roles.cache.map(x => x).join(" | ")}`)
     return msg.channel.send(embed)
  }
 }
