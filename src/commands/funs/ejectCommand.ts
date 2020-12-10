@@ -20,7 +20,7 @@ export default {
   let a = impostor[random];
 
   let color = ["black", "blue", "brown", "cyan", "darkgreen", "lime", "orange", "pink", "purple", "red", "white", "yellow"];
-  let randomColor = client.randomNumber(1, color.length)
+  let randomColor = client.util.randomNumber(1, color.length)
   let colorRandom = color[randomColor];
 
   let embed = new MessageEmbed()
