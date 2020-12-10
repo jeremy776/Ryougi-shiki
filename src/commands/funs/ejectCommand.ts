@@ -8,7 +8,7 @@ export default {
   execute(msg, args, client) {
 
   let user = msg.mentions.users.first()
-  let noUser = MessageEmbed()
+  let noUser = new MessageEmbed()
   .setDescription("**User not found**")
   .setColor(client.color)
   if(!user) return msg.channel.send(noUser);
