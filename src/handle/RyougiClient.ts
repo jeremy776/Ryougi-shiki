@@ -9,14 +9,7 @@ export default class RyougiClient extends Client {
     public constructor(opt?: ClientOptions){
         super({
             disableMentions: "everyone",
-            cacheGuilds: true,
-            cacheChannels: true,
-            cacheOverwrites: false,
-            cacheRoles: false,
-            cacheEmojis: false,
-            cachePresences: false,
             fetchAllMembers: true,
-            ws: { properties: { $browser: "Discord iOS" } }
         })
     }
     public config: typeof config = config
