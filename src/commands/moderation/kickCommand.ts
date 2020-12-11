@@ -15,6 +15,8 @@ import Command from "../../handle/Command";
  export default class kickCommand extends Command {
    public async exec(msg:Message, args:string[]) {
 
+  let client = this.client;
+
   let noPerms = new MessageEmbed()
   .setDescription("**You must have \`KICK MEMBERS\` permission**")
   .setColor(client.color)
