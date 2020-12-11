@@ -13,7 +13,7 @@ import Command from "../../handle/Command";
 })
 
  export default class serverCommand extends Command {
-   public async exec(msg:Message, args:[]) {
+   public async exec(msg:Message, args:string[]) {
 
    let embed = new MessageEmbed()
    .setAuthor(msg.guild.name + " Info", msg.author.displayAvatarURL({dynamic:true}))
