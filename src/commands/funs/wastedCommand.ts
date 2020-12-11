@@ -16,7 +16,7 @@ import Command from "../../handle/Command";
   public async exec(msg: Message, args:string[]) {
    let user = msg.mentions.users.first() || msg.author;
    let embed = new MessageEmbed()
-   .setColor(client.color)
+   .setColor(this.client.color)
    .setImage(`https://some-random-api.ml/canvas/wasted?avatar=${user.displayAvatarURL({format:"png"})}`)
    .setTimestamp()
    return msg.channel.send(embed)
