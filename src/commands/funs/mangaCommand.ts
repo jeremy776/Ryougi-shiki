@@ -1,12 +1,20 @@
 import { MessageEmbed } from "discord.js";
 const request = require("node-superfetch");
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
+ @CommandConf({
   name: "manga",
+  aliases: [],
   description: "get info about manga",
+  usage: "manga [name]",
   cooldown: 1,
-  guildOnly:true,
-  async execute(message, args, client) {
+  ownerOnly:false
+ })
+
+ export default class mangaCommand extends Command {
+  public async exec(msg: Message, args:string[]) {
 
   function shorten(text, maxLen = 2000) {
             return text.length > maxLen ? `${text.substr(0, maxLen - 3)}...` : text;
