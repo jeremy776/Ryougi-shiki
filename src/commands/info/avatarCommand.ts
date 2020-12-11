@@ -32,7 +32,7 @@ import Command from "../../handle/Command";
         let testy = test.slice(0, 5).map(n => n);
 
         let wrongUsername = new MessageEmbed()
-        .setDescription(`\`The name you wrote was not detected\nOr is this what you mean?\`\n\n**${test.slice(0, 5).map(x => "• "+client.users.cache.get(x).tag).join("\n")}**`)
+        .setDescription(`\`The name you wrote was not detected\nOr is this what you mean?\`\n\n**${test.slice(0, 5).map(x => "• "+this.client.users.cache.get(x).tag).join("\n")}**`)
         .setColor(this.client.color)
         let x = await message.channel.send(wrongUsername);
 
