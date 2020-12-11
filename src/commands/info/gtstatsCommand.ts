@@ -1,18 +1,24 @@
 import { MessageEmbed } from "discord.js";
 const axios = require("axios");
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
-  name: "gtstats",
-  aliases: ["statsgt", "gt-stats", "growtopia-stats"],
-  description: "stats about growtopia",
-  cooldown: 1,
-  guildOnly:true,
-  async execute(msg, args, client) {
+@CommandConf({
+ name: "gtstats",
+ aliases: ["gt-info", "stats-gt", "growtopia"],
+ description: "see the stats of the growtopia game",
+ usage: "gtstats",
+ cooldown: 1,
+ ownerOnly:false
+})
+
+ export default class gtstatsCommand extends Command {
+  public async exec(msg:Message, args:string[]) {
 
   let baseURL = "https://www.growtopiagame.com/detail";
   let res = axios.get(baseURL).then(x => {
   let wotd = x.data.world_day_images.full_size.replace("https:\/\/www.growtopiagame.com\/worlds\/", "").replace(".png", "");
-
   let embed = new MessageEmbed()
   .setTitle("Growtopia Statistic")
   .addField("Online User's", x.data.online_user + " users")
