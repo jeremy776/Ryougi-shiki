@@ -23,8 +23,10 @@ export default {
   let randomColor = Math.floor(Math.random() * color.length);
   let colorRandom = color[randomColor];
 
+  let url = `https://vacefron.nl/api/ejected?name=${user.username}&impostor=true&crewmate=${colorRandom}`;
+
   let embed = new MessageEmbed()
-  .setImage(`https://vacefron.nl/api/ejected?name=${user.username}&impostor=true&crewmate=blue`)
+  .setImage(url)
   .setColor(client.color)
   .setTimestamp()
   .setFooter(`${msg.author.username} has voted ${user.username}`)
