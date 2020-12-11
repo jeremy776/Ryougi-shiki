@@ -1,12 +1,20 @@
 import { MessageEmbed } from "discord.js";
 const randomPuppy = require("random-puppy");
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
-  name: "meme",
-  aliases: ["memes"],
-  description: "maybe meme?",
-  cooldown: 1,
-  async execute(msg, args, client) {
+@CommandConf({
+ name: "meme",
+ aliases: [],
+ description: "looking at memes to make you laugh 😀",
+ usage: "meme",
+ cooldown: 1,
+ ownerOnly:false
+})
+
+ export default class memeCommand extends Command {
+  public async exec(msg:Message, args:string[]) {
 
   const subReddits = ["dankmeme", "meme", "me_irl"];
     const random = subReddits[Math.floor(Math.random() * subReddits.length)];
