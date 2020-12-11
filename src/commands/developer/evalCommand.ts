@@ -1,11 +1,17 @@
-import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
-  name: "eval",
-  aliases: ["ev", "v"],
-  guildOnly: false,
-  description: "Evalute Code",
-  execute: async(message, query, client) => {
+@CommandConf({ 
+    name: "eval",
+    aliases: ["e", "ev"],
+    description: "",
+    usage: "",
+    cooldown: 3,
+    ownerOnly: true
+})
+export default class evalCommand extends Command {
+    public async exec(message: Message, query: string[]): Promise<void> {
 
  if(!client.config.owner.includes(message.author.id)) return message.channel.send({embed:{description:"**Only for my dev**", color:client.color}});
   
