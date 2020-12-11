@@ -10,7 +10,7 @@ export default {
    let user = msg.mentions.users.first() || msg.author;
    let embed = new MessageEmbed()
    .setColor(client.color)
-   .setImage(`https://some-random-api.ml/canvas/wasted?avatar=${user.displayAvatarURL()}`)
+   .setImage(`https://some-random-api.ml/canvas/wasted?avatar=${user.displayAvatarURL({format:"png"})}`)
    .setTimestamp()
    return msg.channel.send(embed)
  }
