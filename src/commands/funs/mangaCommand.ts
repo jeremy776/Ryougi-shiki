@@ -11,7 +11,7 @@ import Command from "../../handle/Command";
   usage: "manga [name]",
   cooldown: 1,
   ownerOnly:false
- })
+})
 
  export default class mangaCommand extends Command {
   public async exec(msg: Message, args:string[]) {
