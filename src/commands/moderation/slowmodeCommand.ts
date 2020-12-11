@@ -1,10 +1,15 @@
 import { MessageEmbed } from "discord.js";
-
-export default {
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+@CommandConf({
   name: "slowmode",
   description: "set slowmode channel",
-  guildOnly:true,
-  execute(msg, args, client) {
+  cooldown:1,
+  ownerOnly:false,
+  usage: "slowmode 60"
+})
+
+
     
     let embed1 = new MessageEmbed()
     .setDescription("**You must have \`MANAGE_CHANNELS\` permission**")
