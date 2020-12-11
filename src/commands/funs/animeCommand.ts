@@ -14,7 +14,7 @@ import Command from "../../handle/Command";
 })
 
 export default class animeCommand extends Command {
-  public async exec(msg: Message, args: strinyg[]) {
+  public async exec(msg: Message, args: string[]) {
 
   let res = await animesf.get("http://api.cutegirls.moe/json");
     if (res.data.status !== 200) {
