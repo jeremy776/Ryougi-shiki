@@ -17,7 +17,7 @@ import Command from "../../handle/Command";
 
    let embed = new MessageEmbed()
    .setAuthor(msg.guild.name + " Info", msg.author.displayAvatarURL({dynamic:true}))
-   .setColor(client.color)
+   .setColor(this.client.color)
    .setTimestamp()
    .setFooter("Reply "+ msg.author.tag)
    .addField("Owner", `
