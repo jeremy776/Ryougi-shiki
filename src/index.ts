@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 const client = new RyougiClient({disableMentions: 'everyone', fetchAllMembers:true});
 const cooldowns = new Discord.Collection();
 
-client.on('ready', () => {
+/*client.on('ready', () => {
   console.log(`${client.user.tag} Ready At ${client.guilds.cache.size} Guilds`);
   client.user.setActivity("19 detik?", {type: "WATCHING"})
  });
@@ -86,6 +86,6 @@ timestamps.set(msg.author.id, now);
   }
 
 });
-
+*/
 
 client.run()
