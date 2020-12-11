@@ -1,6 +1,8 @@
   
 import { Client, ClientOptions, Collection } from 'discord.js-light'
-import config from '../config'
+import config from '../config';
+import type Command from "./Command";
+import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
 import { join } from "path";
 import "../extenders";
