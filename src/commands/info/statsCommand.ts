@@ -41,7 +41,7 @@ ${this.client.config.owner.map(x => "• "+client.users.cache.get(x).tag)}
 • Uptime      :: ${this.client.util.parseDur(client.uptime)}\`\`\``)
   .setFooter(`This bot is still under development`)
   .setTimestamp()
-  .setColor(client.color)
+  .setColor(this.client.color)
   return message.channel.send(botInfo)
  }
 }
