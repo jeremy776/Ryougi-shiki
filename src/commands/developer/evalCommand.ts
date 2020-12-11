@@ -44,7 +44,7 @@ export default class evalCommand extends Command {
     else evaled = `\`\`\`${evaled}\`\`\``;
     const embed = new MessageEmbed()
       .setAuthor("Evaled success")
-      .setColor(client.color)
+      .setColor(this.client.color)
       .setDescription(evaled)
       .addField("Type", `\`\`\`${type}\`\`\``)
       .setFooter(`React to delete message.`);
