@@ -24,7 +24,7 @@ export default {
   let colorRandom = color[randomColor];
 
   let embed = new MessageEmbed()
-  .setImage(`https://vacefron.nl/api/ejected?name=${user.username}&impostor=true&crewmate=${colorRandom}`)
+  .setImage(`https://vacefron.nl/api/ejected?name=${user.username}&impostor=true&crewmate=blue`)
   .setColor(client.color)
   .setTimestamp()
   .setFooter(`${msg.author.username} has voted ${user.username}`)
