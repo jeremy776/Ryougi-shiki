@@ -14,7 +14,7 @@ import { MessageEmbed } from "discord.js";
 export default class evalCommand extends Command {
     public async exec(message: Message, query: string[]): Promise<void> {
 
- if(!client.config.owner.includes(message.author.id)) return message.channel.send({embed:{description:"**Only for my dev**", color:client.color}});
+ if(!this.client.config.owner.includes(message.author.id)) return message.channel.send({embed:{description:"**Only for my dev**", color:client.color}});
   
   const choice = ["🚫"]
   const bot = client;
