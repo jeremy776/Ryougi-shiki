@@ -1,5 +1,5 @@
 import type { Message } from "discord.js";
-import Listener from "../structures/Listener";
+import Listener from "../handle/Listener";
 
 export default class MessageEvent extends Listener {
     public name = "message";
