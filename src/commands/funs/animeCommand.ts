@@ -21,7 +21,7 @@ export default class animeCommand extends Command {
       return msg.reply("An error occurred while processing this command.");
     }
     let animepicembed = new MessageEmbed()
-      .setColor(client.color)
+      .setColor(this.client.color)
       .setTitle("Anime Picture")
       .setImage(res.data.data.image)
       .setTimestamp()
