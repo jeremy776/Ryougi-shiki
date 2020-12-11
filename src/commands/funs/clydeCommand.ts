@@ -1,11 +1,19 @@
 import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
-  name: "clyde",
-  cooldown:2,
-  description: "cLyDe",
-  guildOnly:true,
-  execute(msg, args, client) {
+@CommandConf({
+  name: 'clyde',
+  aliases: [],
+  description: "clyde message",
+  usage: "clyde [text]",
+  cooldown: 2,
+  ownerOnly:false
+ })
+
+  export default class clydeCommand extends Command {
+    public async exec(msg: Message, args:string[]) {
 
   let kata = args.join(" ")
   if(!kata) kata = "Connecting....";
