@@ -1,5 +1,5 @@
   
-import { Client, ClientOptions, Collection } from 'discord.js-light'
+import { Client, ClientOptions, Collection } from 'discord.js'
 import config from '../config';
 import type Command from "./Command";
 import type Listener from "./Listener";
