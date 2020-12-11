@@ -16,11 +16,11 @@ export default {
   let isImpostors = "true false ".repeat(100);
   let impostor = isImpostors.split(" ");
 
-  let random = client.util.randomNumber(1, impostor.length);
+  let random = Math.floor(Math.random() * impostor.length);
   let a = impostor[random];
 
   let color = ["black", "blue", "brown", "cyan", "darkgreen", "lime", "orange", "pink", "purple", "red", "white", "yellow"];
-  let randomColor = client.util.randomNumber(1, color.length)
+  let randomColor = Math.floor(Math.random() * color.lengrh);
   let colorRandom = color[randomColor];
 
   let embed = new MessageEmbed()
