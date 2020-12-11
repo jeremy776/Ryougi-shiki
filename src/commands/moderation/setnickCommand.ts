@@ -15,21 +15,21 @@ import Command from "../../handle/Command";
 
   let noPerms = new MessageEmbed()
   .setDescription("**Maybe you or I don't have \`MANAGE_NICKNAMES\` permissions**")
-  .setColor(client.color)
+  .setColor(this.client.color)
   if(!msg.member.hasPermission("MANAGE_NICKNAMES")) return msg.channel.send(noPerms)
   if(!msg.guild.me.hasPermission("MANAGE_NICKNAMES")) return msg.channel.send(noPerms)
 
   let member = msg.mentions.members.first();
   let noMember = new MessageEmbed()
   .setDescription("**Mention members first**")
-  .setColor(client.color)
+  .setColor(this.client.color)
   .setTimestamp()
   if(!member) return msg.channel.send(noMember)
 
   let nick = args[1]
   let noNickname = new MessageEmbed()
   .setDescription("**Give some new nickname for "+member.user.tag+ "**")
-  .setColor(client.color)
+  .setColor(this.client.color)
   .setTimestamp()
   if(!nick) return msg.channel.send(noNickname)
 
@@ -37,7 +37,7 @@ import Command from "../../handle/Command";
 
   let succes = new MessageEmbed()
   .setDescription(`**You succesfully set ${member.user.tag} to ${nickname}**`)
-  .setColor(client.color)
+  .setColor(this.client.color)
   .setTimestamp()
   msg.channel.send(succes)
   return member.setNickname(nickname)
