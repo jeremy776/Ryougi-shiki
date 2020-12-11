@@ -1,6 +1,6 @@
 import type { Message } from "discord.js";
 import { CommandConf } from "../../decorators";
-import Command form "../../handle/Command";
+import Command from "../../handle/Command";
 
 @CommandConf({
    name: 'clapify',
