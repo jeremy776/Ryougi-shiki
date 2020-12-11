@@ -13,7 +13,7 @@ export default {
   .setColor(client.color)
   if(!user) return msg.channel.send(noUser);
 
-  let isImpostors = "true false".repeat(100);
+  let isImpostors = "true false ".repeat(100);
   let impostor = isImpostors.split(" ");
 
   let random = client.util.randomNumber(1, impostor.length);
@@ -24,7 +24,7 @@ export default {
   let colorRandom = color[randomColor];
 
   let embed = new MessageEmbed()
-  .setImage(`https://vacefron.nl/api/ejected?name=${user.username}&impostor=true&crewmate=${colorRandom}`)
+  .setImage(`https://vacefron.nl/api/ejected?name=${user.username}&impostor=${a}&crewmate=${colorRandom}`)
   .setColor(client.color)
   .setTimestamp()
   .setFooter(`${msg.author.username} has voted ${user.username}`)
