@@ -1,12 +1,19 @@
 import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
+@CommandConf({
    name: "clear",
    aliases: ["purge"],
    description: "clear message in channel",
-   guildOnly:true,
-   cooldown:10,
-   execute(msg, args, client) {
+   ownerOnly:false
+   cooldown:10
+   usage: "clear 80"
+})
+
+ export default class clearCommand extends Command {
+   public async exec(msg:Message, args:[]) {
     
     let userPerm = new MessageEmbed()
     .setDescription(`**Sorry, but you need \`MANAGE_MESSAGEA\` permissions to do this**`)
