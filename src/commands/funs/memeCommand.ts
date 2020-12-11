@@ -21,7 +21,7 @@ import Command from "../../handle/Command";
     const img = await randomPuppy(random);
     const embed = new MessageEmbed()
     .setImage(img)
-    .setColor(client.color)
+    .setColor(this.client.color)
     .setURL(`https://reddit.com/r/${random}`)
     .setTimestamp();
     return msg.channel.send(embed)
