@@ -3,17 +3,17 @@ import type { Message } from "discord.js";
 import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
-@CommandConf({
-  name: 'clyde',
-  aliases: [],
-  description: "clyde message",
-  usage: "clyde [text]",
-  cooldown: 2,
-  ownerOnly:false
- })
+ @CommandConf({
+    name: 'clyde',
+    aliases: [],
+    description: "clyde message",
+    usage: "clyde [text]",
+    cooldown: 2,
+    ownerOnly:false
+  })
 
-  export default class clydeCommand extends Command {
-    public async exec(msg: Message, args:string[]) {
+ export default class clydeCommand extends Command {
+   public async exec(msg: Message, args:string[]) {
 
   let kata = args.join(" ")
   if(!kata) kata = "Connecting....";
