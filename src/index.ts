@@ -88,4 +88,4 @@ timestamps.set(msg.author.id, now);
 });
 
 
-client.login(client.config.token);
+client.run()
