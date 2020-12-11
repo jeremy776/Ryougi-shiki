@@ -1,24 +1,28 @@
 import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
+@CommandConf({
   name: "unlock",
   aliases: ["unlockdown"],
   cooldown: 5,
-  guildOnly:true,
+  ownerOnly:false,
   description: "Unlock a locked channel",
-  execute(message, args, client) {
+  usage: "unlock"
+})
+
+ export default class unlockCommand extends Command {
+   public async exec(message:Message, args:string[]) {
 
    let noPerms = new MessageEmbed()
-   .setColor(client.color)
+   .setColor(this.client.color)
    .setDescription(`**You must have the \`MANAGE_CHANNELS\` permission**`);
    if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send(noPerms);
-
    let clientNoPerms = new MessageEmbed()
-   .setColor(client.color)
+   .setColor(this.client.color)
    .setDescription(`**I need to have the \`MANAGE_CHANNELS\` permission**`);
    if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send(clientNoPerms);
-
-
    message.channel.overwritePermissions([{
         id: message.guild.id,
         null: ['SEND_MESSAGES'],
@@ -27,7 +31,7 @@ export default {
    );
 
    let Succes = new MessageEmbed()
-   .setColor(client.color)
+   .setColor(this.client.color)
    .setDescription(`**\`${message.author.tag}\` has unlocked the channel**`)
    return message.channel.send(Succes)
  }
