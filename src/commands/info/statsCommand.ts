@@ -18,7 +18,7 @@ import Command from "../../handle/Command";
    public async exec(message:Message, args:[]) {
 
   let botInfo = new MessageEmbed()
-  .setAuthor(`${this.client.user.username} Stats`, client.user.displayAvatarURL())
+  .setAuthor(`${this.client.user.username} Stats`, this.client.user.displayAvatarURL())
   .addField(`Developer`,
 `\`\`\`
 ${this.client.config.owner.map(x => "• "+client.users.cache.get(x).tag)}
