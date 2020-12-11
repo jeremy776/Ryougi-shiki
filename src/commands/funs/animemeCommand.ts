@@ -21,7 +21,7 @@ randomPuppy('animemes')
       const embed = new MessageEmbed()
       .setImage(url)
       .setTitle("ANIME MEME'S")
-      .setColor(client.color)
+      .setColor(this.client.color)
       .setTimestamp()
    return msg.channel.send({ embed })
   });
