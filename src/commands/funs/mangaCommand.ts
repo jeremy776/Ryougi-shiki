@@ -30,7 +30,7 @@ import Command from "../../handle/Command";
                 const test1 = test.toUpperCase();
           
 	const embed = new MessageEmbed()
-	.setColor(client.color)
+	.setColor(this.client.color)
 	.setAuthor(`${test1}`, 'https://i.imgur.com/lVqooyd.png', 'https://kitsu.io/explore/manga')
 	.setURL(`https://kitsu.io/manga/${data.slug}`)
         .setThumbnail(data.posterImage ? data.posterImage.original : null)
