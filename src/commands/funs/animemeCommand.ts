@@ -1,23 +1,29 @@
 import { MessageEmbed } from "discord.js";
 const randomPuppy = require("random-puppy");
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
-  name: "animeme",
-  aliases: ["animemes", "meme-anime", "anime-meme"],
-  description: "maybe get anime meme 🤔",
+@CommandConf({
+  name: 'animeme',
+  aliases:['animemes', 'meme-anime', 'anime-meme'],
+  description: 'maybe get anime meme :/',
+  usage: 'animememe',
   cooldown:2,
-  guildOnly:true,
-  execute(msg, args, client) {
+  ownerOnly:false
+})
 
-  randomPuppy('animemes')
-    .then(url => {
-        const embed = new MessageEmbed()
-        .setImage(url)
-        .setTitle("ANIME MEME'S")
-        .setColor(client.color)
-        .setTimestamp()
-     return msg.channel.send({ embed })
-    });
+export default class animemeCommand extends Command {
+  public async exec(msg: Message, args: string[]) {
 
+randomPuppy('animemes')
+  .then(url => {
+      const embed = new MessageEmbed()
+      .setImage(url)
+      .setTitle("ANIME MEME'S")
+      .setColor(client.color)
+      .setTimestamp()
+   return msg.channel.send({ embed })
+  });
  }
 }
