@@ -12,7 +12,7 @@ import Command from "../../handle/Command";
   ownerOnly:false
 })
 
- export default class server-iconCommand extends Command {
+ export default class serverIconCommand extends Command {
   public async exec(msg:Message, args:[]) {
 
   let embed = new MessageEmbed()
