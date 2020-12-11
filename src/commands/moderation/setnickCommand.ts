@@ -11,7 +11,7 @@ import Command from "../../handle/Command";
 })
 
  export default class setnickCommand extends Command {
-   public async exec(msg:Message, args:[]) {
+   public async exec(msg:Message, args:string[]) {
 
   let noPerms = new MessageEmbed()
   .setDescription("**Maybe you or I don't have \`MANAGE_NICKNAMES\` permissions**")
