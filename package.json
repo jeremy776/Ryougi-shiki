@@ -7,8 +7,8 @@
   "description": "A simple Node app built on Express, instantly up and running.",
   "main": "server.js",
   "scripts": {
-    "start": "rimraf dist && tsc && node dist",
-    "build": "rimraf dist && tsc && node dist"
+    "start": "node dist",
+    "build": "rimraf dist && tsc"
   },
   "dependencies": {
     "@types/node": "^14.11.2",
