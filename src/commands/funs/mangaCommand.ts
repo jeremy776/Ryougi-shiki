@@ -4,7 +4,7 @@ import type { Message } from "discord.js";
 import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
- @CommandConf({
+@CommandConf({
   name: "manga",
   aliases: [],
   description: "get info about manga",
