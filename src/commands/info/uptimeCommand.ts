@@ -12,7 +12,7 @@ import Command from "../../handle/Command";
 })
 
  export default class uptimeCommand extends Command {
-   public async exec(msg:Message, args:[]) {
+   public async exec(msg:Message, args:string[]) {
 
    let embed = new MessageEmbed()
    .setDescription(`**${this.client.util.parseDur(this.client.uptime)}**`)
