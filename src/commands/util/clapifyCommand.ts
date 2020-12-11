@@ -5,8 +5,8 @@ export default {
    execute(msg, args, client) {
 
    try {
-    args = args.join(" ") || "Input Text";
-    args = args.replace(/ /g, "👏");
+    args = args.join("") || "Input Text";
+    args = args.replace(//g, "👏");
     args += "👏";
     return msg.channel.send(`👏${args}`);
   } catch (e) {
