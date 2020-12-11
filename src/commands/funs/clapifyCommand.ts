@@ -12,10 +12,10 @@ import Command from "../../handle/Command";
 })
 
 export default class clapifyCommand extends Command {
-   public async exec(msg: Message, args: string[]) {
+   public async exec(msg:Message, args:string[]) {
    try {
     let kata = args.join(" ") || "Input Text";
-    let katanya = args.replace(/ /g, "👏");
+    let katanya = kata.replace(/ /g, "👏");
     katanya += "👏";
     return msg.channel.send(`👏${katanya}`);
   } catch (e) {
