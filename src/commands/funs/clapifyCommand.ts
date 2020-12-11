@@ -14,10 +14,10 @@ import Command from "../../handle/Command";
 export default class clapifyCommand extends Command {
    public async exec(msg: Message, args: string[]) {
    try {
-    args = args.join(" ") || "Input Text";
-    args = args.replace(/ /g, "👏");
-    args += "👏";
-    return msg.channel.send(`👏${args}`);
+    let kata = args.join(" ") || "Input Text";
+    let katanya = args.replace(/ /g, "👏");
+    katanya += "👏";
+    return msg.channel.send(`👏${katanya}`);
   } catch (e) {
     return msg.channel.send(`Oh no an error occured :( \`${e.message}\` try again later`);
   }
