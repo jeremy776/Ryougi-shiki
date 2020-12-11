@@ -16,7 +16,7 @@ import Command from "../../handle/Command";
   public async exec(msg:Message, args:[]) {
 
   let embed = new MessageEmbed()
-  .setColor(client.color)
+  .setColor(this.client.color)
   .setImage(msg.guild.iconURL({dynamic:true, size:2048}))
   .setTimestamp()
   .setAuthor(msg.guild.name, msg.author.displayAvatarURL({dynamic:true}));
