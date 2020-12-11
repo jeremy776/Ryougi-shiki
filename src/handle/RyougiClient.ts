@@ -1,4 +1,3 @@
-  
 import { Client, ClientOptions, Collection } from 'discord.js'
 import config from '../config';
 import type Command from "./Command";
@@ -54,6 +53,7 @@ declare module "discord.js" {
     export interface Client {
         commands: Collection<string, Command>;
         config: typeof config;
+        color: "#303136";
         cooldowns: Collection<string, number>;
         loadCommands(): Promise<void>;
         loadEventListeners(): Promise<void>;
