@@ -1,16 +1,21 @@
-export default {
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
+
+@CommandConf({
   name: "nuke",
   aliases: ["clone"],
   description: "Nuke Channel!",
-  guildOnly:true,
   cooldown:10,
-  execute(msg, args, client){
-    
+  ownerOnly:false
+})
+
+ export default class nukeCommand extends Command {
+   public async exec(msg:Message, args:[]) {
+
     if(!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send({embed:{description: "**You Must Have `MANAGE_CHANNELS` Permission**", color:client.color}})
     if(!msg.member.guild.me.hasPermission("MANAGE_CHANNELS")) return msg.channel.send({embed:{description: "**I Have No Permission \`MANAGE CHANNELS\`**", color:client.color}})
-    
     let channel = msg.channel
-    
     channel.clone().then(x => {
       x.setPosition(channel.position)
       channel.delete()
