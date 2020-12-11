@@ -7,7 +7,7 @@ import Command from "../../handle/Command";
   name: "server-icon",
   aliases: ["si", "servericon", "iconserver"],
   description: "Shows the server icon",
-  usage: "server-icon"
+  usage: "server-icon",
   cooldown: 3,
   ownerOnly:false
 })
