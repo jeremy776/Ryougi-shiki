@@ -1,10 +1,19 @@
 import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
+@CommandConf({
    name: "server",
    aliases: ["server-info", "info-server"],
    description: "hmmmm?",
-   execute(msg, args, client) {
+   usage: "server",
+   cooldown:1,
+   ownerOnly:false
+})
+
+ export default class serverCommand extends Command {
+  public async exec(msg:Message, args:[]) {
 
    let embed = new MessageEmbed()
    .setAuthor(msg.guild.name + " Info", msg.author.displayAvatarURL({dynamic:true}))
@@ -13,7 +22,7 @@ export default {
    .setFooter("Reply "+ msg.author.tag)
    .addField("Owner", `
 \`\`\`
-• Name :: ${client.users.cache.get(msg.guild.ownerID).tag}
+• Name :: ${this.client.users.cache.get(msg.guild.ownerID).tag}
 • Id   :: ${msg.guild.ownerID}
 \`\`\``)
     .addField("Server", `
