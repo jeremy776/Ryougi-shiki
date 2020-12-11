@@ -13,7 +13,7 @@ import Command from "../../handle/Command";
 })
 
  export default class clearCommand extends Command {
-   public async exec(msg:Message, args:[]) {
+   public async exec(msg:Message, args:string[]) {
     
     let userPerm = new MessageEmbed()
     .setDescription(`**Sorry, but you need \`MANAGE_MESSAGEA\` permissions to do this**`)
