@@ -13,7 +13,7 @@ import Command from "../../handle/Command";
 })
 
  export default class serverIconCommand extends Command {
-  public async exec(msg:Message, args:[]) {
+  public async exec(msg:Message, args:string[]) {
 
   let embed = new MessageEmbed()
   .setColor(this.client.color)
