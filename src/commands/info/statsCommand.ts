@@ -15,7 +15,7 @@ import Command from "../../handle/Command";
 })
 
  export default class statsCommand extends Command {
-   public async exec(msg:Message, args:[]) {
+   public async exec(message:Message, args:[]) {
 
   let botInfo = new MessageEmbed()
   .setAuthor(`${this.client.user.username} Stats`, client.user.displayAvatarURL())
