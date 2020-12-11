@@ -1,12 +1,19 @@
 import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
-   name: "wasted",
-   cooldown: 1,
-   description: "wasted....",
-   guildOnly:true,
-   execute(msg, args, client) {
+@CommandConf({
+ name: "wasted",
+ aliases: [],
+ description: "Wasted....",
+ usage: "wasted @user",
+ cooldown: 1,
+ ownerOnly:false
+})
 
+ export default class wastedCommand extends Command {
+  public async exec(msg: Message, args:string[]) {
    let user = msg.mentions.users.first() || msg.author;
    let embed = new MessageEmbed()
    .setColor(client.color)
