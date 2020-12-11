@@ -14,7 +14,8 @@ import Command from "../../handle/Command";
 
  export default class clearCommand extends Command {
    public async exec(msg:Message, args:string[]) {
-    
+
+    let client = this.client;
     let userPerm = new MessageEmbed()
     .setDescription(`**Sorry, but you need \`MANAGE_MESSAGEA\` permissions to do this**`)
     .setColor(client.color)
