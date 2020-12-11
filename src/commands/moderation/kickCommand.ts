@@ -1,12 +1,19 @@
 import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
+@CommandConf({
   name: "kick",
   cooldown: 2,
   aliases: ["kick-user"],
   description: "Kick member",
-  guildOnly: true,
-  execute(msg, args, client) {
+  usage: "kick <@user> [reason]",
+  ownerOnly:false
+})
+
+ export default class kickCommand extends Command {
+   public async exec(msg:Message, args:[]) {
 
   let noPerms = new MessageEmbed()
   .setDescription("**You must have \`KICK MEMBERS\` permission**")
