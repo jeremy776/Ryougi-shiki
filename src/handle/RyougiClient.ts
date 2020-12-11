@@ -1,28 +1,59 @@
-import { Client, Collection, Message } from 'discord.js';
-import * as config from '../config.json';
-import { Util } from './Util';
-
-interface ICommand {
-    name: string;
-    aliases: string[];
-    cooldown: number;
-    guildOnly: boolean;
-    description: string;
-    usage: string[];
-    execute: (message: Message, args: string[], client: RyougiClient) => unknown; 
- }
-
-import '../extenders/Message'
-
-class RyougiClient extends Client {
-    public helps: Collection<string, string> = new Collection();
-    public color: string = "#303136";
-    public commands: Collection<string, ICommand> = new Collection();
-    public aliases: Collection<string, string> = new Collection();
-    public snipe: Map<string, Message> = new Map();
-    public afk: Map<string, Message> = new Map();
-    public util: typeof Util = Util;
-    public config: typeof config = config;
+  
+import { Client, ClientOptions, Collection } from 'discord.js-light'
+import config from '../config'
+const { readdir } = require("fs").promises;
+import { join } from "path";
+import "../extenders";
+export default class RyougiClient extends Client {
+    public constructor(opt?: ClientOptions){
+        super({
+            disableMentions: "everyone",
+            cacheGuilds: true,
+            cacheChannels: true,
+            cacheOverwrites: false,
+            cacheRoles: false,
+            cacheEmojis: false,
+            cachePresences: false,
+            fetchAllMembers: true,
+            ws: { properties: { $browser: "Discord iOS" } }
+        })
+    }
+    public config: typeof config = config
+    public commands: Collection<string, Command> = new Collection()
+    public cooldowns: Collection<string, number> = new Collection()
+    public run(): void{
+        void this.loadCommands();
+        void this.loadEvent();
+        void this.login(this.config.token);
+    }
+    public async loadCommands(): Promise<void> {
+        const categories = await readdir(join(__dirname, "..", "commands"));
+        for (const category of categories) {
+            const commands = await readdir(join(__dirname, "..", "commands", category));
+            for (const commandFile of commands) {
+                const commandClass = require(`../commands/${category}/${commandFile}`).default;
+                const command: Command = new commandClass(this);
+                command.config.category = category;
+                this.commands.set(command.config.name, command);
+            }
+        }
+    }
+    public async loadEvent(): Promise<void> {
+        const listeners = await readdir(join(__dirname, "..", "listeners"));
+        for (const listenerFile of listeners) {
+            const listenerClass = require(`../listeners/${listenerFile}`).default;
+            const listener: Listener = new listenerClass(this);
+            this.on(listener.name, listener.exec.bind(listener));
+        }
+    }
 }
 
-export default RyougiClient;
+declare module "discord.js" {
+    export interface Client {
+        commands: Collection<string, Command>;
+        config: typeof config;
+        cooldowns: Collection<string, number>;
+        loadCommands(): Promise<void>;
+        loadEventListeners(): Promise<void>;
+    }
+}
