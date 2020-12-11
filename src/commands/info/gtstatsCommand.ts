@@ -24,7 +24,7 @@ import Command from "../../handle/Command";
   .addField("Online User's", x.data.online_user + " users")
   .addField("World Of The Day", wotd.toUpperCase())
   .setImage(x.data.world_day_images.full_size)
-  .setColor(client.color);
+  .setColor(this.client.color);
   return msg.channel.send(embed)
   });
  }
