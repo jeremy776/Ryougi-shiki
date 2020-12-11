@@ -16,7 +16,8 @@ import Command from "../../handle/Command";
  export default class mangaCommand extends Command {
   public async exec(message: Message, args:string[]) {
 
-  function shorten(text:string, maxLen = 2000) {
+  function shorten(text:string, maxLen:number):string {
+            maxLen = 2000
             return text.length > maxLen ? `${text.substr(0, maxLen - 3)}...` : text;
         }
         const query = args.join(' ');
