@@ -11,7 +11,7 @@ import Command from "../../handle/Command";
 })
 
  export default class nukeCommand extends Command {
-   public async exec(msg:Message, args:[]) {
+   public async exec(msg:Message, args:string[]) {
 
     if(!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send({embed:{description: "**You Must Have `MANAGE_CHANNELS` Permission**", color:client.color}})
     if(!msg.member.guild.me.hasPermission("MANAGE_CHANNELS")) return msg.channel.send({embed:{description: "**I Have No Permission \`MANAGE CHANNELS\`**", color:client.color}})
