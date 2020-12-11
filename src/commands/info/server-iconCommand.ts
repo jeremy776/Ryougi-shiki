@@ -20,6 +20,6 @@ import Command from "../../handle/Command";
   .setImage(msg.guild.iconURL({dynamic:true, size:2048}))
   .setTimestamp()
   .setAuthor(msg.guild.name, msg.author.displayAvatarURL({dynamic:true}));
-  return msg.channel.send(embed)
+  return msg.channel.send(embed);
  }
 }
