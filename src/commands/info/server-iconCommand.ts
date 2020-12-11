@@ -1,11 +1,19 @@
 import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
+@CommandConf({
   name: "server-icon",
   aliases: ["si", "servericon", "iconserver"],
   description: "Shows the server icon",
+  usage: "server-icon"
   cooldown: 3,
-  execute(msg, args, client) {
+  ownerOnly:false
+})
+
+ export default class server-iconCommand extends Command {
+  public async exec(msg:Message, args:[]) {
 
   let embed = new MessageEmbed()
   .setColor(client.color)
@@ -13,6 +21,5 @@ export default {
   .setTimestamp()
   .setAuthor(msg.guild.name, msg.author.displayAvatarURL({dynamic:true}));
   return msg.channel.send(embed)
-
  }
 }
