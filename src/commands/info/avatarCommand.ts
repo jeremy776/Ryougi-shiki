@@ -1,26 +1,34 @@
 import { MessageEmbed } from "discord.js";
 const emote = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "🚫"]
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
-  name: "avatar",
-  aliases: ["av"],
-  cooldown: 2,
-  description: "Get the user avatar that is mentioned",
-  execute: async(message, args, client) => {
+@CommandConf({
+ name: "avatar",
+ aliases: [],
+ description: "see the avatar of the user mentioned",
+ usage: "avatar [ @user || username || username#tag ]",
+ cooldown:1,
+ ownerOnly:false
+})
+
+ export default class avatarCommand extends Command {
+  public async exec(message: Message, args:string[]) {
 
   try{
 
-  let user = message.mentions.users.first() || await client.users.fetch(args[0]).catch(() => null)
+  let user = message.mentions.users.first() || await this.client.users.fetch(args[0]).catch(() => null)
 
   if(!user) {
     let userFind = args[0];
     if(!userFind) userFind = message.author.username;
 
-       let a = client.users.cache.find(x => x.username == userFind) || client.users.cache.find(x => x.tag.toLowerCase() == userFind.toLowerCase())
+       let a = this.client.users.cache.find(x => x.username == userFind) || this.client.users.cache.find(x => x.tag.toLowerCase() == userFind.toLowerCase())
 
        if(a == undefined) {
 
-        let test = message.guild.members.cache.filter(x => client.users.cache.get(x.id).tag.toLowerCase().includes(userFind.toLowerCase())).keyArray();
+        let test = message.guild.members.cache.filter(x => this.client.users.cache.get(x.id).tag.toLowerCase().includes(userFind.toLowerCase())).keyArray();
         let testy = test.slice(0, 5).map(n => n);
 
         let wrongUsername = new MessageEmbed()
@@ -42,7 +50,7 @@ export default {
        case "1️⃣":
 
          let userNya1 = test[0];
-         let userNya = client.users.cache.get(userNya1);
+         let userNya = this.client.users.cache.get(userNya1);
          let test1 = new MessageEmbed()
          .setColor(client.color)
          .setImage(userNya.displayAvatarURL({dynamic:true, size:2048}))
@@ -52,7 +60,7 @@ export default {
        case "2️⃣":
 
          let dua = test[1];
-         let dua2 = client.users.cache.get(dua);
+         let dua2 = this.client.users.cache.get(dua);
          let test2 = new MessageEmbed()
          .setColor(client.color)
          .setImage(dua2.displayAvatarURL({dynamic:true, size:2048}))
@@ -62,7 +70,7 @@ export default {
        case "3️⃣":
 
          let tiga = test[2];
-         let tiga3 = client.users.cache.get(tiga);
+         let tiga3 = this.client.users.cache.get(tiga);
          let test3 = new MessageEmbed()
          .setColor(client.color)
          .setImage(tiga3.displayAvatarURL({dynamic:true, size:2048}))
@@ -72,7 +80,7 @@ export default {
        case "4️⃣":
 
          let empat = test[3];
-         let empat4 = client.users.cache.get(empat);
+         let empat4 = this.client.users.cache.get(empat);
          let test4 = new MessageEmbed()
          .setColor(client.color)
          .setImage(empat4.displayAvatarURL({dynamic:true, size:2048}))
@@ -82,7 +90,7 @@ export default {
        case "5️⃣":
 
          let lima = test[4];
-         let lima5 = client.users.cache.get(lima);
+         let lima5 = this.client.users.cache.get(lima);
          let test5 = new MessageEmbed()
          .setColor(client.color)
          .setImage(lima5.displayAvatarURL({dynamic:true, size:2048}))
