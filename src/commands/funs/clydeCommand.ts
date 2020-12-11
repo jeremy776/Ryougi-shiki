@@ -20,7 +20,7 @@ import Command from "../../handle/Command";
 
   let embed = new MessageEmbed()
   .setImage(`https://ctk-api.herokuapp.com/clyde/${kata}`)
-  .setColor(client.color)
+  .setColor(this.client.color)
   .setFooter("Reply "+ msg.author.tag)
   .setTimestamp()
   return msg.channel.send(embed)
