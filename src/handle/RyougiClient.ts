@@ -16,7 +16,7 @@ import '../extenders/Message'
 
 class RyougiClient extends Client {
     public helps: Collection<string, string> = new Collection();
-    public color: string = "DARK_BUT_NOT_BLACK";
+    public color: string = "#303136";
     public commands: Collection<string, ICommand> = new Collection();
     public aliases: Collection<string, string> = new Collection();
     public snipe: Map<string, Message> = new Map();
