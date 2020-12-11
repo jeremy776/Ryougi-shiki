@@ -1,11 +1,17 @@
 import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
+@CommandConf({
   name: "setnick",
   cooldown:1,
   description: "set nickname, how to use?\n• setnick <@member> <new nickname>\n• documentation:\n  {member.tag} = Jeremy#2007\n  {member} = Jeremy",
-  guildOnly:true,
-  execute(msg, args, client) {
+  ownerOnly:false
+})
+
+ export default class setnickCommand extends Command {
+   public async exec(msg:Message, args:[]) {
 
   let noPerms = new MessageEmbed()
   .setDescription("**Maybe you or I don't have \`MANAGE_NICKNAMES\` permissions**")
