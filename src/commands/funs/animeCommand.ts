@@ -1,12 +1,20 @@
 const animesf = require("axios");
 import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
-  name: "anime",
-  description: "get random anime maybe?",
-  cooldown: 2,
-  guildOnly:true,
-  async execute(msg, args, client) {
+@CommandConf({
+  name: 'anime',
+  aliases:[],
+  description:'get random anime image',
+  usage:'anime',
+  cooldown:2,
+  ownerOnly:false
+})
+
+export default class animeCommand extends Command {
+  public async exec(msg: Message, args: strinyg[]) {
 
   let res = await animesf.get("http://api.cutegirls.moe/json");
     if (res.data.status !== 200) {
