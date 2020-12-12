@@ -1,12 +1,20 @@
 import { MessageEmbed } from "discord.js";
 import * as moment from "moment";
+import { CommandConf } from "../../decorators";
+import type { Message } from "discord.js";
+import Command from "../../handle/Command";
 
-export default {
+@CommandConf({
   name: "age",
   aliases: ["myage", "checkage"],
   description: "check your age",
   cooldown: 3,
-  execute(msg, args, client) {
+  usage: "age 2007",
+  ownerOnly:false
+})
+
+ export default class ageCommand extends Command {
+   public async exec(msg:Message, args:string[]) {
 
   let maxAge = moment(Date.now()).format("YYYY")
   let myAge = args[0]
@@ -14,7 +22,7 @@ export default {
   if(!myAge) {
     let invalid = new MessageEmbed()
     .setDescription(`**example: ${client.config.prefix}age 2007**`)
-    .setColor(client.color)
+    .setColor(this.client.color)
     .setTimestamp()
     return msg.channel.send(invalid)
  }
@@ -22,7 +30,7 @@ export default {
   if(isNaN(myAge)) {
     let nAn = new MessageEmbed()
     .setDescription("**It's not a number**")
-    .setColor(client.color)
+    .setColor(this.client.color)
     .setTimestamp()
     return msg.channel.send(nAn)
  }
@@ -31,8 +39,8 @@ export default {
 
   if(checkAge > 100) {
     let limitAge = new MessageEmbed()
-    .setDescription(`**This has crossed the limit of 100 years. actual age is ${checkAge} years**`)
-    .setColor(client.color)
+    .setDescription(`**This has crossed the limit of 100 years.**`)
+    .setColor(this.client.color)
     .setTimestamp()
     return msg.channel.send(limitAge)
   }
@@ -40,7 +48,7 @@ export default {
   if(checkAge < 1) {
     let error = new MessageEmbed()
     .setDescription(`**Age cannot be under 1 year old (negative age)**`)
-    .setColor(client.color)
+    .setColor(this.client.color)
     .setTimestamp()
     return msg.channel.send(error)
   }
@@ -48,14 +56,14 @@ export default {
   if(myAge > maxAge) {
     let limitAge = new MessageEmbed()
     .setDescription(`**The year you entered has passed the current year \`(${maxAge})\`**`)
-    .setColor(client.color)
+    .setColor(this.client.color)
     .setTimestamp()
     return msg.channel.send(limitAge)
   }
 
   let succes = new MessageEmbed()
   .setDescription(`**You are ${checkAge} years old now**`)
-  .setColor(client.color)
+  .setColor(this.client.color)
   return msg.channel.send(succes);
 
 
