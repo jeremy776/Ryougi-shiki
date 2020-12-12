@@ -65,7 +65,7 @@ Bug Report :: ${pesan}
 
     if(msg.attachments.first()) reportChannels.setImage(msg.attachments.first().proxyURL);
 
-   return this.client.channels.cache.get(client.config.reportChannel).send(reportChannels)
+   return this.client.channels.cache.get(this.client.config.reportChannel).send(reportChannels)
 
  }
 }
