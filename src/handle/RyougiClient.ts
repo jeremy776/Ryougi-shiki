@@ -1,5 +1,5 @@
 import { Client, ClientOptions, Collection } from 'discord.js'
-import config from '../config';
+const config = require("../config.json")
 import type Command from "./Command";
 import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
