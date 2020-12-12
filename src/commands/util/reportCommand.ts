@@ -46,7 +46,7 @@ import Command from "../../handle/Command";
   msg.channel.send(Succes)
 
   let reportChannels = new MessageEmbed()
-  .setAuthor(`New Report by ${msg.author?.tag}`, msg.guild.iconURL({dynamic:true}) as any)
+  .setAuthor(`New Report by ${msg.author?.tag}`, msg.guild?.iconURL({dynamic:true}) as any)
   .setThumbnail(msg.author.displayAvatarURL({dynamic:true}) as any)
   .setColor(this.client.color)
   .setTimestamp()
