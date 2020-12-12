@@ -11,7 +11,7 @@ import Command from "../../handle/Command";
 })
 
  export default class randomNumber extends Command {
-   public async exec(msg:Message, args:number) {
+   public async exec(msg:Message, args:string[]): Promise<number> {
 
   let max = args[0];
   if(!max) max = 50;
