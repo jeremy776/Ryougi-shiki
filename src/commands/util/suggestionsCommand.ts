@@ -18,7 +18,7 @@ import Command from "../../handle/Command";
   let suggest = args.join(" ");
   let noMsg = new MessageEmbed()
   .setColor(this.client.color)
-  .setDescription(`**${this.description}**`)
+  .setDescription(`**give me your suggestion for next update!**`)
   if(!suggest) return msg.channel.send(noMsg)
 
   let embed = new MessageEmbed()
