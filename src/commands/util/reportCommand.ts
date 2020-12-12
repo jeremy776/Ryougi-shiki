@@ -46,8 +46,8 @@ import Command from "../../handle/Command";
   msg.channel.send(Succes)
 
   let reportChannels = new MessageEmbed()
-  .setAuthor(`New Report by ${msg.author?.tag}`, msg.guild.iconURL({dynamic:true}))
-  .setThumbnail(msg.author?.displayAvatarURL({dynamic:true}))
+  .setAuthor(`New Report by ${msg.author?.tag}`, msg.guild.iconURL({dynamic:true}) as any)
+  .setThumbnail(msg.author.displayAvatarURL({dynamic:true}) as any)
   .setColor(this.client.color)
   .setTimestamp()
   .addField("Author", `\`\`\`
@@ -58,7 +58,7 @@ Discriminator :: #${msg.author?.discriminator}
    .addField("Bug Info", `\`\`\`
 Server     :: ${msg.guild?.name}
 Server Id  :: ${msg.guild?.id}
-Channel    :: ${msg.channel?.name}
+Channel    :: ${msg.channel?.name as TextChannel}
 
 Bug Report :: ${pesan}
 \`\`\``)
