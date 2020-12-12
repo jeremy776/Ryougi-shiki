@@ -22,8 +22,8 @@ import Command from "../../handle/Command";
   if(!suggest) return msg.channel.send(noMsg)
 
   let embed = new MessageEmbed()
-  .setAuthor("New Suggestion", msg.guild.iconURL({dynamic:true}))
-  .setThumbnail(msg.author.displayAvatarURL({dynamic:true}))
+  .setAuthor("New Suggestion", msg.guild.iconURL({dynamic:true}) as any)
+  .setThumbnail(msg.author.displayAvatarURL({dynamic:true}) as any)
   .setColor(this.client.color)
   .addField("Guild Info", `
 \`\`\`
