@@ -1,5 +1,5 @@
 import { MessageEmbed } from "discord.js";
-import type { Message } from "discord.js";
+import type { Message, TextChannel } from "discord.js";
 import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
@@ -37,6 +37,7 @@ import Command from "../../handle/Command";
 • Message :: ${suggest}
 \`\`\``)
    msg.channel.send({embed:{description:"**Thanks For Give Suggestion:)**", color: this.client.color}})
-   return this.client.channels.cache.get(this.client.config.suggestion)?.send(embed)
+   let channel = this.client.channels.cache.get(this.client.config.suggestion) as TextChannel
+   return channel.send(embed)
  }
 }
