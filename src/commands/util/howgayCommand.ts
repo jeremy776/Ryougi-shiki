@@ -19,7 +19,7 @@ import Command from "../../handle/Command";
   let embed = new MessageEmbed()
   .setColor(this.client.color)
   .setAuthor(user.tag + " is gay?", user.displayAvatarURL({dynamic:true}))
-  .setDescription(thus.client.util.randomNumber(1, 100)+"%")
+  .setDescription(this.client.util.randomNumber(1, 100)+"%")
   .setTimestamp()
   return msg.channel.send(embed)
 
