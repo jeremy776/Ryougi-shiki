@@ -18,7 +18,7 @@ import Command from "../../handle/Command";
   .setDescription("**Thank you for using our bot, and below is a link to invite me:)**")
   .setColor(this.client.color)
   .setTimestamp()
-  .addField("🗒️ | Invite", `[Click Here](https://discordapp.com/api/oauth2/authorize?client_id=${this.client.user.id}&permissions=8&scope=bot)`)
+  .addField("🗒️ | Invite", `[Click Here](https://discordapp.com/api/oauth2/authorize?client_id=${this.client.user?.id}&permissions=8&scope=bot)`)
   return msg.channel.send(embed);
  }
 }
