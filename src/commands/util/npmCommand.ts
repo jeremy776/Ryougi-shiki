@@ -1,13 +1,19 @@
 import { MessageEmbed } from "discord.js";
 const superagent = require("superagent");
+import { CommandConf } from "../../decorators";
+import type { Message } from "discord.js";
+import Command from "../../handle/Command";
 
-export default {
+@CommandConf({
   name: "npm",
   cooldown: 2,
-  guildOnly: true,
+  ownerOnly:false,
   description: "Get information about npm",
-  execute: async(message, args, client) => {
+  usage: "npm quick.db"
+})
 
+ export default class npmCommand extends Command {
+   public async exec(message:Message, args:string[]) {
 
   let noNpm = new MessageEmbed()
   .setDescription("**You must enter the name npm**")
@@ -16,7 +22,6 @@ export default {
   const npm = args.join("+");
   if (!npm) return message.channel.send(noNpm);
   try {
-
     const { body } = await superagent.get(`https://registry.npmjs.com/${npm}`);
     const version = body.versions[body["dist-tags"].latest];
     let deps = version.dependencies ? Object.keys(version.dependencies) : null;
@@ -24,7 +29,7 @@ export default {
     if (maintain.length > 10) maintain = client.util.trimArray(maintain);
     if (deps && deps.length > 10) deps = client.util.trimArray(deps);
     const embed = new MessageEmbed()
-      .setColor(client.color)
+      .setColor(this.client.color)
       .setFooter(`Reply ${message.author.tag}`)
       .setTimestamp()
       .setAuthor(body.name, "https://i.imgur.com/ErKf5Y0.png")
