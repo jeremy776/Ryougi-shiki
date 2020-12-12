@@ -63,7 +63,7 @@ Channel    :: ${msg.channel?.name as TextChannel}
 Bug Report :: ${pesan}
 \`\`\``)
 
-    if(msg.attachments.first()) reportChannels.setImage(msg.attachments.first()?.proxyURL);
+    if(msg.attachments.first()) reportChannels.setImage(msg.attachments.first()?.proxyURL as any);
 
    let channel = this.client.channels.cache.get(this.client.config.reportChannel) as TextChannel;
    return channel.send(reportChannels)
