@@ -17,9 +17,9 @@ import Command from "../../handle/Command";
   let user = msg.mentions.users.first() || msg.author;
   if(user.id == client.user.id) return msg.reply("Error. Too long ;)");
   let embed = new MessageEmbed()
-  .setColor(client.color)
+  .setColor(this.client.color)
   .setAuthor(`${user.username} Penis`)
-  .setDescription(`8`+`=`.repeat(client.util.randomNumber(1, 20))+`D`)
+  .setDescription(`8`+`=`.repeat(this.client.util.randomNumber(1, 30))+`D`)
   .setTimestamp()
   return msg.channel.send(embed)
  }
