@@ -1,6 +1,6 @@
 import { MessageEmbed } from "discord.js";
 import { CommandConf } from "../../decorators";
-import type { Message } from "discord.js";
+import type { Message, TextChannel } from "discord.js";
 import Command from "../../handle/Command";
 
 @CommandConf({
@@ -13,7 +13,7 @@ import Command from "../../handle/Command";
 })
 
  export default class reportCommand extends Command {
-   public async exec(msg:Message, args:string[]): Promise<void> {
+   public async exec(msg:Message, args:string[]) {
 
   let pesan = args.join(" ")
   let invalidMsg = new MessageEmbed()
@@ -46,26 +46,27 @@ import Command from "../../handle/Command";
   msg.channel.send(Succes)
 
   let reportChannels = new MessageEmbed()
-  .setAuthor(`New Report by ${msg.author.tag}`, msg.guild.iconURL({dynamic:true}))
-  .setThumbnail(msg.author.displayAvatarURL({dynamic:true}))
+  .setAuthor(`New Report by ${msg.author?.tag}`, msg.guild.iconURL({dynamic:true}))
+  .setThumbnail(msg.author?.displayAvatarURL({dynamic:true}))
   .setColor(this.client.color)
   .setTimestamp()
   .addField("Author", `\`\`\`
-Name          :: ${msg.author.username}
-Id            :: ${msg.author.id}
-Discriminator :: #${msg.author.discriminator}
+Name          :: ${msg.author?.username}
+Id            :: ${msg.author?.id}
+Discriminator :: #${msg.author?.discriminator}
 \`\`\``)
    .addField("Bug Info", `\`\`\`
-Server     :: ${msg.guild.name}
-Server Id  :: ${msg.guild.id}
-Channel    :: ${msg.channel.name}
+Server     :: ${msg.guild?.name}
+Server Id  :: ${msg.guild?.id}
+Channel    :: ${msg.channel?.name}
 
 Bug Report :: ${pesan}
 \`\`\``)
 
     if(msg.attachments.first()) reportChannels.setImage(msg.attachments.first().proxyURL);
 
-   return this.client.channels.cache.get(this.client.config.reportChannel).send(reportChannels)
+   let channel = this.client.channels.cache.get(this.client.config.reportChannel) as TextChannel;
+   return channel.send(reportChannels)
 
  }
 }
