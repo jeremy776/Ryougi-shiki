@@ -37,6 +37,6 @@ import Command from "../../handle/Command";
 • Message :: ${suggest}
 \`\`\``)
    msg.channel.send({embed:{description:"**Thanks For Give Suggestion:)**", color: this.client.color}})
-   return this.client.channels.cache.get(client.config.suggestion).send(embed)
+   return this.client.channels.cache.get(this.client.config.suggestion).send(embed)
  }
 }
