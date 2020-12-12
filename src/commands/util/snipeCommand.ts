@@ -1,17 +1,24 @@
 import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../Command";
 
-export default {
+@CommandConf({
   name: "snipe",
   cooldown: 3,
   description: "Get messages that have been deleted before",
-  guildOnly:true,
-  execute(msg, args, client) {
+  ownerOnly:false,
+  usage: "snipe [#channel]"
+})
+
+ export default class snipeCommand extends Command {
+   public async exec(msg:Message, args:string[]) {
 
   let channel = msg.mentions.channels.first() || msg.channel
-  let data = client.snipe.get(channel.id);
+  let data = this.client.snipe.get(channel.id);
   let noData = new MessageEmbed()
   .setDescription("**There are no messages deleted on this channel**")
-  .setColor(client.color)
+  .setColor(this.client.color)
   .setTimestamp()
   if(!data) return msg.channel.send(noData).then(x => x.delete({timeout:4000}));
 
@@ -32,7 +39,7 @@ export default {
 
   let succes = new MessageEmbed()
   .setAuthor(data.author.tag, data.author.displayAvatarURL({dynamic:true}))
-  .setColor(client.color)
+  .setColor(this.client.color)
   .setTimestamp()
   if(Array.from(data.attachments).length > 0) succes.setImage(Array.from(data.attachments)[0][1].proxyURL)
   if(data.content) succes.setDescription(data.content)
