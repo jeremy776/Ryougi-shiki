@@ -1,10 +1,18 @@
 import { MessageEmbed } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
+import type { Message } from "discord.js";
 
-export default {
+@CommandConf({
   name: "afk",
   cooldown:1,
   description: "afk.",
-  execute(msg, args, client) {
+  usage: "afk [reason]",
+  ownerOnly:false
+})
+
+ export default class afkCommand extends Command {
+   public async exec(msg:Message, args:string[]) {
     
     const afk = client.afk.get(msg.author.id)
 
