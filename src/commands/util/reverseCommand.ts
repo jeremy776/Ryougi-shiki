@@ -15,10 +15,10 @@ import Command from "../../handle/Command";
  export default class reverseCommand extends Command {
    public async exec(msg:Message, args:string[]) {
    try {
-    args = args.join(" ") || "None";
+    let kata = args.join(" ") || "None";
     let reversed = "";
-    for (let i = args.length - 1; i >= 0; i--) {
-      reversed += args[i];
+    for (let i = kata.length - 1; i >= 0; i--) {
+      reversed += kata[i];
     }
     return msg.channel.send(reversed);
   } catch (e) {
