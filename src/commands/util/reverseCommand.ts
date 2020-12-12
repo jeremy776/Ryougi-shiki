@@ -13,7 +13,7 @@ import Command from "../../handle/Command";
 })
 
  export default class reverseCommand extends Command {
-   public async exec(msg:Message, args:string[]) {
+   public async exec(msg:Message, args:string[] || null) {
    try {
     args = args.join(" ") || "None";
     let reversed = "";
