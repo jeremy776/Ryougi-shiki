@@ -14,7 +14,7 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
   let max = args[0];
-  if(!max) max = 50;
+  if(!max) max = (50).toString;
   if(isNaN(max)) {
      return msg.reply("**Max Must Be A Number**");
   }
