@@ -7,8 +7,8 @@ import Command from "../../handle/Command";
    name: "clear",
    aliases: ["purge"],
    description: "clear message in channel",
-   ownerOnly:false
-   cooldown:10
+   ownerOnly:false,
+   cooldown:10,
    usage: "clear 80"
 })
 
