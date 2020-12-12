@@ -15,7 +15,7 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
   let user = msg.mentions.users.first() || msg.author;
-  if(user.id == this.client.user.id) return msg.reply("I'll never be gay!")
+  if(user.id == this.client.user?.id) return msg.reply("I'll never be gay!")
   let embed = new MessageEmbed()
   .setColor(this.client.color)
   .setAuthor(user.tag + " is gay?", user.displayAvatarURL({dynamic:true}))
