@@ -58,7 +58,6 @@ Discriminator :: #${msg.author?.discriminator}
    .addField("Bug Info", `\`\`\`
 Server     :: ${msg.guild?.name}
 Server Id  :: ${msg.guild?.id}
-Channel    :: ${msg.channel.name as TextChannel}
 
 Bug Report :: ${pesan}
 \`\`\``)
