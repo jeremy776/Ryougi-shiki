@@ -13,7 +13,7 @@ import Command from "../../handle/Command";
 })
 
  export default class reportCommand extends Command {
-   public async exec(msg:Message, args:string[] || null) {
+   public async exec(msg:Message, args:string[]) {
 
   let pesan = args.join(" ")
   let invalidMsg = new MessageEmbed()
