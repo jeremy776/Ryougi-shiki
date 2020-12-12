@@ -1,16 +1,22 @@
-const { MessageEmbed } = require("discord.js")
+import { MessageEmbed } from "discord.js";
+import type { Message } from "discord.js";
+import { CommandConf } from "../../decorators";
+import Command from "../../handle/Command";
 
-export default {
+@CommandConf({
   name: "say",
   cooldown:3,
-  guildOnly:true,
+  ownerOnly:false,
   description: "say something!",
-  execute(msg, args, client) {
+  usage: "say [text]"
+})
+
+ export default class sayCommand extends Command {
+   public async exec(msg:Message, args:string[]) {
     
     let text = args.join(" ");
     if(!text) return msg.channel.send(".... :(")
     msg.delete()
     return msg.channel.send(text, { disableMentions:'everyone' })
-    
   }
 }
