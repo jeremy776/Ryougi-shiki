@@ -8,7 +8,7 @@ import Command from "../../Command";
    aliases: ["reversed"],
    cooldown:1,
    description: "just reverse the writing",
-   usage: "reverse [text]"
+   usage: "reverse [text]",
    ownerOnly:false
 })
 
