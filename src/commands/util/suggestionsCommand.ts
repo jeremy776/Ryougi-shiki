@@ -13,7 +13,7 @@ import Command from "../../handle/Command";
 })
 
  export default class suggestionsCommand extends Command {
-   public async exec(msg:Message, args:string[] || null): Promise<void> {
+   public async exec(msg:Message, args:string[]) {
 
   let suggest = args.join(" ");
   let noMsg = new MessageEmbed()
