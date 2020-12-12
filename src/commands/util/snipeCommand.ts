@@ -41,7 +41,7 @@ import Command from "../../handle/Command";
   .setAuthor(data.author.tag, data.author.displayAvatarURL({dynamic:true}))
   .setColor(this.client.color)
   .setTimestamp()
-  if(Array.from(data?.attachments).length > 0) succes.setImage(Array.from(data?.attachments)[0][1].proxyURL)
+  if(Array.from(data.attachments).length > 0) succes.setImage(Array.from(data.attachments)[0][1]?.proxyURL)
   if(data.content) succes.setDescription(data.content)
   return msg.channel.send(succes);
 
