@@ -22,13 +22,13 @@ import Command from "../../handle/Command";
   if(!suggest) return msg.channel.send(noMsg)
 
   let embed = new MessageEmbed()
-  .setAuthor("New Suggestion", msg.guild.iconURL({dynamic:true}) as any)
+  .setAuthor("New Suggestion", msg.guild?.iconURL({dynamic:true}) as any)
   .setThumbnail(msg.author.displayAvatarURL({dynamic:true}) as any)
   .setColor(this.client.color)
   .addField("Guild Info", `
 \`\`\`
-• Name  :: ${msg.guild.name}
-• Id    :: ${msg.guild.id}
+• Name  :: ${msg.guild?.name}
+• Id    :: ${msg.guild?.id}
 \`\`\``)
    .addField("Suggestion", `
 \`\`\`
@@ -37,6 +37,6 @@ import Command from "../../handle/Command";
 • Message :: ${suggest}
 \`\`\``)
    msg.channel.send({embed:{description:"**Thanks For Give Suggestion:)**", color: this.client.color}})
-   return this.client.channels.cache.get(this.client.config.suggestion).send(embed)
+   return this.client.channels.cache.get(this.client.config.suggestion)?.send(embed)
  }
 }
