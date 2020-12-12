@@ -1,5 +1,5 @@
 import { MessageEmbed } from "discord.js";
-import * as moment from "moment";
+import moment from "moment";
 import { CommandConf } from "../../decorators";
 import type { Message } from "discord.js";
 import Command from "../../handle/Command";
@@ -21,13 +21,13 @@ import Command from "../../handle/Command";
 
   if(!myAge) {
     let invalid = new MessageEmbed()
-    .setDescription(`**example: ${client.config.prefix}age 2007**`)
+    .setDescription(`**example: ${this.client.config.prefix}age 2007**`)
     .setColor(this.client.color)
     .setTimestamp()
     return msg.channel.send(invalid)
  }
 
-  if(isNaN(myAge)) {
+  if(isNaN(myAge as any)) {
     let nAn = new MessageEmbed()
     .setDescription("**It's not a number**")
     .setColor(this.client.color)
