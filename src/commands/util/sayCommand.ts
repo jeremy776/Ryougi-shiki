@@ -5,7 +5,7 @@ import Command from "../../handle/Command";
 
 @CommandConf({
   name: "say",
-  cooldown:3,
+  cooldown:2,
   ownerOnly:false,
   description: "say something!",
   usage: "say [text]"
