@@ -7,7 +7,7 @@ export class Util {
   return (cpuUsage.user/cpuUsage.system).toFixed(2) + "%";
  }
 
- static parseDur(ms) {
+ static parseDur(ms: number) {
    let S = ms / 1000;
  
   let D = parseInt((S / 86400).toString());
@@ -22,12 +22,12 @@ export class Util {
   if (S || M || H || D) return `${D}d ${H}h ${M}m ${S}s`;
  }
  
- static async hastebin(string) {
+ static async hastebin(string: string) {
    const { body } = await fetch.post('https://hasteb.in/documents').send(string);
    return `https://hasteb.in/${body.key}.js`
  }
 
- static randomNumber(min, max) {
+ static randomNumber(min: number, max: number):number {
    if(!min) throw new Error("Invalid Min Number")
    if(!max) throw new Error("Invalid Max Number")
    if(isNaN(min)) throw new Error("Value Must be A Number")
