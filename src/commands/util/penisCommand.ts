@@ -15,7 +15,7 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
   let user = msg.mentions.users.first() || msg.author;
-  if(user.id == client.user.id) return msg.reply("Error. Too long ;)");
+  if(user.id == this.client.user.id) return msg.reply("Error. Too long ;)");
   let embed = new MessageEmbed()
   .setColor(this.client.color)
   .setAuthor(`${user.username} Penis`)
