@@ -7,6 +7,7 @@ import Command from "../../handle/Command";
   aliases: ["random-number", "number-generator"],
   description: "Get A Random Number\n• randomnumber [max]\n•default value: 50",
   usage: "randomnumber[max number (default is 50)",
+  cooldown:1,
   ownerOnly:false
 })
 
