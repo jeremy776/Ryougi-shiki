@@ -16,6 +16,8 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
   let pesan = args.join(" ")
+  let msgChannel = msg.channel as TextChannel;
+
   let invalidMsg = new MessageEmbed()
   .setDescription("**Enter any bugs you find in our bots**")
   .setColor(this.client.color)
@@ -58,7 +60,7 @@ Discriminator :: #${msg.author?.discriminator}
    .addField("Bug Info", `\`\`\`
 Server     :: ${msg.guild?.name}
 Server Id  :: ${msg.guild?.id}
-Channel    :: ${msg.channel?.name as TextChannel}
+Channel    :: ${msgChannel.name}
 
 Bug Report :: ${pesan}
 \`\`\``)
