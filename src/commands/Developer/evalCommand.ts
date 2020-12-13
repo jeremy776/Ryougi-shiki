@@ -14,61 +14,37 @@ import { MessageEmbed } from "discord.js";
 export default class evalCommand extends Command {
     public async exec(message: Message, query: string[]) {
 
- //if(!this.client.config.owner.includes(message.author.id)) return message.channel.send({embed:{description:"**Only for my dev**", color:this.client.color}});
-  
-  const choice = ["🚫"]
-  const bot = this.client;
-  const msg = message;
+    try {
+            const { args, flags } = parseQuery(query);
+            if (!args.length) {
+                throw new TypeError("Eval command cannot execute without input!. You bbbaka...");
+              }
+              let code = args.join(" ");
+              let depth = 0;
+              if (flags.includes("async")) {
+                  code = `(async() => { ${code} })()`;
+                }
 
-  const { args, flags } = parseQuery(query);
-  try {
-    if (!args.length) {
-      throw new TypeError("Eval command cannot execute without input!. You bbbaka.")
-    }
-    let code = args.join(" ");
-    let depth = 0;
-    if (flags.includes("async")) {
-      code = `(async() => { ${code} })()`;
-    }
-    let { evaled, type } = await parseEval(eval(code)); /* eslint-disable-line */
-    if (flags.includes("silent")) return;
-    if (typeof evaled !== "string") evaled = require("util").inspect(evaled, { depth });
-    evaled = evaled
-      .replace(/`/g, `\`${String.fromCharCode(8203)}`)
-      .replace(/@/g, `@${String.fromCharCode(8203)}`);
-    if (evaled.length > 2048) evaled = await this.client.util.hastebin(evaled);
-    else evaled = `\`\`\`${evaled}\`\`\``;
-    const embed = new MessageEmbed()
-      .setAuthor("Evaled success")
-      .setColor(this.client.color)
-      .setDescription(evaled)
-      .addField("Type", `\`\`\`${type}\`\`\``)
-      .setFooter(`React to delete message.`);
-    const m = await message.channel.send(embed);
-    for (const chot of choice) {
-      await m.react(chot);
-    }
-    const filter = (rect:any, usr:any) => choice.includes(rect.emoji.name) && usr.id === message.author.id;
-    m.createReactionCollector(filter, { time: 600000, max: 1 }).on("collect", async col => {
-      if (col.emoji.name === "🚫") return m.delete();
-    });
-  }catch (e) {
-    const embed = new MessageEmbed()
-      .setColor("RED")
-      .setAuthor("Evaled error")
-      .setDescription(`\`\`\`${e}\`\`\``)
-      .setFooter(`React to delete message.`);
-    const m = await message.channel.send(embed);
-    for (const chot of choice) {
-      await m.react(chot);
-    }
-    const filter = (rect:any, usr:any) => choice.includes(rect.emoji.name) && usr.id === message.author.id;
-    m.createReactionCollector(filter, { time: 60000, max: 1 }).on("collect", async col => {
-      if (col.emoji.name === "🚫") return m.delete();
-    });
-  }
+             let { evaled, type } = await parseEval(eval(code)); /* eslint-disable-line */
+             if (flags.includes("silent")) return;
+             if (typeof evaled !== "string") evaled = require("util").inspect(evaled, { depth });
+             evaled = evaled
+             .replace(/`/g, `\`${String.fromCharCode(8203)}`)
+             .replace(/@/g, `@${String.fromCharCode(8203)}`);
+             if (evaled.length > 2048) evaled = await this.client.util.hastebin(evaled);
+             else evaled = `\`\`\`\n${evaled}\`\`\``;
+             msg.channel.send(evaled);
+       } catch (err) {
+           function clean(text: string) {
+             if (typeof(text) === "string")
+              return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+            else
+              return text;
+         }
+         msg.channel.send(`\`ERROR\` \`\`\`xl\n${err}\n\`\`\``);
+      }
  }
-};
+}
 
 async function parseEval(input: any) {
   const isPromise =
