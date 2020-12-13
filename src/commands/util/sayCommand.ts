@@ -4,11 +4,12 @@ import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "say",
-  cooldown:2,
-  ownerOnly:false,
-  description: "say something!",
-  usage: "say [text]"
+    name: "say",
+    aliases: [],
+    description: "say something",
+    usage: "say <text>",
+    cooldown: 3,
+    ownerOnly: false
 })
 
  export default class sayCommand extends Command {
