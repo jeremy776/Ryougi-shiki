@@ -1,4 +1,4 @@
-import { CommandConf } from "../../decorators";
+/*import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 import type { Message } from "discord.js";
 
@@ -23,4 +23,4 @@ import type { Message } from "discord.js";
    );
   return message.channel.send({embed:{description:`**\`${message.author.tag}\` has locked this channel**`, color:this.client.color}});
  }
-}
+}*/
