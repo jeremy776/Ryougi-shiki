@@ -48,7 +48,7 @@ declare module "discord.js" {
     export interface Client {
         commands: Collection<string, Command>;
         config: typeof config;
-        util: util;
+        util: typeof util;
         color: "#303136";
         cooldowns: Collection<string, number>;
         loadCommands(): Promise<void>;
