@@ -52,6 +52,7 @@ declare module "discord.js" {
         config: typeof config;
         util: typeof util;
         snipe: Map<string, Message>;
+        color: "#303136";
         afk: Collection<string, string>;
         cooldowns: Collection<string, number>;
         loadCommands(): Promise<void>;
