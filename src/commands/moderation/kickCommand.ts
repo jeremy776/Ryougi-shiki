@@ -4,12 +4,12 @@ import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "kick",
-  cooldown: 2,
-  aliases: ["kick-user"],
-  description: "Kick member",
-  usage: "kick <@user> [reason]",
-  ownerOnly:false
+    name: "kick",
+    aliases: [],
+    description: "kick user",
+    usage: "kick @user",
+    cooldown: 1,
+    ownerOnly: false
 })
 
  export default class kickCommand extends Command {
