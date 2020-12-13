@@ -14,7 +14,7 @@ export default class RyougiClient extends Client {
         })
     }
     public config: typeof config = config
-    public util: Util = new Util(this)
+    public util: typeof Util = Util
     public commands: Collection<string, Command> = new Collection()
     public cooldowns: Collection<string, number> = new Collection()
     public run(): void{
