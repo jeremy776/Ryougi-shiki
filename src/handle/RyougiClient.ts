@@ -1,7 +1,7 @@
 import { Client, ClientOptions, Collection, Message } from 'discord.js'
 import config from "../config";
 import type Command from "./Command";
-const util = require('./Util');
+import Util from "./Util";
 import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
 import { join } from "path";
@@ -14,7 +14,7 @@ export default class RyougiClient extends Client {
         })
     }
     public config: typeof config = config
-    public util: typeof util = util
+    public util: Util = new Util(this)
     //public color: string = "#303136"
     public afk: Collection<string, string> = new Collection()
     public snipe: Map<string, Message> = new Map()
@@ -51,7 +51,7 @@ declare module "discord.js" {
     export interface Client {
         commands: Collection<string, Command>;
         config: typeof config;
-        util: typeof util;
+        util: Util;
         snipe: Map<string, Message>;
         color: "#303136";
         afk: Collection<string, string>;
