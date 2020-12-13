@@ -22,7 +22,7 @@ import Command from "../../handle/Command";
    .setFooter("Reply "+ msg.author.tag)
    .addField("Owner", `
 \`\`\`
-• Name :: ${msg.guild?.owner.user?.tag}
+• Name :: ${msg.guild?.owner?.user.tag}
 • Id   :: ${msg.guild?.ownerID}
 \`\`\``)
     .addField("Server", `
