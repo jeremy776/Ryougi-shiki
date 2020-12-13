@@ -1,14 +1,12 @@
 const fetch = require("node-superfetch");
-
+import { Client } from "discord.js";
 export default class Util {
 
  public constructor(public readonly client : Client){}
-
  public cpu() {
   let cpuUsage = process.cpuUsage();
   return (cpuUsage.user/cpuUsage.system).toFixed(2) + "%";
  }
-
  public parseDur(ms: number) {
    let S = ms / 1000;
  
@@ -23,12 +21,10 @@ export default class Util {
  
   if (S || M || H || D) return `${D}d ${H}h ${M}m ${S}s`;
  }
- 
  public async hastebin(string: string) {
    const { body } = await fetch.post('https://hasteb.in/documents').send(string);
    return `https://hasteb.in/${body.key}.js`
  }
-
  public randomNumber(min: number, max: number):number {
    if(!min) throw new Error("Invalid Min Number")
    if(!max) throw new Error("Invalid Max Number")
