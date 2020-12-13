@@ -27,8 +27,8 @@ import Command from "../../handle/Command";
     const version = body.versions[body["dist-tags"].latest];
     let deps = version.dependencies ? Object.keys(version.dependencies) : null;
     let maintain = body.maintainers.map((user:any) => user.name);
-    if (maintain.length > 10) maintain = this.client.util.trimArray(maintain);
-    if (deps && deps.length > 10) deps = this.client.util.trimArray(deps);
+    //if (maintain.length > 10) maintain = this.client.util.trimArray(maintain);
+   // if (deps && deps.length > 10) deps = this.client.util.trimArray(deps);
     const embed = new MessageEmbed()
       .setColor(this.client.color)
       .setFooter(`Reply ${message.author.tag}`)
