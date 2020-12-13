@@ -20,7 +20,7 @@ export default class RyougiClient extends Client {
     public commands: Collection<string, Command> = new Collection()
     public cooldowns: Collection<string, number> = new Collection()
     public run(): void{
-        void this.loadCommands();
+        //void this.loadCommands();
         void this.loadEvent();
         void this.login(this.config.token);
     }
