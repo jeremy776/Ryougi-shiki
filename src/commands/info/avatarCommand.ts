@@ -18,17 +18,17 @@ import Command from "../../handle/Command";
 
   try{
 
-  let user = message.mentions.users.first() || await this.client.users.fetch(args[0]).catch(() => null)
+  let user = message.mentions.users?.first() || await this.client.users?.fetch(args[0]).catch(() => null)
 
   if(!user) {
     let userFind = args[0];
-    if(!userFind) userFind = message.author.username;
+    if(!userFind) userFind = message.author?.username;
 
-       let a = this.client.users.cache.find(x => x.username == userFind) || this.client.users.cache.find(x => x.tag.toLowerCase() == userFind.toLowerCase())
+       let a = this.client.users?.cache.find(x => x.username == userFind) || this.client.users?.cache.find(x => x.tag.toLowerCase() == userFind.toLowerCase())
 
        if(a == undefined) {
 
-        let test = message.guild.members.cache.filter(x => this.client.users.cache.get(x.id).tag.toLowerCase().includes(userFind.toLowerCase())).keyArray();
+        let test = message.guild?.members?.cache.filter(x => this.client.users?.cache.get(x.id).tag.toLowerCase().includes(userFind.toLowerCase())).keyArray();
         let testy = test.slice(0, 5).map(n => n);
 
         let wrongUsername = new MessageEmbed()
@@ -50,50 +50,50 @@ import Command from "../../handle/Command";
        case "1️⃣":
 
          let userNya1 = test[0];
-         let userNya = this.client.users.cache.get(userNya1);
+         let userNya = this.client.users?.cache.get(userNya1);
          let test1 = new MessageEmbed()
          .setColor(this.client.color)
-         .setImage(userNya.displayAvatarURL({dynamic:true, size:2048}))
+         .setImage(userNya.displayAvatarURL({dynamic:true, size:2048}) as any)
          .setAuthor(`Avatar from ${userNya.tag}`)
          return message.channel.send(test1);
        break;
        case "2️⃣":
 
          let dua = test[1];
-         let dua2 = this.client.users.cache.get(dua);
+         let dua2 = this.client.users?.cache.get(dua);
          let test2 = new MessageEmbed()
          .setColor(this.client.color)
-         .setImage(dua2.displayAvatarURL({dynamic:true, size:2048}))
+         .setImage(dua2.displayAvatarURL({dynamic:true, size:2048}) as any)
          .setAuthor(`Avatar from ${dua2.tag}`)
          return message.channel.send(test2);
        break;
        case "3️⃣":
 
          let tiga = test[2];
-         let tiga3 = this.client.users.cache.get(tiga);
+         let tiga3 = this.client.users.cache?.get(tiga);
          let test3 = new MessageEmbed()
          .setColor(this.client.color)
-         .setImage(tiga3.displayAvatarURL({dynamic:true, size:2048}))
+         .setImage(tiga3.displayAvatarURL({dynamic:true, size:2048}) as any)
          .setAuthor(`Avatar from ${tiga3.tag}`)
          return message.channel.send(test3);
        break;
        case "4️⃣":
 
          let empat = test[3];
-         let empat4 = this.client.users.cache.get(empat);
+         let empat4 = this.client.users?.cache.get(empat);
          let test4 = new MessageEmbed()
          .setColor(this.client.color)
-         .setImage(empat4.displayAvatarURL({dynamic:true, size:2048}))
+         .setImage(empat4.displayAvatarURL({dynamic:true, size:2048}) as any)
          .setAuthor(`Avatar from ${empat4.tag}`)
          return message.channel.send(test4);
        break;
        case "5️⃣":
 
          let lima = test[4];
-         let lima5 = this.client.users.cache.get(lima);
+         let lima5 = this.client.users?.cache.get(lima);
          let test5 = new MessageEmbed()
          .setColor(this.client.color)
-         .setImage(lima5.displayAvatarURL({dynamic:true, size:2048}))
+         .setImage(lima5.displayAvatarURL({dynamic:true, size:2048}) as any)
          .setAuthor(`Avatar from ${lima5.tag}`)
          return message.channel.send(test5);
        break;
@@ -109,7 +109,7 @@ import Command from "../../handle/Command";
 
   let avatar = new MessageEmbed()
   .setColor(this.client.color)
-  .setImage(user.displayAvatarURL({dynamic:true, size:2048}))
+  .setImage(user.displayAvatarURL({dynamic:true, size:2048}) as any)
   .setAuthor(`Avatar from ${user.tag}`)
   return message.channel.send(avatar)
 
