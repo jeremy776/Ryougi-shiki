@@ -17,7 +17,7 @@ export default class evalCommand extends Command {
  if(!this.client.config.owner.includes(message.author.id)) return message.channel.send({embed:{description:"**Only for my dev**", color:client.color}});
   
   const choice = ["🚫"]
-  const bot = client;
+  const bot = this.client;
   const msg = message;
 
   const { args, flags } = parseQuery(query);
@@ -40,7 +40,7 @@ export default class evalCommand extends Command {
     evaled = evaled
       .replace(/`/g, `\`${String.fromCharCode(8203)}`)
       .replace(/@/g, `@${String.fromCharCode(8203)}`);
-    if (evaled.length > 2048) evaled = await client.util.hastebin(evaled);
+    if (evaled.length > 2048) evaled = await this.client.util.hastebin(evaled);
     else evaled = `\`\`\`${evaled}\`\`\``;
     const embed = new MessageEmbed()
       .setAuthor("Evaled success")
@@ -52,7 +52,7 @@ export default class evalCommand extends Command {
     for (const chot of choice) {
       await m.react(chot);
     }
-    const filter = (rect, usr) => choice.includes(rect.emoji.name) && usr.id === message.author.id;
+    const filter = (rect:any, usr:any) => choice.includes(rect.emoji.name) && usr.id === message.author.id;
     m.createReactionCollector(filter, { time: 600000, max: 1 }).on("collect", async col => {
       if (col.emoji.name === "🚫") return m.delete();
     });
@@ -66,7 +66,7 @@ export default class evalCommand extends Command {
     for (const chot of choice) {
       await m.react(chot);
     }
-    const filter = (rect, usr) => choice.includes(rect.emoji.name) && usr.id === message.author.id;
+    const filter = (rect:any, usr:any) => choice.includes(rect.emoji.name) && usr.id === message.author.id;
     m.createReactionCollector(filter, { time: 60000, max: 1 }).on("collect", async col => {
       if (col.emoji.name === "🚫") return m.delete();
     });
@@ -74,7 +74,7 @@ export default class evalCommand extends Command {
  }
 };
 
-async function parseEval(input) {
+async function parseEval(input: string) {
   const isPromise =
     input instanceof Promise &&
     typeof input.then === "function" &&
@@ -92,7 +92,7 @@ async function parseEval(input) {
   };
 }
 
-function parseType(input) {
+function parseType(input: string) {
   if (input instanceof Buffer) {
     let length = Math.round(input.length / 1024 / 1024);
     let ic = "MB";
@@ -109,7 +109,7 @@ function parseType(input) {
   return input === null || input === undefined ? "Void" : input.constructor.name;
 }
 
-function parseQuery(queries) {
+function parseQuery(queries: string[]) {
   const args = [];
   const flags = [];
   for (const query of queries) {
