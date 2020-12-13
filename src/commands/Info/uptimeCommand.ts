@@ -15,7 +15,7 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
    let embed = new MessageEmbed()
-   .setDescription(`**${this.client.util.parseDur(this.client.uptime)}**`)
+   .setDescription(`**${this.client.util.parseDur(Number(this.client.uptime))}**`)
    .setColor(this.client.color)
    .setTimestamp()
    return msg.channel.send(embed)
