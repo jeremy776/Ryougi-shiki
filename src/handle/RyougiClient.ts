@@ -1,6 +1,7 @@
 import { Client, ClientOptions, Collection } from 'discord.js'
 const config = require("../config.json")
 import type Command from "./Command";
+import Util from "./Util";
 import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
 import { join } from "path";
@@ -13,6 +14,7 @@ export default class RyougiClient extends Client {
         })
     }
     public config: typeof config = config
+    public util: new Util(this)
     public commands: Collection<string, Command> = new Collection()
     public cooldowns: Collection<string, number> = new Collection()
     public run(): void{
