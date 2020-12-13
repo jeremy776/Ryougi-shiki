@@ -93,8 +93,8 @@ import Command from "../../handle/Command";
          let lima5 = this.client.users?.cache.get(lima);
          let test5 = new MessageEmbed()
          .setColor(this.client.color)
-         .setImage(lima5.displayAvatarURL({dynamic:true, size:2048}) as any)
-         .setAuthor(`Avatar from ${lima5.tag}`)
+         .setImage(lima5?.displayAvatarURL({dynamic:true, size:2048}) as any)
+         .setAuthor(`Avatar from ${lima5?.tag}`)
          return message.channel.send(test5);
        break;
        case "🚫":
