@@ -4,11 +4,12 @@ import Command from "../../handle/Command";
 import type { Message } from "discord.js";
 
 @CommandConf({
-  name: "afk",
-  cooldown:1,
-  description: "afk.",
-  usage: "afk [reason]",
-  ownerOnly:false
+    name: "afk",
+    aliases: [],
+    description: "if you want to afk",
+    usage: "afk [reason]",
+    cooldown: 1,
+    ownerOnly: false
 })
 
  export default class afkCommand extends Command {
