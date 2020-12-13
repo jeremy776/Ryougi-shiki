@@ -14,8 +14,8 @@ import Command from "../../handle/Command";
  export default class randomNumber extends Command {
    public async exec(msg:Message, args:string[]) {
 
-  let max = args[0];
-  if(!max) max = String(50);
+  let max = Number(args[0])
+  if(!max) max = Number(50)
   if(isNaN(max as any)) {
      return msg.reply("**Max Must Be A Number**");
   }
