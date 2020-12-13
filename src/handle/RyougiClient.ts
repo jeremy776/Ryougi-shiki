@@ -15,7 +15,7 @@ export default class RyougiClient extends Client {
     }
     public config: typeof config = config
     public util: Utility = new Utility(this)
-    //public color: string = "#303136"
+    public color: string = "#303136"
     public afk: Collection<string, string> = new Collection()
     public snipe: Map<string, Message> = new Map()
     public commands: Collection<string, Command> = new Collection()
