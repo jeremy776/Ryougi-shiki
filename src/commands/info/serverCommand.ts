@@ -16,14 +16,14 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
    let embed = new MessageEmbed()
-   .setAuthor(msg.guild.name + " Info", msg.author.displayAvatarURL({dynamic:true}))
+   .setAuthor(msg.guild?.name + " Info", msg.author.displayAvatarURL({dynamic:true}))
    .setColor(this.client.color)
    .setTimestamp()
    .setFooter("Reply "+ msg.author.tag)
    .addField("Owner", `
 \`\`\`
-• Name :: ${this.client.users.cache.get(msg.guild.ownerID).tag}
-• Id   :: ${msg.guild.ownerID}
+• Name :: ${this.client.users.cache.get(msg.guild.ownerID)?.tag}
+• Id   :: ${msg.guild?.ownerID}
 \`\`\``)
     .addField("Server", `
 \`\`\`
