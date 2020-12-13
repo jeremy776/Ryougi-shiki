@@ -27,7 +27,7 @@ import Command from "../../handle/Command";
     .setDescription("**Try again, you not specify a valid duration**")
     .setColor(this.client.color)
     let slowmode = args[0]
-    if(!slowmode || isNaN(slowmode)) return msg.channel.send(embed4)
+    if(!slowmode || isNaN(slowmode as any)) return msg.channel.send(embed4)
     let embed3 = new MessageEmbed()
     .setDescription(`**You have successfully set slowmode [${channel}] to \`${slowmode} Seconds\`**`)
     .setColor(this.client.color)
