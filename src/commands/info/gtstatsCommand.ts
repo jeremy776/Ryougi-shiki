@@ -17,7 +17,7 @@ import Command from "../../handle/Command";
   public async exec(msg:Message, args:string[]) {
 
   let baseURL = "https://www.growtopiagame.com/detail";
-  let res = axios.get(baseURL).then(x => {
+  let res = axios.get(baseURL).then((x:any) => {
   let wotd = x.data.world_day_images.full_size.replace("https:\/\/www.growtopiagame.com\/worlds\/", "").replace(".png", "");
   let embed = new MessageEmbed()
   .setTitle("Growtopia Statistic")
