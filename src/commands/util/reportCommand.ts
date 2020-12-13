@@ -4,12 +4,12 @@ import type { Message, TextChannel } from "discord.js";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "report",
-  aliases: ["bug"],
-  ownerOnly:false,
-  cooldown: 60,
-  description: "if you find a bug, you can use the report to our staff",
-  usage: "report [message]"
+    name: "report",
+    aliases: ["bug"],
+    description: "if you found bug",
+    usage: "report [message]",
+    cooldown: 60,
+    ownerOnly: false
 })
 
  export default class reportCommand extends Command {
