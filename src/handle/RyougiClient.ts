@@ -15,7 +15,7 @@ export default class RyougiClient extends Client {
     }
     public config: typeof config = config
     public util: typeof util = util
-    public afk: Collection<string, string>
+    public afk: Collection<string, string> = new Collection()
     public snipe: Map<string, Message> = new Map()
     public commands: Collection<string, Command> = new Collection()
     public cooldowns: Collection<string, number> = new Collection()
