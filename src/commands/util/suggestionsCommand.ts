@@ -4,12 +4,12 @@ import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "suggestions",
-  aliases: ["suggestion", "suggest"],
-  cooldown:60,
-  description: "give me your suggestion for next update!",
-  ownerOnly:false,
-  usage: "suggestion [message]"
+    name: "suggestions",
+    aliases: ["suggestion", "suggest"],
+    description: "maybe you want to provide new features for the next update?",
+    usage: "suggestions <text>",
+    cooldown: 60,
+    ownerOnly: false
 })
 
  export default class suggestionsCommand extends Command {
