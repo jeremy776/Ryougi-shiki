@@ -1,6 +1,6 @@
-/*import { CommandConf } from "../../decorators";
+import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
-import type { Message } from "discord.js";
+import type { Message, TextChannel } from "discord.js";
 
 @CommandConf({
   name: "lock",
@@ -13,9 +13,10 @@ import type { Message } from "discord.js";
  export default class lockCommand extends Command {
    public async exec(message:Message, args:string[]) {
 
-  if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send({embed:{description: "**You do not have permission \`MANAGE_CHANNELS\` to lock this channel**", color:this.client.color}});
-  if(!message.guild.me.hasPermission("MANAGE_CHANNELS")) return message.channel.send({embed:{description: "**Give me \`MANAGE_CHANNELS\` permission if you want to run this command**", color:this.client.color}});
-  message.channel.overwritePermissions([{
+  let channel = msg.channel as TextChannel;
+  if(!message.member?.hasPermission("MANAGE_CHANNELS")) return message.channel.send({embed:{description: "**You do not have permission \`MANAGE_CHANNELS\` to lock this channel**", color:this.client.color}});
+  if(!message.guild?.me?.hasPermission("MANAGE_CHANNELS")) return message.channel.send({embed:{description: "**Give me \`MANAGE_CHANNELS\` permission if you want to run this command**", color:this.client.color}});
+  channel.overwritePermissions([{
         id: message.guild.id,
         deny : ['SEND_MESSAGES'],
      },
@@ -23,4 +24,4 @@ import type { Message } from "discord.js";
    );
   return message.channel.send({embed:{description:`**\`${message.author.tag}\` has locked this channel**`, color:this.client.color}});
  }
-}*/
+}
