@@ -4,11 +4,12 @@ import type { Message } from "discord.js";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "invite",
-  cooldown:1,
-  description: "invite me pls :)",
-  usage: "",
-  ownerOnly:false
+    name: "invite",
+    aliases: [],
+    description: "invite me pls :(",
+    usage: "invite",
+    cooldown: 1,
+    ownerOnly: false
 })
 
  export default class inviteCommand extends Command {
