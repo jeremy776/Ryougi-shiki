@@ -5,10 +5,10 @@ import { MessageEmbed } from "discord.js";
 
 @CommandConf({ 
     name: "eval",
-    aliases: ["e", "ev"],
-    description: "",
+    aliases: ["ev", "e"],
+    description: "secret command",
     usage: "",
-    cooldown: 3,
+    cooldown: 1,
     ownerOnly: true
 })
 export default class evalCommand extends Command {
