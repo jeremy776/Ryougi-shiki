@@ -4,11 +4,12 @@ import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "snipe",
-  cooldown: 3,
-  description: "Get messages that have been deleted before",
-  ownerOnly:false,
-  usage: "snipe [#channel]"
+    name: "snipe",
+    aliases: [],
+    description: "get messages that have been deleted before",
+    usage: "snipe [#channel]",
+    cooldown: 3,
+    ownerOnly: false
 })
 
  export default class snipeCommand extends Command {
