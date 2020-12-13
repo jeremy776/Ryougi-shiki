@@ -4,11 +4,12 @@ import type { Message } from "discord.js";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "penis",
-  cooldown: 3,
-  description: "how long is your penis?",
-  ownerOnly:false,
-  usage: "penis @user"
+    name: "penis",
+    aliases: [],
+    description: "how long your penis? :u",
+    usage: "penis [@user]",
+    cooldown: 3,
+    ownerOnly: false
 })
 
  export default class penisCommand extends Command {
