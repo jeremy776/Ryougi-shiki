@@ -4,10 +4,12 @@ import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "setnick",
-  cooldown:1,
-  description: "set nickname, how to use?\n• setnick <@member> <new nickname>\n• documentation:\n  {member.tag} = Jeremy#2007\n  {member} = Jeremy",
-  ownerOnly:false
+    name: "setnick",
+    aliases: ["nick"],
+    description: "set nick member",
+    usage: "setnick [@member] [new nickname]",
+    cooldown: 2,
+    ownerOnly: false
 })
 
  export default class setnickCommand extends Command {
