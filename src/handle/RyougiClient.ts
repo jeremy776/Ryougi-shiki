@@ -1,5 +1,5 @@
 import { Client, ClientOptions, Collection, Message } from 'discord.js'
-const config = require("../config.json");
+import config from "../config";
 import type Command from "./Command";
 const util = require('./Util');
 import type Listener from "./Listener";
