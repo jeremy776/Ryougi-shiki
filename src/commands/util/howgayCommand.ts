@@ -4,11 +4,12 @@ import type { Message } from "discord.js";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "howgay",
-  description: "you gay!",
-  cooldown: 3,
-  usage: "howgay @user",
-  ownerOnly:false
+    name: "howgay",
+    aliases: [],
+    description: "fuck you gay",
+    usage: "howgay @user",
+    cooldown: 3,
+    ownerOnly: false
 })
 
  export default class howgayCommand extends Command {
