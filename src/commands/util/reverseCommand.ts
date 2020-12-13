@@ -4,12 +4,12 @@ import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
 @CommandConf({
-   name: "reverse",
-   aliases: ["reversed"],
-   cooldown:1,
-   description: "just reverse the writing",
-   usage: "reverse [text]",
-   ownerOnly:false
+    name: "reverse",
+    aliases: [],
+    description: "reverse the text you type",
+    usage: "reverse <text>",
+    cooldown: 3,
+    ownerOnly: false
 })
 
  export default class reverseCommand extends Command {
