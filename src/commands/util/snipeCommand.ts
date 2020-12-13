@@ -36,7 +36,6 @@ import Command from "../../handle/Command";
    return msg.channel.send(embedMessage)
   }
 
-
   let succes = new MessageEmbed()
   .setAuthor(data.author.tag, data.author.displayAvatarURL({dynamic:true}))
   .setColor(this.client.color)
