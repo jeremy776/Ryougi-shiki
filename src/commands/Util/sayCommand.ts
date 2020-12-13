@@ -16,7 +16,7 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
     
     let text = args.join(" ");
-    if(!text) return msg.channel.send(".... :(")
+    if(!text) return msg.channel.send("... :(")
     msg.delete()
     return msg.channel.send(text, { disableMentions:'everyone' })
   }
