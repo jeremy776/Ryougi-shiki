@@ -19,7 +19,7 @@ import Command from "../../handle/Command";
   if(!msg.member?.hasPermission("MANAGE_NICKNAMES")) return msg.channel.send(noPerms)
   if(!msg.guild?.me?.hasPermission("MANAGE_NICKNAMES")) return msg.channel.send(noPerms)
 
-  let member = msg.mentions?.members.first();
+  let member = msg.mentions.members?.first();
   let noMember = new MessageEmbed()
   .setDescription("**Mention members first**")
   .setColor(this.client.color)
