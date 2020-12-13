@@ -31,9 +31,9 @@ import Command from "../../handle/Command";
 • Id       :: ${msg.guild?.id}
 • Region   :: ${msg.guild?.region}
 • Members  :: ${msg.guild?.memberCount} Members
-  • Bot's  :: ${msg.guild.members.cache?.filter(x => x.user.bot).size} Bots
-  • User's :: ${msg.guild.members.cache?.filter(x => !x.user.bot).size} Users
-• Channels :: ${msg.guild.channels.cache?.size} Channel's
+  • Bot's  :: ${msg.guild?.members.cache.filter(x => x.user.bot).size} Bots
+  • User's :: ${msg.guild?.members.cache.filter(x => !x.user.bot).size} Users
+• Channels :: ${msg.guild?.channels.cache.size} Channel's
 \`\`\``)
     //.addField(`Roles [\`${msg.guild.roles.cache.size}\`]`, `${msg.guild.roles.cache.map(x => x).join(" | ")}`)
     return msg.channel.send(embed)
