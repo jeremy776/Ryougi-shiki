@@ -32,14 +32,14 @@ import Command from "../../handle/Command";
     .setDescription(`**usage: ${client.config.prefix}clear [1 - 100]**`)
     .setColor(client.color)
     
-    let total = args.join(" ");
+    let total = Number(args[0]);
     if(!total) return msg.channel.send(totalPut)
     
     let nan = new MessageEmbed()
     .setDescription(`**Value must be a number**`)
     .setColor(client.color)
     
-    if(isNaN(total)) return msg.channel.send(nan)
+    if(isNaN(total as any)) return msg.channel.send(nan)
     
     if(total > 100) return msg.channel.send(totalPut)
     
