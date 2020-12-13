@@ -17,9 +17,9 @@ import Command from "../../handle/Command";
 
   let embed = new MessageEmbed()
   .setColor(this.client.color)
-  .setImage(msg.guild.iconURL({dynamic:true, size:2048}))
+  .setImage(msg.guild?.iconURL({dynamic:true, size:2048}) as any)
   .setTimestamp()
-  .setAuthor(msg.guild.name, msg.author.displayAvatarURL({dynamic:true}));
+  .setAuthor(msg.guild?.name, msg.author.displayAvatarURL({dynamic:true}));
   return msg.channel.send(embed);
  }
 }
