@@ -20,7 +20,7 @@ export default class RyougiClient extends Client {
     public commands: Collection<string, Command> = new Collection()
     public cooldowns: Collection<string, number> = new Collection()
     public run(): void{
-        //void this.loadCommands();
+        void this.loadCommands();
         void this.loadEvent();
         void this.login(this.config.token);
     }
@@ -30,7 +30,7 @@ export default class RyougiClient extends Client {
             const commands = await readdir(join(__dirname, "..", "commands", category));
             for (const commandFile of commands) {
                 const commandClass = require(`../commands/${category}/${commandFile}`).default;
-                const command: Command = new commandClass(this);
+                const command: Command = commandClass(this);
                 command.config.category = category;
                 this.commands.set(command.config.name, command);
             }
