@@ -103,9 +103,7 @@ import Command from "../../handle/Command";
          }
         })
        };
-       user = a;
-  }
-
+     }
 
   let avatar = new MessageEmbed()
   .setColor(this.client.color)
