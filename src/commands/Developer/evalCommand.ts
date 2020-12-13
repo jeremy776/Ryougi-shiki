@@ -12,7 +12,7 @@ import { MessageEmbed } from "discord.js";
     ownerOnly: true
 })
 export default class evalCommand extends Command {
-    public async exec(message: Message, query: string[]) {
+    public async exec(msg: Message, query: string[]) {
 
     try {
             const { args, flags } = parseQuery(query);
