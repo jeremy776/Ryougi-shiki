@@ -18,17 +18,17 @@ import Command from "../../handle/Command";
    public async exec(message:Message, args:string[]) {
 
   let botInfo = new MessageEmbed()
-  .setAuthor(`${this.client.user.username} Stats`, this.client.user.displayAvatarURL())
+  .setAuthor(`${this.client.user?.username} Stats`, this.client.user?.displayAvatarURL())
   .addField(`Developer`,
 `\`\`\`
-${this.client.config.owner.map(x => "• "+client.users.cache.get(x).tag)}
+${this.client.config.owner.map((x:any) => "• "+this.client.users?.cache.get(x).tag)}
 \`\`\``)
   .addField(`Bot Statsistic`,
 `\`\`\`
 • Commands     :: ${this.client.commands.size} Command's
-• Channels     :: ${this.client.channels.cache.size.toLocaleString()}
-• Servers      :: ${this.client.guilds.cache.size.toLocaleString()}
-• Users        :: ${this.client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
+• Channels     :: ${this.client.channels?.cache.size.toLocaleString()}
+• Servers      :: ${this.client.guilds?.cache.size.toLocaleString()}
+• Users        :: ${this.client.guilds?.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
 \`\`\``)
   .addField(`Bot System`,
 `\`\`\`
@@ -37,8 +37,8 @@ ${this.client.config.owner.map(x => "• "+client.users.cache.get(x).tag)}
 • Node        :: ${process.version}
 • Mem Usage   :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} mb
 • CPU usage   :: ${this.client.util.cpu()}
-• CPU         :: ${os.cpus().map(i => `${i.model}`)[0]}
-• Uptime      :: ${this.client.util.parseDur(client.uptime)}\`\`\``)
+• CPU         :: ${os.cpus().map((i:any) => `${i.model}`)[0]}
+• Uptime      :: ${this.client.util.parseDur(this.client.uptime)}\`\`\``)
   .setFooter(`This bot is still under development`)
   .setTimestamp()
   .setColor(this.client.color)
