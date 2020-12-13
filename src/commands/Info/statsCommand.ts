@@ -38,7 +38,7 @@ ${this.client.config.owner.map((x:any) => "• "+this.client.users.cache.get(x)?
 • Mem Usage   :: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} mb
 • CPU usage   :: ${this.client.util.cpu()}
 • CPU         :: ${os.cpus().map((i:any) => `${i.model}`)[0]}
-• Uptime      :: ${this.client.util.parseDur(this.client.uptime)}\`\`\``)
+• Uptime      :: ${this.client.util.parseDur(Number(this.client.uptime))}\`\`\``)
   .setFooter(`This bot is still under development`)
   .setTimestamp()
   .setColor(this.client.color)
