@@ -22,7 +22,7 @@ import Command from "../../handle/Command";
   .setAuthor(`${this.client.user?.username} Stats`, this.client.user?.displayAvatarURL())
   .addField(`Developer`,
 `\`\`\`
-${this.client.config.owner.map((x:any) => "• "+this.client.users.cache.get(x)?.tag).join("\n").join("\n")}
+${this.client.config.owner.map((x:any) => "• "+this.client.users.cache.get(x)?.tag).join("\n")}
 \`\`\``)
   .addField(`Bot Statsistic`,
 `\`\`\`
@@ -33,7 +33,7 @@ ${this.client.config.owner.map((x:any) => "• "+this.client.users.cache.get(x)?
 \`\`\``)
   .addField(`Credits`,
 `\`\`\`
-${credit.map((x:any) => "• "+this.client.users.cache.get(x)?.tag)}
+${credit.map((x:any) => "• "+this.client.users.cache.get(x)?.tag).join("\n")}
 \`\`\``)
   .addField(`Bot System`,
 `\`\`\`
