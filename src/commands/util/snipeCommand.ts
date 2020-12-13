@@ -29,7 +29,7 @@ import Command from "../../handle/Command";
    if(embed.description) embedMessage.setDescription(embed.description)
    if(embed.color) embedMessage.setColor(embed.color)
    if(embed.image) embedMessage.setImage(embed.image.url)
-   if(embed.thumbnail) embedMessage.setThumbnail(embed.thumbnail)
+   //if(embed.thumbnail) embedMessage.setThumbnail(embed.thumbnail)
    if(embed.fields.length > 0) {
       embed.fields.map((x:any) => embedMessage.addField(x.name, x.value))
    }
