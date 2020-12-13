@@ -62,9 +62,9 @@ import Command from "../../handle/Command";
   user.kick(reason)
       .then(() => {
        let succes = new MessageEmbed()
-       .setAuthor("KICK USER", msg.guild.iconURL({dynamic:true}) as any)
+       .setAuthor("KICK USER", msg.guild?.iconURL({dynamic:true}) as any)
        .addField("Moderator", "**"+msg.author?.tag+"**")
-       .addField("User", "**"+user.user.tag+"**")
+       .addField("User", "**"+user.user?.tag+"**")
        .addField("Reason", "**"+reason+"**")
        .setTimestamp()
        .setColor(client.color)
