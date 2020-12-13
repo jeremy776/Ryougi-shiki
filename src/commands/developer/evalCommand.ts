@@ -70,7 +70,7 @@ export default class evalCommand extends Command {
  }
 };
 
-async function parseEval(input: string) {
+async function parseEval(input: any) {
   const isPromise =
     input instanceof Promise &&
     typeof input.then === "function" &&
@@ -88,7 +88,7 @@ async function parseEval(input: string) {
   };
 }
 
-function parseType(input: string) {
+function parseType(input: any) {
   if (input instanceof Buffer) {
     let length = Math.round(input.length / 1024 / 1024);
     let ic = "MB";
