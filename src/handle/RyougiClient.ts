@@ -1,7 +1,7 @@
 import { Client, ClientOptions, Collection } from 'discord.js'
 const config = require("../config.json")
 import type Command from "./Command";
-conat Util = require('./Util');
+const util = require('./Util');
 import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
 import { join } from "path";
@@ -14,7 +14,7 @@ export default class RyougiClient extends Client {
         })
     }
     public config: typeof config = config
-    public util: typeof Util = Util
+    public util: typeof util = util
     public commands: Collection<string, Command> = new Collection()
     public cooldowns: Collection<string, number> = new Collection()
     public run(): void{
@@ -48,7 +48,7 @@ declare module "discord.js" {
     export interface Client {
         commands: Collection<string, Command>;
         config: typeof config;
-        util: Util;
+        util: util;
         color: "#303136";
         cooldowns: Collection<string, number>;
         loadCommands(): Promise<void>;
