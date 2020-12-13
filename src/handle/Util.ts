@@ -1,6 +1,6 @@
 const fetch = require("node-superfetch");
 import { Client } from "discord.js";
-export default class Util {
+export default class Utility {
    public constructor(public readonly client : Client){}
    public cpu() {
   let cpuUsage = process.cpuUsage();
