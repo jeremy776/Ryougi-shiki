@@ -61,7 +61,7 @@ export default class helpCommand extends Command {
             for (const category of categories) {
                 const commands = this.client.commands.filter(x => x.config.category === category);
                 embed.fields?.push({
-                    name: category.toUpperCase() + ` [${commands.map(x => x.config.name).length}]`,
+                    name: category.toUpperCase() + ` [${commands.map((x:any) => x.config.name).length}]`,
                     value: commands.map(x => `\`${x.config.name}\``).join(", ")
                 });
             }
