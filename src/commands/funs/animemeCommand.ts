@@ -17,7 +17,7 @@ export default class animemeCommand extends Command {
   public async exec(msg: Message, args: string[]) {
 
 randomPuppy('animemes')
-  .then(url => {
+  .then((url:any) => {
       const embed = new MessageEmbed()
       .setImage(url)
       .setTitle("ANIME MEME'S")
