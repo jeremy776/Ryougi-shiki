@@ -4,12 +4,12 @@ import type { Message } from "discord.js";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "ping",
-  aliases: [],
-  cooldown: 3,
-  ownerOnly:false,
-  description: "show bot ping",
-  usage: ""
+    name: "ping",
+    aliases: [],
+    description: "bot ping",
+    usage: "ping",
+    cooldown: 2,
+    ownerOnly: false
 })
 
  export default class pingCommand extends Command {
