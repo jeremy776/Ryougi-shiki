@@ -14,7 +14,7 @@ import { MessageEmbed } from "discord.js";
 export default class evalCommand extends Command {
     public async exec(message: Message, query: string[]): Promise<void> {
 
- if(!this.client.config.owner.includes(message.author.id)) return message.channel.send({embed:{description:"**Only for my dev**", color:client.color}});
+ if(!this.client.config.owner.includes(message.author.id)) return message.channel.send({embed:{description:"**Only for my dev**", color:this.client.color}});
   
   const choice = ["🚫"]
   const bot = this.client;
@@ -29,10 +29,6 @@ export default class evalCommand extends Command {
     let depth = 0;
     if (flags.includes("async")) {
       code = `(async() => { ${code} })()`;
-    }
-    if (flags.some(x => x.includes("depth"))) {
-      depth = flags.find(x => x.includes("depth")).split("=")[1];
-      depth = parseInt((depth).toString(),10);
     }
     let { evaled, type } = await parseEval(eval(code)); /* eslint-disable-line */
     if (flags.includes("silent")) return;
