@@ -1,4 +1,4 @@
-import { MessageEmbed } from 'discord.js';
+/*import { MessageEmbed } from 'discord.js';
 import type { Message } from "discord.js";
 import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
@@ -69,4 +69,4 @@ import Command from "../../handle/Command";
     return msg.channel.send(`Oh no an error occured :( \`${e.message}\` try again later`);
   }
  }
-}
+}*/
