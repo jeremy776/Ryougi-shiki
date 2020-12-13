@@ -23,9 +23,8 @@ export default class evalCommand extends Command {
   const { args, flags } = parseQuery(query);
   try {
     if (!args.length) {
-      throw new TypeError("Eval command cannot execute without input!. You bbbaka...");
+      throw new TypeError("Eval command cannot execute without input!. You bbbaka.")
     }
-    if(args.includes(token)) throw new TypeError("nub");
     let code = args.join(" ");
     let depth = 0;
     if (flags.includes("async")) {
