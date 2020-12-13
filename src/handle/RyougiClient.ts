@@ -15,7 +15,6 @@ export default class RyougiClient extends Client {
     }
     public config: typeof config = config
     public util: typeof util = util
-    public color: "#303136"
     public afk: Collection<string, string> = new Collection()
     public snipe: Map<string, Message> = new Map()
     public commands: Collection<string, Command> = new Collection()
@@ -54,7 +53,7 @@ declare module "discord.js" {
         util: typeof util;
         snipe: Map<string, Message>;
         afk: Collection<string, string>;
-        color: "#303136";
+        color: typeof "#303136";
         cooldowns: Collection<string, number>;
         loadCommands(): Promise<void>;
         loadEventListeners(): Promise<void>;
