@@ -109,8 +109,8 @@ import Command from "../../handle/Command";
 
   let avatar = new MessageEmbed()
   .setColor(this.client.color)
-  .setImage(user.displayAvatarURL({dynamic:true, size:2048}) as any)
-  .setAuthor(`Avatar from ${user.tag}`)
+  .setImage(user?.displayAvatarURL({dynamic:true, size:2048}) as any)
+  .setAuthor(`Avatar from ${user?.tag}`)
   return message.channel.send(avatar)
 
   }catch(e){
