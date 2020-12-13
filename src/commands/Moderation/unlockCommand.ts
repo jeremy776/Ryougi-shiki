@@ -15,7 +15,7 @@ import Command from "../../handle/Command";
  export default class unlockCommand extends Command {
    public async exec(message:Message, args:string[]) {
 
-   let channel = msg.channel as TextChannel;
+   let channel = message.channel as TextChannel;
    let noPerms = new MessageEmbed()
    .setColor(this.client.color)
    .setDescription(`**You must have the \`MANAGE_CHANNELS\` permission**`);
