@@ -14,7 +14,7 @@ export default class RyougiClient extends Client {
         })
     }
     public config: typeof config = config
-    public util: new Util(this)
+    public util: Util = new Util(this)
     public commands: Collection<string, Command> = new Collection()
     public cooldowns: Collection<string, number> = new Collection()
     public run(): void{
@@ -48,6 +48,7 @@ declare module "discord.js" {
     export interface Client {
         commands: Collection<string, Command>;
         config: typeof config;
+        util: Util;
         color: "#303136";
         cooldowns: Collection<string, number>;
         loadCommands(): Promise<void>;
