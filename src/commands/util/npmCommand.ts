@@ -25,7 +25,7 @@ import Command from "../../handle/Command";
     const { body } = await superagent.get(`https://registry.npmjs.com/${npm}`);
     const version = body.versions[body["dist-tags"].latest];
     let deps = version.dependencies ? Object.keys(version.dependencies) : null;
-    let maintain = body.maintainers.map(user => user.name);
+    let maintain = body.maintainers.map((user:any) => user.name);
     if (maintain.length > 10) maintain = this.client.util.trimArray(maintain);
     if (deps && deps.length > 10) deps = this.client.util.trimArray(deps);
     const embed = new MessageEmbed()
