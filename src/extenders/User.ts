@@ -2,7 +2,7 @@ import { Structures } from "discord.js";
 
 class User extends Structures.get("User") {
     public get isDev(): boolean {
-        return this.client.config.owners.includes(this.id);
+        return this.client.config.owner.includes(this.id);
     }
 }
 
