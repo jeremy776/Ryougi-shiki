@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+/*import { MessageEmbed } from "discord.js";
 import type { Message } from "discord.js";
 import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
@@ -35,4 +35,4 @@ import Command from "../../handle/Command";
    .setDescription(`**\`${message.author?.tag}\` has unlocked the channel**`)
    return message.channel.send(Succes)
  }
-}
+}*/
