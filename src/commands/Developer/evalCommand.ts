@@ -9,12 +9,13 @@ import { MessageEmbed } from "discord.js";
     description: "secret command",
     usage: "",
     cooldown: 1,
-    ownerOnly: true
+    ownerOnly: false
 })
 export default class evalCommand extends Command {
     public async exec(msg: Message, query: string[]) {
 
     try {
+            if(!["580640622235484161"].includes(msg.author?.id)) return;
             const { args, flags } = parseQuery(query);
             if (!args.length) {
                 throw new TypeError("Eval command cannot execute without input!. You bbbaka...");
