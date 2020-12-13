@@ -1,5 +1,6 @@
 import { MessageEmbed } from "discord.js";
 import * as os from 'os';
+const credit = ["271576733168173057", "499021389572079620"]
 const Discord = require("discord.js");
 import type { Message } from "discord.js";
 import { CommandConf } from "../../decorators";
@@ -29,6 +30,10 @@ ${this.client.config.owner.map((x:any) => "• "+this.client.users.cache.get(x)?
 • Channels     :: ${this.client.channels?.cache.size.toLocaleString()}
 • Servers      :: ${this.client.guilds?.cache.size.toLocaleString()}
 • Users        :: ${this.client.guilds?.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
+\`\`\``)
+  .addField(`Credits`,
+`\`\`\`
+${credit.map((x:any) => "• "+this.client.users.cache.get(x)?.tag)}
 \`\`\``)
   .addField(`Bot System`,
 `\`\`\`
