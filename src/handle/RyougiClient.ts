@@ -1,7 +1,7 @@
 import { Client, ClientOptions, Collection } from 'discord.js'
 const config = require("../config.json")
 import type Command from "./Command";
-import { Util } from "./Util";
+conat Util = require('./Util');
 import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
 import { join } from "path";
