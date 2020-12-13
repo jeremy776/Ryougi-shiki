@@ -7,6 +7,23 @@ export default class MessageEvent extends Listener {
     public async exec(msg: Message): Promise<Message | void> {
         if (!msg.guild) return;
         if (msg.author.bot) return;
+
+        let author = client.afk.get(msg.author.id);
+        let tag = msg.mentions.members.first();
+         if(tag) {
+            let status = client.afk.get(tag.id);
+            if(status) {
+               let embed = new Discord.MessageEmbed()
+               .setDescription(`**${tag.user.tag} is afk: ${status}**`)
+               .setColor(client.color)
+               return msg.channel.send(embed).then(x => x.delete({timeout:5000}))
+             }
+          }
+         if(author) {
+            msg.reply(`Welcome Back ;)`).then(x => x.delete({timeout:5000}))
+            client.afk.delete(msg.author.id);
+          }
+
         if (msg.content === `<@!${this.client.user!.id}>` || msg.content === `<@${this.client.user!.id}>`) {
             return msg.channel.send(`My prefix is: \`${this.client.config.prefix}\``);
         }
