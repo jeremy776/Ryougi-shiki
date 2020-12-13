@@ -1,4 +1,4 @@
-import { Client, ClientOptions, Collection } from 'discord.js'
+import { Client, ClientOptions, Collection, Message } from 'discord.js'
 const config = require("../config.json")
 import type Command from "./Command";
 const util = require('./Util');
@@ -15,6 +15,8 @@ export default class RyougiClient extends Client {
     }
     public config: typeof config = config
     public util: typeof util = util
+    public afk: Collection<string, string>
+    public snipe: Map<string, Message> = new Map()
     public commands: Collection<string, Command> = new Collection()
     public cooldowns: Collection<string, number> = new Collection()
     public run(): void{
@@ -49,6 +51,8 @@ declare module "discord.js" {
         commands: Collection<string, Command>;
         config: typeof config;
         util: typeof util;
+        snipe: Map<string, Message>;
+        afk: Collection<string, string>;
         color: "#303136";
         cooldowns: Collection<string, number>;
         loadCommands(): Promise<void>;
