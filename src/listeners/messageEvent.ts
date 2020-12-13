@@ -35,7 +35,7 @@ export default class MessageEvent extends Listener {
         const command = this.client.commands.get(commandName.toLowerCase()) || this.client.commands.find(c => c.config.aliases!.includes(commandName.toLowerCase()));
         if (command) {
             if (command.config.ownerOnly) return;
-            if (!this.client.config.owner.includes(msg.author.id)) {
+            if (!this.client.config.owner.includes(msg.author?.id)) {
                 const now = Date.now();
                 const userCooldown = this.client.cooldowns.get(`${command.config.name}-${msg.author.id}`);
                 const cooldownAmount = command.config.cooldown! * 1000;
