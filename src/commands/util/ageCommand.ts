@@ -5,12 +5,12 @@ import type { Message } from "discord.js";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "age",
-  aliases: ["myage", "checkage"],
-  description: "check your age",
-  cooldown: 3,
-  usage: "age 2007",
-  ownerOnly:false
+    name: "age",
+    aliases: [],
+    description: "check age",
+    usage: "age 2007",
+    cooldown: 3,
+    ownerOnly: false
 })
 
  export default class ageCommand extends Command {
