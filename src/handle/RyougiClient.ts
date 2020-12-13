@@ -30,7 +30,7 @@ export default class RyougiClient extends Client {
             const commands = await readdir(join(__dirname, "..", "commands", category));
             for (const commandFile of commands) {
                 const commandClass = require(`../commands/${category}/${commandFile}`).default;
-                const command: Command = new commandClass(this);
+                const command: Command = commandClass(this);
                 command.config.category = category;
                 this.commands.set(command.config.name, command);
             }
