@@ -21,11 +21,11 @@ import Command from "../../handle/Command";
   .setDescription("**You must have \`KICK MEMBERS\` permission**")
   .setColor(client.color)
   .setTimestamp()
-  if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send(noPerms);
-  if(!msg.guild.me.hasPermission("KICK_MEMBERS")) return msg.channel.send({embed:{description: "**Give me \`KICK MEMBER\` permission if you want to run this command**", color:client.color}});
+  if(!msg.member?.hasPermission("KICK_MEMBERS")) return msg.channel.send(noPerms);
+  if(!msg.guild?.me?.hasPermission("KICK_MEMBERS")) return msg.channel.send({embed:{description: "**Give me \`KICK MEMBER\` permission if you want to run this command**", color:client.color}});
 
 
-  let user = msg.mentions.members.first();
+  let user = msg.mentions.members?.first();
   let reason = args.slice(1).join(" ")
   if(!reason) reason = "None";
 
@@ -35,7 +35,7 @@ import Command from "../../handle/Command";
   .setTimestamp()
   if(!user) return msg.channel.send(noMention);
 
-  if(user.id == msg.author.id) {
+  if(user.id == msg.author?.id) {
     let sameUser = new MessageEmbed()
     .setDescription("**You can't kick yourself**")
     .setColor(client.color)
@@ -43,7 +43,7 @@ import Command from "../../handle/Command";
     return msg.channel.send(sameUser)
   }
 
-  if(user.id == msg.guild.ownerID) {
+  if(user.id == msg.guild?.ownerID) {
     let ownerUser = new MessageEmbed()
     .setDescription("**You can't kick owner from this server!**")
     .setColor(client.color)
@@ -62,8 +62,8 @@ import Command from "../../handle/Command";
   user.kick(reason)
       .then(() => {
        let succes = new MessageEmbed()
-       .setAuthor("KICK USER", msg.guild.iconURL({dynamic:true}))
-       .addField("Moderator", "**"+msg.author.tag+"**")
+       .setAuthor("KICK USER", msg.guild.iconURL({dynamic:true}) as any)
+       .addField("Moderator", "**"+msg.author?.tag+"**")
        .addField("User", "**"+user.user.tag+"**")
        .addField("Reason", "**"+reason+"**")
        .setTimestamp()
