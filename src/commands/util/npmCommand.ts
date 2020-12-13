@@ -5,11 +5,12 @@ import type { Message } from "discord.js";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "npm",
-  cooldown: 2,
-  ownerOnly:false,
-  description: "Get information about npm",
-  usage: "npm quick.db"
+    name: "npm",
+    aliases: [],
+    description: "get info about npm",
+    usage: "npm discord.js",
+    cooldown: 3,
+    ownerOnly: false
 })
 
  export default class npmCommand extends Command {
