@@ -25,8 +25,8 @@ import Command from "../../handle/Command";
     .setDescription(`**Sorry, but I need \`MANAGE_MESSAGES\` permission to do this**`)
     .setColor(client.color)
     
-    if(!msg.member.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(userPerm)
-    if(!msg.member.guild.me.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(clientPerm)
+    if(!msg.member?.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(userPerm)
+    if(!msg.member.guild?.me?.hasPermission("MANAGE_MESSAGES")) return msg.channel.send(clientPerm)
     
     let totalPut = new MessageEmbed()
     .setDescription(`**usage: ${client.config.prefix}clear [1 - 100]**`)
@@ -45,11 +45,11 @@ import Command from "../../handle/Command";
     
     if(total < 1) return msg.channel.send(totalPut)
     
-    channel.bulkDelete(total).then(x => {
+    channel.bulkDelete(total).then((x:any) => {
       let succes = new MessageEmbed()
       .setDescription(`**You delete ${x.size} messages**`)
       .setColor(client.color)
-      return msg.channel.send(succes).then(b => b.delete({timeout:4000}))
+      return msg.channel.send(succes).then((b:any) => b.delete({timeout:4000}))
     });
 
  }
