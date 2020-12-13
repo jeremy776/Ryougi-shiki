@@ -1,5 +1,5 @@
-/*import { MessageEmbed } from "discord.js";
-import type { Message } from "discord.js";
+import { MessageEmbed } from "discord.js";
+import type { Message, TextChannel } from "discord.js";
 import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
@@ -20,9 +20,9 @@ import Command from "../../handle/Command";
     let embed2 = new MessageEmbed()
     .setDescription("**I need \`MANAGE_CHANNELS\` permission**")
     .setColor(this.client.color)
-    if(!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(embed1)
-    if(!msg.member.guild.me.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(embed2)
-    let channel = msg.mentions.channels.first() || msg.channel;
+    if(!msg.member?.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(embed1)
+    if(!msg.member.guild?.me?.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(embed2)
+    let channel = msg.mentions.channels?.first() as TextChannel || msg.channel as TextChannel;
     let embed4 = new MessageEmbed()
     .setDescription("**Try again, you not specify a valid duration**")
     .setColor(this.client.color)
@@ -34,4 +34,4 @@ import Command from "../../handle/Command";
     channel.setRateLimitPerUser(slowmode)
     return msg.channel.send(embed3)
   }
-}*/
+}
