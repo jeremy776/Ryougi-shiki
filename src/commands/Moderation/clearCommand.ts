@@ -1,5 +1,5 @@
-/*import { MessageEmbed } from "discord.js";
-import type { Message } from "discord.js";
+import { MessageEmbed } from "discord.js";
+import type { Message, TextChannel } from "discord.js";
 import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
@@ -16,6 +16,7 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
     let client = this.client;
+    let channel = msg.channel as TextChannel;
     let userPerm = new MessageEmbed()
     .setDescription(`**Sorry, but you need \`MANAGE_MESSAGEA\` permissions to do this**`)
     .setColor(client.color)
@@ -44,7 +45,7 @@ import Command from "../../handle/Command";
     
     if(total < 1) return msg.channel.send(totalPut)
     
-    msg.channel.bulkDelete(total).then(x => {
+    channel.bulkDelete(total).then(x => {
       let succes = new MessageEmbed()
       .setDescription(`**You delete ${x.size} messages**`)
       .setColor(client.color)
@@ -52,4 +53,4 @@ import Command from "../../handle/Command";
     });
 
  }
-}*/
+}
