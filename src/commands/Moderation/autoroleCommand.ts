@@ -26,7 +26,7 @@ import Command from "../../handle/Command";
          .setDescription("**You have turned on autorole**")
          .setColor(this.client.color)
          this.client.db.set(`autorole.${msg.guild?.id}`, {
-          id:status.id,
+          id:data.id,
           status:true
          });
          return msg.channel.send(on)
