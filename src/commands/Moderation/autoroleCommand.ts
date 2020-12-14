@@ -16,10 +16,10 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
   let noPerms = new MessageEmbed()
-  .setDescription("**You must have \`MANAGE SERVERS\` permission to use this command**")
+  .setDescription("**You must have \`MANAGE SERVER\` permission to use this command**")
   .setColor(this.client.color)
 
-  if(!msg.member?.hasPermission("MANAGE_SERVERS")) return msg.channel.send(noPerms);
+  if(!msg.member?.hasPermission("MANAGE_SERVER")) return msg.channel.send(noPerms);
   if(!msg.guild?.me?.hasPermission("MANAGE_ROLES")) return msg.channel.send({embed:{description: "**Give me \`MANAGE_ROLES\` permission if you want to run this command**", color:this.client.color}});
 
 
