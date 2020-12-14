@@ -48,8 +48,8 @@ import Command from "../../handle/Command";
 
     if(args[0].toLowerCase() == "on") {
      let status = this.client.db.get(`autorole.${msg.guild?.id}`).then((x:any) => x.status)
-     if(!status) return msg.reply("**You must set a role first**");
-    //if(status == null) return msg.reply("**You must set a role first**");
+     if(status == undefined) return msg.reply("**You must set a role first**");
+     if(status == null) return msg.reply("**You must set a role first**");
      if(status == true) return msg.reply("**autorole is already active**");
      if(status == false) {
       let on = new MessageEmbed()
