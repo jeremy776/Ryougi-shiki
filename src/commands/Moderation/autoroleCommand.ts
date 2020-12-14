@@ -18,7 +18,7 @@ import Command from "../../handle/Command";
    if(!["on", "off", "set"].includes(args[0])) return msg.reply(`Invalid options, please use \`${this.client.config.prefix}help autorole\` for info`)
 
    if(args[0].toLowerCase() == "set") {
-      let role = msg.mentions.roles?.first() || msg.guild.roles.cache?.find((x:any) => x.name == args[1]);
+      let role = msg.mentions.roles?.first() || msg.guild?.roles.cache.find((x:any) => x.name == args[1]);
       if(!role) {
          let embed = new MessageEmbed()
          .setDescription("**Role not found**")
