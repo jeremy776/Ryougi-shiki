@@ -4,7 +4,7 @@ const color = "#303136";
 import type Command from "./Command";
 import Utility from "./Util";
 import { Database } from "quickmongo";
-const db = new Database(this.config.mongoURL);
+const db = new Database(config.mongoURL);
 import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
 import { join } from "path";
