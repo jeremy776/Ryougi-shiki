@@ -19,7 +19,7 @@ import Command from "../../handle/Command";
 
    if(args[0].toLowerCase() == "on") {
      let status = this.client.db.get(`autorole.${msg.guild?.id}`)
-     if(!status) return msg.reply("**You must set a role first**");
+     if(status == undefined) return msg.reply("**You must set a role first**");
      if(status.status == true) return msg.reply("**autorole is already active**");
      if(status.status == false) {
          let on = new MessageEmbed()
@@ -38,7 +38,7 @@ import Command from "../../handle/Command";
 
    if(args[0].toLowerCase() == "off") {
      let status = this.client.db.get(`autorole.${msg.guild?.id}`)
-     if(!status) return msg.reply("**You must set a role first**");
+     if(status == undefined) return msg.reply("**You must set a role first**");
      if(status.status == false) return msg.reply("**autorole is not active**");
      if(status.status == true) {
          let off = new MessageEmbed()
