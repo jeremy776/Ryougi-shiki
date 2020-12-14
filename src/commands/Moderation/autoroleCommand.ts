@@ -81,7 +81,7 @@ import Command from "../../handle/Command";
      if(!status) return msg.reply("**You must set a role first**");
      if(status.status == false) return msg.reply("**autorole is not active**");
      if(status.status == true) {
-      let on = new MessageEmbed()
+      let off = new MessageEmbed()
       .setDescription("**You have successfully disabled autorole**")
       .setColor(this.client.color)
       this.client.db.set(`autorole.${msg.guild?.id}`, {
