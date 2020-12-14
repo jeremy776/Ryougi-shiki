@@ -75,5 +75,22 @@ import Command from "../../handle/Command";
      }
    }
 
+   if(args[0].toLowerCase() == "off") {
+     let status = await this.client.db.get(`autorole.${msg.guild?.id}`)
+     //if(status == undefined) return msg.reply("**You must set a role first**");
+     if(!status) return msg.reply("**You must set a role first**");
+     if(status.status == false) return msg.reply("**autorole is not active**");
+     if(status.status == true) {
+      let on = new MessageEmbed()
+      .setDescription("**You have successfully disabled autorole**")
+      .setColor(this.client.color)
+      this.client.db.set(`autorole.${msg.guild?.id}`, {
+        id:status.id,
+        status:false
+       });
+      return msg.channel.send(off)
+     }
+   }
+
  }
 }
