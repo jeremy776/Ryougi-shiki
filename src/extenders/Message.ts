@@ -6,7 +6,7 @@ import { APIMessage, Structures } from "discord.js";
 // original code: https://gist.github.com/Allvaa/0320f06ee793dc88e4e209d3ea9f6256
 
 class Message extends Structures.get("Message") {
-    public async inlineReply(content: any, options?: any): Promise<any> {
+    public async reply(content: any, options?: any): Promise<any> {
         const mentionRepliedUser = typeof ((options || content) as MessageOptions)?.allowedMentions?.repliedUser === "undefined" ? true : ((options || content) as MessageOptions)?.allowedMentions?.repliedUser;
         delete ((options || content) as MessageOptions)?.allowedMentions?.repliedUser;
 
@@ -45,14 +45,14 @@ declare module "discord.js" {
         repliedUser?: boolean;
     }
     export interface Message {
-        inlineReply(
+        reply(
             content: APIMessageContentResolvable | (MessageOptions & { split?: false }) | MessageAdditions,
         ): Promise<Message>;
-        inlineReply(options: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
-        inlineReply(options: MessageOptions | APIMessage): Promise<Message | Message[]>;
-        inlineReply(content: StringResolvable, options: (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
-        inlineReply(content: StringResolvable, options: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
-        inlineReply(content: StringResolvable, options: MessageOptions): Promise<Message | Message[]>;
+        reply(options: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+        reply(options: MessageOptions | APIMessage): Promise<Message | Message[]>;
+        reply(content: StringResolvable, options: (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+        reply(content: StringResolvable, options: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+        reply(content: StringResolvable, options: MessageOptions): Promise<Message | Message[]>;
     }
 }
 
