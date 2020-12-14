@@ -1,4 +1,4 @@
-import type { Guild } from "discord.js";
+import type { Guild, TextChannel } from "discord.js";
 import { MessageEmbed } from "discord.js";
 import Listener from "../handle/Listener";
 
@@ -13,6 +13,7 @@ export default class GuildDeleteEvent extends Listener {
   .addField("🔬 OWNER", guild.owner.user?.tag)
   .addField("⚙️ MEMBER", guild.memberCount)
   .setColor(this.client.color)
-  return this.client.channels.cache.get(this.client.config.logs).send(embed)
+  let channel = this.client.channels.cache.get(this.client.config.logs) as TextChannel
+  return channel.send(embed)
  }
 }
