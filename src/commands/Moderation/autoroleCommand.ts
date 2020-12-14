@@ -12,7 +12,7 @@ import Command from "../../handle/Command";
   ownerOnly:false
 })
 
- export default class autoroleCommand extends {
+ export default class autoroleCommand extends Command {
    public async exec(msg:Message, args:string[]) {
 
    if(!["on", "off", "set"].includes(args[0])) return msg.reply(`Invalid options, please use \`${this.client.config.prefix}help autorole\` for info`)
