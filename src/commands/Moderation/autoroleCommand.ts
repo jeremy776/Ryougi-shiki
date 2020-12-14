@@ -26,8 +26,7 @@ import Command from "../../handle/Command";
    if(!["on", "off", "set"].includes(args[0])) return msg.reply(`Invalid options, please use \`${this.client.config.prefix}help autorole\` for info`)
 
    if(args[0].toLowerCase() == "set") {
-      let status = await this.client.db.get(`autorole.${msg.guild?.id}`)
-      if(!status) status.status = false
+
       let role = msg.mentions.roles?.first() || msg.guild?.roles.cache.find((x:any) => x.name == args[1]);
       if(!role) {
          let embed = new MessageEmbed()
@@ -36,14 +35,27 @@ import Command from "../../handle/Command";
          return msg.channel.send(embed)
       }
        if(role == undefined) return msg.reply("**Role Not Found**")
+
+       let status = await this.client.db.get(`autorole.${msg.guild?.id}`)
+       if(!status) {
        let succes = new MessageEmbed()
        .setDescription(`**You have successfully set a role [\`${role.name}\`] for autorole**`)
        .setColor(this.client.color)
        this.client.db.set(`autorole.${msg.guild?.id}`, {
           id: role.id,
-          status:status.status
+          status:false
         })
        return msg.channel.send(succes)
+      }else{
+       let success = new MessageEmbed()
+       .setDescription(`**You have successfully update autorole: [\`${role.name}\`]**`)
+       .setColor(this.client.color)
+       this.client.db.set(`autorole.${msg.guild?.id}`, {
+          id: role.id,
+          status:true
+        })
+       return msg.channel.send(success)
+      }
     }
 
     if(args[0].toLowerCase() == "on") {
