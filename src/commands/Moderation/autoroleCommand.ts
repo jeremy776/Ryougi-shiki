@@ -59,8 +59,8 @@ import Command from "../../handle/Command";
         id:status.id,
         status:true
        });
-      }
       return msg.channel.send(on)
+     }
    }
 
  }
