@@ -28,7 +28,7 @@ class Message extends Structures.get("Message") {
                 // @ts-expect-error 2339
                 x.data.allowed_mentions = apiMessage.data.allowed_mentions;
                 return x;
-            }).map(this.inlineReply.bind(this)) as unknown as Message[]);
+            }).map(this.reply.bind(this)) as unknown as Message[]);
         }
 
         const { data, files } = await apiMessage.resolveFiles();
