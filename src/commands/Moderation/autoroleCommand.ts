@@ -26,7 +26,7 @@ import Command from "../../handle/Command";
          .setDescription("**You have turned on autorole**")
          .setColor(this.client.color)
 
-         this.client.db.set(`autorole.${msg.guild.id}`, {
+         this.client.db.set(`autorole.${msg.guild?.id}`, {
           id:status.id,
           status:true
          });
@@ -45,7 +45,7 @@ import Command from "../../handle/Command";
          .setDescription("**you have disabled the autorole command**")
          .setColor(this.client.color)
 
-         this.client.db.set(`autorole.${msg.guild.id}`, {
+         this.client.db.set(`autorole.${msg.guild?.id}`, {
           id:status.id,
           status:false
          });
@@ -67,7 +67,7 @@ import Command from "../../handle/Command";
        let succes = new MessageEmbed()
        .setDescription(`**You have successfully set a role [\`${role.name}\`] for autorole**`)
        .setColor(this.client.color)
-       this.client.db.set(`autorole.${msg.guild.id}`, {
+       this.client.db.set(`autorole.${msg.guild?.id}`, {
           id: role.id,
           status:false
         })
