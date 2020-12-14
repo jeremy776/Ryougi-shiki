@@ -3,7 +3,7 @@ import config from "../config";
 const color = "#303136";
 import type Command from "./Command";
 import Utility from "./Util";
-import { Database } = from "quickmongo";
+import { Database } from "quickmongo";
 const db = new Database(this.client.config.mongoURL);
 import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
