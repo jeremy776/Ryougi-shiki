@@ -18,7 +18,7 @@ import Command from "../../handle/Command";
    if(!["on", "off", "set"].includes(args[0])) return msg.reply(`Invalid options, please use \`${this.client.config.prefix}help autorole\` for info`)
 
    if(args[0].toLowerCase() == "on") {
-     let status = this.client.db.get(`autorole.${msg.guild.id}`)
+     let status = this.client.db.get(`autorole.${msg.guild?.id}`)
      if(!status) return msg.reply("**You must set a role first**");
      if(status.status == true) return msg.reply("**autorole is already active**");
      if(status.status == false) {
@@ -37,7 +37,7 @@ import Command from "../../handle/Command";
 
 
    if(args[0].toLowerCase() == "off") {
-     let status = this.client.db.get(`autorole.${msg.guild.id}`)
+     let status = this.client.db.get(`autorole.${msg.guild?.id}`)
      if(!status) return msg.reply("**You must set a role first**");
      if(status.status == false) return msg.reply("**autorole is not active**");
      if(status.status == true) {
@@ -56,6 +56,9 @@ import Command from "../../handle/Command";
 
 
    if(args[0].toLowerCase() == "set") {
+      let data = this.client.db.get(`autorole.${msg.guild?.id}`);
+      let status = data.status;
+      if(status == undefined) status = false
       let role = msg.mentions.roles?.first() || msg.guild?.roles.cache.find((x:any) => x.name == args[1]);
       if(!role) {
          let embed = new MessageEmbed()
@@ -69,7 +72,7 @@ import Command from "../../handle/Command";
        .setColor(this.client.color)
        this.client.db.set(`autorole.${msg.guild?.id}`, {
           id: role.id,
-          status:false
+          status:status
         })
        return msg.channel.send(succes)
     }
