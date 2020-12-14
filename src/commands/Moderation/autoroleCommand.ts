@@ -27,7 +27,7 @@ import Command from "../../handle/Command";
 
    if(args[0].toLowerCase() == "set") {
       let status = await this.client.db.get(`autorole.${msg.guild?.id}`)
-      if(status.status == null) status = false
+      if(!status) status.status = false
       let role = msg.mentions.roles?.first() || msg.guild?.roles.cache.find((x:any) => x.name == args[1]);
       if(!role) {
          let embed = new MessageEmbed()
