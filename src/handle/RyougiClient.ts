@@ -3,8 +3,6 @@ import config from "../config";
 const color = "#303136";
 import type Command from "./Command";
 import Utility from "./Util";
-import { Database } from "quickmongo";
-const db = new Database(config.mongoURL);
 import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
 import { join } from "path";
@@ -22,18 +20,11 @@ export default class RyougiClient extends Client {
     public afk: Collection<string, string> = new Collection()
     public snipe: Map<string, Message> = new Map()
     public commands: Collection<string, Command> = new Collection()
-    public db: typeof db = db
     public cooldowns: Collection<string, number> = new Collection()
     public run(): void{
         void this.loadCommands();
         void this.loadEvent();
-        void this.loadDatabase();
         void this.login(this.config.token);
-    }
-    public async loadDatabase(): Promise<void> {
-        db.on('ready', () => {
-         console.log('Database tersambung')
-        })
     }
     public async loadCommands(): Promise<void> {
         const categories = await readdir(join(__dirname, "..", "commands"));
@@ -65,7 +56,6 @@ declare module "discord.js" {
         snipe: Map<string, Message>;
         color: "#303136";
         afk: Collection<string, string>;
-        db: typeof db;
         cooldowns: Collection<string, number>;
         loadCommands(): Promise<void>;
         loadEventListeners(): Promise<void>;
