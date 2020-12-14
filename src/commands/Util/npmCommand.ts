@@ -36,11 +36,11 @@ import Command from "../../handle/Command";
       .setAuthor(body.name, "https://i.imgur.com/ErKf5Y0.png")
       .setDescription(`${body.description || "No description."}`)
       .addField("**Version:**", "v"+body["dist-tags"].latest)
-      .addField("**License:**", `©️ ${body.license || "None"}`)
-      .addField("**Author:**", `👤 ${body.author ? body.author.name : "Unknown"}`)
-      .addField("**Modified:**", `⏰ ${new Date(body.time.modified).toDateString()}`)
-      .addField("**Dependencies:**", `🗃️ ${deps && deps.length ? deps.map(x => `\`${x}\``).join(", ") : "None"}`)
-      .addField("**Maintainers:**", `👥 ${maintain.map((x:any) => `\`${x}\``).join(", ")}`)
+      .addField("**©️ License:**", `${body.license || "None"}`)
+      .addField("**👤 Author:**", `${body.author ? body.author.name : "Unknown"}`)
+      .addField("**⏰ Modified:**", `${new Date(body.time.modified).toDateString()}`)
+      .addField("**🗃️ Dependencies:**", `${deps && deps.length ? deps.map(x => `\`${x}\``).join(", ") : "None"}`)
+      .addField("**👥 Maintainers:**", `${maintain.map((x:any) => `\`${x}\``).join(", ")}`)
       .addField("**Download:**", `[${body.name}](https://www.npmjs.com/package/${npm})`)
     return message.channel.send(embed);
   } catch (e) {
