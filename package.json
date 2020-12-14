@@ -4,6 +4,7 @@
     "discord.js": "^12.4.0",
     "ascii-table": "0.0.9",
     "superagent": "^6.1.0",
+    "quickmongo": "^2.0.7",
     "os": "^0.1.1",
     "@kagchi/kag-api": "^1.5.5",
     "axios": "^0.21.0",
