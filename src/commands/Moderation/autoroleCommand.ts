@@ -24,22 +24,6 @@ import Command from "../../handle/Command";
 
 
    if(!["on", "off", "set"].includes(args[0])) return msg.reply(`Invalid options, please use \`${this.client.config.prefix}help autorole\` for info`)
-   if(args[0].toLowerCase() == "on") {
-     let data = this.client.db.get(`autorole.${msg.guild?.id}`)
-     let status = data.status;
-     //if(status == undefined) return msg.reply("**You must set a role first**");
-     if(status == true) return msg.reply("**autorole is already active**");
-     if(status == false) {
-         let on = new MessageEmbed()
-         .setDescription("**You have turned on autorole**")
-         .setColor(this.client.color)
-         this.client.db.set(`autorole.${msg.guild?.id}`, {
-          id:data.id,
-          status:true
-         });
-         return msg.channel.send(on)
-     }
-   }
 
    if(args[0].toLowerCase() == "off") {
      let status = this.client.db.get(`autorole.${msg.guild?.id}`)
