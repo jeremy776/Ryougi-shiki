@@ -59,7 +59,7 @@ import Command from "../../handle/Command";
     if(args[0].toLowerCase() == "message") {
       let data = await this.client.db.get(`welcome.${msg.guild?.id}`)
       let noData = new MessageEmbed()
-      .setDescription(`**You have to set the channel first\n\`${this.client.config.prefix}welcome channel #channel\``)
+      .setDescription(`**You have to set the channel first\n\`${this.client.config.prefix}welcome channel #channel\`**`)
       .setColor(this.client.color)
       if(!data) return msg.channel.send(noData)
 
@@ -68,6 +68,7 @@ import Command from "../../handle/Command";
 
       let succes = new MessageEmbed()
       .setAuthor(`Welcome Message`)
+      .setColor(this.client.color)
       .setDescription(pesan)
       msg.channel.send(succes)
 
