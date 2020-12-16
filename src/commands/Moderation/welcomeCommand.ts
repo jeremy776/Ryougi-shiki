@@ -7,7 +7,7 @@ import Command from "../../handle/Command";
   name: "welcome",
   aliases: [],
   description: "gives a message when a member enters the server",
-  usage: `welcome channel <#channel>\nwelcome message <message>\nwelcome [on || off]\n\nOptions for Messages\n{member} = ${this.client.user}\n{member.name} = ${this.client.user.username}\n{member.tag} = ${this.client.user.tag}\n{member.id} = ${this.client.user.id}\n\n{server.name} = Nameserver\n{memberCount} = total member server\n{server.id} = server id`,
+  usage: `welcome channel <#channel>\nwelcome message <message>\nwelcome [on || off]\n\nOptions for Messages\n{member} = @user\n{member.name} = username\n{member.tag} = username#discriminator\n{member.id} = 1234576891023456789\n\n{server.name} = Nameserver\n{memberCount} = total member server\n{server.id} = server id`,
   cooldown:1,
   ownerOnly:true
 })
