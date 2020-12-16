@@ -40,6 +40,7 @@ import Command from "../../handle/Command";
 
       return this.client.db.set(`welcome.${msg.guild?.id}`, {
         id: channel.id,
+        serverId: msg.guild?.id,
         message: "Welcome **{member}** to **{server.name}**",
         status: false
        });
@@ -50,6 +51,7 @@ import Command from "../../handle/Command";
       msg.channel.send(update)
       return this.client.db.set(`welcome.${msg.guild?.id}`, {
          id: channel.id,
+         serverId: msg.guild?.id,
          message: data.message,
          status: data.status
       });
@@ -75,12 +77,14 @@ import Command from "../../handle/Command";
       if(data.status == false) {
          return this.client.db.set(`welcome.${msg.guild?.id}`, {
            id: data.id,
+           serverId: msg.guild?.id,
            message: pesan,
            status: false
          });
       }else{
          return this.client.db.set(`welcome.${msg.guild?.id}`, {
            id: data.id,
+           serverId: msg.guild?.id,
            message: pesan,
            status: true
          });
@@ -103,6 +107,7 @@ import Command from "../../handle/Command";
         msg.channel.send(succes)
         return this.client.db.set(`welcome.${msg.guild?.id}`, {
              id: db.id,
+             serverId: msg.guild?.id,
              message: db.message,
              status: true
         })
@@ -124,6 +129,7 @@ import Command from "../../handle/Command";
         msg.channel.send(berhasil)
         return this.client.db.set(`welcome.${msg.guild?.id}`, {
            id:data.id,
+           serverId: msg.guild?.id,
            message: data.message,
            status: false
         })
