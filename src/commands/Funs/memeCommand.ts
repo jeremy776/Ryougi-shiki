@@ -22,7 +22,7 @@ import Command from "../../handle/Command";
     const embed = new MessageEmbed()
     .setImage(img)
     .setColor(this.client.color)
-    .setURL(`https://reddit.com/r/${random}`)
+   // .setURL(`https://reddit.com/r/${random}`)
     .setTimestamp();
     return msg.channel.send(embed)
  }
