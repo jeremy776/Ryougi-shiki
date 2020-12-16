@@ -104,7 +104,28 @@ import Command from "../../handle/Command";
              id: db.id,
              message: db.message,
              status: true
-        }
+        })
+      }
+    }
+
+    if(args[0].toLowerCase() == "off") {
+      let data = await this.client.db.get(`welcome.${msg.guild?.id}`)
+      if(!data) return msg.reply(`**The database is not registered yet, please set the channel to create a new database\n\`${this.client.config.prefix}welcome channel #channel\``)
+      let notOn = new MessageEmbed()
+      .setDescription(`**The welcome message is no longer active**`)
+      .setColor(this.client.color)
+      if(data.status == false) return msg.channel.send(notOn)
+
+      if(data.status == true) {
+        let berhasil = new MessageEmbed()
+        .setDescription(`**You have successfully disabled the welcome message**`)
+        .setColor(this.client.color)
+        msg.channel.send(berhasil)
+        return this.client.db.set(`welcome.${msg.guild?.id}`, {
+           id:data.id,
+           message: data.message,
+           status: false
+        })
       }
     }
 
