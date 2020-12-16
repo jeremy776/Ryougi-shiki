@@ -62,7 +62,7 @@ import Command from "../../handle/Command";
       .setColor(this.client.color)
       if(!data) return msg.channel.send(noData)
 
-      let pesan = args[1].join(" ");
+      let pesan = args.slice(1).join(" ");
 
       let succes = new MessageEmbed()
       .setAuthor(`Welcome Message`)
