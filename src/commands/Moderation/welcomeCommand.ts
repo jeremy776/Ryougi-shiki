@@ -22,7 +22,7 @@ import Command from "../../handle/Command";
 
    if(!["channel", "message", "on", "off"].includes(args[0])) return msg.reply("You entered the wrong value, type "+`\`${this.client.config.prefix}help welcome\` for more help`)
 
-   if(args[0].toLowerCase == "channel") {
+   if(args[0].toLowerCase() == "channel") {
 
    let data = await this.client.db.get(`welcome.${msg.guild?.id}`)
    let noMention = new MessageEmbed()
