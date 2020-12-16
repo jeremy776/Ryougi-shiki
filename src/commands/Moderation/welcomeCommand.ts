@@ -62,7 +62,7 @@ import Command from "../../handle/Command";
       .setColor(this.client.color)
       if(!data) return msg.channel.send(noData)
 
-      let pesan = args.slice(1).join(" ");
+      let pesan = args[1]
       if(!pesan) return msg.reply("You forgot to enter the message");
 
       let succes = new MessageEmbed()
