@@ -63,6 +63,7 @@ import Command from "../../handle/Command";
       if(!data) return msg.channel.send(noData)
 
       let pesan = args.slice(1).join(" ");
+      if(!pesan) return msg.reply("You forgot to enter the message");
 
       let succes = new MessageEmbed()
       .setAuthor(`Welcome Message`)
@@ -84,8 +85,6 @@ import Command from "../../handle/Command";
       }
     }
    }
-
-
 
 
  }
