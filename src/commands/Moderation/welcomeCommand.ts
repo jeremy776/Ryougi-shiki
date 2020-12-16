@@ -9,7 +9,7 @@ import Command from "../../handle/Command";
   description: "gives a message when a member enters the server",
   usage: `welcome channel <#channel>\nwelcome message <message>\nwelcome [on || off]\n\nOptions for Messages\n{member} = @user\n{member.name} = username\n{member.tag} = username#discriminator\n{member.id} = 1234576891023456789\n\n{server.name} = Nameserver\n{memberCount} = total member server\n{server.id} = server id`,
   cooldown:1,
-  ownerOnly:true
+  ownerOnly:false
 })
 
  export default class welcomeCommand extends Command {
