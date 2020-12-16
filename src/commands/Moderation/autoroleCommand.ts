@@ -43,6 +43,7 @@ import Command from "../../handle/Command";
        .setColor(this.client.color)
        this.client.db.set(`autorole.${msg.guild?.id}`, {
           id: role.id,
+          serverId: msg.guild?.id,
           status:false
         })
        return msg.channel.send(succes)
@@ -52,6 +53,7 @@ import Command from "../../handle/Command";
        .setColor(this.client.color)
        this.client.db.set(`autorole.${msg.guild?.id}`, {
           id: role.id,
+          serverId: msg.guild?.id,
           status:true
         })
        return msg.channel.send(success)
@@ -69,6 +71,7 @@ import Command from "../../handle/Command";
       .setColor(this.client.color)
       this.client.db.set(`autorole.${msg.guild?.id}`, {
         id:status.id,
+        serverId: msg.guild?.id,
         status:true
        });
       return msg.channel.send(on)
@@ -86,6 +89,7 @@ import Command from "../../handle/Command";
       .setColor(this.client.color)
       this.client.db.set(`autorole.${msg.guild?.id}`, {
         id:status.id,
+        serverId: msg.guild?.id,
         status:false
        });
       return msg.channel.send(off)
