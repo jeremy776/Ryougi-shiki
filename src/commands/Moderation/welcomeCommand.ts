@@ -89,7 +89,7 @@ import Command from "../../handle/Command";
 
     if(args[0].toLowerCase() == "on") {
       let db = await this.client.db.get(`welcome.${msg.guild?.id}`)
-      if(!db) return msg.reply(`**The database is not registered yet, please set the channel to create a new database\n\`${this.client.config.prefix}welcome channel #channel\``)
+      if(!db) return msg.reply(`**The database is not registered yet, please set the channel to create a new database\n\`${this.client.config.prefix}welcome channel #channel\`**`)
       let alreadyOn = new MessageEmbed()
       .setDescription(`**Welcome Message already active**`)
       .setColor(this.client.color)
@@ -110,7 +110,7 @@ import Command from "../../handle/Command";
 
     if(args[0].toLowerCase() == "off") {
       let data = await this.client.db.get(`welcome.${msg.guild?.id}`)
-      if(!data) return msg.reply(`**The database is not registered yet, please set the channel to create a new database\n\`${this.client.config.prefix}welcome channel #channel\``)
+      if(!data) return msg.reply(`**The database is not registered yet, please set the channel to create a new database\n\`${this.client.config.prefix}welcome channel #channel\`**`)
       let notOn = new MessageEmbed()
       .setDescription(`**The welcome message is no longer active**`)
       .setColor(this.client.color)
