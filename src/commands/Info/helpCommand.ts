@@ -37,7 +37,7 @@ export default class helpCommand extends Command {
 
             embed.fields?.push({
                 name: "Aliases",
-                value: `\`${command.config.aliases!.join(", ")}\``
+                value: `\`${command.config.aliases!.join(", ") || "Not set"}\``
             },
             {
                 name: "Usage",
