@@ -89,6 +89,7 @@ import Command from "../../handle/Command";
 
     if(args[0].toLowerCase() == "on") {
       let db = await this.client.db.get(`welcome.${msg.guild?.id}`)
+      if(db.message == null) return msg.reply("**You cannot activate the welcome message without a message\n\`${this.client.config.prefix}welcome message [message]\`**`)
       if(!db) return msg.reply(`**The database is not registered yet, please set the channel to create a new database\n\`${this.client.config.prefix}welcome channel #channel\`**`)
       let alreadyOn = new MessageEmbed()
       .setDescription(`**Welcome Message already active**`)
