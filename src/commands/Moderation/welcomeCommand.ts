@@ -87,5 +87,26 @@ import Command from "../../handle/Command";
       }
     }
 
+    if(args[0].toLowerCase() == "on") {
+      let db = await this.client.db.get(`welcome.${msg.guild?.id}`)
+      if(!db) return msg.reply(`**The database is not registered yet, please set the channel to create a new database\n\`${this.client.config.prefix}welcome channel #channel\``)
+      let alreadyOn = new MessageEmbed()
+      .setDescription(`**Welcome Message already active**`)
+      .setColor(this.client.color)
+      if(db.status == true) return msg.channel.send(alreadyOn)
+
+      if(db.status == false) {
+        let succes = new MessageEmbed()
+        .setDescription(`**You have successfully activated the welcome message**`)
+        .setColor(this.client.color)
+        msg.channel.send(succes)
+        return this.client.db.set(`welcome.${msg.guild?.id}`, {
+             id: db.id,
+             message: db.message,
+             status: true
+        }
+      }
+    }
+
  }
 }
