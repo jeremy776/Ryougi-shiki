@@ -54,6 +54,7 @@ import Command from "../../handle/Command";
          status: data.status
       });
      }
+   }
 
     if(args[0].toLowerCase() == "message") {
       let data = await this.client.db.get(`welcome.${msg.guild?.id}`)
@@ -62,7 +63,7 @@ import Command from "../../handle/Command";
       .setColor(this.client.color)
       if(!data) return msg.channel.send(noData)
 
-      let pesan = args[1]
+      let pesan = args.slice(1).join(" ");
       if(!pesan) return msg.reply("You forgot to enter the message");
 
       let succes = new MessageEmbed()
@@ -84,8 +85,6 @@ import Command from "../../handle/Command";
          });
       }
     }
-   }
-
 
  }
 }
