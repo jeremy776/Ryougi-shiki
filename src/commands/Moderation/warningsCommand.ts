@@ -17,13 +17,14 @@ import Command from "../../handle/Command";
 
     let user = msg.mentions.users.first() || msg.author
     let data = await this.client.db.get(`warning.${msg.guild?.id}_${user.id}`)
+    if(!data) return mag.reply(`**${user.tag}** Has no warning`)
 
     let embed = new MessageEmbed()
     .setAuthor("🔔 Check Warns", msg.author.displayAvatarURL({dynamic:true}) as any)
     .setColor(this.client.color)
     .setTimestamp()
     .setDescription(`**${user.tag} have ${data.length} warn's**`)
-    .addField("**Last 10 Warns**", data.map((x:any) => `**${x.reason}** • ${require("moment")(x.timestamp).fromNow()}`))
+    .addField("**Last 10 Warns**", data.slice(0,11).map((x:any) => `**${x.reason}** • ${require("moment")(x.timestamp).fromNow()}`))
     return msg.channel.send(embed)
  }
 }
