@@ -9,7 +9,7 @@ import Command from "../../handle/Command";
   description: "warn user",
   usage: "warn [@user] [reason]",
   cooldown: 1,
-  ownerOnly:true
+  ownerOnly:false
 })
 
  export default class warnCommand extends Command {
