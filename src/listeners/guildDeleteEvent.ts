@@ -8,7 +8,7 @@ export default class GuildDeleteEvent extends Listener {
 
   this.client.db.delete(`autorole.${guild.id}`)
   this.client.db.delete(`welcome.${guild.id}`)
-  this.client.db.delete(`warning.${guild.id}`)
+  this.client.db.delete(`warning${guild.id}`)
   let embed = new MessageEmbed()
   .setAuthor("👋 LEAVE GUILD", guild.iconURL({dynamic:true}) as any)
   .setThumbnail(guild.iconURL({dynamic:true}) as any)
