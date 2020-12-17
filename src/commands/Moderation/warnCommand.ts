@@ -37,6 +37,8 @@ import Command from "../../handle/Command";
      return msg.reply("**Oh no, you can't warn your self**")
    }
 
+   if(user.bot) return msg.reply("**Yo, you can't warn bot**")
+
    let succes = new MessageEmbed()
    .setAuthor("⚠️ WARN", msg.author.displayAvatarURL({dynamic:true}) as any)
    .setThumbnail(user.displayAvatarURL({dynamic:true}) as any)
