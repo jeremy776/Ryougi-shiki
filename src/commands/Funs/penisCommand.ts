@@ -20,7 +20,7 @@ import Command from "../../handle/Command";
   let embed = new MessageEmbed()
   .setColor(this.client.color)
   .setAuthor(`${user.username} Penis`)
-  .setDescription(`8`+`=`.repeat(this.client.util.randomNumber(1, 30))+`D`)
+  .setDescription(`8`+`=`.repeat(this.client.util.randomNumber(1, 10))+`D`)
   .setTimestamp()
   return msg.channel.send(embed)
  }
