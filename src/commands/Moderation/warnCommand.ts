@@ -45,6 +45,6 @@ import Command from "../../handle/Command";
    .setColor(this.client.color)
    .addField("Time Stamp", require("moment")(Date.now()).format("ddd MMM DD YYYY"))
    .addField("Reason Warn", reason)
-   rerurn msg.channel.send(succes)
+   return msg.channel.send(succes)
  }
 }
