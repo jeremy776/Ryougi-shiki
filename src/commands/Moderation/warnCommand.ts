@@ -18,7 +18,7 @@ import Command from "../../handle/Command";
    let noPerms = new MessageEmbed()
    .setDescription("**You don't have permission**")
    .setColor(this.client.color)
-   if(!msg.member?.hasPermission("MANAGE_GUILD")) return msg.channel.send(noPerm);
+   if(!msg.member?.hasPermission("MANAGE_GUILD")) return msg.channel.send(noPerms);
 
    let user = msg.mentions.users.first();
    let reason = args.slice(0).join(" ");
