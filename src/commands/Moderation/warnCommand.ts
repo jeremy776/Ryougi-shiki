@@ -56,13 +56,6 @@ import Command from "../../handle/Command";
       timestamp:Date.now()
    }
 
-   let data = await this.client.db.get(`warning.${msg.guild?.id}.${user.id}`);
-   if (!data) {
-    this.client.db.set(`warning.${msg.guild?.id}.${user.id}`, []);
-    data = [];
-   }
-
-  data.push(userData);
-  return this.client.db.set(`warning.${msg.guild?.id}.${user.id}`, data);
+   return this.client.db.push(`warning.${msg.guild?.id}.${user.id}`, userData);
  }
 }
