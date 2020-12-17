@@ -53,11 +53,11 @@ import Command from "../../handle/Command";
       id: user.id,
       reason: reason,
       mod:msg.author?.id,
-      timestamp:new Date.now()
+      timestamp:Date.now()
    }
 
    let data = await this.client.db.get(`warning.${user.id}`);
-   if (!ldb) {
+   if (!data) {
     this.client.db.set(`warning.${user.id}`, []);
     data = [];
    }
