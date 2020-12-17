@@ -56,6 +56,6 @@ import Command from "../../handle/Command";
       timestamp:Date.now()
    }
 
-   return this.client.db.push(`warning.${msg.guild?.id}.${user.id}`, userData);
+   return this.client.db.push(`warning.${msg.guild?.id}_${user.id}`, userData);
  }
 }
