@@ -21,7 +21,7 @@ import Command from "../../handle/Command";
    if(!msg.member?.hasPermission("MANAGE_GUILD")) return msg.channel.send(noPerms);
 
    let user = msg.mentions.users.first();
-   let reason = args.slice(0).join(" ");
+   let reason = args.slice(1).join(" ");
    if(!reason) reason = "No Reason";
 
    let noUser = new MessageEmbed()
@@ -45,6 +45,8 @@ import Command from "../../handle/Command";
    .setColor(this.client.color)
    .addField("Time Stamp", `**\`${require("moment")(Date.now()).format("ddd MMM DD YYYY hh:mm:ss")}\`**`)
    .addField("Reason Warn", reason)
+   .setFooter("Read the rules if you don't want to be warned")
+   .setTimestamp()
    return msg.channel.send(succes)
  }
 }
