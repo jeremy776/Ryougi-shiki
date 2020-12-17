@@ -16,7 +16,7 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
     let user = msg.mentions.users.first() || msg.author
-    let data = await this.client.db.get(`warning.${msg.guild?.id}.${user.id}`)
+    let data = await this.client.db.get(`warning${msg.guild?.id}.${user.id}`)
     if(!data) return msg.reply(`**${user.tag}** Has no warning`)
 
     let embed = new MessageEmbed()
