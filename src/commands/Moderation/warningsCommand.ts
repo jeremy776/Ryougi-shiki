@@ -25,6 +25,6 @@ import Command from "../../handle/Command";
     .setTimestamp()
     .setDescription(`**${user.tag} have ${data.length} warn's**`)
     .addField("**Last 10 Warns**", data.slice(0,10).map((x:any) => `**${x.reason}** • ${require("moment")(x.timestamp).fromNow()}`))
-    return msg.channel.send(embed)
+    return msg.channel.send(embed);
  }
 }
