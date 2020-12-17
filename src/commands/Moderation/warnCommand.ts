@@ -47,6 +47,22 @@ import Command from "../../handle/Command";
    .addField("Reason Warn", reason)
    .setFooter("Read the rules if you don't want to be warned")
    .setTimestamp()
-   return msg.channel.send(succes)
+   msg.channel.send(succes);
+
+   let userData = {
+      id: user.id,
+      reason: reason,
+      mod:msg.author?.id,
+      timestamp:new Date.now()
+   }
+
+   let data = await this.client.db.get(`warning.${user.id}`);
+   if (!ldb) {
+    this.client.db.set(`warning.${user.id}`, []);
+    data = [];
+   }
+
+  data.push(userData);
+  return this.client.db.set(`warning.${user.id}`, data);
  }
 }
