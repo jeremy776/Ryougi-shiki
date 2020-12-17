@@ -43,7 +43,7 @@ import Command from "../../handle/Command";
    .addField("User warned", `${user} | ${user.tag}`)
    .addField("Moderator", `${msg.author} | ${msg.author?.tag}`)
    .setColor(this.client.color)
-   .addField("Time Stamp", `**\`${require("moment")(Date.now()).format("ddd MMM DD YYYY hh:mm:ss")}\`**)
+   .addField("Time Stamp", `**\`${require("moment")(Date.now()).format("ddd MMM DD YYYY hh:mm:ss")}\`**`)
    .addField("Reason Warn", reason)
    return msg.channel.send(succes)
  }
