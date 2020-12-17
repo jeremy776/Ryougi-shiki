@@ -5,15 +5,15 @@ import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
 
 @CommandConf({
-  name: "manga",
+  name: "anime",
   aliases: [],
-  description: "get info about manga",
+  description: "get info about anime",
   usage: "manga [name]",
   cooldown: 1,
   ownerOnly:false
 })
 
- export default class mangaCommand extends Command {
+ export default class animeCommand extends Command {
   public async exec(message: Message, args:string[]) {
 
   function shorten(text:string):string {
