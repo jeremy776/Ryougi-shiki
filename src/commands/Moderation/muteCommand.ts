@@ -20,6 +20,7 @@ import Command from "../../handle/Command";
   
   let a = msg.mentions?.users.first()
   let reason = args.slice(1).join(" ")
+  if(!reason) reason = "No Reason";
   
   if(!a) return msg.reply("who want to you mute?")
   if(a.id === msg.author.id) return message.reply("You cant mute your self")
@@ -53,7 +54,8 @@ import Command from "../../handle/Command";
   .setColor(this.client.color)
   .addField("User Muted", `${a} | ${a.tag}`)
   .addField("Moderator", `${msg.author} | ${msg.author?.tag}`)
-  .addField("Time Stamp", null)
+  .addField("Time Stamp", `**\`${require("moment")(Date.now()).format("ddd MMM DD YYYY hh:mm:ss")}\`**`)
+  .addField("Reason Mute", reason)
   msg.channel.send(`${msg.author} you succesfully mute ${a.tag}`)
 
  }
