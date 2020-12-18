@@ -36,7 +36,7 @@ import Command from "../../handle/Command";
           permissions: []
         }
       })
-      msg.guild?.channels?.cache.forEach(async (channel: TextChannel) => {
+      msg.guild?.channels?.cache.forEach(async (channel as TextChannel) => {
         await channel.createOverwrite(role, {
           SEND_MESSAGES: false,
           SEND_TTS_MESSAGES: false,
