@@ -1,5 +1,5 @@
 import RyougiClient from './handle/RyougiClient';
-il//import app from "express";
+//import app from "express";
 
 const Discord = require("discord.js");
 const client = new RyougiClient({disableMentions: 'everyone', fetchAllMembers:true});
