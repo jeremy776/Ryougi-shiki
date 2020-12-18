@@ -1,14 +1,7 @@
-# Ts-bot
-
-* fill config.json
-* run npm install
-* run npm run build
-* run npm start
-
-this code modified version from [Nezuko](https://github.com/)
-
-### DATABASE
+## DATABASE
++ welcome.${guild.id}
 + autorole.${guild.id}
++ warning${guild.id}.${user.id}
 
-### TO DO LIST
-+ membuat auto nickname command
+## TO DO LIST
++ Membuat Website Dashboard
