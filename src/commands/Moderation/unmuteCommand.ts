@@ -26,7 +26,7 @@ import Command from "../../handle/Command";
    .setColor(this.client.color)
    .addField("User Unmute", `${user} | ${user.user.tag}`)
    .addField("Moderator", `${msg.author} | ${msg.author?.tag}`)
-   .addField("Time Stamp", null)
+   .addField("Time Stamp", `**\`${require("moment")(Date.now()).format("ddd MMM DD YYYY hh:mm:ss")}\`**`)
    .setFooter("Congratulations, you are no longer muted")
    .setTimestamp()
    msg.channel.send(embed)
