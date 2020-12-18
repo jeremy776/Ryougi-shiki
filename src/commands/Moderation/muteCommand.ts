@@ -26,8 +26,8 @@ import Command from "../../handle/Command";
   if(a.id === msg.author?.id) return msg.reply("You cant mute your self")
   let g = this.client.guilds?.cache?.get(msg.guild?.id)
   
-  let user = g.members.cache?.get(a.id)
-  let role = g.roles?.cache.find(r => r.name === "Muted") as any
+  let user = g.members?.cache.get(a?.id)
+  let role = g.roles?.cache.find((r:any) => r.name === "Muted") as any
   if (!role) {
     try {
       role = await msg.guild?.roles.create({
@@ -47,7 +47,7 @@ import Command from "../../handle/Command";
       console.log(e.stack)
     }
   }
-  user.roles?.add(role.id)
+  user.roles?.add(role?.id)
 
   let embed = new MessageEmbed()
   .setAuthor("🔇 MUTE", msg.author.displayAvatarURL({dynamic:true}) as any)
