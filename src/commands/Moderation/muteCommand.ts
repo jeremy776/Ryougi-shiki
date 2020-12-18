@@ -35,7 +35,7 @@ import Command from "../../handle/Command";
           permissions: []
         }
       })
-      msg.guild?.channels?.cache.forEach(async (channel as TextChannel) => {
+      msg.guild?.channels?.cache.forEach(async (channel: TextChannel) => {
         await channel.createOverwrite(role, {
           SEND_MESSAGES: false,
           SEND_TTS_MESSAGES: false,
@@ -47,7 +47,13 @@ import Command from "../../handle/Command";
     }
   }
   user.roles?.add(role.id)
-  
+
+  let embed = new MessageEmbed()
+  .setAuthor("🔇 MUTE", msg.author.displayAvatarURL({dynamic:true}) as any)
+  .setColor(this.client.color)
+  .addField("User Muted", `${a} | ${a.tag}`)
+  .addField("Moderator", `${msg.author} | ${msg.author?.tag}`)
+  .addField("Time Stamp", null)
   msg.channel.send(`${msg.author} you succesfully mute ${a.tag}`)
 
  }
