@@ -18,7 +18,7 @@ import Command from "../../handle/Command";
   if(!msg.member?.hasPermission("KICK_MEMBERS")) return msg.channel.send("You need permission KICK_MEMBER")
   if(!msg.member?.guild.me?.hasPermission("KICK_MEMBERS")) return msg.reply("I cant mute that user, give me KICK_MEMBER")
   
-  let user = msg.mentions?.members.first()
+  let user = msg.mentions.members?.first()
   let reason = args.slice(1).join(" ")
   if(!reason) reason = "No Reason";
   
@@ -27,7 +27,7 @@ import Command from "../../handle/Command";
   //let g = this.client.guilds?.cache?.get(msg.guild?.id)
   
   //let user = g.members?.cache.get(a?.id)
-  let role = g.roles?.cache.find((r:any) => r.name === "Muted") as any
+  let role = msg.guild?.roles?.cache.find((r:any) => r.name === "Muted") as any
   if (!role) {
     try {
       role = await msg.guild?.roles.create({
