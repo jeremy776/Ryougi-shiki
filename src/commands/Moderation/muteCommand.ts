@@ -9,7 +9,7 @@ import Command from "../../handle/Command";
   description: "mute member",
   usage: "mute <@user> [reason]",
   cooldown:1,
-  ownerOnly:true
+  ownerOnly:false
 })
 
  export default class muteCommand extends Command {
