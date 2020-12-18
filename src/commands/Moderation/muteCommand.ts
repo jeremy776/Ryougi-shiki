@@ -27,7 +27,7 @@ import Command from "../../handle/Command";
   let g = this.client.guilds?.cache.get(msg.guild.id)
   
   let user = g.members?.cache.get(a.id)
-  let role = g.roles?.cache.find(r => r.name === "Muted")
+  let role = g.roles?.cache.find(r => r.name === "Muted") as any
   if (!role) {
     try {
       role = await msg.guild?.roles.create({
