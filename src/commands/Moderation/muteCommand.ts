@@ -15,8 +15,8 @@ import Command from "../../handle/Command";
  export default class muteCommand extends Command {
    public async exec(msg:Message, args:string[]) {
 
-  if(!msg.member?.hasPermission("KICK_MEMBERS")) return msg.channel.send("You need permission KICK_MEMBER")
-  if(!msg.member?.guild.me?.hasPermission("KICK_MEMBERS")) return msg.reply("I cant mute that user, give me KICK_MEMBER")
+  if(!msg.member?.hasPermission("MANAGE_GUILD")) return msg.channel.send("You need permission MANAGE SERVER")
+  if(!msg.member?.guild.me?.hasPermission("MANAGE_GUILD")) return msg.reply("I cant mute that user, give me MANAGE GUILD")
   
   let user = msg.mentions.members?.first()
   let reason = args.slice(1).join(" ")
