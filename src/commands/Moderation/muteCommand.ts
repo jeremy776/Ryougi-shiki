@@ -18,15 +18,15 @@ import Command from "../../handle/Command";
   if(!msg.member?.hasPermission("KICK_MEMBERS")) return msg.channel.send("You need permission KICK_MEMBER")
   if(!msg.member?.guild.me?.hasPermission("KICK_MEMBERS")) return msg.reply("I cant mute that user, give me KICK_MEMBER")
   
-  let a = msg.mentions?.users.first()
+  let user = msg.mentions?.members.first()
   let reason = args.slice(1).join(" ")
   if(!reason) reason = "No Reason";
   
-  if(!a) return msg.reply("who want to you mute?")
-  if(a.id === msg.author?.id) return msg.reply("You cant mute your self")
-  let g = this.client.guilds?.cache?.get(msg.guild?.id)
+  if(!user) return msg.reply("who want to you mute?")
+  if(user.user.id === msg.author?.id) return msg.reply("You cant mute your self")
+  //let g = this.client.guilds?.cache?.get(msg.guild?.id)
   
-  let user = g.members?.cache.get(a?.id)
+  //let user = g.members?.cache.get(a?.id)
   let role = g.roles?.cache.find((r:any) => r.name === "Muted") as any
   if (!role) {
     try {
@@ -52,7 +52,7 @@ import Command from "../../handle/Command";
   let embed = new MessageEmbed()
   .setAuthor("🔇 MUTE", msg.author.displayAvatarURL({dynamic:true}) as any)
   .setColor(this.client.color)
-  .addField("User Muted", `${a} | ${a.tag}`)
+  .addField("User Muted", `${user} | ${user.user.tag}`)
   .addField("Moderator", `${msg.author} | ${msg.author?.tag}`)
   .addField("Time Stamp", `**\`${require("moment")(Date.now()).format("ddd MMM DD YYYY hh:mm:ss")}\`**`)
   .addField("Reason Mute", reason)
