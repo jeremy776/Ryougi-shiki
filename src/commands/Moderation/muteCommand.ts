@@ -47,6 +47,7 @@ import Command from "../../handle/Command";
       console.log(e.stack)
     }
   }
+  if(user.roles?.cache.has(role?.id)) return msg.reply("**This user has been muted before**");
   user.roles?.add(role?.id)
 
   let embed = new MessageEmbed()
