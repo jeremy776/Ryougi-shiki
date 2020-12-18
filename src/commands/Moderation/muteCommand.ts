@@ -56,7 +56,9 @@ import Command from "../../handle/Command";
   .addField("Moderator", `${msg.author} | ${msg.author?.tag}`)
   .addField("Time Stamp", `**\`${require("moment")(Date.now()).format("ddd MMM DD YYYY hh:mm:ss")}\`**`)
   .addField("Reason Mute", reason)
-  msg.channel.send(`${msg.author} you succesfully mute ${a.tag}`)
+  .setTimestamp()
+  .setFooter("Read the rules if you don't want to be muted")
+  msg.channel.send(embed)
 
  }
 }
