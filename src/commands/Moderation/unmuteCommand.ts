@@ -19,7 +19,7 @@ import Command from "../../handle/Command";
    if(!user) return msg.reply("**You must mention members who have been mute**")
 
    let check = msg.guild?.roles?.cache.filter((x:any) => x.name.toLowerCase() == "muted").first()
-   if(!user.roles?.cache?.has(check?.id)) return msg.reply("**Maybe the role is not detected, or this user is not muted**")
+   if(!user.roles?.cache.has(check?.id)) return msg.reply("**Maybe the role is not detected, or this user is not muted**")
 
    let embed = new MessageEmbed()
    .setAuthor("🔊 UNMUTE", msg.author.displayAvatarURL({dynamic:true}) as any)
