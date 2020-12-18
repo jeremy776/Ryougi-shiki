@@ -24,7 +24,7 @@ import Command from "../../handle/Command";
   
   if(!a) return msg.reply("who want to you mute?")
   if(a.id === msg.author?.id) return msg.reply("You cant mute your self")
-  let g = this.client.guilds.cache?.get(msg.guild?.id)
+  let g = this.client.guilds?.cache?.get(msg.guild?.id)
   
   let user = g.members.cache?.get(a.id)
   let role = g.roles?.cache.find(r => r.name === "Muted") as any
