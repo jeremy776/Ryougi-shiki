@@ -26,8 +26,8 @@ export default class MessageEvent extends Listener {
             }
 
            let randomXp = Math.floor(Math.random() * 36)+1;
-           let level =  userData.level,
-           let xp = userData.xp + randomXp,
+           let level =  userData.level;
+           let xp = userData.xp + randomXp;
            let totalxp = userData.totalxp + userData.xp + randomXp;
 
            if(xp => level * 40) {
