@@ -15,7 +15,7 @@ import Command from "../../handle/Command";
  export default class setrewardCommand extends Command {
    public async exec(msg:Message, args:string[]) {
 
-   let level = args[0];
+   let level = Number(args[0]);
    if(isNaN(level)) return msg.reply("**That's not a valid level**")
    if(!level) return msg.reply("**You didn't enter the level:(**");
 
