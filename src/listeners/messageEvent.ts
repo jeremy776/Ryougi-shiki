@@ -15,6 +15,9 @@ export default class MessageEvent extends Listener {
         if(data) {
           if(data.status == true) {
 
+            let dataLevel = await this.client.db.get(`levelreward.${msg.guild?.id}`);
+            let allData = dataLevel.map((x:any) => x);
+
             let channel = msg.guild?.channels.cache.get(data.channel) as TextChannel;
             let userData = await this.client.db.get(`level${msg.guild?.id}.${msg.author?.id}`);
             if(!userData) {
@@ -25,14 +28,21 @@ export default class MessageEvent extends Listener {
               });
             }
 
-            const generatedxp = Math.floor(Math.random() * 5);
+            const generatedxp = Math.floor(Math.random() * 10);
             userData.xp += generatedxp;
             userData.totalxp += generatedxp;
   
             if(userData.xp >= userData.level * 40) {
               userData.level++;
               userData.xp = 0;
-              channel.send(`Congrats, new level:)`)
+              let filterRole = allData.filter(x => x.theLevel == userData.level)
+
+              if(userData.level == filterRole[0].theLevel) K
+                let role = msg.guild?.roles.cache.get(filterRole[0].role);
+                if(!role) return;
+                msg.members?.roles.add(role);
+              }
+              channel.send(`Congratulations **${msg.author?.tag}** your level has gone up [**${userData.level}**]`)
             }
 
             this.client.db.set(`level${msg.guild?.id}.${msg.author?.id}`, userData)
