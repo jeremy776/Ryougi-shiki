@@ -26,14 +26,16 @@ export default class MessageEvent extends Listener {
             }
 
             const generatedxp = Math.floor(Math.random() * 5);
-            let xp = userData.xp + generatedxp;
-            let total = userData.totalxp + generatedxp;
-
-            if(xp >= userData.level * 40) {
-               this.client.db.add(`level${msg.guild?.id}.${msg.author?.id}.level`, 1)
-               this.client.db.set(`level${msg.guild?.id}.${msg.author?.id}.xp`, 0)
-               channel.send("New Level")
+            userData.xp += generatedxp;
+            userData.totalxp += generatedxp;
+  
+            if(userData.xp >= userData.level * 40) {
+              userData.level++;
+              userData.xp = 0;
+              channel.send(`Congrats, new level:)`)
             }
+
+            this.client.db.set(`level${msg.guild?.id}.${msg.author?.id}`, userData)
 
           }
         }
