@@ -5,7 +5,7 @@ export default class GuildRemoveAdd extends Listener {
   public name = "guildRemoveAdd";
   public async exec(member: any) {
 
-  this.client.db.delete(`warning${member.guild?.id}.${member.user?.id}`)
+  //this.client.db.delete(`warning${member.guild?.id}.${member.user?.id}`)
 
  }
 }
