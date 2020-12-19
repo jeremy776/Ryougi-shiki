@@ -15,10 +15,10 @@ import Command from "../../handle/Command";
  export default class setrewardCommand extends Command {
    public async exec(msg:Message, args:string[]) {
 
-   let level = args[0]
+   let level = args[0];
    if(!level) return msg.reply("**You didn't enter the level:(**");
 
-   let role = msg.mentions.roles?.first()
+   let role = msg.mentions.roles?.first();
    if(!role) return msg.reply("**You did not enter a role reward :(**");
 
    let set = new MessageEmbed()
