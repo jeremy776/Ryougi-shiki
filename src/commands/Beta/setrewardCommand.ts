@@ -16,6 +16,7 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
    let level = args[0];
+   if(isNaN(level)) return msg.reply("**That's not a valid level**")
    if(!level) return msg.reply("**You didn't enter the level:(**");
 
    let role = msg.mentions.roles?.first();
@@ -24,9 +25,14 @@ import Command from "../../handle/Command";
    let set = new MessageEmbed()
    .setColor(this.client.color)
    .setAuthor("New Reward", msg.guild?.iconURL({dynamic:true}) as any)
-   .setDescription(`New rewards have been added\n If a member reaches level **${level}**, he will get a role ${role}`)
+   .setDescription(`New rewards have been added\n\n• If a member reaches level **${level}**, he will get a role ${role}`)
    .setTimestamp()
    .setFooter(`Set by ${msg.author?.tag}`, msg.author?.displayAvatarURL({dynamic:true}) as any)
-   return msg.channel.send(set)
+   msg.channel.send(set)
+   return this.client.db.push(`levelreward.${msg.guild?.id}`, {
+     roleId: role.id,
+     theLevel: level
+   });
+
  }
 }
