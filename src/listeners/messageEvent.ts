@@ -23,13 +23,13 @@ export default class MessageEvent extends Listener {
               totalxp: 0
             });
 
-            let randomXp = Math.floor(Math.random() * 36);
-            level.xp += randomXp;
-            level.totalxp += randomXp;
-
             if(level.xp == null) {
               level.xp = 0
             }
+
+            let randomXp = Math.floor(Math.random() * 36);
+            level.xp += randomXp;
+            level.totalxp += randomXp;
 
             if(level.xp >= level.level * 40) {
               level.level++;
