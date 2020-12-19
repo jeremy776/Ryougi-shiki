@@ -12,7 +12,7 @@ import Command from "../../handle/Command";
   ownerOnly:true
 })
 
- export default class rewardsCommand extends {
+ export default class rewardsCommand extends Command {
    public async exec(msg:Message, args:string[]) {
 
    let data = await this.client.db.get(`levelreward.${msg.guild?.id}`);
@@ -27,4 +27,3 @@ import Command from "../../handle/Command";
 
  }
 }
-{}
