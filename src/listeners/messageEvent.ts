@@ -35,7 +35,7 @@ export default class MessageEvent extends Listener {
             if(userData.xp >= userData.level * 40) {
               userData.level++;
               userData.xp = 0;
-              let filterRole = allData.filter(x => x.theLevel == userData.level)
+              let filterRole = allData.filter((x:any) => x.theLevel == userData.level)
 
               if(userData.level == filterRole[0].theLevel) {
                 let role = msg.guild?.roles.cache.get(filterRole[0].role);
