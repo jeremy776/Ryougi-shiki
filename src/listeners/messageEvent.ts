@@ -27,6 +27,10 @@ export default class MessageEvent extends Listener {
             level.xp += randomXp;
             level.totalxp += randomXp;
 
+            if(level.xp == null) {
+              level.xp = 0
+            }
+
             if(level.xp >= level.level * 40) {
               level.level++;
               level.xp = 0;
