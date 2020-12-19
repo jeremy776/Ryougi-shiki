@@ -17,7 +17,7 @@ import Command from "../../handle/Command";
 
    let data = await this.client.db.get(`levelreward.${msg.guild?.id}`);
    let level = Number(args[0]);
-   if(!level) return msg.replt("**You didn't enter the level:(**");
+   if(!level) return msg.reply("**You didn't enter the level:(**");
    if(isNaN(level)) return msg.reply("**That's not a valid level**");
    if(data) {
      if(data.map((x:any) => x.theLevel).includes(level)) return msg.reply("Rewards at this level already exist")
