@@ -1,4 +1,4 @@
-import type { Message } from "discord.js";
+import type { Message, TextChannel } from "discord.js";
 import { MessageEmbed } from "discord.js";
 import Listener from "../handle/Listener";
 
@@ -8,6 +8,34 @@ export default class MessageEvent extends Listener {
     public async exec(msg: Message): Promise<Message | void> {
         if (!msg.guild) return;
         if (msg.author.bot) return;
+
+
+        //level
+        let data = await this.client.db.get(`level-status.${msg.guild?.id}`)
+        if(data) {
+          if(data.status == true) {
+
+            let channel = msg.guild?.channels.cache.get(data.channel) as TextChannel;
+
+            let level = await this.client.db.get(`level${msg.guild?.id}.${msg.author?.id}`, {
+              level: 1,
+              xp: 0,
+              totalxp: 0
+            });
+
+            let randomXp = Math.floor(Math.random() * 36);
+            level.xp += randomXp;
+            level.totalxp += randomXp;
+
+            if(level.xp >= level.level * 40) {
+              level.level++;
+              level.xp = 0;
+              channel.send(`Congratulations **${msg.author?.tag}**, you just leveled up [**\`${level.level}\`**]`)
+            }
+
+            await this.client.db.set(`level${msg.guild?.id}`, level);
+          }
+        }
 
         let author = this.client.afk.get(msg.author?.id);
         let tag = msg.mentions.members?.first();
