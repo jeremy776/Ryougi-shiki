@@ -17,13 +17,17 @@ import Command from "../../handle/Command";
 
    let data = await this.client.db.get(`level-status.${msg.guild?.id}`)
    if(!data) return msg.reply("**It's not active anymore**");
-   if(data == false) return msg.reply("**It's no longer active**");
+   if(data.status == false) return msg.reply("**It's no longer active**");
 
    let embed = new MessageEmbed()
    .setDescription(`**You have successfully disabled the leveling on your server**`)
    .setColor(this.client.color)
    .setTimestamp()
    msg.channel.send(embed)
-   return this.client.db.set(`level-status.${msg.guild?.id}`, false);
+   return this.client.db.set(`level-status.${msg.guild?.id}`, {
+     status: false,
+     message: data.message,
+     channel: data.channel
+   });
  }
 }
