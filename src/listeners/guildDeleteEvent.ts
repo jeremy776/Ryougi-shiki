@@ -7,7 +7,7 @@ export default class GuildDeleteEvent extends Listener {
   public async exec(guild:Guild) {
 
   //LEVELING DATABASE
-  this.client.db.delete(`levelreward.${msg.guild?.id}`)
+  this.client.db.delete(`levelreward.${guild.id}`)
 
   //GENERAL DATABASE
   this.client.db.delete(`autorole.${guild.id}`)
