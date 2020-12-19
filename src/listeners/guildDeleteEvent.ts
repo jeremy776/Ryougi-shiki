@@ -8,6 +8,7 @@ export default class GuildDeleteEvent extends Listener {
 
   //LEVELING DATABASE
   this.client.db.delete(`levelreward.${guild.id}`)
+  this.client.db.delete(`level-status.${guild.id}`)
 
   //GENERAL DATABASE
   this.client.db.delete(`autorole.${guild.id}`)
