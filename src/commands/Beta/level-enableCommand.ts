@@ -7,7 +7,7 @@ import Command from "../../handle/Command";
   name: "level-enable",
   aliases: ["enable-level", "level-on"],
   description: "Turn off leveling on your server",
-  usage: "level-disable",
+  usage: "level-enable",
   cooldown: 1,
   ownerOnly:true
 })
