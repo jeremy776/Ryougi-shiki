@@ -17,7 +17,6 @@ import Command from "../../handle/Command";
 
    let data = await this.client.db.get(`level-status.${msg.guild?.id}`)
    //if(!data) return msg.reply("**It's not active anymore**");
-   if(data
    if(data.status == true) return msg.reply("**It's already active**");
 
    let embed = new MessageEmbed()
