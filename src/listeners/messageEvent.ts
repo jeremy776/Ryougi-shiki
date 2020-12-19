@@ -25,7 +25,7 @@ export default class MessageEvent extends Listener {
               });
             }
 
-           let xp = this.client.db.add(`level${msg.guild?.id}.${msg.author?.id}.xp`, 1)
+           this.client.db.add(`level${msg.guild?.id}.${msg.author?.id}.xp`, 1)
            let nextLvl = Math.floor(0.150 * Math.sqrt(xp))
            let level = userData.level;
 
