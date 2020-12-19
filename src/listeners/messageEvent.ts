@@ -26,7 +26,7 @@ export default class MessageEvent extends Listener {
             }
 
            this.client.db.add(`level${msg.guild?.id}.${msg.author?.id}.xp`, 1)
-           let nextLvl = Math.floor(0.150 * Math.sqrt(xp))
+           let nextLvl = Math.floor(0.150 * Math.sqrt(userData.xp))
            let level = userData.level;
 
            if(nextLvl > level) {
