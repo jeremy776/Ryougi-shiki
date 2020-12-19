@@ -23,6 +23,7 @@ import Command from "../../handle/Command";
    .setTimestamp()
    .setAuthor(`Reward's for ${msg.guild?.name}`)
    .setDescription(data.map((x:any) => `Level **${x.theLevel}** :: ${msg.guild?.roles.cache.get(x.roleId)}`))
-   return msg.channel.send(embed)
+   return msg.channel.send(embed);
+
  }
 }
