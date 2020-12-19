@@ -38,5 +38,6 @@ import Command from "../../handle/Command";
         message: null,
         channel: null
       });
+    }
  }
 }
