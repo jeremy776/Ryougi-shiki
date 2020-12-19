@@ -15,7 +15,7 @@ import Command from "../../handle/Command";
  export default class setrewardCommand extends Command {
    public async exec(msg:Message, args:string[]) {
 
-   let level = args[0]
+   let level = args[1]
    if(!level) return msg.reply("**You didn't enter the level:(**");
 
    let role = msg.mentions.roles?.first()
