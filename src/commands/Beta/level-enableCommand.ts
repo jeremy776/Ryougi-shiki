@@ -16,7 +16,13 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
    let data = await this.client.db.get(`level-status.${msg.guild?.id}`)
-   //if(!data) return msg.reply("**It's not active anymore**");
+   if(!data) {
+     this.client.db.set(`level-status.${msg.guild?.id}`, {
+        status: false,
+        message: null,
+        channel: null
+      });
+    }
    if(data.status == true) return msg.reply("**It's already active**");
 
    let embed = new MessageEmbed()
@@ -32,12 +38,12 @@ import Command from "../../handle/Command";
         channel: data.channel
      });
    }
-   if(!data) {
+   /*if(!data) {
      return this.client.db.set(`level-status.${msg.guild?.id}`, {
         status: true,
         message: null,
         channel: null
       });
-    }
+    }*/
  }
 }
