@@ -16,23 +16,7 @@ export default class MessageEvent extends Listener {
           if(data.status == true) {
 
             let channel = msg.guild?.channels.cache.get(data.channel) as TextChannel;
-            if(!this.client.db.get(`level${msg.guild?.id}.${msg.author?.id}`)) {
-               this.client.db.set(`level${msg.guild?.id}.${msg.author?.id}`, {
-                 level: 1,
-                 xp: 0,
-                 totalxp: 0
-               });
-            }
-            let userinfo = await this.client.db.get(`level${msg.guild?.id}.${msg.author?.id}`);
-            userinfo.xp++;
-            if(userinfo.xp => 100) {
-              userinfo.level++
-              userinfo.totalxp = userinfo.totalxp + xp
-              userinfo.xp = 0
-              channel.send(`Congrats **${msg.author?.tag}**, your level goes up [**\`${userinfo.level}\`**]`)
-            }
 
-            this.client.db.set(`level${msg.guild?.id}.${msg.author?.id}`, userinfo)
 
           }
         }
