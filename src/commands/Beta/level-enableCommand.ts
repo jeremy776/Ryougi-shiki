@@ -17,13 +17,27 @@ import Command from "../../handle/Command";
 
    let data = await this.client.db.get(`level-status.${msg.guild?.id}`)
    //if(!data) return msg.reply("**It's not active anymore**");
-   if(data == true) return msg.reply("**It's already active**");
+   if(data
+   if(data.status == true) return msg.reply("**It's already active**");
 
    let embed = new MessageEmbed()
    .setDescription(`**You have successfully enabled the leveling on your server**`)
    .setColor(this.client.color)
    .setTimestamp()
    msg.channel.send(embed)
-   return this.client.db.set(`level-status.${msg.guild?.id}`, true);
+
+   if(data) {
+     return this.client.db.set(`level-status.${msg.guild?.id}`, {
+        status:true,
+        message: data.message,
+        channel: data.channel
+     });
+   }
+   if(!data) {
+     return this.client.db.set(`level-status.${msg.guild?.id}`, {
+        status: true,
+        message: null,
+        channel: null
+      });
  }
 }
