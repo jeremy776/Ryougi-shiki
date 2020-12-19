@@ -15,7 +15,7 @@ import Command from "../../handle/Command";
  export default class setrewardCommand extends Command {
    public async exec(msg:Message, args:string[]) {
 
-   let level = args[1]
+   let level = args[0]
    if(!level) return msg.reply("**You didn't enter the level:(**");
 
    let role = msg.mentions.roles?.first()
@@ -23,10 +23,10 @@ import Command from "../../handle/Command";
 
    let set = new MessageEmbed()
    .setColor(this.client.color)
-   .setAuthor("New Reward", msg.guild.iconURL({dynamic:true}) as any)
+   .setAuthor("New Reward", msg.guild?.iconURL({dynamic:true}) as any)
    .setDescription(`New rewards have been added\n If a member reaches level **${level}**, he will get a role ${role}`)
    .setTimestamp()
-   .setFooter(`Set by ${msg.author.tag}`, msg.author.displayAvatarURL({dynamic:true}) as any)
+   .setFooter(`Set by ${msg.author?.tag}`, msg.author?.displayAvatarURL({dynamic:true}) as any)
    return msg.channel.send(set)
  }
 }
