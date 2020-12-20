@@ -37,7 +37,7 @@ export default class MessageEvent extends Listener {
                     let allData = dataLevel.map((x:any) => x);
                     let filterRole = allData.filter((x:any) => x.theLevel == userData.level)
                     if(filterRole.length > 0) {
-                      let role = msg.guild?.roles?.cache.get(filterRole[0].role) as any;
+                      let role = msg.guild?.roles?.cache.get(filterRole[0].roleId) as any;
                       msg.member?.roles.add(role);
                     }
                   }
