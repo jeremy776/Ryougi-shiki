@@ -37,8 +37,8 @@ export default class MessageEvent extends Listener {
                     let allData = dataLevel.map((x:any) => x);
                     let filterRole = allData.filter((x:any) => x.theLevel == userData.level)
                     if(filterRole.length > 0) {
-                      //let role = msg.guild?.roles.cache.get(filterRole[0].role);
-                      msg.member?.roles.add(filterRole[0].role);
+                      let role = msg.guild?.roles?.cache.get(filterRole[0].role);
+                      msg.member?.roles?.add(role);
                     }
                   }
                 channel.send(`Congratulations **${msg.author?.tag}** your level has gone up [**${userData.level}**]`)
