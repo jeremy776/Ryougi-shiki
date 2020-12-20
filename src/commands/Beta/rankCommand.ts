@@ -2,7 +2,7 @@ import { MessageAttachment } from "discord.js";
 import type { Message } from "discord.js";
 import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
-import * as canvacord from "canvacord";
+const canvacord = require("canvacord");
 
 @CommandConf({
   name: "rank",
