@@ -21,7 +21,7 @@ const canvacord = require("canvacord");
    let canvas = new canvacord.Rank()
    .setUsername(user.username)
    .setDiscriminator(user.discriminator)
-   .setRank("1")
+   .setRank(1)
    .setLevel(43)
    .setCurrentXP(300)
    .setRequiredXP(500)
