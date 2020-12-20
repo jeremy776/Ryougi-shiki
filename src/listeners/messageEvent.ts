@@ -23,31 +23,29 @@ export default class MessageEvent extends Listener {
                   xp:0,
                   totalxp:0
                 });
-              }
-
-              const generatedxp = Math.floor(Math.random() * 10);
-              userData.xp += generatedxp;
-              userData.totalxp += generatedxp;
+              }else{
+                const generatedxp = Math.floor(Math.random() * 10);
+                userData.xp += generatedxp;
+                userData.totalxp += generatedxp;
   
-              if(userData.xp >= userData.level * 40) {
-                userData.level++;
-                userData.xp = 0;
+                if(userData.xp >= userData.level * 40) {
+                  userData.level++;
+                  userData.xp = 0;
 
-                let dataLevel = await this.client.db.get(`levelreward.${msg.guild?.id}`);
-                if(dataLevel) {
-                  let allData = dataLevel.map((x:any) => x);
-                  let filterRole = allData.filter((x:any) => x.theLevel == userData.level)
-                  if(filterRole.length > 0) {
-                    let role = msg.guild?.roles.cache.get(filterRole[0].role);
-                    if(!role) return;
-                    msg.member?.roles.add(role);
+                  let dataLevel = await this.client.db.get(`levelreward.${msg.guild?.id}`);
+                  if(dataLevel) {
+                    let allData = dataLevel.map((x:any) => x);
+                    let filterRole = allData.filter((x:any) => x.theLevel == userData.level)
+                    if(filterRole.length > 0) {
+                      let role = msg.guild?.roles.cache.get(filterRole[0].role);
+                      if(!role) return;
+                      msg.member?.roles.add(role);
+                    }
                   }
-                }
-              channel.send(`Congratulations **${msg.author?.tag}** your level has gone up [**${userData.level}**]`)
+                channel.send(`Congratulations **${msg.author?.tag}** your level has gone up [**${userData.level}**]`)
+              }
+              this.client.db.set(`level${msg.guild?.id}.${msg.author?.id}`, userData)
             }
-
-            this.client.db.set(`level${msg.guild?.id}.${msg.author?.id}`, userData)
-
           }
         }
 
