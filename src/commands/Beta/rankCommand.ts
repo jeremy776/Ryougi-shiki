@@ -29,6 +29,5 @@ const canvacord = require("canvacord");
 
    const gambar = await canvas.build()
    return msg.channel.send(new MessageAttachment(gambar, "rankCard.png"))
-
  }
 }
