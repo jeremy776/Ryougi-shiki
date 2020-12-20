@@ -16,7 +16,7 @@ const canvacord = require("canvacord");
  export default class rankCommand extends Command {
    public async exec(msg:Message, args:string[]) {
 
-   let user = msg.mentions.user?.first() || msg.author;
+   let user = msg.mentions.users?.first() || msg.author;
 
    let canvas = new canvacord.Rank()
    .setUsername(user.username)
