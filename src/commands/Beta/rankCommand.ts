@@ -17,14 +17,16 @@ const canvacord = require("canvacord");
    public async exec(msg:Message, args:string[]) {
 
    let user = msg.mentions.users?.first() || msg.author;
+   let data = await this.client.db.get(`level${msg.guild?.id}.${user.id}`);
+   if(!data) return msg.reply("**You have no level**");
 
    let canvas = new canvacord.Rank()
    .setUsername(user.username)
    .setDiscriminator(user.discriminator)
    .setRank(1)
-   .setLevel(43)
-   .setCurrentXP(300)
-   .setRequiredXP(500)
+   .setLevel(data.level)
+   .setCurrentXP(data.xp)
+   .setRequiredXP(data.level * 40)
    .setAvatar(user.displayAvatarURL({size:1024, format:"png"}) as any)
 
    const gambar = await canvas.build()
