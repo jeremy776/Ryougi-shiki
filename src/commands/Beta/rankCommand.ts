@@ -25,7 +25,7 @@ const canvacord = require("canvacord");
    .setLevel("43")
    .setCurrentXP("300")
    .setRequiredXP("500")
-   .setAvatar(user.displayAvatar({size:1024, format:png}) as any)
+   .setAvatar(user.displayAvatarURL({size:1024, format:"png"}) as any)
 
    const gambar = await canvas.build()
    return msg.channel.send(new MessageAttachment(gambar, "rankCard.png"))
