@@ -24,7 +24,7 @@
 },
   "engines": {
     "yarn": "1.x",
-    "node": ">=14.x"
+    "node": "14.x"
 },
   "name": "kaguya",
   "version": "1.2.8",
