@@ -15,34 +15,34 @@ export default class MessageEvent extends Listener {
         if(data) {
           if(data.status == true) {
 
-            let dataLevel = await this.client.db.get(`levelreward.${msg.guild?.id}`);
-            if(!dataLevel) return;
-            let allData = dataLevel.map((x:any) => x);
-
-            let channel = msg.guild?.channels.cache.get(data.channel) as TextChannel;
-            let userData = await this.client.db.get(`level${msg.guild?.id}.${msg.author?.id}`);
-            if(!userData) {
-              await this.client.db.set(`level${msg.guild?.id}.${msg.author?.id}`, {
-                level:1,
-                xp:0,
-                totalxp:0
-              });
-            }
-
-            const generatedxp = Math.floor(Math.random() * 10);
-            userData.xp += generatedxp;
-            userData.totalxp += generatedxp;
-  
-            if(userData.xp >= userData.level * 40) {
-              userData.level++;
-              userData.xp = 0;
-              let filterRole = allData.filter((x:any) => x.theLevel == userData.level)
-
-              if(filterRole.length > 0) {
-                let role = msg.guild?.roles.cache.get(filterRole[0].role);
-                if(!role) return;
-                msg.member?.roles.add(role);
+              let channel = msg.guild?.channels.cache.get(data.channel) as TextChannel;
+              let userData = await this.client.db.get(`level${msg.guild?.id}.${msg.author?.id}`);
+              if(!userData) {
+                await this.client.db.set(`level${msg.guild?.id}.${msg.author?.id}`, {
+                  level:1,
+                  xp:0,
+                  totalxp:0
+                });
               }
+
+              const generatedxp = Math.floor(Math.random() * 10);
+              userData.xp += generatedxp;
+              userData.totalxp += generatedxp;
+  
+              if(userData.xp >= userData.level * 40) {
+                userData.level++;
+                userData.xp = 0;
+
+                let dataLevel = await this.client.db.get(`levelreward.${msg.guild?.id}`);
+                if(dataLevel) {
+                  let allData = dataLevel.map((x:any) => x);
+                  let filterRole = allData.filter((x:any) => x.theLevel == userData.level)
+                  if(filterRole.length > 0) {
+                    let role = msg.guild?.roles.cache.get(filterRole[0].role);
+                    if(!role) return;
+                    msg.member?.roles.add(role);
+                  }
+                }
               channel.send(`Congratulations **${msg.author?.tag}** your level has gone up [**${userData.level}**]`)
             }
 
