@@ -16,6 +16,7 @@ export default class MessageEvent extends Listener {
           if(data.status == true) {
 
             let dataLevel = await this.client.db.get(`levelreward.${msg.guild?.id}`);
+            if(!dataLevel) return;
             let allData = dataLevel.map((x:any) => x);
 
             let channel = msg.guild?.channels.cache.get(data.channel) as TextChannel;
