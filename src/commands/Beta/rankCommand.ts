@@ -22,9 +22,9 @@ const canvacord = require("canvacord");
    .setUsername(user.username)
    .setDiscriminator(user.discriminator)
    .setRank("1")
-   .setLevel("43")
-   .setCurrentXP("300")
-   .setRequiredXP("500")
+   .setLevel(43)
+   .setCurrentXP(300)
+   .setRequiredXP(500)
    .setAvatar(user.displayAvatarURL({size:1024, format:"png"}) as any)
 
    const gambar = await canvas.build()
