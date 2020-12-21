@@ -5,7 +5,7 @@ const app = express();
 const Discord = require("discord.js");
 const client = new RyougiClient({disableMentions: 'everyone', fetchAllMembers:true});
 
-app.set("views", "dist/views");
+app.set("views", "src/views");
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
