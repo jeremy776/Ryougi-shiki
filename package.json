@@ -34,6 +34,6 @@
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist && tsc",
-    "start": "node dist && node dist/website"
+    "start": "node dist && node dist/src/index"
   }
 }
