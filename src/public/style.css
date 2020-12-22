@@ -17,6 +17,7 @@ body {
 .my-button {
   border:1px solid white;
   padding:10px;
+  margin:10px;
   border-radius:40px;
   font-size:15px;
   text-decoration:none;
