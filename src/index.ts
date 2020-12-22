@@ -27,7 +27,7 @@ app.get("/image", function(req, res) {
   res.sendFile("./image_forest.jpg");
 });
 
-app.listen(process.env.PORT, function(req, res) {
+app.listen(process.env.PORT, function(req:any, res:any) {
   console.log(__dirname);
 });
 client.run();
