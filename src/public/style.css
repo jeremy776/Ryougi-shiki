@@ -4,5 +4,10 @@ body {
 }
 
 .the-title {
-  margin:10px;
+  margin:20px;
+  text-align:center;
+}
+
+.simple-about {
+  font-family: 'Montserrat', sans-serif;
 }
