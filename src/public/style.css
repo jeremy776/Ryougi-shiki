@@ -12,3 +12,14 @@ body {
   font-size:15px;
   font-family: 'Montserrat', sans-serif;
 }
+
+.my-button {
+  border:1px solid black;
+  padding:15px;
+  border-radius:40px;
+  font-size: 20px;
+  text-decoration:none;
+  color:black;
+  transition:all 1s ease;
+  box-shadow:1px 1px 3px rgba(0,0,0,0.5);
+}	
