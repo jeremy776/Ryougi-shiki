@@ -14,12 +14,18 @@ body {
 }
 
 .my-button {
-  border:1px solid black;
-  padding:15px;
+  margin-top:10px;
+  border:1px solid white;
+  padding:10px;
   border-radius:40px;
-  font-size: 20px;
+  font-size:10px;
   text-decoration:none;
-  color:black;
+  color:white;
   transition:all 1s ease;
   box-shadow:1px 1px 3px rgba(0,0,0,0.5);
 }	
+
+.my-button:hover {
+  border:1px solid yellow;
+  box-shadow:1px 3px 5px rgba(0,0,0,0.4);
+}
