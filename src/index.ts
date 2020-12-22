@@ -1,6 +1,14 @@
 import RyougiClient from './handle/RyougiClient';
 import express from "express";
 const app = express();
+const axios = require("axios");
+
+const urls = ["https://ts-bot-1.herokuapp.com/"]
+setInterval(function() {
+            urls.forEach(url => {
+            axios.get(url).then(console.log("Pong at " + Date.now())).catch(() => {});
+        })
+    }, 60 * 1000);
 
 const Discord = require("discord.js");
 const client = new RyougiClient({disableMentions: 'everyone', fetchAllMembers:true});
