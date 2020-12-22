@@ -23,5 +23,11 @@ app.get("/", function(req, res) {
   });
 });
 
-app.listen(process.env.PORT);
+app.get("/image", function(req, res) {
+  res.sendFile("./");
+});
+
+app.listen(process.env.PORT, function(req, res) {
+  console.log(__dirname);
+});
 client.run();
