@@ -28,5 +28,6 @@ body {
 .my-button:hover {
   border:1px solid yellow;
   text-decoration:none;
+  color:#94A2FF;
   box-shadow:1px 2px 3px black;
 }
