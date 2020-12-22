@@ -24,7 +24,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/image", function(req, res) {
-  res.sendFile("./image_forest.jpg");
+  res.send(imgURL: "https://www.w3schools.com/howto/img_forest.jpg");
 });
 
 app.listen(process.env.PORT);
