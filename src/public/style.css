@@ -17,12 +17,12 @@ body {
 .my-button {
   border:1px solid white;
   padding:10px;
-  margin:10px;
+  margin:5px;
   border-radius:40px;
   font-size:15px;
   text-decoration:none;
   color:white;
-  transition:all 1s ease;
+  transition:all 0.5s ease;
   box-shadow:1px 1px 3px rgba(0,0,0,0.5);
 }	
 
