@@ -35,7 +35,7 @@ body {
 }
 
 section {
-  height:100vh;
+  height:70vh;
   width:100%;
   position:relative;
   overflow:hidden;
@@ -48,5 +48,5 @@ section .effect {
   width:100%;
   height:100px;
   background: url("https://cdn.discordapp.com/attachments/784623203359653938/791119721436938291/wave.png");
-  background-size:400px 100px;
+  background-size:300px 100px;
 }
