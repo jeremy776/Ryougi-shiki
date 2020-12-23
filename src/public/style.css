@@ -5,6 +5,7 @@ body {
 
 .the-title {
   margin:20px;
+  background-color:#16161D;
   text-align:center;
 }
 
@@ -32,10 +33,4 @@ body {
   text-decoration:none;
   color:#8A9A98;
   box-shadow:1px 2px 3px black;
-}
-
-section {
-  width:100%;
-  overflow:hidden;
-  background-color:#16161D;
 }
