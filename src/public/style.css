@@ -1,5 +1,5 @@
 body {
- background-color:#16161D !important;
+ background-color:#FFFFFF !important;
  color:#FFFFFF !important;
 }
 
@@ -39,6 +39,7 @@ section {
   width:100%;
   position:relative;
   overflow:hidden;
+  background-color:#16161D;
 }
 
 section .effect {
