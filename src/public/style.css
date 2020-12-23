@@ -7,8 +7,12 @@ body {
   width:100%;
   padding:15px;
   ovetflow:hidden;
-  height:100vh;
+  height:90vh;
   text-align:center;
+}
+
+.the-title h1 {
+  font-weight:bold;
 }
 
 .simple-about {
