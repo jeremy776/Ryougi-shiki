@@ -7,11 +7,12 @@ body {
   width:100%;
   ovetflow:hidden;
   height:100vh;
+  margin:10px;
   text-align:center;
 }
 
 .simple-about {
-  font-size:20px;
+  font-size:15px;
   font-family:'Montserrat', sans-serif;
   margin-bottom:20px;
 }
