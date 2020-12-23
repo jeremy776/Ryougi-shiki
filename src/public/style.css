@@ -1,10 +1,12 @@
 body {
- background-color:#FFFFFF !important;
- color:#16161D !important;
+  background-color:#16161D !important;
+  color:#FFFFFF !important;
+  overflow:hidden;
 }
 
 .the-title {
   width:100%;
+  ovetflow:hidden;
   margin:10px;
   height:100vh;
   text-align:center;
