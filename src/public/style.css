@@ -7,7 +7,7 @@ body {
 .the-title {
   width:100%;
   ovetflow:hidden;
-  margin:5px;
+  margin-left:10px;
   height:100vh;
   text-align:center;
 }
