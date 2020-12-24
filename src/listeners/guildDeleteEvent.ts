@@ -13,6 +13,7 @@ export default class GuildDeleteEvent extends Listener {
   //GENERAL DATABASE
   this.client.db.delete(`autorole.${guild.id}`)
   this.client.db.delete(`welcome.${guild.id}`)
+  this.client.db.delete(`leave.${guild.id}`)
   this.client.db.delete(`warning${guild.id}`)
 
 
