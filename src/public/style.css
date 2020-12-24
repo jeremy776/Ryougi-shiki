@@ -9,10 +9,6 @@ body {
   height:100vh;
 }
 
-.WOW {
-  visibility: hidden;
-}
-
 .the-title {
   width:100%;
   transform:translate(-50%, 0%);
