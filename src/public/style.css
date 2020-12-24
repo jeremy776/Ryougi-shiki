@@ -6,12 +6,13 @@ body {
 .the-title {
   width:100%;
   padding:15px;
+  margin:0 auto;
   ovetflow:hidden;
   height:90vh;
   text-align:center;
 }
 
-.the-title h1 {
+.the-title h2 {
   font-weight:bold;
 }
 
