@@ -3,12 +3,19 @@ body {
   color:#FFFFFF !important;
 }
 
+.box-heading {
+  position:relative;
+  width:100%;
+  height:100vh;
+}
+
 .the-title {
   width:100%;
   padding:15px;
-  margin:0 auto;
   ovetflow:hidden;
-  height:90vh;
+  position:absolute;
+  top:50%;
+  left:50%;
   text-align:center;
 }
 
