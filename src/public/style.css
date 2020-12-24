@@ -11,9 +11,9 @@ body {
 
 .the-title {
   width:100%;
-  transform:translateY(-50%);
+  transform:translate(-50%, -50%);
   position:absolute;
-  top:25%;
+  top:23%;
   left:50%;
 }
 
