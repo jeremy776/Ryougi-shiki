@@ -1,6 +1,9 @@
 import RyougiClient from './handle/RyougiClient';
 import express from "express";
 const app = express();
+const session = require("express-session");
+const Strategy = require("passport-discord").Strategy;
+const passport = require("passport");
 const axios = require("axios");
 
 const urls = ["https://ts-bot-1.herokuapp.com/"]
