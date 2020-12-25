@@ -77,6 +77,13 @@ app.get("/", function(req: any, res: any) {
   });
 });
 
+app.get("/me", checkAuth, function(req:any, res:any) {
+  res.render("profile.ejs", {
+    bot: client,
+    user: req.user
+  });
+});
+
 function checkAuth(req: any, res: any, next: any) {
     if (req.isAuthenticated()) return next();
     res.redirect("/login");
