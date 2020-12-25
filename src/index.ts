@@ -72,16 +72,15 @@ app.get('/logout', function(req: any, res: any) {
 
 app.get("/", function(req: any, res: any) {
   res.render("index.ejs", {
-   bot: client,
+   bot:client,
    user:req.user
   });
 });
 
-app.get("/me", checkAuth, function(req:any, res:any) {
+app.get("/me", checkAuth, function(req: any, res: any) {
   res.render("profile.ejs", {
-    bot: client,
-    user: req.user,
-    req: req
+    bot:client,
+    user:req.user
   });
 });
 
