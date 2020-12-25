@@ -56,7 +56,7 @@ app.get('/callback',
     async function(req:any, res:any) { 
       res.redirect('/')
       let logs = client.channels?.cache.get(client.config.loginLogs) as TextChannel;
-      let datanya = await client.db.get(`uang.${req.user.id`);
+      let datanya = await client.db.get(`uang.${req.user.id}`);
       if(datanya) {
         logs.send(`**${req.user.username}#${req.user.discriminator}** is logged in to the dashboard`);
       }else{
