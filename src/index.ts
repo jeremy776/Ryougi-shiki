@@ -57,9 +57,10 @@ app.get('/callback',
       res.redirect('/')
       let logs = client.channels?.cache.get(client.config.loginLogs) as TextChannel;
       let datanya = await client.db.get(`uang.${req.user.id}`);
-      if(datanya) {
+      /*if(datanya) {
         logs.send(`**${req.user.username}#${req.user.discriminator}** is logged in to the dashboard`);
-      }else{
+      }else*/
+      if(!datanya) {
         client.db.set(`uang.${req.user.id}`, 5)
         logs.send(`**${req.user.username}#${req.user.discriminator}** is logged in to the dashboard - I have given **$5** for new users`)
       }
