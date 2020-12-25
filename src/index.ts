@@ -27,8 +27,8 @@ var scopes = ['identify'];
 var prompt = 'consent'
 
 passport.use(new Strategy({
-    clientID: '',
-    clientSecret: '',
+    clientID: '654991873861222431',
+    clientSecret: 'ilQ-0Y0PBIcLu5qyNGWcuzky1p1k1xEj',
     callbackURL: 'http://localhost:5000/callback',
     scope: scopes,
     prompt: prompt
