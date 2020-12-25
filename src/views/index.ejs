@@ -29,6 +29,17 @@
             <li class="nav-item">
               <a class="nav-link">Home</a>
             </li>
+
+          <% if(!user) { %>
+            <li class="nav-item">
+              <a class="nav-link">Login</a>
+            </li>
+          <% }else{ %>
+            <li class="nav-item">
+              <a class="nav-link"><%- user.username %>#<%- user.discriminator %></a>
+            </li>
+          <% } %>
+
           </ul>
         </div>
       </div>
