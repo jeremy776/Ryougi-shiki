@@ -5,6 +5,8 @@ const session = require("express-session");
 const Strategy = require("passport-discord").Strategy;
 const passport = require("passport");
 const axios = require("axios");
+const Discord = require("discord.js");
+const client = new RyougiClient({disableMentions: 'everyone', fetchAllMembers:true});
 
 const urls = ["https://ts-bot-1.herokuapp.com/"]
 setInterval(function() {
@@ -12,9 +14,6 @@ setInterval(function() {
             axios.get(url).then(console.log("Pong at " + Date.now())).catch(() => {});
         })
     }, 60 * 1000);
-
-const Discord = require("discord.js");
-const client = new RyougiClient({disableMentions: 'everyone', fetchAllMembers:true});
 
 passport.serializeUser(function(user: any, done: any) {
   done(null, user);
