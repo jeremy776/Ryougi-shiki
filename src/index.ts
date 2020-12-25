@@ -48,9 +48,9 @@ app.use(passport.session());
 app.use(express.static("src/public"));
 app.set("views", "src/views");
 app.set("view engine", "ejs");
-app.get('/', passport.authenticate('discord', { scope: scopes, prompt: prompt }), function(req, res) {});
+app.get('/login', passport.authenticate('discord', { scope: scopes, prompt: prompt }), function(req, res) {});
 app.get('/callback',
-    passport.authenticate('discord', { failureRedirect: '/' }), function(req, res) { res.redirect('/info') } // auth success
+    passport.authenticate('discord', { failureRedirect: '/' }), function(req, res) { res.redirect('/') } // auth success
 );
 app.get('/logout', function(req: any, res: any) {
     req.logout();
@@ -66,7 +66,7 @@ app.get("/", function(req: any, res: any) {
 
 function checkAuth(req: any, res: any, next: any) {
     if (req.isAuthenticated()) return next();
-    res.redirect("/");
+    res.redirect("/login");
 }
 
 app.listen(process.env.PORT);
