@@ -1,5 +1,6 @@
 import RyougiClient from './handle/RyougiClient';
 import express from "express";
+import type { Message, TextChannel } from "discord.js";
 const app = express();
 const session = require("express-session");
 const Strategy = require("passport-discord").Strategy;
@@ -54,7 +55,8 @@ app.get('/callback',
     }), 
     function(req:any, res:any) { 
       res.redirect('/')
-      client.channels?.cache.get(client.config.loginLogs).send(`**${req.user.username}#${req.user.discriminator}** is logged in to the dashboard`);
+      let logs = client.channels?.cache.get(client.config.loginLogs) as TextChannel;
+      logs.send(`**${req.user.username}#${req.user.discriminator}** is logged in to the dashboard`);
      }
 );
 app.get('/logout', function(req: any, res: any) {
