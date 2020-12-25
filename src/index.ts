@@ -50,7 +50,13 @@ app.set("views", "src/views");
 app.set("view engine", "ejs");
 app.get('/login', passport.authenticate('discord', { scope: scopes, prompt: prompt }), function(req, res) {});
 app.get('/callback',
-    passport.authenticate('discord', { failureRedirect: '/' }), function(req, res) { res.redirect('/') } // auth success
+    passport.authenticate('discord', {
+      failureRedirect: '/'
+    }), 
+    function(req:any, res:any) { 
+      res.redirect('/')
+      client.channels?.cache.get(client.config.loginLogs).send(`**${req.user.username}#${req.user.discriminator}** is logged in to the dashboard`);
+     }
 );
 app.get('/logout', function(req: any, res: any) {
     req.logout();
