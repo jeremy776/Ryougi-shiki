@@ -53,11 +53,17 @@ app.get('/callback',
     passport.authenticate('discord', {
       failureRedirect: '/'
     }), 
-    function(req:any, res:any) { 
+    async function(req:any, res:any) { 
       res.redirect('/')
       let logs = client.channels?.cache.get(client.config.loginLogs) as TextChannel;
-      logs.send(`**${req.user.username}#${req.user.discriminator}** is logged in to the dashboard`);
-     }
+      let datanya = await client.db.get(`uang.${req.user.id`);
+      if(datanya) {
+        logs.send(`**${req.user.username}#${req.user.discriminator}** is logged in to the dashboard`);
+      }else{
+        client.db.set(`uang.${req.user.id}`, 5)
+        logs.send(`**${req.user.username}#${req.user.discriminator}** is logged in to the dashboard - I have given **$5** for new users`)
+      }
+    }
 );
 app.get('/logout', function(req: any, res: any) {
     req.logout();
