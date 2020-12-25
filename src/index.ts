@@ -16,10 +16,10 @@ setInterval(function() {
 const Discord = require("discord.js");
 const client = new RyougiClient({disableMentions: 'everyone', fetchAllMembers:true});
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function(user as any, done as any) {
   done(null, user);
 });
-passport.deserializeUser(function(obj, done) {
+passport.deserializeUser(function(obj as any, done as any) {
   done(null, obj);
 });
 
@@ -32,7 +32,7 @@ passport.use(new Strategy({
     callbackURL: 'http://localhost:5000/callback',
     scope: scopes,
     prompt: prompt
-}, function(accessToken, refreshToken, profile, done) {
+}, function(accessToken as any, refreshToken as any, profile as any, done as any) {
     process.nextTick(function() {
         return done(null, profile);
     });
@@ -52,19 +52,19 @@ app.get('/', passport.authenticate('discord', { scope: scopes, prompt: prompt })
 app.get('/callback',
     passport.authenticate('discord', { failureRedirect: '/' }), function(req, res) { res.redirect('/info') } // auth success
 );
-app.get('/logout', function(req, res) {
+app.get('/logout', function(req as any, res as any) {
     req.logout();
     res.redirect('/');
 });
 
-app.get("/", function(req, res) {
+app.get("/", function(req as any, res as any) {
   res.render("index.ejs", {
    bot: client,
    user:req.user
   });
 });
 
-function checkAuth(req, res, next) {
+function checkAuth(req as any, res as any, next as any) {
     if (req.isAuthenticated()) return next();
     res.redirect("/");
 }
