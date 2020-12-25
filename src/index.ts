@@ -29,7 +29,7 @@ var prompt = 'consent'
 passport.use(new Strategy({
     clientID: '654991873861222431',
     clientSecret: 'ilQ-0Y0PBIcLu5qyNGWcuzky1p1k1xEj',
-    callbackURL: 'http://localhost:5000/callback',
+    callbackURL: 'http://35.222.107.117/callback',
     scope: scopes,
     prompt: prompt
 }, function(accessToken: any, refreshToken: any, profile: any, done: any) {
