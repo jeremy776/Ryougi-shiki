@@ -78,6 +78,10 @@ app.get("/", function(req: any, res: any) {
   });
 });
 
+app.get("/userinfo", checkAuth, functuon(req: any, res: any) {
+  res.send(req.user)
+});
+
 app.get("/me", checkAuth, function(req: any, res: any) {
   res.render("profile.ejs", {
     bot:client,
