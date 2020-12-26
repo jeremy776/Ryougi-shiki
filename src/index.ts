@@ -78,7 +78,7 @@ app.get("/", function(req: any, res: any) {
   });
 });
 
-app.get("/userinfo", checkAuth, functuon(req: any, res: any) {
+app.get("/userinfo", checkAuth, function(req: any, res: any) {
   res.send(req.user)
 });
 
