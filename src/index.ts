@@ -54,7 +54,12 @@ app.get('/callback',
       failureRedirect: '/'
     }), 
     async function(req:any, res:any) { 
-      res.redirect('/')
+      if (req.session.backURL) {
+        res.redirect(req.session.backURL);
+        req.session.backURL = null;
+      } else {
+        res.redirect('/')
+      }
       let logs = client.channels?.cache.get(client.config.loginLogs) as TextChannel;
       let datanya = await client.db.get(`uang.${req.user.id}`);
       /*if(datanya) {
@@ -91,6 +96,7 @@ app.get("/me", checkAuth, function(req: any, res: any) {
 
 function checkAuth(req: any, res: any, next: any) {
     if (req.isAuthenticated()) return next();
+    req.session.backURL = req.url;
     res.redirect("/login");
 }
 
