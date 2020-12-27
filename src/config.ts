@@ -6,5 +6,5 @@ export default {
   logs: "788059738680066068",
   loginLogs: "791983335928889355",
   mongoURL: "mongodb+srv://jeremy:jeremy@cluster0.d0mjj.mongodb.net/jeremy?retryWrites=true&w=majority",
-  token: "NjU0OTkxODczODYxMjIyNDMx.XfNmtw.UyQio8ZPyqKGtLNFmN0QwijDQVs"
+  token: "NjU0OTkxODczODYxMjIyNDMx.XfNmtw.K4D4jx-aPAREIW3Fr3bBtBakiAA"
 }
