@@ -64,11 +64,11 @@ app.get('/callback',
       let datanya = await client.db.get(`uang.${req.user.id}`);
       /*if(datanya) {
         logs.send(`**${req.user.username}#${req.user.discriminator}** is logged in to the dashboard`);
-      }else*/
+      }else
       if(!datanya) {
         client.db.set(`uang.${req.user.id}`, 5)
         logs.send(`**${req.user.username}#${req.user.discriminator}** is logged in to the dashboard - I have given **$5** for new users`)
-      }
+      }*/
     }
 );
 app.get('/logout', function(req: any, res: any) {
