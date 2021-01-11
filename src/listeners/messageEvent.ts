@@ -11,6 +11,7 @@ export default class MessageEvent extends Listener {
 
 
         //level
+        /*
         let data = await this.client.db.get(`level-status.${msg.guild?.id}`)
         if(data) {
           if(data.status == true) {
@@ -46,7 +47,7 @@ export default class MessageEvent extends Listener {
               this.client.db.set(`level${msg.guild?.id}.${msg.author?.id}`, userData)
             }
           }
-        }
+        }*/
 
         let author = this.client.afk.get(msg.author?.id);
         let tag = msg.mentions.members?.first();
