@@ -20,7 +20,7 @@ import Command from "../../handle/Command";
     .setColor(this.client.color)
     if(!msg.member?.hasPermission("MANAGE_GUILD")) return msg.channel.send(noPerms);
 
-   if(!["channel", "message", "on", "off"].includes(args[0])) return msg.reply("You entered the wrong value, type "+`\`${this.client.config.prefix}help welcome\` for more help`)
+   if(!["channel", "message", "on", "off", "test"].includes(args[0])) return msg.reply("You entered the wrong value, type "+`\`${this.client.config.prefix}help welcome\` for more help`)
 
    if(args[0].toLowerCase() == "channel") {
 
@@ -142,5 +142,27 @@ import Command from "../../handle/Command";
       }
     }
 
+    if(args[0] == "test") {
+       const canvas = require("discord-canvas"),
+       welcomeCanvas = new canvas.Welcome();
+
+      let image = await welcomeCanvas
+        .setUsername("xixi52")
+        .setDiscriminator("0001")
+        .setMemberCount("140")
+        .setGuildName("Server DEV")
+        .setAvatar("https://www.site.com/avatar.jpg")
+        .setColor("border", "#8015EA")
+        .setColor("username-box", "#8015EA")
+        .setColor("discriminator-box", "#8015EA")
+        .setColor("message-box", "#8015EA")
+        .setColor("title", "#8015EA")
+        .setColor("avatar", "#8015EA")
+        .setBackground("https://www.site.com/background.jpg")
+        .toAttachment();
+
+        let attachment = new Discord.MessageAttachment(image.toBuffer(), "welcome-image.png");
+        return message.channel.send(attachment);
+    }
  }
 }
