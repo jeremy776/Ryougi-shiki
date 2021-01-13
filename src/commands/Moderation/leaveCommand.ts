@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { MessageEmbed, MessageAttachment } from "discord.js";
 import type { Message, TextChannel } from "discord.js";
 import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
