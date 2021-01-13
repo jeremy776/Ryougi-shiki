@@ -7,7 +7,7 @@ import Command from "../../handle/Command";
   name: "welcome",
   aliases: [],
   description: "gives a message when a member enters the server",
-  usage: `welcome channel <#channel>\nwelcome message <message>\nwelcome [on || off]\n\nOptions for Messages\n{member} = @user\n{member.name} = username\n{member.tag} = username#discriminator\n{member.id} = 1234576891023456789\n\n{server.name} = Nameserver\n{memberCount} = total member server\n{server.id} = server id`,
+  usage: `welcome channel <#channel>\nwelcome message <message>\nwelcome [on || off]\nwelcome bg url ( \`.png\` \`.jpeg\`)\n\nOptions for Messages\n{member} = @user\n{member.name} = username\n{member.tag} = username#discriminator\n{member.id} = 1234576891023456789\n\n{server.name} = Nameserver\n{memberCount} = total member server\n{server.id} = server id`,
   cooldown:1,
   ownerOnly:false
 })
@@ -20,7 +20,7 @@ import Command from "../../handle/Command";
     .setColor(this.client.color)
     if(!msg.member?.hasPermission("MANAGE_GUILD")) return msg.channel.send(noPerms);
 
-   if(!["channel", "message", "on", "off", "test"].includes(args[0])) return msg.reply("You entered the wrong value, type "+`\`${this.client.config.prefix}help welcome\` for more help`)
+   if(!["channel", "message", "on", "off", "bg", "test"].includes(args[0])) return msg.reply("You entered the wrong value, type "+`\`${this.client.config.prefix}help welcome\` for more help`)
 
    if(args[0].toLowerCase() == "channel") {
 
@@ -140,6 +140,26 @@ import Command from "../../handle/Command";
            bg: data.bg
         })
       }
+    }
+
+    if(args[0] == "bg") {
+       let db = await this.client.db.get(`welcome.${msg.guild?.id}`)
+       if(!db) return msg.reply("**The database has not been registered, please set the channel first**");
+       let img = args[1];
+       if(!img) return msg.reply("You must include an image");
+
+         leg succes = new MessageEmbed()
+         .setColor(this.client.color)
+         .setDescription(`**[\`${msg.author?.tag}\`] successfully set the background**`)
+
+         msg.channel.send(succes);
+         return this.client.db.set(`welcome.${msg.guild?.id}`, {
+            id: db.id,
+            serverId: msg.guild?.id,
+            message: db.message,
+            status: db.status,
+            bg: img
+         });
     }
 
     if(args[0] == "test") {
