@@ -148,7 +148,7 @@ import Command from "../../handle/Command";
        let img = args[1];
        if(!img) return msg.reply("You must include an image");
 
-         leg succes = new MessageEmbed()
+         let succes = new MessageEmbed()
          .setColor(this.client.color)
          .setDescription(`**[\`${msg.author?.tag}\`] successfully set the background**`)
 
