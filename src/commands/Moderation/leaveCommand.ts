@@ -7,7 +7,7 @@ import Command from "../../handle/Command";
   name: "leave",
   aliases: [],
   description: "gives a message when a member leave the server",
-  usage: `leave channel <#channel>\nleave message <message>\nleave [on || off]\n\nOptions for Messages\n{member} = @user\n{member.name} = username\n{member.tag} = username#discriminator\n{member.id} = 1234576891023456789\n\n{server.name} = Nameserver\n{memberCount} = total member server\n{server.id} = server id`,
+  usage: `leave channel <#channel>\nleave message <message>\nleave [on || off]\nbg url ( \`.png\` \`.jpg\` \`.jpeg\`)\n\nOptions for Messages\n{member} = @user\n{member.name} = username\n{member.tag} = username#discriminator\n{member.id} = 1234576891023456789\n\n{server.name} = Nameserver\n{memberCount} = total member server\n{server.id} = server id`,
   cooldown:1,
   ownerOnly:false
 })
@@ -20,7 +20,7 @@ import Command from "../../handle/Command";
     .setColor(this.client.color)
     if(!msg.member?.hasPermission("MANAGE_GUILD")) return msg.channel.send(noPerms);
 
-   if(!["channel", "message", "on", "off"].includes(args[0])) return msg.reply("You entered the wrong value, type "+`\`${this.client.config.prefix}help leave\` for more help`)
+   if(!["channel", "message", "on", "bg", "test", "off"].includes(args[0])) return msg.reply("You entered the wrong value, type "+`\`${this.client.config.prefix}help leave\` for more help`)
 
    if(args[0].toLowerCase() == "channel") {
 
