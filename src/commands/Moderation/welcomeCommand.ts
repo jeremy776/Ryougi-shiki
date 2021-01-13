@@ -151,7 +151,7 @@ import Command from "../../handle/Command";
         .setDiscriminator(msg.author?.tag)
         .setMemberCount(msg.guild?.memberCount)
         .setGuildName(msg.guild?.name)
-        .setAvatar(msg.author?.displayAvatarURL({ format: "png" }) as any)
+        .setAvatar(msg.author.displayAvatarURL({ format: "png" }) as any)
         .setColor("border", "#8015EA")
         .setColor("username-box", "#8015EA")
         .setColor("discriminator-box", "#8015EA")
