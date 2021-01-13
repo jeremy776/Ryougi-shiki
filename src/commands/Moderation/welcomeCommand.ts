@@ -158,7 +158,7 @@ import Command from "../../handle/Command";
         .setColor("message-box", "#8015EA")
         .setColor("title", "#8015EA")
         .setColor("avatar", "#8015EA")
-        .setBackground(msg.guild?.iconURL())
+        .setBackground(msg.guild?.iconURL({ format: "png" }) as any)
         .toAttachment();
 
         let attachment = new MessageAttachment(image.toBuffer(), "welcome-image.png");
