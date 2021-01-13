@@ -1,4 +1,4 @@
-import { MessageEmbed } from "discord.js";
+import { MessageEmbed, MessageAttachment } from "discord.js";
 import type { Message, TextChannel } from "discord.js";
 import { CommandConf } from "../../decorators";
 import Command from "../../handle/Command";
@@ -161,7 +161,7 @@ import Command from "../../handle/Command";
         .setBackground("https://www.site.com/background.jpg")
         .toAttachment();
 
-        let attachment = new Discord.MessageAttachment(image.toBuffer(), "welcome-image.png");
+        let attachment = new MessageAttachment(image.toBuffer(), "welcome-image.png");
         return message.channel.send(attachment);
     }
  }
