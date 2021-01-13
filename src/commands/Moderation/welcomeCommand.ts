@@ -143,22 +143,27 @@ import Command from "../../handle/Command";
     }
 
     if(args[0] == "test") {
+       let db = await this.client.db.get(`welcome.${msg.guild?.id}`)
+       if(!db) return msg.reply("There is no database");
+       let bg = db.bg;
+       if(bg == null) bg = msg.guild?.iconURL({ format: "png" });
+
        const canvas = require("discord-canvas"),
        welcomeCanvas = new canvas.Welcome();
 
       let image = await welcomeCanvas
         .setUsername(msg.author?.username)
-        .setDiscriminator(msg.author?.tag)
+        .setDiscriminator(msg.author?.discriminator)
         .setMemberCount(msg.guild?.memberCount)
         .setGuildName(msg.guild?.name)
-        .setAvatar(msg.author.displayAvatarURL({ format: "png" }) as any)
-        .setColor("border", "#8015EA")
-        .setColor("username-box", "#8015EA")
-        .setColor("discriminator-box", "#8015EA")
-        .setColor("message-box", "#8015EA")
-        .setColor("title", "#8015EA")
-        .setColor("avatar", "#8015EA")
-        .setBackground(msg.guild?.iconURL({ format: "png" }) as any)
+        .setAvatar(msg.author.displayAvatarURL({ format: "png", size: 2048 }))
+        .setColor("border", "white")
+        .setColor("username-box", "black")
+        .setColor("discriminator-box", "black")
+        .setColor("message-box", "black")
+        .setColor("title", "white")
+        .setColor("avatar", "white")
+        .setBackground(bg)
         .toAttachment();
 
         let attachment = new MessageAttachment(image.toBuffer(), "welcome-image.png");
