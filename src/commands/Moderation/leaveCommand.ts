@@ -171,7 +171,7 @@ import Command from "../../handle/Command";
        if(bg == null) bg = msg.guild?.iconURL({ format: "png" });
 
        const canvas = require("discord-canvas"),
-       leaveCanvas = new canvas.Leave();
+       leaveCanvas = new canvas.Goodbye();
 
       let image = await leaveCanvas
         .setUsername(msg.author?.username)
