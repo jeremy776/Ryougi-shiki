@@ -162,7 +162,7 @@ import Command from "../../handle/Command";
         .toAttachment();
 
         let attachment = new MessageAttachment(image.toBuffer(), "welcome-image.png");
-        return message.channel.send(attachment);
+        return msg.channel.send(attachment);
     }
  }
 }
