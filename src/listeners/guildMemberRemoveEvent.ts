@@ -16,7 +16,7 @@ export default class GuildRemoveAdd extends Listener {
   if(leave.status == true) {
     let channel = member.guild?.channels.cache.get(leave.id) as TextChannel
     const canvas = require("discord-canvas"),
-       leaveCanvas = new canvas.Leave();
+       leaveCanvas = new canvas.Goodbye();
 
       let image = await leaveCanvas
         .setUsername(member.user.username)
