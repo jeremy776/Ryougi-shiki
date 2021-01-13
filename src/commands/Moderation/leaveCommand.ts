@@ -136,7 +136,7 @@ import Command from "../../handle/Command";
            id:data.id,
            serverId: msg.guild?.id,
            message: data.message,
-           status: false
+           status: false,
            bg: data.bg
         })
       }
