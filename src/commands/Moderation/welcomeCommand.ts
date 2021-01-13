@@ -42,7 +42,8 @@ import Command from "../../handle/Command";
         id: channel.id,
         serverId: msg.guild?.id,
         message: "Welcome **{member}** to **{server.name}**",
-        status: false
+        status: false,
+        bg:null
        });
      }else{
       let update = new MessageEmbed()
@@ -53,7 +54,8 @@ import Command from "../../handle/Command";
          id: channel.id,
          serverId: msg.guild?.id,
          message: data.message,
-         status: data.status
+         status: data.status,
+         bg: data.bg
       });
      }
    }
@@ -79,14 +81,16 @@ import Command from "../../handle/Command";
            id: data.id,
            serverId: msg.guild?.id,
            message: pesan,
-           status: false
+           status: false,
+           bg: data.bg
          });
       }else{
          return this.client.db.set(`welcome.${msg.guild?.id}`, {
            id: data.id,
            serverId: msg.guild?.id,
            message: pesan,
-           status: true
+           status: true,
+           bg:data.bg
          });
       }
     }
@@ -109,7 +113,8 @@ import Command from "../../handle/Command";
              id: db.id,
              serverId: msg.guild?.id,
              message: db.message,
-             status: true
+             status: true,
+             bg:db.bg
         })
       }
     }
@@ -131,7 +136,8 @@ import Command from "../../handle/Command";
            id:data.id,
            serverId: msg.guild?.id,
            message: data.message,
-           status: false
+           status: false,
+           bg: data.bg
         })
       }
     }
