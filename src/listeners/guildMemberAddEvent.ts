@@ -1,6 +1,6 @@
 import Listener from "../handle/Listener";
 import type { TextChannel } from "discord.js";
-impirt { MessageAttachment } from "discord.js";
+import { MessageAttachment } from "discord.js";
 
 export default class GuildMemberAdd extends Listener {
   public name = "guildMemberAdd";
