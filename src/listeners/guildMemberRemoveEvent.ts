@@ -2,8 +2,8 @@ import Listener from "../handle/Listener";
 import type { TextChannel } from "discord.js";
 import { MessageAttachment } from "discord.js";
 
-export default class GuildRemove extends Listener {
-  public name = "guildRemove";
+export default class GuildMemberRemove extends Listener {
+  public name = "guildMemberRemove";
   public async exec(member: any) {
 
   let leave = await this.client.db.get(`leave.${member.guild.id}`);
