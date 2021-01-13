@@ -1,5 +1,6 @@
 import Listener from "../handle/Listener";
 import type { TextChannel } from "discord.js";
+import { MessageAttachment } from "discord.js";
 
 export default class GuildRemoveAdd extends Listener {
   public name = "guildRemoveAdd";
@@ -29,7 +30,7 @@ export default class GuildRemoveAdd extends Listener {
         .setColor("message-box", "black")
         .setColor("title", "white")
         .setColor("avatar", "white")
-        .setBackground(bg)
+        .setBackground(leave.bg)
         .toAttachment();
 
         let attachment = new MessageAttachment(image.toBuffer(), "welcome-image.png");
