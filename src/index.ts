@@ -14,7 +14,7 @@ setInterval(function() {
             urls.forEach(url => {
             axios.get(url).then(console.log("Pong at " + Date.now())).catch(() => {});
         })
-    }, 60 * 1000);*/
+    }, 60 * 1000);**/
 
 passport.serializeUser(function(user: any, done: any) {
   done(null, user);
