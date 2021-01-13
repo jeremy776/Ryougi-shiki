@@ -171,9 +171,9 @@ import Command from "../../handle/Command";
        if(bg == null) bg = msg.guild?.iconURL({ format: "png" });
 
        const canvas = require("discord-canvas"),
-       welcomeCanvas = new canvas.Welcome();
+       leaveCanvas = new canvas.Leave();
 
-      let image = await welcomeCanvas
+      let image = await leaveCanvas
         .setUsername(msg.author?.username)
         .setDiscriminator(msg.author?.discriminator)
         .setMemberCount(msg.guild?.memberCount)
