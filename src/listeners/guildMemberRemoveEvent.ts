@@ -34,7 +34,7 @@ export default class GuildRemoveAdd extends Listener {
         .toAttachment();
 
         let attachment = new MessageAttachment(image.toBuffer(), "welcome-image.png");
-        channel.send(pesaan, attachment);
+        channel.send(pessan, attachment);
   }
  }
 
