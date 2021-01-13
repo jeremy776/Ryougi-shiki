@@ -23,7 +23,7 @@ export default class GuildRemoveAdd extends Listener {
         .setDiscriminator(member.user.discriminator)
         .setMemberCount(member.user.memberCount)
         .setGuildName(member.user.name)
-        .setAvatar(member.user.displayAvatarURL({ format: "png", size: 2048 }))
+        .setAvatar(member.user.displayAvatarURL({ format: "png", size: 2048 }) as any)
         .setColor("border", "white")
         .setColor("username-box", "black")
         .setColor("discriminator-box", "black")
