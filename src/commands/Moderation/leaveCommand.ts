@@ -162,5 +162,35 @@ import Command from "../../handle/Command";
          });
      }
 
+     if(args[0] == "test") {
+       let db = await this.client.db.get(`leave.${msg.guild?.id}`)
+       if(!db) return msg.reply("There is no database");
+       let bg = db.bg;
+       let pesan1 = db.message;
+       let pesan = pesan1.replace(/{member}/g, msg.author).replace(/{member.tag}/g, msg.author?.tag).replace(/{member.id}/g, msg.author?.id).replace(/{member.name}/g, msg.author?.username).replace(/{server.name}/g, msg.guild?.name).replace(/{memberCount}/g, msg.guild?.memberCount).replace(/{server.id}/g, msg.guild?.id)
+       if(bg == null) bg = msg.guild?.iconURL({ format: "png" });
+
+       const canvas = require("discord-canvas"),
+       welcomeCanvas = new canvas.Welcome();
+
+      let image = await welcomeCanvas
+        .setUsername(msg.author?.username)
+        .setDiscriminator(msg.author?.discriminator)
+        .setMemberCount(msg.guild?.memberCount)
+        .setGuildName(msg.guild?.name)
+        .setAvatar(msg.author.displayAvatarURL({ format: "png", size: 2048 }))
+        .setColor("border", "white")
+        .setColor("username-box", "black")
+        .setColor("discriminator-box", "black")
+        .setColor("message-box", "black")
+        .setColor("title", "white")
+        .setColor("avatar", "white")
+        .setBackground(bg)
+        .toAttachment();
+
+        let attachment = new MessageAttachment(image.toBuffer(), "welcome-image.png");
+        return msg.channel.send(pesan, attachment);
+    }
+
  }
 }
