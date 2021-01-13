@@ -145,7 +145,7 @@ import Command from "../../handle/Command";
     if(args[0] == "bg") {
        let db = await this.client.db.get(`welcome.${msg.guild?.id}`)
        if(!db) return msg.reply("**The database has not been registered, please set the channel first**");
-       let img = args[1];
+       let img = args[1] || Array.from(msg?.attachments)[0][1]?.proxyURL
        if(!img) return msg.reply("You must include an image");
 
          let succes = new MessageEmbed()
