@@ -16,7 +16,27 @@ export default class GuildMemberAdd extends Listener {
   let pesan = welcome.message.replace(/{member}/g, member).replace(/{member.tag}/g, member.user.tag).replace(/{member.id}/g, member.user.id).replace(/{member.name}/g, member.user.username).replace(/{server.name}/g, member.guild.name).replace(/{memberCount}/g, member.guild.memberCount).replace(/{server.id}/g, member.guild.id)
   if(welcome.status == true) {
     let channel = member.guild?.channels.cache.get(welcome.id) as TextChannel
-    channel.send(pesan)
+
+    const canvas = require("discord-canvas"),
+       welcomeCanvas = new canvas.Welcome();
+
+      let image = await welcomeCanvas
+        .setUsername(member.user.username)
+        .setDiscriminator(member.user.discriminator)
+        .setMemberCount(member.guild.memberCount)
+        .setGuildName(member.guild.name)
+        .setAvatar(member.user.author.displayAvatarURL({ format: "png", size: 2048 }))
+        .setColor("border", "white")
+        .setColor("username-box", "black")
+        .setColor("discriminator-box", "black")
+        .setColor("message-box", "black")
+        .setColor("title", "white")
+        .setColor("avatar", "white")
+        .setBackground(bg)
+        .toAttachment();
+
+        let attachment = new MessageAttachment(image.toBuffer(), "welcome-image.png");
+        channel.send(pesan, attachment);
   }
  }
 
