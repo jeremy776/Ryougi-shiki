@@ -147,18 +147,18 @@ import Command from "../../handle/Command";
        welcomeCanvas = new canvas.Welcome();
 
       let image = await welcomeCanvas
-        .setUsername(msg.author.username)
-        .setDiscriminator(msg.author.tag)
-        .setMemberCount(msg.guild.memberCount)
-        .setGuildName(msg.guild.name)
-        .setAvatar(msg.author.displayAvatarURL({ format: "png" }))
+        .setUsername(msg.author?.username)
+        .setDiscriminator(msg.author?.tag)
+        .setMemberCount(msg.guild?.memberCount)
+        .setGuildName(msg.guild?.name)
+        .setAvatar(msg.author?.displayAvatarURL({ format: "png" }))
         .setColor("border", "#8015EA")
         .setColor("username-box", "#8015EA")
         .setColor("discriminator-box", "#8015EA")
         .setColor("message-box", "#8015EA")
         .setColor("title", "#8015EA")
         .setColor("avatar", "#8015EA")
-        .setBackground(msg.guild.iconURL())
+        .setBackground(msg.guild?.iconURL())
         .toAttachment();
 
         let attachment = new MessageAttachment(image.toBuffer(), "welcome-image.png");
