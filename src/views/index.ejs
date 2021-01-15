@@ -46,6 +46,17 @@
     </nav>
 
 
+    <div class="container">
+      <div class="box bg-dark z-depth-1">
+        <div class="photo-profile">
+          <img src="<%- bot.user.displayAvatarURL() %>" class="img-fluid avatar">
+        </div>
+        <h4><%- bot.user.username %></h4>
+        <p>Already on <%- bot.guilds.cache.size %> servers and already has <%- bot.commands.size %> commands</p>
+      </div>
+    </div>
+      
+
   </body>
 </html>
 
