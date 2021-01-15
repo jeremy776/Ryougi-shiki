@@ -44,15 +44,15 @@
         </div>
       </div>
     </nav>
+    <br><br>
 
-
-    <div class="container mt-5">
+    <div class="container">
       <div class="box bg-dark z-depth-1 text-center">
         <div class="photo-profile">
           <img src="<%- bot.user.displayAvatarURL() %>" class="img-fluid avatar">
         </div>
-        <h4><%- bot.user.username %></h4>
-        <p>Already on <%- bot.guilds.cache.size %> servers and already has <%- bot.commands.size %> commands</p>
+        <h4 class="h4 my-4"><%- bot.user.username %></h4>
+        <p class="deskripsi">Already on <%- bot.guilds.cache.size %> servers and already has <%- bot.commands.size %> commands</p>
       </div>
     </div>
       
