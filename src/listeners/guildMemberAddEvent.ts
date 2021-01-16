@@ -14,7 +14,10 @@ export default class GuildMemberAdd extends Listener {
 
  if(member.guild.id == welcome.serverId) {
   if(welcome.status == false) return;
-  let pesan = welcome.message.replace(/{member}/g, member).replace(/{member.tag}/g, member.user.tag).replace(/{member.id}/g, member.user.id).replace(/{member.name}/g, member.user.username).replace(/{server.name}/g, member.guild.name).replace(/{memberCount}/g, member.guild.memberCount).replace(/{server.id}/g, member.guild.id)
+
+  let pesaan = welcome.message;
+  let pesan = pesaan.replace(/{member}/g, member).replace(/{member.tag}/g, member.user.tag).replace(/{member.id}/g, member.user.id).replace(/{member.name}/g, member.user.username).replace(/{server.name}/g, member.guild.name).replace(/{memberCount}/g, member.guild.memberCount).replace(/{server.id}/g, member.guild.id)
+
   if(welcome.status == true) {
     let channel = member.guild?.channels.cache.get(welcome.id) as TextChannel
 
