@@ -21,11 +21,11 @@ export default class RyougiClient extends Client {
     public giveaway: Giveaway = new Giveaway(this, {
       storage: false,
       updateCountdownEvery: 5000,
-        default: {
-          botsCanWin: false,
-          exemptPermissions: [ 'MANAGE_MESSAGES', 'ADMINISTRATOR' ],
-          embedColor: this.color,
-          reaction: '🎉'
+      default: {
+        botsCanWin: false,
+        exemptPermissions: [ 'MANAGE_MESSAGES', 'ADMINISTRATOR' ],
+        embedColor: this.color,
+        reaction: '🎉'
       }
     })
 
