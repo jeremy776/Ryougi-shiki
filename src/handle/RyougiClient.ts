@@ -18,7 +18,7 @@ export default class RyougiClient extends Client {
         })
     }
 
-    
+    public giveaway: Giveaway = new Giveaway
     public config: typeof config = config
     public util: Utility = new Utility(this)
     public color: typeof color = color
