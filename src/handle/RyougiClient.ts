@@ -5,6 +5,7 @@ const { Database } = require("quickmongo")
 const db = new Database("mongodb+srv://jeremy:jeremykusuma@cluster0.d0mjj.mongodb.net/jeremy?retryWrites=true&w=majority")
 import type Command from "./Command";
 import Utility from "./Util";
+import GiveawayManager from "./Giveaway";
 import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
 import { join } from "path";
