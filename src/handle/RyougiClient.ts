@@ -18,9 +18,9 @@ export default class RyougiClient extends Client {
         })
     }
 
-    let manager = new Giveaway(this, {
+    public giveaway: Giveaway = new Giveaway(this, {
       storage: false,
-      updateCountdownEvery: 10000,
+      updateCountdownEvery: 5000,
       default: {
          botsCanWin: false,
          exemptPermissions: [ 'MANAGE_MESSAGES', 'ADMINISTRATOR' ],
@@ -28,8 +28,6 @@ export default class RyougiClient extends Client {
          reaction: '🎉'
       }
     });
-
-    public giveaway: typeof manager = manager
     public config: typeof config = config
     public util: Utility = new Utility(this)
     public color: typeof color = color
