@@ -27,7 +27,7 @@ export default class RyougiClient extends Client {
          embedColor: '#FF0000',
          reaction: '🎉'
       }
-    });
+    })
     public config: typeof config = config
     public util: Utility = new Utility(this)
     public color: typeof color = color
