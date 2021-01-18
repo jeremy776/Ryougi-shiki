@@ -6,6 +6,7 @@ const session = require("express-session");
 const Strategy = require("passport-discord").Strategy;
 const passport = require("passport");
 const axios = require("axios");
+const { GiveawaysManager } = require('discord-giveaways');
 const Discord = require("discord.js");
 const client = new RyougiClient({disableMentions: 'everyone', fetchAllMembers:true});
 
@@ -16,6 +17,13 @@ setInterval(function() {
         })
     }, 60 * 1000);
 
+
+client.db.on("ready", async () => {
+  if((await client.db.get('giveaways')) === null) await client.db.set('giveaways', []);
+});
+
+
+/* WEBSITE */
 passport.serializeUser(function(user: any, done: any) {
   done(null, user);
 });
