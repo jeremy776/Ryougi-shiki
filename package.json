@@ -9,6 +9,7 @@
     "passport-discord": "^0.1.4",
     "express-session": "^1.17.1",
     "canvacord": "^5.0.8",
+    "discord-giveaways": "^4.4.3",
     "quickmongo": "^2.0.7",
     "ejs": "^3.1.5",
     "os": "^0.1.1",
