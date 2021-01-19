@@ -1,15 +1,6 @@
 const { GiveawaysManager } = require('discord-giveaways');
 
 export default class Giveaway extends GiveawaysManager {
-  /**
-   * @param {Discord.Client} client The Discord Client
-   * @param {GiveawaysManagerOptions} options The manager options
-   */
-   constructor(client: any, options: any, init = true) {
-     super();
-     if (!client) throw new Error('Client is a required option.');
-   }
-
 
   async getAllGiveaways() {
     return await this.client.db.get("giveaways");
