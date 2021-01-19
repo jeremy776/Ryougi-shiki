@@ -1,4 +1,5 @@
 import RyougiClient from './handle/RyougiClient';
+import Giveaway from './handle/Giveaway';
 import express from "express";
 import type { Message, TextChannel } from "discord.js";
 const app = express();
@@ -21,6 +22,17 @@ setInterval(function() {
 client.db.on("ready", async () => {
   if((await client.db.get('giveaways')) === null) await client.db.set('giveaways', []);
 });
+
+let manager = new Giveaway(client, {
+  storage: false,
+  updateCountdownEvery: 5000,
+  default: {
+    botsCanWin: false,
+    exemptPermissions: [ 'MANAGE_MESSAGES', 'ADMINISTRATOR' ],
+    embedColor: client.color,
+    reaction: '🎉'
+  }
+})
 
 
 /* WEBSITE */
