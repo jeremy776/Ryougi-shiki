@@ -19,7 +19,7 @@ export default class RyougiClient extends Client {
         })
     }
 
-    public giveaway: Giveaway = new Giveaway(this.client, {
+    public giveaway: Giveaway = new Giveaway(this, {
       storage: false,
       updateCountdownEvery: 5000,
       default: {
