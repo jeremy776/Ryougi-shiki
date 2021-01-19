@@ -8,27 +8,6 @@ export default class Giveaway extends GiveawaysManager {
    constructor(client, options, init = true) {
      super();
      if (!client) throw new Error('Client is a required option.');
-     /*
-       The Discord Client
-       @type {Discord.Client}
-      /
-      this.client = client;
-      /
-        Whether the manager is ready
-       @type {Boolean}
-       /
-      this.ready = false;
-      /
-       The giveaways managed by this manager
-        @type {Giveaway[]}
-       
-      this.giveaways = [];
-      *
-       The manager options
-       * @type {GiveawaysManagerOptions}
-       
-      this.options = merge(defaultManagerOptions, options);
-      if (init) this._init();/*
    }
 
 
