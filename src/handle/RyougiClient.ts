@@ -19,7 +19,7 @@ export default class RyougiClient extends Client {
         })
     }
 
-    public giveaway: Giveaway = new Giveaway(this, {
+    /*public giveaway: Giveaway = new Giveaway(this, {
       storage: false,
       updateCountdownEvery: 5000,
       default: {
@@ -28,7 +28,7 @@ export default class RyougiClient extends Client {
         embedColor: this.color,
         reaction: '🎉'
       }
-    })
+    })*/
     public config: typeof config = config
     public util: Utility = new Utility(this)
     public color: typeof color = color
