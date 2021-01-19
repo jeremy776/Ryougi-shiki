@@ -1,7 +1,7 @@
 const { GiveawaysManager } = require('discord-giveaways');
 
 export default class Giveaway extends GiveawaysManager {
-  constructor(client) {
+  constructor(client:any) {
     super()
   }
 
