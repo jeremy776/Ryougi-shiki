@@ -5,7 +5,6 @@ const { Database } = require("quickmongo")
 const db = new Database("mongodb+srv://jeremy:jeremykusuma@cluster0.d0mjj.mongodb.net/jeremy?retryWrites=true&w=majority")
 import type Command from "./Command";
 import Utility from "./Util";
-import Giveaway from "./Giveaway";
 import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
 import { join } from "path";
@@ -19,16 +18,6 @@ export default class RyougiClient extends Client {
         })
     }
 
-    /*public giveaway: Giveaway = new Giveaway(this, {
-      storage: false,
-      updateCountdownEvery: 5000,
-      default: {
-        botsCanWin: false,
-        exemptPermissions: [ 'MANAGE_MESSAGES', 'ADMINISTRATOR' ],
-        embedColor: this.color,
-        reaction: '🎉'
-      }
-    })*/
     public config: typeof config = config
     public util: Utility = new Utility(this)
     public color: typeof color = color
