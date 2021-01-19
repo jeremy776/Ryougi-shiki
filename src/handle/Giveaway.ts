@@ -1,9 +1,6 @@
 const { GiveawaysManager } = require('discord-giveaways');
 
 export default class Giveaway extends GiveawaysManager {
-  constructor(client:any) {
-    super()
-  }
 
   async getAllGiveaways() {
     return await this.client.db.get("giveaways");
