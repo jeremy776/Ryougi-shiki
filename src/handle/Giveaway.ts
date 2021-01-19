@@ -1,12 +1,15 @@
 const { GiveawaysManager } = require('discord-giveaways');
 
 export default class Giveaway extends GiveawaysManager {
+  constructor(client) {
+    super()
+  }
 
   async getAllGiveaways() {
     return await this.client.db.get("giveaways");
   }
 
-  async editGiveaways(id:number, data:any) {
+  async editGiveaway(id:number, data:any) {
     let giveaway = await this.client.db.get("giveaways");
     let newData = giveaway.filter((g:any) => g.messageID !== id);
     newData.push(data);
