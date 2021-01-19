@@ -12,6 +12,9 @@ import "../extenders";
 const { GiveawaysManager } = require('discord-giveaways');
 
 class Giveaway extends GiveawaysManager {
+  public constructor() {
+    super(true);
+  }:
 
   async getAllGiveaways() {
     return await this.client.db.get("giveaways");
