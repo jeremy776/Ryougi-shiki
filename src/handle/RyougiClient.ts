@@ -9,36 +9,6 @@ import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
 import { join } from "path";
 import "../extenders";
-const { GiveawaysManager } = require('discord-giveaways');
-
-class Giveaway extends GiveawaysManager {
-
-  async getAllGiveaways() {
-    return await this.client.db.get("giveaways");
-  }
-
-  async editGiveaways(id:number, data:any) {
-    let giveaway = await this.client.db.get("giveaways");
-    let newData = giveaway.filter((g:any) => g.messageID !== id);
-    newData.push(data);
-    await this.client.db.set("giveaways", newData);
-    return true;
-  }
-
-  async saveGiveaway(id:number, data:any) {
-    await this.client.db.push("giveaways", data);
-    return true;
-  }
-
-  async deleteGiveaway(id:number) {
-    let data = await this.client.db.get("giveaways")
-    let newData = data.filter((d:any) => d.messageID !== id)
-    await this.client.db.set("giveaways", newData);
-    return true;
-  }
-
-}
-
 
 export default class RyougiClient extends Client {
     public constructor(opt?: ClientOptions){
@@ -47,17 +17,6 @@ export default class RyougiClient extends Client {
             fetchAllMembers: true,
         })
     }
-
-    public giveaway: Giveaway = new Giveaway(this.client, {
-      storage: false,
-      updateCountdownEvery: 5000,
-      default: {
-        botsCanWin: false,
-        exemptPermissions: [ 'MANAGE_MESSAGES', 'ADMINISTRATOR' ],
-        embedColor: this.color,
-        reaction: '🎉'
-      }
-    })
 
     public config: typeof config = config
     public util: Utility = new Utility(this)
