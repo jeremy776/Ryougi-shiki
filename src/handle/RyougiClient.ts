@@ -12,7 +12,7 @@ import "../extenders";
 const { GiveawaysManager } = require('discord-giveaways');
 
 class Giveaway extends GiveawaysManager {
-  public constructor() {
+  public constructor(client) {
     super(true);
   }:
 
