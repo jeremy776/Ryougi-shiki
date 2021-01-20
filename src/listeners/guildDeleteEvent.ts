@@ -20,7 +20,7 @@ export default class GuildDeleteEvent extends Listener {
 
   let embed = new MessageEmbed()
   .setAuthor("👋 LEAVE GUILD", guild.iconURL({dynamic:true}) as any)
-  .setThumbnail(guild.iconURL({dynamic:true}) as any)
+  //.setThumbnail(guild.iconURL({dynamic:true}) as any)
   .setTimestamp()
   .setFooter("Now I am on "+ this.client.guilds.cache.size + " server's")
   .addField("📝 NAME", guild.name)
