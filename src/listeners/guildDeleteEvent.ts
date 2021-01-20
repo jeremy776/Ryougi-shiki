@@ -24,6 +24,7 @@ export default class GuildDeleteEvent extends Listener {
   .setTimestamp()
   .setFooter("Now I am on "+ this.client.guilds.cache.size + " server's")
   .addField("📝 NAME", guild.name)
+  .setImage("https://cdn.discordapp.com/attachments/784623203359653938/801494682626162718/20210120_235320.png")
   .addField("🔬 OWNER", guild.owner?.user.tag)
   .addField("⚙️ MEMBER", guild.memberCount)
   .setColor(this.client.color)
