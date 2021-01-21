@@ -12,17 +12,17 @@
     <!-- ======================================= -->
     <link rel="stylesheet" href="/style.css">
     <meta charset="utf-8">
-    <link rel="icon" href="<%- bot.user.displayAvatarURL({format: "png"}) %>">
+    <link rel="icon" href="<%- bot.user.displayAvatarURL({ size: 2048, format: 'png'}) %>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%- bot.user.username %> | Home</title>
   </head>
 
-  <body>
+  <body class="bg-dark">
     <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="#"><%= bot.user.username %></a>
+        <a class="navbar-brand" href="#"><%- bot.user.username %></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <i class="fas fa-bars fa-lg" id="button-navbar"></i>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav ml-auto">
@@ -30,15 +30,16 @@
               <a class="nav-link">Home</a>
             </li>
 
-          <% if(!user) { %>
+            <% if(!req.user) { %>
             <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
             </li>
-          <% }else{ %>
+            <% }else{ %>
             <li class="nav-item">
-              <a class="nav-link" href="/me"><%- user.username %>#<%- user.discriminator %></a>
+              <a class="nav-link" href="#"><%- req.user %></a>
             </li>
-          <% } %>
+            <% } %>
+          
 
           </ul>
         </div>
@@ -46,15 +47,65 @@
     </nav>
 
     <div class="container">
-      <div class="box bg-dark z-depth-1 text-center">
+      <div class="box text-center">
         <div class="photo-profile">
-          <img src="<%- bot.user.displayAvatarURL({ size: 2048, format:"png" }) %>" class="img-fluid avatar">
+          <img src="<%- bot.user.displayAvatarURL({ size: 2048, format: 'png' }) %>" class="img-fluid avatar">
         </div>
-        <h4 class="h4 my-4"><%- bot.user.username %> <span class="badge badge-primary z-depth-3">Bot</span></h4>
-        <p class="deskripsi">Already on <%- bot.guilds.cache.size %> servers and already has <%- bot.commands.size %> commands</p>
+        <h4 class="h4 my-4 nama"><%- bot.user.username %> <span class="badge badge-primary align-middle">BOT</span></h4>
+        <div class="deskripsi">
+          <h6 class="deskrips">Being on <%- bot.guilds.cache.size %> servers and playing with <%- bot.users.cache.size %> users</h6>
+        </div>
+        
+        <div class="buttonnya">
+          <a class="btn btn-success z-depth-4" href="https://discord.gg/NFAVb7y3f4"><i class="fas fa-server"></i> Support Server</a>
+          <a class="btn btn-success z-depth-4" href="https://discordapp.com/api/oauth2/authorize?client_id=654991873861222431&permissions=8&scope=bot"><i class="fas fa-plus"></i> Invite</a>
+        </div>
       </div>
     </div>
-      
+    
+    <div class="page-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#69d2e7" fill-opacity="1" d="M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,85.3C672,117,768,171,864,208C960,245,1056,267,1152,240C1248,213,1344,139,1392,101.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    </div>
+    <div class="info-page">
+      <div class="container">
+        <div class="title text-center text-dark"><br><br>
+          <h1>Bot features?</h1>
+        </div>
+        
+        <div class="row">
+          <div class="col-md">
+            <div class="card border-0 bg-transparent mt-5">
+              <div class="row">
+                <div class="col-md-4 text-center">
+                  <img src="https://cdn.discordapp.com/attachments/784623203359653938/800587611881472060/Screenshot_2021-01-18-11-48-58-063_com.discord.jpg" class="img img-fluid z-depth-2">
+                </div>
+                <div class="col-md-8 text-center">
+                  <h3 style="font-weight:bold;">Moderate Your Server</h3>
+                  <p class="text-center text-dark" style="padding:30px;margin-top:-25px;font-family:'Nunito', sans-serif">Take care of your server, and warn users who violate your server rules.<br>Command moderation functions like Kicking members, Muting members, and much more</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md">
+            <div class="card border-0 bg-transparent mb-3">
+              <div class="row">
+                <div class="col-md-4 order-md-2 text-center">
+                  <img src="https://cdn.discordapp.com/attachments/784623203359653938/800636592628301834/IMG_20210118_150350.jpg" class="img1 img-fluid z-depth-2">
+                </div>
+                <div class="col-md-8 text-center">
+                  <h3 style="font-weight:bold;">Welcome & Leave</h3>
+                  <p class="text-center text-dark" style="padding:30px;margin-top:-25px;font-family:'Nunito', sans-serif">Say welcome to the members who just came, and say goodbye to the members who left.<br>You can use a custom message and a custom background</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
 
   </body>
 </html>
@@ -67,4 +118,3 @@
   $(document).ready(function() {
   new WOW().init();
 });
-</script>
