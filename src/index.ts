@@ -80,7 +80,8 @@ app.get('/logout', function(req: any, res: any) {
 app.get("/", function(req: any, res: any) {
   res.render("index.ejs", {
    bot:client,
-   user:req.user
+   user:req.user,
+   req:req
   });
 });
 
