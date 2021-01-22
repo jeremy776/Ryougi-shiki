@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="/style.css">
     <meta charset="utf-8">
     <link rel="icon" href="<%- bot.user.displayAvatarURL({ size: 2048, format: 'png'}) %>">
+    <meta name="description" content="A simple bot that has several functions, and has been on <%- bot.guilds.cache.size %> servers with <%- bot.commands.size %> commands, and <%- bot.users.cache.size %> Users">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://ryougi-shiki.herokuapp.com/">
+    <meta property="og:title" content="<%- bot.user.username %> - Bot Discord">
+    <meta property="og:description" content="A simple bot that has serveral functions, and has been on <%- bot.guilds.cache.size %> servers, and with <%- bot.commands.size %> commands, and play with <%- bot.users.cache.size %> Users">
+    <meta property="og:image" content="<%- bot.user.displayAvatarURL({ size: 2048, format: 'png' }) %>">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%- bot.user.username %> | Home</title>
   </head>
