@@ -9,7 +9,7 @@ const axios = require("axios");
 const Discord = require("discord.js");
 const client = new RyougiClient({disableMentions: 'everyone', fetchAllMembers:true});
 
-const urls = ["https://ts-bot-id.herokuapp.com/", "https://IncredibleAgreeableTelevisions.jeremy776.repl.co"]
+const urls = ["https://ryougi-shiki.herokuapp.com/", "https://IncredibleAgreeableTelevisions.jeremy776.repl.co"]
 setInterval(function() {
             urls.forEach(url => {
             axios.get(url).then(console.log("Pong at " + Date.now())).catch(() => {});
