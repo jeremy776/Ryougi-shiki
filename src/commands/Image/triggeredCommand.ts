@@ -13,4 +13,15 @@ import type { Message } from "discord.js";
 })
 
 export default TriggeredCommand extends Command {
-  async exec(
+  public async exec(message: Message, args:string[]) {
+
+  let user = message.mentions?.users.first() || this.client.users.cache.get(args[0]).catch(() => null);
+  if(!user) {
+    user = message.author;
+  }
+
+  let img = await this.client
+
+
+ }
+}
