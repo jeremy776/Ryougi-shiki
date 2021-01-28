@@ -12,7 +12,7 @@ import type { Message } from "discord.js";
  ownerOnly:false
 })
 
-export default TriggeredCommand extends Command {
+export default class TriggeredCommand extends Command {
   public async exec(message: Message, args:string[]) {
 
   let user = message.mentions?.users.first() || this.client.users.cache.get(args[0]).catch(() => null);
