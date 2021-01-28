@@ -20,7 +20,7 @@ export default class TriggeredCommand extends Command {
     user = message.author;
   }
 
-  let img = await new this.client.image.Triggered.getImage(user.displayAvatarURL({ format: "png", size: 2048 }));
+  let img = await new this.client.image.Triggered().getImage(user.displayAvatarURL({ format: "png", size: 2048 }));
   let embed = new MessageEmbed()
   .setImage(img)
   .setColor(this.client.color)
