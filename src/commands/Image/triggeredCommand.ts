@@ -23,7 +23,7 @@ export default class TriggeredCommand extends Command {
   let img = await new this.client.image.Triggered().getImage(user.displayAvatarURL({ format: "png", size: 2048 }));
   let image = new MessageAttachment(img, "triggered.gif");
   let embed = new MessageEmbed()
-  .setImage("attachment://triggered.gif")
+  .setImage(img)
   .setColor(this.client.color)
   .setTimestamp()
   return message.channel.send(embed);
