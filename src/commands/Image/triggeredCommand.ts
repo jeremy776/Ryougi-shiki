@@ -15,7 +15,7 @@ import type { Message } from "discord.js";
 export default class TriggeredCommand extends Command {
   public async exec(message: Message, args:string[]) {
 
-  let user = message.mentions?.users.first() || this.client.users.cache.get(args[0]).catch(() => null);
+  let user = message.mentions.users?.first() || this.client.users.cache?.get(args[0]);
   if(!user) {
     user = message.author;
   }
