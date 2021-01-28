@@ -1,6 +1,7 @@
 import { Client, ClientOptions, Collection, Message } from 'discord.js'
 import config from "../config";
 const color = "#303136";
+const Image = require("discord-image-generation");
 const { Database } = require("quickmongo")
 const db = new Database("mongodb+srv://jeremy:jeremykusuma@cluster0.d0mjj.mongodb.net/jeremy?retryWrites=true&w=majority")
 import type Command from "./Command";
@@ -22,6 +23,7 @@ export default class RyougiClient extends Client {
     public util: Utility = new Utility(this)
     public color: typeof color = color
     public db: typeof db = db
+    public image: typeof Image = Image
     public afk: Collection<string, string> = new Collection()
     public snipe: Map<string, Message> = new Map()
     public commands: Collection<string, Command> = new Collection()
@@ -61,6 +63,7 @@ declare module "discord.js" {
         snipe: Map<string, Message>;
         color: "#303136";
         db: typeof db;
+        image: typeof Image;
         afk: Collection<string, string>;
         cooldowns: Collection<string, number>;
         loadCommands(): Promise<void>;
