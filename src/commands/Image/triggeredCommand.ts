@@ -1,5 +1,5 @@
-import { CommandConf } from "../handle/CommandConf";
-import Command from "../../decorators";
+import command from "../handle/command";
+import { CommandConf } from "../../decorators";
 import { MessageEmbed, MessageAttachment } from "discord.js";
 import type { Message } from "discord.js";
 
