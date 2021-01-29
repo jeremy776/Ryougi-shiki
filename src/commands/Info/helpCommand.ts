@@ -66,8 +66,8 @@ export default class helpCommand extends Command {
                 });
             }
              embed.fields?.push({
-                  name: "Links",
-                  value: `[Invite](https://discord.com/oauth2/authorize?client_id=${this.client.user?.id}&scope=bot&permissions=8)`
+                  name: "LINKS",
+                  value: `**[\[INVITE\]](https://discord.com/oauth2/authorize?client_id=${this.client.user?.id}&scope=bot&permissions=8) | [\[SUPPORT SERVER\]](https://discord.gg/NFAVb7y3f4)**`
             });
         }
 
