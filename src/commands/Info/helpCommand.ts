@@ -49,7 +49,7 @@ export default class helpCommand extends Command {
             });
         } else {
             embed.author = {
-                name: `${this.client.user.username.toUpperCase()} COMMANDS`,
+                name: `${this.client.user?.username} Command List`,
                 iconURL: this.client.user?.displayAvatarURL()
             };
             embed.footer = {
@@ -67,7 +67,7 @@ export default class helpCommand extends Command {
             }
              embed.fields?.push({
                   name: "Links",
-                  value: `[Invite](https://discord.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=8)`
+                  value: `[Invite](https://discord.com/oauth2/authorize?client_id=${this.client.user?.id}&scope=bot&permissions=8)`
             });
         }
 
