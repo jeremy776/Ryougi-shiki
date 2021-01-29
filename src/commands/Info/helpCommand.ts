@@ -49,7 +49,7 @@ export default class helpCommand extends Command {
             });
         } else {
             embed.author = {
-                name: "Command List",
+                name: `${this.client.user.username.toUpperCase()} COMMANDS`,
                 iconURL: this.client.user?.displayAvatarURL()
             };
             embed.footer = {
@@ -61,14 +61,14 @@ export default class helpCommand extends Command {
             for (const category of categories) {
                 const commands = this.client.commands.filter(x => x.config.category === category);
                 embed.fields?.push({
-                    name: `${category} [${commands.map((x:any) => x.config.name).length}]`,
+                    name: `${category} [\`${commands.map((x:any) => x.config.name).length}\`]`,
                     value: commands.map((x:any) => `\`${x.config.name}\``).join(", ")
                 });
             }
-             /*embed.fields?.push({
+             embed.fields?.push({
                   name: "Links",
-                  value: "[Github](https://github.com/KagChi/kaguya) | [Invite](https://discord.com/oauth2/authorize?client_id=707045201461641236&scope=bot&permissions=0)"
-            });*/
+                  value: `[Invite](https://discord.com/oauth2/authorize?client_id=${this.client.user.id}&scope=bot&permissions=8)`
+            });
         }
 
         await msg.channel.send({ embed });
