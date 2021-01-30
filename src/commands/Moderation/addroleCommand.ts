@@ -24,11 +24,11 @@ export default class addRoleCommand extends Command {
   if(!message.guild?.me?.hasPermission("MANAGE_ROLES")) return message.channel.send({embed:{description: "**Give me \`MANAGE_ROLES\` permission if you want to run this command**", color:this.client.color}});
 
 
-  let user = message.mentions.users?.first() || this.client.users.cache?.get(args[0]);
+  let user = message.mentions.members?.first() || message.guild.members.cache?.get(args[0]);
   if(!user) {
     return message.reply("**You have to mention the person you want to add the role to, or use r.help addrole**")
   }
-  let role = message.mentions.roles?.first() || message.guild.roles.cache?.get(args[0]);
+  let role = message.mentions.roles?.first() || message.guild.roles.cache?.get(args[1]);
   if(!role) {
     return message.reply("**You have to mention the role**");
   }
