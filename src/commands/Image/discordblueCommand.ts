@@ -7,7 +7,7 @@ import type { Message } from "discord.js";
  name: "discordblue",
  aliases: [],
  description: "None",
- usage: "gay [ @user || user id ]",
+ usage: "discordblue [ @user || user id ]",
  cooldown:3,
  ownerOnly:false
 })
