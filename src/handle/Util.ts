@@ -38,7 +38,7 @@ export default class Utility {
     }
     let axios = require("axios");
     let dataHero = await axios.get(heroListApi)
-    let filter = dataHero.data.data.filter(x => x.name.toLowerCase() === data.toLowerCase())
+    let filter = dataHero.data.data.filter((x:any) => x.name.toLowerCase() === data.toLowerCase())
     
     return filter
   }
