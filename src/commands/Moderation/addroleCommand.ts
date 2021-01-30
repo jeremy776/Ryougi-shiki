@@ -38,8 +38,8 @@ export default class addRoleCommand extends Command {
   }
 
   let embed = new MessageEmbed()
-  .setAuthor("ADD ROLE", msg.guild?.iconURL({dynamic:true}))
-  .addField("Moderator", `${msg.author} | \`${msg.author.tag}\``)
+  .setAuthor("ADD ROLE", message.guild?.iconURL({dynamic:true}))
+  .addField("Moderator", `${message.author} | \`${message.author.tag}\``)
   .addField("User", `${user} | \`${user.tag}\``)
   .addField("Role", `${role} | \`${role.name}\``)
   .setColor(this.client.color)
