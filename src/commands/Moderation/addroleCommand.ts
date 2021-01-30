@@ -41,12 +41,12 @@ export default class addRoleCommand extends Command {
   let embed = new MessageEmbed()
   .setAuthor("ADD ROLE", message.guild?.iconURL({dynamic:true}) as any)
   .addField("Moderator", `${message.author} | \`${message.author.tag}\``)
-  .addField("User", `${user} | \`${user.tag}\``)
+  .addField("User", `${user} | \`${user.user.tag}\``)
   .addField("Role", `${role} | \`${role.name}\``)
   .setColor(this.client.color)
   .setTimestamp()
-  .setFooter(`${user.username} you get a new role`)
-  .setThumbnail(user.displayAvatarURL({ dynamic:true }))
+  .setFooter(`${user.user.username} you get a new role`)
+  .setThumbnail(user.user.displayAvatarURL({ dynamic:true }))
   return message.channel.send(embed);
 
  }
