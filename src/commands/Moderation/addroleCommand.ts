@@ -33,12 +33,12 @@ export default class addRoleCommand extends Command {
     return message.reply("**You have to mention the role**");
   }
 
-  if(message.guild?.members.cache?.get("654991873861222431")._roles.includes(role.id)) {
+  if(message.guild?.members.cache?.get("654991873861222431").roles.includes(role.id)) {
     return message.reply(`**${user.tag}** already have that role [\`${role.name}\`]`)
   }
 
   let embed = new MessageEmbed()
-  .setAuthor("ADD ROLE", message.guild?.iconURL({dynamic:true}))
+  .setAuthor("ADD ROLE", message.guild?.iconURL({dynamic:true}) as any)
   .addField("Moderator", `${message.author} | \`${message.author.tag}\``)
   .addField("User", `${user} | \`${user.tag}\``)
   .addField("Role", `${role} | \`${role.name}\``)
