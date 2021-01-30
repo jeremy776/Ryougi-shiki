@@ -15,6 +15,15 @@ import type { Message } from "discord.js";
 export default class addRoleCommand extends Command {
   public async exec(message: Message, args:string[]) {
 
+
+  let noPerms = new MessageEmbed()
+  .setDescription("**You don't have permission**")
+  .setColor(this.client.color)
+
+  if(!message.member?.hasPermission("MANAGE_ROLES")) return msg.channel.send(noPerms);
+  if(!message.guild?.me?.hasPermission("MANAGE_ROLES")) return msg.channel.send({embed:{description: "**Give me \`MANAGE_ROLES\` permission if you want to run this command**", color:this.client.color}});
+
+
   let user = message.mentions.users?.first() || this.client.users.cache?.get(args[0]);
   if(!user) {
     return message.channel.reply("**You have to mention the person you want to add the role to, or use r.help addrole**")
@@ -22,6 +31,10 @@ export default class addRoleCommand extends Command {
   let role = message.mentions.roles?.first() || message.guild.roles.cache?.get(args[0]);
   if(!role) {
     return message.channel.reply("**You have to mention the role**");
+  }
+
+  if(msg.guild.members.cache.get("654991873861222431")._roles.includes(role.id)) {
+    return message.channel.reply(`**${user.tag}** already have that role [\`${role.name}\`]`)
   }
 
   let embed = new MessageEmbed()
