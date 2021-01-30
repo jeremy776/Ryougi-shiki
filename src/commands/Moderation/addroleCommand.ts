@@ -4,7 +4,7 @@ import { MessageEmbed, MessageAttachment } from "discord.js";
 import type { Message } from "discord.js";
 
 @CommandConf({
- name: "beautiful",
+ name: "addrole",
  aliases: [],
  description: "None",
  usage: "addrole [ @user || user id ] [ @role || role ]",
