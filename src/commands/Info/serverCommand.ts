@@ -20,21 +20,15 @@ import Command from "../../handle/Command";
    .setColor(this.client.color)
    .setTimestamp()
    .setFooter("Reply "+ msg.author.tag)
-   .addField("Owner", `
-\`\`\`
-• Name :: ${msg.guild?.owner?.user.tag}
-• Id   :: ${msg.guild?.ownerID}
-\`\`\``)
-    .addField("Server", `
-\`\`\`
-• Name     :: ${msg.guild?.name}
-• Id       :: ${msg.guild?.id}
-• Region   :: ${msg.guild?.region}
-• Members  :: ${msg.guild?.memberCount} Members
-  • Bot's  :: ${msg.guild?.members.cache.filter(x => x.user.bot).size} Bots
-  • User's :: ${msg.guild?.members.cache.filter(x => !x.user.bot).size} Users
-• Channels :: ${msg.guild?.channels.cache.size} Channel's
-\`\`\``)
+   .addField("Owner", `${msg.guild?.owner?.user} | ${msg.guild?.owner?.user.tag}`)
+   .addField("Owner ID", `${msg.guild?.owner?.user.id}`)
+   .addField("Server Name", `${msg.guild?.name}`)
+   .addField("Server ID", `${msg.guild?.id}`)
+   .addField("Region", `${msg.guild?.region}`)
+   .addField("Member's", `${msg.guild?.memberCount} Members`)
+   .addField("Bot's", `${msg.guild?.members.cache.filter(x => x.user.bot).size} Bots`)
+   .addField("User's", `${msg.guild?.members.cache.filter(x => !x.user.bot).size} Users`)
+   .addField("Channel's", `${msg.guild?.channels.cache.size} Channel's`)
     //.addField(`Roles [\`${msg.guild.roles.cache.size}\`]`, `${msg.guild.roles.cache.map(x => x).join(" | ")}`)
     return msg.channel.send(embed)
  }
