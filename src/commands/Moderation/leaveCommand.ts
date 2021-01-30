@@ -71,7 +71,7 @@ import Command from "../../handle/Command";
       if(!pesan) return msg.reply("You forgot to enter the message");
 
       let succes = new MessageEmbed()
-      .setAuthor(`Welcome Message`)
+      .setAuthor(`Leave Message`)
       .setColor(this.client.color)
       .setDescription(pesan)
       msg.channel.send(succes)
