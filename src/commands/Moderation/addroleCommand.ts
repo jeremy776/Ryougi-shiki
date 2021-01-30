@@ -47,7 +47,7 @@ export default class addRoleCommand extends Command {
   .setTimestamp()
   .setFooter(`${user.user.username} you get a new role`)
   .setThumbnail(user.user.displayAvatarURL({ dynamic:true }))
-  user.add.roles(role?.id)
+  user.roles?.add(role?.id)
   return message.channel.send(embed);
 
  }
