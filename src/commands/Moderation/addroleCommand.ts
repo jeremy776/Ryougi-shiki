@@ -33,7 +33,7 @@ export default class addRoleCommand extends Command {
     return message.reply("**You have to mention the role**");
   }
 
-  let userRol = message.guild?.members?.cache.get("654991873861222431")._roles;
+  let userRol = message.guild?.members?.cache?.get("654991873861222431")._roles;
   if(userRol.includes(role.id)) {
     return message.reply(`**${user.tag}** already have that role [\`${role.name}\`]`)
   }
