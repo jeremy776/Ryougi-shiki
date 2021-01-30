@@ -35,7 +35,7 @@ export default class addRoleCommand extends Command {
 
   
   if(user.roles?.cache.has(role?.id)) {
-    return message.reply(`**${user.tag}** already have that role [\`${role.name}\`]`)
+    return message.reply(`**${user.user.tag}** already have that role [\`${role.name}\`]`)
   }
 
   let embed = new MessageEmbed()
