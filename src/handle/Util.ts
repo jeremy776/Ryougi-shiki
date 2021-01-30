@@ -32,7 +32,7 @@ export default class Utility {
     return Math.floor(Math.random() * max) + min;
   }
   public async getHero(data:string) {
-    let heroListApi = "https://mapi.mobilelegends.com/hero/llist";
+    let heroListApi = "https://mapi.mobilelegends.com/hero/list";
     if(!data) {
       throw new Error("Invalid Value");
     }
