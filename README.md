@@ -8,4 +8,4 @@
 - level${msg.guild?.id}.${msg.author?.id}
 
 ## TO DO LIST
-+ Membuat Website Dashboard
+[-] Membuat Website dashboard

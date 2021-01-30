@@ -33,7 +33,7 @@ export default class evalCommand extends Command {
              .replace(/`/g, `\`${String.fromCharCode(8203)}`)
              .replace(/@/g, `@${String.fromCharCode(8203)}`);
              if (evaled.length > 2048) evaled = await this.client.util.hastebin(evaled);
-             else evaled = `\`\`\`\n${evaled}\`\`\``;
+             else evaled = `\`\`\`\n${evaled}\`\`\`\n\`\`\`\n${typeof(evaled)}\`\`\``;
              msg.channel.send(evaled);
        } catch (err) {
            function clean(text: string) {
