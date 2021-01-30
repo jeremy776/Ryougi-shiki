@@ -45,7 +45,7 @@ export default class addRoleCommand extends Command {
   .setColor(this.client.color)
   .setTimestamp()
   .setFooter(`${user.username} you get a new role`)
-  .setThumbnail(user.displayAvatarURL({ dynamic&true }))
+  .setThumbnail(user.displayAvatarURL({ dynamic:true }))
   return message.channel.send(embed);
 
  }
