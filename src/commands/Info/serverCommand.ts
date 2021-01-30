@@ -19,6 +19,7 @@ import Command from "../../handle/Command";
    .setAuthor(msg.guild?.name + " Info", msg.author.displayAvatarURL({dynamic:true}))
    .setColor(this.client.color)
    .setTimestamp()
+   .setThumbnail(msg.guild?.displayAvatarURL({ dynamic:true }))
    .setFooter("Reply "+ msg.author.tag)
    .addField("Owner", `${msg.guild?.owner?.user} | ${msg.guild?.owner?.user.tag}`)
    .addField("Owner ID", `${msg.guild?.owner?.user.id}`)
