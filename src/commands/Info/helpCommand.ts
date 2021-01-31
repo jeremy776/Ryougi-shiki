@@ -58,10 +58,11 @@ export default class helpCommand extends Command {
             };
 
             const categories = [...new Set(this.client.commands.map(x => x.config.category))];
+            const emote = this.client.config.emoteCategory
             for (const category of categories) {
                 const commands = this.client.commands.filter(x => x.config.category === category);
                 embed.fields?.push({
-                    name: `${this.client.config.emoteCategory[category]}・${category} [\`${commands.map((x:any) => x.config.name).length}\`]`,
+                    name: `${emote[category]}・${category} [\`${commands.map((x:any) => x.config.name).length}\`]`,
                     value: commands.map((x:any) => `\`${x.config.name}\``).join(", ")
                 });
             }
