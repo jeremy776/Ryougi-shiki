@@ -38,9 +38,9 @@ export default class MobileLegendsCommand extends Command {
     .setThumbnail("https:"+data.key)
     .setTimestamp()
     .setImage(Fulldata.cover_picture)
-    .addField("Type", Fulldata.type)
-    .addField("Alive", Fulldata.alive)
-    .addField("Gear", Fulldata.out_pack_tips + "\n\n" + Fulldata.gear.out_pack.map((x:any) => x.equip.name).join("\n"))
+    .addField("TYPE", Fulldata.type)
+    .addField("ALIVE", Fulldata.alive)
+    .addField("ITEM'S", Fulldata.gear.out_pack_tips + "\n\n" + Fulldata.gear.out_pack.map((x:any) => x.equip.name).join("\n"))
     return msg.channel.send(embed)
     
   }
