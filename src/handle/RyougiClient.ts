@@ -61,7 +61,7 @@ declare module "discord.js" {
         config: typeof config;
         util: Utility;
         snipe: Map<string, Message>;
-        color: "#303136";
+        color: "#7facff";
         db: typeof db;
         image: typeof Image;
         afk: Collection<string, string>;
