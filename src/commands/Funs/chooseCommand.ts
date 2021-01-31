@@ -11,7 +11,7 @@ import Command from "../../handle/Command";
   usage: "choose [me | they | he ]",
   cooldown: 2,
   aliases: [],
-  description: "the bot will select the random that was created, use | to make it into 2 choices"
+  description: "the bot will select the random that was created, use | to make it into 2 choices",
   ownerOnly: false
 })
 
