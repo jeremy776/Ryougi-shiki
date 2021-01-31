@@ -26,12 +26,21 @@ export default class MobileLegendsCommand extends Command {
     }
     
     let data = await this.client.util.getHero(namaHero);
+    if(!data) {
+      return msg.reply(`Looks like a hero with the name "\`${namaHeri}\`" doesn't exist`)
+    }
+    let Fulldata = await this.client.util.getDataHero(data.id);
+    
     
     let embed = new MessageEmbed()
     .setColor(this.client.color)
     .setAuthor("Mobile Legends Hero " + namaHero.toUpperCase(), msg.author?.displayAvatarURL({dynamic:true}) as any)
     .setThumbnail("https:"+data.key)
     .setTimestamp()
+    .setImage(Fulldata.cover_picture)
+    .addField("Type", Fulldata.type)
+    .addField("Alive", FullData.alive)
+    .addField("Gear", Fulldata.out_pack_tips + "\n\n" + Fulldata.gear.out_pack.map((x:any) => x.equip.name).join("\n"))
     return msg.channel.send(embed)
     
   }
