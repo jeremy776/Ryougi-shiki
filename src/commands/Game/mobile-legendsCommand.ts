@@ -21,7 +21,7 @@ export default class MobileLegendsCommand extends Command {
       return msg.reply(`Invalid hero name.\n\`Example: ${this.client.prefix}mobile-legends Alpha\``)
     }
     
-    if(!isNAN(namaHero)) {
+    if(!isNaN(namaHero)) {
       return msg.reply(`It seems that there is no hero name that only uses numbers`)
     }
     
