@@ -29,7 +29,7 @@ export default class MobileLegendsCommand extends Command {
     if(!data) {
       return msg.reply(`Looks like a hero with the name "\`${namaHero}\`" doesn't exist`)
     }
-    let Fulldata = await this.client.util.getDataHero(data.id);
+    let Fulldata = await this.client.util.getDataHero(data.heroid);
     
     
     let embed = new MessageEmbed()
