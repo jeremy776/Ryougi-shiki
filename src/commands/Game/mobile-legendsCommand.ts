@@ -32,7 +32,7 @@ export default class MobileLegendsCommand extends Command {
     .setAuthor("Mobile Legends Hero " + namaHero.toUpperCase(), msg.author?.displayAvatarURL({dynamic:true}) as any)
     .setThumbnail("https:"+data.key)
     .setTimestamp()
-    .
+    return msg.channel.send(embed)
     
   }
 }
