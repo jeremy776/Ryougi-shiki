@@ -48,8 +48,6 @@ export default class MobileLegendsCommand extends Command {
     .addField("COUNTERS", Fulldata.counters.counters.name)
     .addField("COUNTERED", Fulldata.counters.countered.name)
     .addField("ITEM'S", Fulldata.gear.out_pack.map((x:any) => x.equip.name).join("\n"))
-    .addField("ALIVE", Fulldata.alive)
-    .addField("ITEM'S", Fulldata.gear.out_pack_tips + "\n\n" + Fulldata.gear.out_pack.map((x:any) => x.equip.name).join("\n"))
     return msg.channel.send(embed)
   }
 }
