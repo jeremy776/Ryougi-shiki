@@ -31,6 +31,16 @@ export default class Utility {
     if (isNaN(max)) throw new Error("Value Must be A Number")
     return Math.floor(Math.random() * max) + min;
   }
+  public async getDataHero(id:number) {
+    let heroData = "https://mapi.mobilelegends.com/hero/detail?id=";
+    if(!id) throw new Error("Invalid ID");
+    if(isNaN(id)) throw new Error("Not A Number");
+    
+    let axios = require("axios");
+    let data = await axios.get(heroData+id);
+    
+    return data.data.data;
+  }
   public async getHero(data:string) {
     let heroListApi = "https://mapi.mobilelegends.com/hero/list";
     if(!data) {
