@@ -1,6 +1,6 @@
 import { Client, ClientOptions, Collection, Message } from 'discord.js'
 import config from "../config";
-const color = "#303136";
+const color = "#7facff";
 const Image = require("discord-image-generation");
 const { Database } = require("quickmongo")
 const db = new Database("mongodb+srv://jeremy:jeremykusuma@cluster0.d0mjj.mongodb.net/jeremy?retryWrites=true&w=majority")
