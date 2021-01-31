@@ -27,7 +27,7 @@ export default class MobileLegendsCommand extends Command {
     
     let data = await this.client.util.getHero(namaHero);
     if(!data) {
-      return msg.reply(`Looks like a hero with the name "\`${namaHeri}\`" doesn't exist`)
+      return msg.reply(`Looks like a hero with the name "\`${namaHero}\`" doesn't exist`)
     }
     let Fulldata = await this.client.util.getDataHero(data.id);
     
@@ -39,7 +39,7 @@ export default class MobileLegendsCommand extends Command {
     .setTimestamp()
     .setImage(Fulldata.cover_picture)
     .addField("Type", Fulldata.type)
-    .addField("Alive", FullData.alive)
+    .addField("Alive", Fulldata.alive)
     .addField("Gear", Fulldata.out_pack_tips + "\n\n" + Fulldata.gear.out_pack.map((x:any) => x.equip.name).join("\n"))
     return msg.channel.send(embed)
     
