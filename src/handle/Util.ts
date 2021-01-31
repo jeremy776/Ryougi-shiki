@@ -40,6 +40,6 @@ export default class Utility {
     let dataHero = await axios.get(heroListApi)
     let filter = dataHero.data.data.filter((x:any) => x.name.toLowerCase() === data.toLowerCase())
     
-    return filter
+    return filter[0]
   }
 }
