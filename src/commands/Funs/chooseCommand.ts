@@ -18,7 +18,7 @@ import Command from "../../handle/Command";
 export default class ChooseCommand extends Command {
   public async exec(message: Message, args:string[]) {
     
-    let filtered = args.replace(/@everyone/g, "Unmentionable [\`everyone\`]").replace(/@here/g, "Unmentionable [\`here\`]");
+    let filtered = args.join(" ").replace(/@everyone/g, "Unmentionable [\`everyone\`]").replace(/@here/g, "Unmentionable [\`here\`]");
     let selection = filtered.split(" | ");
     if(!selection) {
       return message.reply(`Try using it like this for an example:\n\`${this.client.config.prefix}choose buy android | buy a car | buy a motorbike`);
