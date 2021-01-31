@@ -18,12 +18,12 @@ export default class MobileLegendsCommand extends Command {
     
     let namaHero = args[0];
     if(!namaHero) {
-      return msg.reply(`Invalid hero name.\n\`Example: ${this.client.prefix}mobile-legends Alpha\``)
+      return msg.reply(`Invalid hero name.\n\`Example: ${this.client.config.prefix}mobile-legends Alpha\``)
     }
     
-    if(!isNAN(namaHero)) {
+    /*if(!isNaN(namaHero)) {
       return msg.reply(`It seems that there is no hero name that only uses numbers`)
-    }
+    }*/
     
     let data = await this.client.util.getHero(namaHero);
     if(!data) {
