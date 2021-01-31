@@ -1,6 +1,15 @@
 export default {
   prefix: "r.",
   owner: ["580640622235484161"],
+  emoteCategory: {
+    Moderation: "⚙️",
+    Info: "ℹ️",
+    Developer: "🖥️",
+    Funs: "🎊",
+    Game: "🎮",
+    Util: "📌",
+    Image: "📷"
+  }
   reportChannel: "784761343261278258",
   suggestion: "784748900212408321",
   logs: "788059738680066068",
