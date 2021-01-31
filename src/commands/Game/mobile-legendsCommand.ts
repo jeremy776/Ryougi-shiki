@@ -30,8 +30,12 @@ export default class MobileLegendsCommand extends Command {
       return msg.reply(`Looks like a hero with the name "\`${namaHero}\`" doesn't exist`)
     }
     let Fulldata = await this.client.util.getDataHero(data.heroid);
+<<<<<<< HEAD
     let tipsNya = Fulldata.skill.item.tips;
     let tipsHero = tipsNya.replace(/<br>/g, "\n");
+=======
+    
+>>>>>>> 27e275f8abbe5cc839a891500ea2f28d38f5da14
     
     let embed = new MessageEmbed()
     .setColor(this.client.color)
@@ -40,6 +44,7 @@ export default class MobileLegendsCommand extends Command {
     .setTimestamp()
     .setImage(Fulldata.cover_picture)
     .addField("TYPE", Fulldata.type)
+<<<<<<< HEAD
     .addField("HERO ID", data.heroid)
     .addField("ALIVE", Fulldata.alive)
     .addField("TIPS", tipsHero)
@@ -47,6 +52,10 @@ export default class MobileLegendsCommand extends Command {
     .addField("COUNTERS", Fulldata.counters.counters.name)
     .addField("COUNTERED", Fulldata.counters.countered.name)
     .addField("ITEM'S", Fulldata.gear.out_pack.map((x:any) => x.equip.name).join("\n"))
+=======
+    .addField("ALIVE", Fulldata.alive)
+    .addField("ITEM'S", Fulldata.gear.out_pack_tips + "\n\n" + Fulldata.gear.out_pack.map((x:any) => x.equip.name).join("\n"))
+>>>>>>> 27e275f8abbe5cc839a891500ea2f28d38f5da14
     return msg.channel.send(embed)
   }
 }
