@@ -6,7 +6,6 @@ export default {
     Info: "ℹ️",
     Developer: "🖥️",
     Funs: "🎊",
-    Game: "🎮",
     Util: "📌",
     Image: "📷"
   },
