@@ -4,6 +4,9 @@ import type {
 import {
   CommandConf
 } from "../../decorators";
+import {
+  MessageEmbed
+} from "discord.js";
 import Command from "../../handle/Command";
 
 @CommandConf({
@@ -16,14 +19,14 @@ import Command from "../../handle/Command";
 })
 
 export default class ChooseCommand extends Command {
-  public async exec(message: Message, args:string[]) {
-    
+  public async exec(message: Message, args: string[]) {
+
     let filtered = args.join(" ").replace(/@everyone/g, "everyone").replace(/@here/g, "here");
     let selection = filtered.split(" | ");
-    if(!filtered) {
+    if (!filtered) {
       return message.reply(`Try using it like this for an example:\n\`${this.client.config.prefix}choose buy android | buy a car | buy a motorbike\``);
     }
-    
+
     let random1 = Math.floor(Math.random() * selection.length);
     let embed = new MessageEmbed()
     .setDescription(selection[random1])
