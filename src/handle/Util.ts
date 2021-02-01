@@ -21,7 +21,7 @@ export default class Utility {
   public async hastebin(string: string) {
     const {
       body
-    } = await fetch.post('https://post.mod.gg/documents').send(string);
+    } = await fetch.post('https://paste.mod.gg/documents').send(string);
     return `https://paste.mod.gg/${body.key}.js`
   }
   public randomNumber(min: number, max: number): number {
