@@ -15,8 +15,8 @@ import { MessageEmbed } from "discord.js";
 export default class ConfigCommand extends Command {
   public async exec(msg:Message, args:string[]) {
     
-    let dataWelcome = await this.client.db.get(`welcome.${msg.guild.id}`);
-    let dataLeave = await this.client.db.get(`leave.${msg.guild.id}`);
+    let dataWelcome = await this.client.db.get(`welcome.${msg.guild?.id}`);
+    let dataLeave = await this.client.db.get(`leave.${msg.guild?.id}`);
     if(!dataWelcome) {
       dataWelcome = {
         id: "NOT SET",
