@@ -10,7 +10,7 @@ import { MessageEmbed } from "discord.js";
   ownerOnly: false,
   description: "see the guild config",
   usage: "config"
-});
+})
 
 export default class ConfigCommand extends Command {
   public async exec(msg:Message, args:string[]) {
