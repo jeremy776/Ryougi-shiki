@@ -2,6 +2,7 @@ import RyougiClient from './handle/RyougiClient';
 import express from "express";
 import type { Message, TextChannel } from "discord.js";
 const app = express();
+const fs = require("fs");
 const session = require("express-session");
 const Strategy = require("passport-discord").Strategy;
 const passport = require("passport");
@@ -15,6 +16,8 @@ setInterval(function() {
             axios.get(url).then(console.log("Pong at " + Date.now())).catch(() => {});
         })
     }, 60 * 1000);
+
+client.categories = fs.readdirSync("./commands/")
 
 /* WEBSITE */
 passport.serializeUser(function(user: any, done: any) {
