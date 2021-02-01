@@ -17,8 +17,6 @@ setInterval(function() {
         })
     }, 60 * 1000);
 
-client.categories = fs.readdirSync("./commands/")
-
 /* WEBSITE */
 passport.serializeUser(function(user: any, done: any) {
   done(null, user);

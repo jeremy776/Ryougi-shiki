@@ -2,7 +2,8 @@ import { Client, ClientOptions, Collection, Message } from 'discord.js'
 import config from "../config";
 const color = "#7facff";
 const Image = require("discord-image-generation");
-const { Database } = require("quickmongo")
+const { Database } = require("quickmongo");
+const fs = require("fs");
 const db = new Database("mongodb+srv://jeremy:jeremykusuma@cluster0.d0mjj.mongodb.net/jeremy?retryWrites=true&w=majority")
 import type Command from "./Command";
 import Utility from "./Util";
@@ -10,6 +11,7 @@ import type Listener from "./Listener";
 const { readdir } = require("fs").promises;
 import { join } from "path";
 import "../extenders";
+const category = fs.readdirSync("../commands/");
 
 export default class RyougiClient extends Client {
     public constructor(opt?: ClientOptions){
@@ -24,6 +26,7 @@ export default class RyougiClient extends Client {
     public color: typeof color = color
     public db: typeof db = db
     public image: typeof Image = Image
+    public categories: typeof category = category
     public afk: Collection<string, string> = new Collection()
     public snipe: Map<string, Message> = new Map()
     public commands: Collection<string, Command> = new Collection()
@@ -64,6 +67,7 @@ declare module "discord.js" {
         color: "#7facff";
         db: typeof db;
         image: typeof Image;
+        categories: typeof category;
         afk: Collection<string, string>;
         cooldowns: Collection<string, number>;
         loadCommands(): Promise<void>;
