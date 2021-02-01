@@ -25,6 +25,10 @@ export default class ChooseCommand extends Command {
     }
     
     let random1 = Math.floor(Math.random() * selection.length);
-    return message.reply(`I chose: \`${selection[random1]}\``)
+    let embed = new MessageEmbed()
+    .setDescription(selection[random1])
+    .setTitle("I choose")
+    .setColor(this.client.color)
+    return message.reply(embed)
   }
 }
