@@ -61,7 +61,7 @@ export default class ConfigCommand extends Command {
     
     let leaveChannel;
     if(!isNaN(dataLeave.id)) {
-      leaveChannel = msg.guild?.channels.cache.get(dataLeave.id).name;
+      leaveChannel = msg.guild?.channels.cache.get(dataLeave.id)?.name;
     }else{
      leaveChannel = "NOT SET";
     }
@@ -74,15 +74,13 @@ export default class ConfigCommand extends Command {
 `\`\`\`
 • Status     :: ${status}
 • Message    :: ${dataWelcome.message}
-• Channel    :: ${channel}
-• Background :: ${dataWelcome.bg}\`\`\``)
+• Channel    :: ${channel}\`\`\``)
 
     .addField("Goodbye Config",
 `\`\`\`
 • Status  :: ${leaveStatus}
 • Message :: ${dataLeave.message}
-• Channel :: ${leaveChannel}
-• Background :: ${dataLeave.bg}\`\`\``)
+• Channel :: ${leaveChannel}\`\`\``)
     .setFooter("replied from "+msg.author?.username)
     return msg.channel.send(embed)
   }
