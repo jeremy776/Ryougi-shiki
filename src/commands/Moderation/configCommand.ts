@@ -45,7 +45,7 @@ export default class ConfigCommand extends Command {
     }
     let channel;
     if(!isNaN(dataWelcome.id)) {
-      channel = msg?.guild?.channels?.cache?.get(dataWelcome.id)?.name;
+      channel = msg.guild?.channels.cache.get(dataWelcome.id)?.name;
     }else{
       channel = "NOT SET";
     }
@@ -56,10 +56,10 @@ export default class ConfigCommand extends Command {
     .setColor(this.client.color)
     .addField("Welcome Config",
     `\`\`\`
-     • Status  :: ${status}
-     • Message :: ${dataWelcome.message}
-     • Channel :: ${channel}
-     • Background :: ${dataWelcome.bg}
+• Status     :: ${status}
+• Message    :: ${dataWelcome.message}
+• Channel    :: ${channel}
+• Background :: ${dataWelcome.bg}
     \`\`\``)
     .setFooter("replied from "+msg.author?.username)
     return msg.channel.send(embed)
