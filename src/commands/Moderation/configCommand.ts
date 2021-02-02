@@ -55,12 +55,14 @@ export default class ConfigCommand extends Command {
     .setAuthor(msg.guild?.name + " Config", msg.author?.displayAvatarURL({ dynamic:true }) as any)
     .setColor(this.client.color)
     .addField("Welcome Config",
-    `\`\`\`
+`\`\`\`
 • Status     :: ${status}
+
 • Message    :: ${dataWelcome.message}
+
 • Channel    :: ${channel}
-• Background :: ${dataWelcome.bg}
-    \`\`\``)
+
+• Background :: ${dataWelcome.bg}\`\`\``)
     .setFooter("replied from "+msg.author?.username)
     return msg.channel.send(embed)
   }
