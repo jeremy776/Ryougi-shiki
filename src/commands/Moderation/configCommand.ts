@@ -45,7 +45,7 @@ export default class ConfigCommand extends Command {
     }
     let channel;
     if(!isNaN(dataWelcome.id)) {
-      channel = msg.guild?.channels?.cache?.get(dataWelcome.id).name;
+      channel = msg?.guild?.channels?.cache?.get(dataWelcome.id).name;
     }else{
       channel = "NOT SET";
     }
