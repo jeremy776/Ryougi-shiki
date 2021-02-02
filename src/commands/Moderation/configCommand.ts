@@ -51,18 +51,38 @@ export default class ConfigCommand extends Command {
     }
     /* AKHIR WELCOME */
     
+    /* GOODBYE */
+    let leaveStatus;
+    if(dataLeave.status == true) {
+      leaveStatus = "ON"
+    }else{
+      leaveStatus = "OFF"
+    }
+    
+    let leaveChannel;
+    if(!isNaN(dataLeave.id)) {
+      leaveChannel = msg.guild?.channels.cache.get(dataLeave.id).name;
+    }else{
+     leaveChannel = "NOT SET";
+    }
+    /* AKHIR GOODBYE */
+    
     let embed = new MessageEmbed()
     .setAuthor(msg.guild?.name + " Config", msg.author?.displayAvatarURL({ dynamic:true }) as any)
     .setColor(this.client.color)
     .addField("Welcome Config",
 `\`\`\`
 • Status     :: ${status}
-
 • Message    :: ${dataWelcome.message}
-
 • Channel    :: ${channel}
-
 • Background :: ${dataWelcome.bg}\`\`\``)
+
+    .addField("Goodbye Config",
+`\`\`\`
+• Status  :: ${leaveStatus}
+• Message :: ${dataLeave.message}
+• Channel :: ${leaveChannel}
+• Background :: ${dataLeave.bg}\`\`\``)
     .setFooter("replied from "+msg.author?.username)
     return msg.channel.send(embed)
   }
