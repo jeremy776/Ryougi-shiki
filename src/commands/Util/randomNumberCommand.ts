@@ -16,9 +16,9 @@ import Command from "../../handle/Command";
 
   let max = Number(args[0])
   if(!max) max = Number(50)
-  if(isNaN(max as any)) {
+  if(isNaN(max)) {
      return msg.reply("**Max Must Be A Number**");
   }
-  return msg.reply("I got the number\n"+this.client.util.randomNumber(1, max))
+  return msg.reply(this.client.util.randomNumber(0, max))
  }
 }
