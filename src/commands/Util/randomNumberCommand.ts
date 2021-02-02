@@ -16,9 +16,12 @@ import Command from "../../handle/Command";
 
   let max = Number(args[0])
   if(!max) max = Number(50)
+  if(max < 5) {
+    return msg.reply("**must be above the number 5**")
+  }
   if(isNaN(max)) {
      return msg.reply("**Max Must Be A Number**");
   }
-  return msg.reply(this.client.util.randomNumber(0, max))
+  return msg.reply(this.client.util.randomNumber(1, max))
  }
 }
