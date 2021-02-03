@@ -7,7 +7,7 @@ import type { Message } from "discord.js";
  name: "removerole",
  aliases: ["remove-role", "take-role"],
  description: "None",
- usage: "removerole [ @user || user id ] [ @role || role ]",
+ usage: "removerole [ @user | user id ] [ @role | role ]",
  cooldown:3,
  ownerOnly:false
 })

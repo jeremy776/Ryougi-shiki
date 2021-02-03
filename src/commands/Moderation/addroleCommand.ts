@@ -7,7 +7,7 @@ import type { Message } from "discord.js";
  name: "addrole",
  aliases: [],
  description: "None",
- usage: "addrole [ @user || user id ] [ @role || role ]",
+ usage: "addrole [ @user | user id ] [ @role | role ]",
  cooldown:3,
  ownerOnly:false
 })
