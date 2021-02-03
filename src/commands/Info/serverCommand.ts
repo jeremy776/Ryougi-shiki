@@ -15,6 +15,11 @@ import Command from "../../handle/Command";
  export default class serverCommand extends Command {
    public async exec(msg:Message, args:string[]) {
 
+   let more;
+   if(msg.guild?.roles.cache?.size > 15) {
+     more = " [```" + msg.guild?.roles.cache?.size - 15 + " More....```]";
+   }
+
    let embed = new MessageEmbed()
    .setAuthor(msg.guild?.name + " Info", msg.author.displayAvatarURL({dynamic:true}))
    .setColor(this.client.color)
@@ -26,11 +31,12 @@ import Command from "../../handle/Command";
    .addField("Server Name", `${msg.guild?.name}`)
    .addField("Server ID", `${msg.guild?.id}`)
    .addField("Region", `${msg.guild?.region}`)
-   .addField("Member's", `${msg.guild?.memberCount} Members`)
-   .addField("Bot's", `${msg.guild?.members.cache.filter(x => x.user.bot).size} Bots`)
-   .addField("User's", `${msg.guild?.members.cache.filter(x => !x.user.bot).size} Users`)
+   .addField("Member's", `\`\`\`
+• ${msg.guild?.memberCount} Members
+  • ${msg.guild?.members.cache.filter(x => x.user.bot).size} Bots
+  • ${msg.guild?.members.cache.filter(x => !x.user.bot).size} Users\`\`\``)
    .addField("Channel's", `${msg.guild?.channels.cache.size} Channel's`)
-    //.addField(`Roles [\`${msg.guild.roles.cache.size}\`]`, `${msg.guild.roles.cache.map(x => x).join(" | ")}`)
+    .addField(`Roles [\`${msg.guild?.roles.cache?.size}\`]`, `${msg.guild?.roles.cache?.map((x:any) => x).slice(0,15).join(" | ")${more}}`)
     return msg.channel.send(embed)
  }
 }
