@@ -78,9 +78,9 @@ export default class ConfigCommand extends Command {
 
     .addField("Goodbye Config",
 `\`\`\`
-• Status  :: ${leaveStatus}
-• Message :: ${dataLeave.message}
-• Channel :: ${leaveChannel}\`\`\``)
+• Status     :: ${leaveStatus}
+• Message    :: ${dataLeave.message}
+• Channel    :: ${leaveChannel}\`\`\``)
     .setFooter("replied from "+msg.author?.username)
     return msg.channel.send(embed)
   }
