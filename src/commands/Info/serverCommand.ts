@@ -16,8 +16,8 @@ import Command from "../../handle/Command";
    public async exec(msg:Message, args:string[]) {
 
    let more;
-   if(msg.guild?.roles.cache?.size > 15) {
-     more = " [```" + msg.guild?.roles.cache?.size - 15 + " More....```]";
+   if(msg.guild?.roles?.cache.size > 15) {
+     more = " [```" + Number(msg.guild?.roles.cache?.size) - 15 + " More....```]";
    }
 
    let embed = new MessageEmbed()
