@@ -36,7 +36,7 @@ import Command from "../../handle/Command";
   • ${msg.guild?.members.cache.filter(x => x.user.bot).size} Bots
   • ${msg.guild?.members.cache.filter(x => !x.user.bot).size} Users\`\`\``)
    .addField("Channel's", `${msg.guild?.channels.cache.size} Channel's`)
-    .addField(`Roles [\`${msg.guild?.roles.cache?.size}\`]`, `${msg.guild?.roles.cache?.map((x:any) => x).slice(0,15).join(" | ")${more}}`)
+   .addField(`Roles [\`${msg.guild?.roles.cache?.size}\`]`, `${msg.guild?.roles.cache?.map((x:any) => x).slice(0,15).join(" | ")}${more}`)
     return msg.channel.send(embed)
  }
 }
