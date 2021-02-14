@@ -6,7 +6,7 @@ import Command from "../../handle/Command";
 
 @CommandConf({
  name: "mobile-legends",
- aliases: ["ml", "mobileLegends"],
+ aliases: ["ml", "mobilelegends"],
  description: "See hero statistics on mobile legends",
  usage: "mobile-legends [hero name]",
  cooldown: 1,
