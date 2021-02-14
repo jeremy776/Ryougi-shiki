@@ -23,7 +23,7 @@ export default class MobileLegendsCommand extends Command {
     
     /*if(!isNaN(namaHero)) {
       return msg.reply(`It seems that there is no hero name that only uses numbers`)
-    }*/
+    }**/
     
     let data = await this.client.util.getHero(namaHero);
     if(!data) {
