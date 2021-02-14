@@ -16,7 +16,7 @@ import Command from "../../handle/Command";
 export default class MobileLegendsCommand extends Command {
   public async exec(msg:Message, args:string[]) {
     
-    let namaHero = args[0];
+    let namaHero = args.slice(0).join(" ");
     if(!namaHero) {
       return msg.reply(`Invalid hero name.\n\`Example: ${this.client.config.prefix}mobile-legends Alpha\``)
     }
