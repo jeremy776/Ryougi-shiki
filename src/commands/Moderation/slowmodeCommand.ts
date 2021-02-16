@@ -32,6 +32,10 @@ import Command from "../../handle/Command";
     .setDescription(`**You have successfully set slowmode [${channel}] to \`${slowmode} Seconds\`**`)
     .setColor(this.client.color)
     channel.setRateLimitPerUser(slowmode)
+    
+    if(["off", "0"].includes(args[0])) {
+      channel.setRateLimitPerUser(0);
+    }
     return msg.channel.send(embed3)
   }
 }
