@@ -39,7 +39,7 @@ ${this.client.config.owner.map((x: any) => "• "+this.client.users.cache.get(x)
 \`\`\``)
     .addField(`Credits`,
 `\`\`\`
-${credit.map((x: any) => "• "+this.client.users.cache.get(x)?.tag).join("\n")}
+${credit.map(async (x: any) => "• "+ await this.client.users.fetch(x)?.username).join("\n")}
 \`\`\``)
     .addField(`Bot System`,
 `\`\`\`
