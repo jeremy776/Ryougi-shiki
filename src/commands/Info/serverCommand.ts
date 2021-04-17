@@ -15,10 +15,10 @@ import Command from "../../handle/Command";
  export default class serverCommand extends Command {
    public async exec(msg:Message, args:string[]) {
 
-   let more;
+   /*let more;
    if(msg.guild?.roles?.cache.size > 15) {
      more = " [```" + Number(msg.guild?.roles.cache?.size) - 15 + " More....```]";
-   }
+   }*/
 
    let embed = new MessageEmbed()
    .setAuthor(msg.guild?.name + " Info", msg.author.displayAvatarURL({dynamic:true}))
@@ -36,7 +36,7 @@ import Command from "../../handle/Command";
   • ${msg.guild?.members.cache.filter(x => x.user.bot).size} Bots
   • ${msg.guild?.members.cache.filter(x => !x.user.bot).size} Users\`\`\``)
    .addField("Channel's", `${msg.guild?.channels.cache.size} Channel's`)
-   .addField(`Roles [\`${msg.guild?.roles.cache?.size}\`]`, `${msg.guild?.roles.cache?.map((x:any) => x).slice(0,15).join(" | ")}${more}`)
+   //.addField(`Roles [\`${msg.guild?.roles.cache?.size}\`]`, `${msg.guild?.roles.cache?.map((x:any) => x).slice(0,15).join(" | ")}${more}`)
     return msg.channel.send(embed)
  }
 }
