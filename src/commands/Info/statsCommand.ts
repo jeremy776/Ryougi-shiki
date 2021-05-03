@@ -42,7 +42,10 @@ ${this.client.config.owner.map((x: any) => {
 \`\`\``)
     .addField(`Credits`,
 `\`\`\`
-${credit.map(async (x: any) => "• "+ await this.client.users.fetch(x)?.then((y:any) => y.tag)).join("\n")}
+${credit.map(async (x: any) => {
+   let a = await this.client.users?.fetch(x);
+   "• " + a.tag
+}).join("\n")}
 \`\`\``)
     .addField(`Bot System`,
 `\`\`\`
