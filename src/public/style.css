@@ -1,91 +1,127 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 
 body {
-  background-color:#2C2F33 !important;
-  color:white !important;
+  background-color: #2C2F33 !important;
+  color: white !important;
 }
 .nama span {
-  font-size:10px;
+  font-size: 10px;
+}
+.text-bold {
+  font-weight:bold;
 }
 .photo-profile .avatar {
-  border-radius:50%;
-  width:150px;
-  margin-top:20px;
-  height:150px;
+  border-radius: 50%;
+  width: 150px;
+  margin-top: 20px;
+  height: 150px;
   box-shadow: 2px 10px 15px rgba(0,0,0,0.5);
 }
 .container {
   /*margin-top:10px;*/
 }
 .box {
-  border-radius:10px;
-  width:100%;
-  background:transparent;
-  z-index:1 !important;
+  border-radius: 10px;
+  width: 100%;
+  background: transparent;
+  z-index: 1 !important;
 }
 .deskripsi {
-  padding:15px;
+  padding: 15px;
 }
 
 .deskripsi h6 {
-  font-weight:bold;
+  font-weight: bold;
 }
 .buttonnya a {
-  margin-bottom:30px;
+  margin-bottom: 30px;
 }
 .buttonnya .btn {
-  padding:8px;
-  width:50%;
-  margin-bottom:20px;
-  border-radius:20px;
-  font-weight:bold;
+  padding: 8px;
+  width: 50%;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 .page-wave {
-  margin-top:50px;
+  margin-top: 50px;
   /*position:relative;
   z-index:-1 !important;*/
 }
+.page-wave2 {
+  transform:rotate(180deg);
+  margin-top:-6px !important;
+}
 
 .info-page {
-  background-color:#69d2e7;
-  margin-top:-1px;
-  position:relative;
-  z-index:-1;
-  width:100%;
+  background-color: #69d2e7;
+  margin-top: -1px;
+  position: relative;
+  z-index: -1;
+  width: 100%;
 }
 h4 .badge {
-  margin-top:-5px;
-  background-color:#7289DA !important;
+  margin-top: -5px;
+  background-color: #7289DA !important;
   /*box-shadow:2px 10px 20px rgba(0,0,0,0.4);*/
 }
 .navbar-brand {
-  font-weight:bold;
+  font-weight: bold;
 }
 .box-info {
-  padding:5px;
-  border-radius:15px;
-  box-shadow:5px 4px 8px rgba(0,0,0,0.5);
+  padding: 5px;
+  border-radius: 15px;
+  box-shadow: 5px 4px 8px rgba(0,0,0,0.5);
 }
 .info-page .container .title {
-  padding:10px;
+  padding: 10px;
 }
 .info-page .container .title h1 {
-  color:rgba(0,0,0,0.5);
+  color: rgba(0,0,0,0.8);
+  font-weight:bold;
+  text-transform: uppercase;
+  font-family:sans-serif;
 }
 .img {
-  border-radius:20px;
-  margin-bottom:15px;
-  height:170px;
-  width:200px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  height: 170px;
+  width: 200px;
 }
 
 .img1 {
-  border-radius:15px;
-  height:160px;
-  width:250px;
-  margin-bottom:15px;
+  border-radius: 15px;
+  height: 160px;
+  width: 250px;
+  margin-bottom: 15px;
 }
 #button-navbar {
-  height:10px;
+  height: 10px;
+}
+
+.box-stats {
+  padding:2px;
+  font-family:"Nunito", sans-serif;
+  border-radius:8px;
+}
+.stats .col {
+  margin-top:30px;
+}
+footer {
+  background-color:#2c2f33;
+  bottom:0;
+}
+ul li {
+  list-style: none;
+}
+
+.col ul li a:hover,
+.col ul li a.active {
+  color:white;
+}
+
+.col ul li a {
+  color:grey;
+  margin-left:-35px !important;
 }
