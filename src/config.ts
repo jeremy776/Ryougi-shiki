@@ -1,6 +1,6 @@
 export default {
   prefix: "r.",
-  owner: ["580640622235484161"],
+  owner: ["838653926281707520"],
   emoteCategory: {
     Moderation: "⚙️",
     Info: "ℹ️",
