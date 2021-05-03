@@ -29,7 +29,7 @@ export default class statsCommand extends Command {
     .addField(`Developer`,
 `\`\`\`
 ${this.client.config.owner.map((x: any) => {
-   "• " + this.client.users.cache.get(x).tag
+   "• " + this.client.users.cache?.get(x)?.tag
 }).join("\n")
 }
 \`\`\``)
