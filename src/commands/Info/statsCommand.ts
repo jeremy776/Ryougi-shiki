@@ -29,8 +29,7 @@ export default class statsCommand extends Command {
     .addField(`Developer`,
 `\`\`\`
 ${this.client.config.owner.map((x: any) => {
-   let credit = await this.client.users?.fetch(x);
-   "• "+credit?.tag
+   "• " + this.client.users.cache.get(x).tag
 }).join("\n")
 }
 \`\`\``)
