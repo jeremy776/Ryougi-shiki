@@ -28,7 +28,7 @@ export default class statsCommand extends Command {
     .setAuthor(`${this.client.user?.username} Stats`, this.client.user?.displayAvatarURL())
     .addField(`Developer`,
 `\`\`\`
-• ${this.client.users.cache?.get(this.client?.config.owner).tag}
+• ${this.client.users.cache?.get(this.client.config?.owner)?.tag}
 \`\`\``)
     .addField(`Bot Statsistic`,
 `\`\`\`
