@@ -9,5 +9,8 @@
 - level-status.${msg.guild?.id}
 - level${msg.guild?.id}.${msg.author?.id}
 
+### ERROR?
+**Fix it yourself**
+
 ## CREDIT
 [Kagchi](https://github.com/Kagchi)
