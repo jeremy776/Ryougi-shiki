@@ -1,6 +1,6 @@
 export default {
-  prefix: "r.",
-  owner: "838653926281707520",
+  prefix: "your prefix",
+  owner: "your id",
   emoteCategory: {
     Moderation: "⚙️",
     Info: "ℹ️",
@@ -9,10 +9,10 @@ export default {
     Util: "📌",
     Image: "📷"
   },
-  reportChannel: "784761343261278258",
-  suggestion: "784748900212408321",
-  logs: "788059738680066068",
-  loginLogs: "791983335928889355",
-  mongoURL: "mongodb+srv://jeremy:jeremy@cluster0.d0mjj.mongodb.net/jeremy?retryWrites=true&w=majority",
-  token: "NjU0OTkxODczODYxMjIyNDMx.XfNmtw.K4D4jx-aPAREIW3Fr3bBtBakiAA"
+  reportChannel: "id channel",
+  suggestion: "id channel",
+  logs: "id channel",
+  loginLogs: "id channel",
+  mongoURL: "mongodb url",
+  token: "your bot token"
 }
