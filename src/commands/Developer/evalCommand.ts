@@ -15,7 +15,7 @@ export default class evalCommand extends Command {
     public async exec(msg: Message, query: string[]) {
 
     try {
-            if(!this.client.config.owners.includes(msg.author?.id)) return;
+            if(!this.client.config.owner.includes(msg.author?.id)) return;
             const { args, flags } = parseQuery(query);
             if (!args.length) {
                 throw new TypeError("Eval command cannot execute without input!. You bbbaka...");
