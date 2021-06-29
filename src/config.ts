@@ -1,6 +1,6 @@
 export default {
   prefix: "your prefix",
-  owner: "your id",
+  owner: ["your id"],
   emoteCategory: {
     Moderation: "⚙️",
     Info: "ℹ️",
