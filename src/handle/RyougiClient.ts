@@ -3,7 +3,7 @@ import config from "../config";
 const color = "#7facff";
 const Image = require("discord-image-generation");
 const { Database } = require("quickmongo");
-const db = new Database("mongodb+srv://jeremy:jeremykusuma@cluster0.d0mjj.mongodb.net/jeremy?retryWrites=true&w=majority")
+const db = new Database(config.mongoURL)
 import type Command from "./Command";
 import Utility from "./Util";
 import type Listener from "./Listener";
