@@ -3,10 +3,11 @@
 + leave.${guild.id}
 + autorole.${guild.id}
 + warning${guild.id}.${user.id}
-### LEVELING DATABASE
+
+### LEVELING | Not Working
 - levelreward.${msg.guild?.id}
 - level-status.${msg.guild?.id}
 - level${msg.guild?.id}.${msg.author?.id}
 
-## TO DO LIST
-[-] Membuat Website dashboard
+## CREDIT
+[Kagchi](https://github.com/Kagchi)
