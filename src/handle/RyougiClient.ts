@@ -22,7 +22,7 @@ export default class RyougiClient extends Client {
     public config: typeof config = config;
     public util: Utility = new Utility(this);
     public color: typeof color = color;
-    public db: typeof db = dbb
+    public db: typeof db = db;
     public image: typeof Image = Image;
     public afk: Collection<string, string> = new Collection();
     public snipe: Map<string, Message> = new Map();
